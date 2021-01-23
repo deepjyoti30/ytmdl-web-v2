@@ -118,7 +118,6 @@ export default {
       height: 100vh;
       width: 12rem;
       background: $background-light;
-      z-index: -1;
 
       .navbar-right {
         margin-top: 103px;
