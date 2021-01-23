@@ -20,7 +20,7 @@
           <div class="theme-toggle-btn md:hidden">
             <button type="button" title="Toggle theme" @click="toggleTheme">
               <MoonIcon v-if="!getIsDark" />
-              <SunIcon v-else />
+              <SunIcon v-else class="sun-icon" />
             </button>
           </div>
         </div>
@@ -45,7 +45,7 @@
           <div class="py-6 text-center">
             <button type="button" title="Toggle theme" @click="toggleTheme">
               <MoonIcon v-if="!getIsDark" />
-              <SunIcon v-else />
+              <SunIcon v-else class="sun-icon" />
             </button>
           </div>
         </div>
@@ -223,6 +223,11 @@ export default {
       .theme-toggle-btn,
       .menu-btn {
         color: $grey-lighter;
+
+        .sun-icon {
+          fill: $yellow;
+          stroke: $orange;
+        }
 
         &.desktop {
           width: 6rem;
