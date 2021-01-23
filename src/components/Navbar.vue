@@ -25,7 +25,6 @@
           ></router-link>
         </div>
       </div>
-      <div class="navbar-bottom py-3 px-3"></div>
     </div>
     <div id="navbar-expanded" class="navbar-expanded mt-16">
       <div id="navbar-expanded-navigation" class="navigation text-left">
@@ -42,7 +41,7 @@
     </div>
     <button
       id="navbar-bottom"
-      class="navbar-bottom"
+      class="navbar-bottom pl-9 py-5"
       @click="sendThemeChangeRequest()"
       title="Toggle theme"
     >
@@ -254,7 +253,6 @@ export default {
     position: absolute;
     bottom: 0;
     width: 6rem;
-    padding: 20px 0;
     text-align: center;
     color: $dark;
     border: none;
