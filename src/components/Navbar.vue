@@ -34,6 +34,13 @@
             /></router-link>
           </div>
         </div>
+        <div class="theme-toggle-btn desktop hidden lg:block">
+          <div class="py-6 text-center">
+            <button type="button" title="Toggle theme">
+              <MoonIcon />
+            </button>
+          </div>
+        </div>
       </div>
       <div class="navbar__content--expanded"></div>
     </div>
@@ -82,6 +89,7 @@ export default {
       height: 100vh;
       width: 6rem;
       background: $background-light;
+      position: relative;
 
       .brand__container {
         color: $green;
@@ -96,6 +104,14 @@ export default {
           .link-icon {
             stroke: $darkgreen;
           }
+        }
+      }
+
+      .theme-toggle-btn {
+        &.desktop {
+          width: 6rem;
+          position: absolute;
+          bottom: 0;
         }
       }
     }
