@@ -15,6 +15,7 @@
             class="brand__container md:py-5 md:my-5 md:text-center uppercase font-semibold"
           >
             ytmdl
+            <span class="text-xxs text-gray-400 lg:hidden">v2</span>
           </div>
           <div class="theme-toggle-btn md:hidden">
             <MoonIcon />
