@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar-cust" @mouseleave="disableHover">
     <div id="navbar-collapsed" class="navbar-collapsed">
-      <div class="navbar-brand py-3 px-2">
+      <div class="navbar-brand h-10 py-3 px-2 my-4">
         <a href="" class="">YTMDL</a>
       </div>
       <div class="menu-button-mobile py-3 px-4 h5" @click="toggleHover()">
@@ -9,17 +9,17 @@
         <span v-else>Close</span>
       </div>
       <div class="navigation" @mouseover="enableHover()">
-        <div id="home" class="pl-9">
+        <div id="home" class="pl-9 h-15">
           <router-link to="/" id="home" :class="getClass('home')"
             ><HomeIcon></HomeIcon
           ></router-link>
         </div>
-        <div id="home" class="pl-9">
+        <div id="home" class="pl-9 h-15">
           <router-link to="/about" id="about" :class="getClass('about')"
             ><HelpCircleIcon></HelpCircleIcon
           ></router-link>
         </div>
-        <div id="home" class="pl-9">
+        <div id="home" class="pl-9 h-15">
           <router-link to="/terms" id="about" :class="getClass('about')"
             ><FileTextIcon></FileTextIcon
           ></router-link>
@@ -27,16 +27,16 @@
       </div>
       <div class="navbar-bottom py-3 px-3"></div>
     </div>
-    <div id="navbar-expanded" class="navbar-expanded">
+    <div id="navbar-expanded" class="navbar-expanded mt-16">
       <div id="navbar-expanded-navigation" class="navigation text-left">
         <router-link to="/" :class="getClass('home')">
           <span>Home</span>
         </router-link>
-        <router-link to="/about" :class="getClass('about')">
+        <router-link to="/about" :class="getClass('about')" class="h-15">
           <span>About</span>
         </router-link>
-        <router-link to="/terms" :class="getClass('terms')">
-          <span>Terms</span>
+        <router-link to="/terms" :class="getClass('terms')" class="h-15">
+          <span>Terms Of Use</span>
         </router-link>
       </div>
     </div>
@@ -169,6 +169,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 .navbar-cust {
+  @extend .work-sans;
+
   transition: 0.3s ease;
 
   position: fixed;
@@ -190,16 +192,13 @@ export default {
     visibility: hidden;
 
     .navigation {
-      margin-top: 65px;
-
       a {
-        padding-left: 0.75rem;
+        padding-left: 10px;
 
         span {
           padding: 3px;
           border-radius: 3px;
         }
-
         &:hover {
           background: darken($background-secondary, 5);
           transition: 0.5s ease;
@@ -223,10 +222,10 @@ export default {
 
   .navigation {
     margin: 10px 0;
-    text-align: center;
 
     a {
-      font-size: 16px;
+      font-size: 17px;
+      font-weight: 500;
       padding: 20px 0;
       display: block;
       color: $dark;

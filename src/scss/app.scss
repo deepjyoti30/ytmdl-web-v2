@@ -1,2 +1,8 @@
 @import "_variables";
 @import "_animation";
+@import "_fonts";
+
+
+body {
+    @extend .work-sans;
+}
