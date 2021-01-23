@@ -21,4 +21,8 @@ export default {
   width: 100vw;
   padding-left: 6rem;
 }
+
+#app {
+  @extend .work-sans;
+}
 </style>
