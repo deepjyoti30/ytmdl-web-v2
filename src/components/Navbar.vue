@@ -7,7 +7,8 @@
         >
           <div class="menu-btn md:hidden">
             <button type="button" @click="toggleBar">
-              <MenuIcon />
+              <XIcon v-if="getExpandNavbar" />
+              <MenuIcon v-else />
             </button>
           </div>
           <div
@@ -69,7 +70,8 @@ import {
   SettingsIcon,
   HelpCircleIcon,
   MoonIcon,
-  MenuIcon
+  MenuIcon,
+  XIcon
 } from "vue-feather-icons";
 
 export default {
@@ -79,7 +81,8 @@ export default {
     SettingsIcon,
     HelpCircleIcon,
     MoonIcon,
-    MenuIcon
+    MenuIcon,
+    XIcon
   },
   data: () => {
     return {
@@ -174,6 +177,10 @@ export default {
 
       .brand__container {
         color: $green;
+
+        @media only screen and (max-width: $md) {
+          font-size: 20px;
+        }
       }
 
       .navbar-left {
