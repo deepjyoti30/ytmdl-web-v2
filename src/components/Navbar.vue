@@ -3,7 +3,7 @@
     <div class="navbar__content lg:flex">
       <div class="navbar__content--collapsed">
         <div
-          class="navbar-top flex justify-between flex-row-reverse md:block my-5 px-2 md:my-0 text-center"
+          class="navbar-top flex justify-between flex-row-reverse md:block my-5 px-5 md:my-0 text-center"
         >
           <div class="menu-btn md:hidden">
             <button type="button" @click="toggleBar">
