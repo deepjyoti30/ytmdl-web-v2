@@ -1,7 +1,9 @@
 <template>
   <div class="navbar__container">
     <div class="navbar__content flex">
-      <div class="navbar__content--collapsed"></div>
+      <div class="navbar__content--collapsed">
+        <div class="brand__container"></div>
+      </div>
       <div class="navbar__content--expanded"></div>
     </div>
   </div>
