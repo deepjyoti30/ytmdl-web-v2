@@ -1,11 +1,21 @@
 <template>
   <div class="navbar__container">
-    <div class="navbar__content flex">
+    <div class="navbar__content">
       <div class="navbar__content--collapsed">
         <div
-          class="brand__container py-5 my-5 text-center uppercase font-semibold"
+          class="navbar-top flex justify-between flex-row-reverse md:block my-5 px-2 md:my-0 text-center"
         >
-          ytmdl
+          <div class="menu-btn md:hidden">
+            <MenuIcon />
+          </div>
+          <div
+            class="brand__container md:py-5 md:my-5 md:text-center uppercase font-semibold"
+          >
+            ytmdl
+          </div>
+          <div class="theme-toggle-btn md:hidden">
+            <MoonIcon />
+          </div>
         </div>
         <div class="navbar-left">
           <div class="py-6 text-center">
@@ -31,14 +41,22 @@
 </template>
 
 <script>
-import { HomeIcon, SettingsIcon, HelpCircleIcon } from "vue-feather-icons";
+import {
+  HomeIcon,
+  SettingsIcon,
+  HelpCircleIcon,
+  MoonIcon,
+  MenuIcon
+} from "vue-feather-icons";
 
 export default {
   name: "Navbar",
   components: {
     HomeIcon,
     SettingsIcon,
-    HelpCircleIcon
+    HelpCircleIcon,
+    MoonIcon,
+    MenuIcon
   }
 };
 </script>
@@ -53,6 +71,8 @@ export default {
   height: 100vh;
 
   .navbar__content {
+    display: flex;
+
     .navbar__content--expanded {
       height: 100vh;
       visibility: hidden;
@@ -84,6 +104,23 @@ export default {
       visibility: visible;
       width: 12rem;
     }*/
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 100vw;
+    height: 4rem;
+
+    .navbar__content {
+      .navbar__content--collapsed {
+        height: 4rem;
+        width: 100vw;
+        overflow: hidden;
+
+        .navbar-left {
+          display: none;
+        }
+      }
+    }
   }
 }
 </style>
