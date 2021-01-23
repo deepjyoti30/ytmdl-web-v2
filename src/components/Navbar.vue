@@ -44,16 +44,16 @@
       </div>
       <transition name="navbar-expand">
         <div v-if="getExpandNavbar" class="navbar__content--expanded">
-          <div class="navbar-right pl-7">
-            <div class="link-each py-6">
-              <router-link to="/">Home</router-link>
-            </div>
-            <div class="link-each py-6">
-              <router-link to="/about">About</router-link>
-            </div>
-            <div class="link-each py-6">
-              <router-link to="/settings">Settings</router-link>
-            </div>
+          <div class="navbar-right">
+            <router-link to="/" class="link-each py-6 pl-7">
+              <span>Home</span>
+            </router-link>
+            <router-link to="/home" class="link-each py-6 pl-7">
+              <span>About</span>
+            </router-link>
+            <router-link to="/settings" class="link-each py-6 pl-7">
+              <span>Settings</span>
+            </router-link>
           </div>
         </div>
       </transition>
@@ -124,6 +124,26 @@ export default {
 
         .link-each {
           font-size: 18px;
+          color: $grey-lighter;
+          display: block;
+          transition: 150ms ease-in;
+
+          span {
+            @apply px-1;
+          }
+
+          &.router-link-exact-active {
+            color: $darkgreen;
+
+            span {
+              background: lighten($darkgreen, 50);
+            }
+          }
+
+          &:hover {
+            transition: 150ms ease-in;
+            background: darken($background-light, 5);
+          }
         }
       }
     }
