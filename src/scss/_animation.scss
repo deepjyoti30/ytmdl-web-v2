@@ -1,0 +1,71 @@
+.fadeInUp {
+    animation-duration: .45s;
+    animation-fill-mode: both;
+    animation-name: fadeInUp;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+}
+
+.fadeOutUp {
+  animation-duration: .35s;
+  animation-fill-mode: both;
+  animation-name: fadeOutUp;
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animation-base {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+
+.expandRight {
+    @extend .animation-base;
+    animation-name: expandRight;
+}
+
+.collapseLeft {
+    @extend .animation-base;
+    animation-name: collapseLeft;
+}
+
+@keyframes expandRight {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 8rem;
+      opacity: 1;
+    }
+  }
+
+  @keyframes collapseLeft {
+    0% {
+      width: 8rem;
+      opacity: 1;
+    }
+    100% {
+      width: 0;
+      opacity: 0;
+    }
+  }
