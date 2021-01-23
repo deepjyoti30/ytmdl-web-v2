@@ -1,12 +1,14 @@
 <template>
   <div class="navbar__container" @mouseleave="collapseBar">
-    <div class="navbar__content">
+    <div class="navbar__content lg:flex">
       <div class="navbar__content--collapsed">
         <div
           class="navbar-top flex justify-between flex-row-reverse md:block my-5 px-2 md:my-0 text-center"
         >
           <div class="menu-btn md:hidden">
-            <MenuIcon />
+            <button type="button" @click="toggleBar">
+              <MenuIcon />
+            </button>
           </div>
           <div
             class="brand__container md:py-5 md:my-5 md:text-center uppercase font-semibold"
@@ -48,7 +50,7 @@
             <router-link to="/" class="link-each py-6 pl-7">
               <span>Home</span>
             </router-link>
-            <router-link to="/home" class="link-each py-6 pl-7">
+            <router-link to="/about" class="link-each py-6 pl-7">
               <span>About</span>
             </router-link>
             <router-link to="/settings" class="link-each py-6 pl-7">
@@ -92,6 +94,10 @@ export default {
     collapseBar: function() {
       // Collapse the bar
       this.expandNavbar = false;
+    },
+    toggleBar: function() {
+      // Toggle the visibility of the bar
+      this.expandNavbar = !this.expandNavbar;
     }
   },
   computed: {
@@ -112,8 +118,6 @@ export default {
   height: 100vh;
 
   .navbar__content {
-    display: flex;
-
     .navbar__content--expanded {
       height: 100vh;
       width: 12rem;
@@ -143,6 +147,19 @@ export default {
           &:hover {
             transition: 150ms ease-in;
             background: darken($background-light, 5);
+          }
+        }
+      }
+
+      @media only screen and (max-width: $md) {
+        width: 100vw;
+
+        .navbar-right {
+          margin-top: 0;
+          padding-top: 5rem;
+
+          .link-each {
+            font-size: 22px;
           }
         }
       }
@@ -201,26 +218,42 @@ export default {
   .navbar-expand-enter {
     opacity: 0;
     transform: translateX(-12rem);
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(0);
+    }
   }
 
   .navbar-expand-enter-to {
     opacity: 1;
     transform: translateX(0);
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(4rem);
+    }
   }
 
   .navbar-expand-leave {
     opacity: 1;
     transform: translateX(0);
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(100vh);
+    }
   }
 
   .navbar-expand-leave-to {
     opacity: 1;
     transform: translateX(-12rem);
+
+    @media only screen and (max-width: $md) {
+      transform: translateY(0);
+    }
   }
 
   .navbar-expand-enter-active,
   .navbar-expand-leave-active {
-    transition: opacity, transform 200ms ease-out;
+    transition: opacity, transform 200ms ease;
   }
 }
 </style>

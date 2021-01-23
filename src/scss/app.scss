@@ -3,6 +3,8 @@
 @import "_navbar";
 @import "_utility";
 
+$md: 768px;
+
 
 body {
     @extend .work-sans;
