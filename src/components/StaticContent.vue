@@ -1,6 +1,9 @@
 <template>
   <div class="static__container">
-    <div class="content w-2/5 mr-auto ml-auto" v-html="getContent"></div>
+    <div
+      class="content md:w-2/5 px-4 mr-auto ml-auto"
+      v-html="getContent"
+    ></div>
   </div>
 </template>
 
