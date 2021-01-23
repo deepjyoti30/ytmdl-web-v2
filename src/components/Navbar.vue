@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar__container">
+  <div class="navbar__container" @mouseleave="collapseBar">
     <div class="navbar__content">
       <div class="navbar__content--collapsed">
         <div
@@ -17,7 +17,7 @@
             <MoonIcon />
           </div>
         </div>
-        <div class="navbar-left">
+        <div class="navbar-left" @mouseover="expandBar">
           <div class="py-6 text-center">
             <router-link to="/"
               ><HomeIcon class="ml-auto mr-auto link-icon"
@@ -42,7 +42,12 @@
           </div>
         </div>
       </div>
-      <div class="navbar__content--expanded"></div>
+      <transition name="navbar-expand">
+        <div
+          v-if="getExpandNavbar"
+          class="navbar__content--expanded bg-black"
+        ></div>
+      </transition>
     </div>
   </div>
 </template>
@@ -64,6 +69,26 @@ export default {
     HelpCircleIcon,
     MoonIcon,
     MenuIcon
+  },
+  data: () => {
+    return {
+      expandNavbar: false
+    };
+  },
+  methods: {
+    expandBar: function() {
+      // Expand the bar
+      this.expandNavbar = true;
+    },
+    collapseBar: function() {
+      // Collapse the bar
+      this.expandNavbar = false;
+    }
+  },
+  computed: {
+    getExpandNavbar() {
+      return this.expandNavbar;
+    }
   }
 };
 </script>
@@ -82,7 +107,9 @@ export default {
 
     .navbar__content--expanded {
       height: 100vh;
-      visibility: hidden;
+      width: 12rem;
+      background: $background-light;
+      z-index: -1;
     }
 
     .navbar__content--collapsed {
@@ -90,6 +117,7 @@ export default {
       width: 6rem;
       background: $background-light;
       position: relative;
+      z-index: 99;
 
       .brand__container {
         color: $green;
@@ -137,6 +165,31 @@ export default {
         }
       }
     }
+  }
+
+  .navbar-expand-enter {
+    opacity: 0;
+    transform: translateX(-12rem);
+  }
+
+  .navbar-expand-enter-to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .navbar-expand-leave {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .navbar-expand-leave-to {
+    opacity: 1;
+    transform: translateX(-12rem);
+  }
+
+  .navbar-expand-enter-active,
+  .navbar-expand-leave-active {
+    transition: opacity, transform 200ms ease-out;
   }
 }
 </style>

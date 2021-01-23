@@ -1,0 +1,36 @@
+.animation-base {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+
+.expandRight {
+    @extend .animation-base;
+    animation-name: expandRight;
+}
+
+.collapseLeft {
+    @extend .animation-base;
+    animation-name: collapseLeft;
+}
+
+@keyframes expandRight {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 10.5rem;
+      opacity: 1;
+    }
+  }
+
+  @keyframes collapseLeft {
+    0% {
+      width: 10.5rem;
+      opacity: 1;
+    }
+    100% {
+      width: 0;
+      opacity: 0;
+    }
+  }
