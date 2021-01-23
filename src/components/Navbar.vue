@@ -220,7 +220,7 @@ export default {
     transform: translateX(-12rem);
 
     @media only screen and (max-width: $md) {
-      transform: translateY(0);
+      transform: translateY(-100vh);
     }
   }
 
@@ -229,7 +229,7 @@ export default {
     transform: translateX(0);
 
     @media only screen and (max-width: $md) {
-      transform: translateY(4rem);
+      transform: translateY(0);
     }
   }
 
@@ -238,7 +238,7 @@ export default {
     transform: translateX(0);
 
     @media only screen and (max-width: $md) {
-      transform: translateY(100vh);
+      transform: translateY(0);
     }
   }
 
@@ -247,7 +247,7 @@ export default {
     transform: translateX(-12rem);
 
     @media only screen and (max-width: $md) {
-      transform: translateY(0);
+      transform: translateY(-100vh);
     }
   }
 
