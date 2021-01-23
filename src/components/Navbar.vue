@@ -2,12 +2,14 @@
   <div class="navbar__container">
     <div class="navbar__content flex">
       <div class="navbar__content--collapsed">
-        <div class="brand__container py-5 text-center uppercase font-semibold">
+        <div
+          class="brand__container py-5 my-5 text-center uppercase font-semibold"
+        >
           ytmdl
         </div>
         <div class="navbar-left">
           <div class="py-6 text-center">
-            <router-link to=""
+            <router-link to="/"
               ><HomeIcon class="ml-auto mr-auto link-icon"
             /></router-link>
           </div>
@@ -63,6 +65,18 @@ export default {
 
       .brand__container {
         color: $green;
+      }
+
+      .navbar-left {
+        .link-icon {
+          color: $grey-lighter;
+        }
+
+        .router-link-exact-active {
+          .link-icon {
+            stroke: $darkgreen;
+          }
+        }
       }
     }
 
