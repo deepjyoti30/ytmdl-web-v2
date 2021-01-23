@@ -43,10 +43,19 @@
         </div>
       </div>
       <transition name="navbar-expand">
-        <div
-          v-if="getExpandNavbar"
-          class="navbar__content--expanded bg-black"
-        ></div>
+        <div v-if="getExpandNavbar" class="navbar__content--expanded">
+          <div class="navbar-right pl-7">
+            <div class="link-each py-6">
+              <router-link to="/">Home</router-link>
+            </div>
+            <div class="link-each py-6">
+              <router-link to="/about">About</router-link>
+            </div>
+            <div class="link-each py-6">
+              <router-link to="/settings">Settings</router-link>
+            </div>
+          </div>
+        </div>
       </transition>
     </div>
   </div>
@@ -110,6 +119,14 @@ export default {
       width: 12rem;
       background: $background-light;
       z-index: -1;
+
+      .navbar-right {
+        margin-top: 103px;
+
+        .link-each {
+          font-size: 18px;
+        }
+      }
     }
 
     .navbar__content--collapsed {
@@ -143,11 +160,6 @@ export default {
         }
       }
     }
-
-    /*.navbar__content--collapsed:hover + .navbar__content--expanded {
-      visibility: visible;
-      width: 12rem;
-    }*/
   }
 
   @media only screen and (max-width: 768px) {
