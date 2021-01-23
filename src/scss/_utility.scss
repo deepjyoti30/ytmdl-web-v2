@@ -1,0 +1,9 @@
+.strip-button {
+    border: none;
+    outline: none;
+
+    &:hover, &:active {
+        border: none;
+        outline: none;
+    }
+}

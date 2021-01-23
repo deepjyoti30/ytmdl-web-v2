@@ -120,6 +120,10 @@ export default {
   top: 0;
   height: 100vh;
 
+  button {
+    @extend .strip-button;
+  }
+
   .navbar__content {
     .navbar__content--expanded {
       height: 100vh;
