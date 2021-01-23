@@ -18,7 +18,10 @@
             <span class="text-xxs text-gray-400 lg:hidden">v2</span>
           </div>
           <div class="theme-toggle-btn md:hidden">
-            <MoonIcon />
+            <button type="button" title="Toggle theme" @click="toggleTheme">
+              <MoonIcon v-if="!getIsDark" />
+              <SunIcon v-else />
+            </button>
           </div>
         </div>
         <div class="navbar-left" @mouseover="expandBar">
@@ -40,8 +43,9 @@
         </div>
         <div class="theme-toggle-btn desktop hidden lg:block">
           <div class="py-6 text-center">
-            <button type="button" title="Toggle theme">
-              <MoonIcon />
+            <button type="button" title="Toggle theme" @click="toggleTheme">
+              <MoonIcon v-if="!getIsDark" />
+              <SunIcon v-else />
             </button>
           </div>
         </div>
@@ -72,7 +76,8 @@ import {
   HelpCircleIcon,
   MoonIcon,
   MenuIcon,
-  XIcon
+  XIcon,
+  SunIcon
 } from "vue-feather-icons";
 
 export default {
@@ -83,11 +88,13 @@ export default {
     HelpCircleIcon,
     MoonIcon,
     MenuIcon,
-    XIcon
+    XIcon,
+    SunIcon
   },
   data: () => {
     return {
-      expandNavbar: false
+      expandNavbar: false,
+      isDark: false
     };
   },
   methods: {
@@ -102,11 +109,24 @@ export default {
     toggleBar: function() {
       // Toggle the visibility of the bar
       this.expandNavbar = !this.expandNavbar;
+    },
+    toggleTheme: function() {
+      /**
+       * Toggle the theme when the theme button is clicked.
+       *
+       * We need to send an emit request in order to make sure
+       * the colors are changed. We also need to change the
+       * icon of the icon.
+       */
+      this.isDark = !this.isDark;
     }
   },
   computed: {
     getExpandNavbar() {
       return this.expandNavbar;
+    },
+    getIsDark() {
+      return this.isDark;
     }
   }
 };
@@ -200,7 +220,10 @@ export default {
         }
       }
 
-      .theme-toggle-btn {
+      .theme-toggle-btn,
+      .menu-btn {
+        color: $grey-lighter;
+
         &.desktop {
           width: 6rem;
           position: absolute;
