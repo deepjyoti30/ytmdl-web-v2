@@ -1,6 +1,6 @@
 <template>
   <div class="about__container">
-    <StaticContent filePath="../assets/about.md" />
+    <StaticContent filePath="../static/about.md" />
   </div>
 </template>
 
