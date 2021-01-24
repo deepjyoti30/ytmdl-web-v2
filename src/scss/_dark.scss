@@ -12,4 +12,27 @@
             }
         }
     }
+
+    // Static content
+    .static__container {
+        .content {
+            ::v-deep h1,
+            ::v-deep h2,
+            ::v-deep h3,
+            ::v-deep h4 {
+                color: white !important;
+            }
+
+            ::v-deep p,
+            ::v-deep li {
+                color: $textcolor !important;
+            }
+
+            ::v-deep blockquote {
+                p {
+                    color: $darklow !important;
+                }
+            }
+        }
+    }
 }

@@ -93,9 +93,8 @@ export default {
     }
 
     ::v-deep a {
-      background: lighten($darkgreen, 50);
       color: $darkgreen;
-      @apply px-2;
+      text-decoration: underline;
     }
 
     ::v-deep blockquote {

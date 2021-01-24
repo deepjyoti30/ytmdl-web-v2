@@ -119,6 +119,7 @@ export default {
        * icon of the icon.
        */
       this.isDark = !this.isDark;
+      this.$emit("themeChange", this.isDark ? "dark" : "light");
     }
   },
   computed: {
