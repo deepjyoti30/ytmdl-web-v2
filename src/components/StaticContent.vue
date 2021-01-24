@@ -1,7 +1,7 @@
 <template>
   <div class="static__container">
     <div
-      class="content md:w-2/5 px-4 mr-auto ml-auto"
+      class="content md:w-2/5 md:px-0 px-4 mr-auto ml-auto"
       v-html="getContent"
     ></div>
   </div>
@@ -96,6 +96,16 @@ export default {
       background: lighten($darkgreen, 50);
       color: $darkgreen;
       @apply px-2;
+    }
+
+    ::v-deep blockquote {
+      @apply my-4;
+      @apply py-2;
+      @apply pl-2 pr-1;
+      @apply rounded-sm;
+
+      background: $yellow;
+      border-left: 10px solid darken($yellow, 10);
     }
 
     @media only screen and (max-width: $md) {
