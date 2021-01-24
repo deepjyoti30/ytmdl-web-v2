@@ -87,6 +87,16 @@ export default {
       @apply text-gray-600;
     }
 
+    ::v-deep ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 20px;
+    }
+
     ::v-deep code {
       background: $yellow;
       color: $orange;
