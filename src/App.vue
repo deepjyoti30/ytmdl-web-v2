@@ -23,6 +23,7 @@ export default {
 
   @media only screen and (max-width: $md) {
     padding-left: 0;
+    padding-top: 4rem;
   }
 }
 

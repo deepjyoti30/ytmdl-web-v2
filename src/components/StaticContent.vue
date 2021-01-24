@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .static__container {
-  margin-top: 5em;
+  @apply my-5;
 
   .content {
     ::v-deep h1,
@@ -57,6 +57,10 @@ export default {
       color: $black;
       margin: 2rem 0;
       font-weight: 500;
+
+      @media only screen and (max-width: $md) {
+        margin: 1.5rem 0;
+      }
     }
 
     ::v-deep h1 {
@@ -72,7 +76,7 @@ export default {
     }
 
     ::v-deep h4 {
-      font-size: 1em;
+      font-size: 1.5em;
     }
 
     ::v-deep p,
@@ -81,6 +85,35 @@ export default {
       font-size: 18px;
 
       @apply text-gray-600;
+    }
+
+    ::v-deep code {
+      background: $yellow;
+      color: $orange;
+    }
+
+    ::v-deep a {
+      background: lighten($darkgreen, 50);
+      color: $darkgreen;
+      @apply px-2;
+    }
+
+    @media only screen and (max-width: $md) {
+      ::v-deep h1 {
+        font-size: 2em;
+      }
+
+      ::v-deep h2 {
+        font-size: 1.8em;
+      }
+
+      ::v-deep h3 {
+        font-size: 1.6em;
+      }
+
+      ::v-deep h4 {
+        font-size: 1.2em;
+      }
     }
   }
 }
