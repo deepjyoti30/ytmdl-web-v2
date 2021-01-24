@@ -101,7 +101,8 @@ export default {
     ::v-deep blockquote {
       @apply my-4;
       @apply py-2;
-      @apply pl-2 pr-1;
+      @apply pl-2;
+      @apply pr-1;
       @apply rounded-sm;
 
       background: $yellow;

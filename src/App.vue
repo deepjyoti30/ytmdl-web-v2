@@ -12,6 +12,9 @@ export default {
   name: "App",
   components: {
     Navbar
+  },
+  methods: {
+    handleThemeChange: function() {}
   }
 };
 </script>

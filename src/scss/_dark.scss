@@ -1,0 +1,15 @@
+// Store dark theme related color changes
+
+.dark {
+    background: $darklow !important;
+    transition: 0.2s ease;
+
+    // Navbar colors
+    .navbar__container {
+        .navbar__content {
+            .navbar__content--collapsed, .navbar__content--expanded {
+                background: $darkhigh !important;
+            }
+        }
+    }
+}
