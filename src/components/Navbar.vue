@@ -75,6 +75,9 @@
               <span>Settings</span>
             </router-link>
           </div>
+          <div class="crafted-by text-sm font-medium my-7 md:pl-0 pl-9">
+            Made by @deepjyoti30
+          </div>
         </div>
       </transition>
     </div>
@@ -189,6 +192,19 @@ export default {
             transition: 150ms ease-in;
             background: darken($background-light, 5);
           }
+        }
+      }
+
+      .crafted-by {
+        position: absolute;
+        bottom: 0;
+        width: 12rem;
+
+        color: $grey-lighter;
+
+        @media only screen and (max-width: $md) {
+          position: fixed;
+          width: 100vw;
         }
       }
 
