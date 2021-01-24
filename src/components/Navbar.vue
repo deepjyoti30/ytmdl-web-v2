@@ -53,13 +53,25 @@
       <transition name="navbar-expand">
         <div v-if="getExpandNavbar" class="navbar__content--expanded">
           <div class="navbar-right">
-            <router-link to="/" class="link-each py-6 pl-7">
+            <router-link
+              to="/"
+              @click.native="toggleBar"
+              class="link-each py-6 pl-7"
+            >
               <span>Home</span>
             </router-link>
-            <router-link to="/about" class="link-each py-6 pl-7">
+            <router-link
+              to="/about"
+              @click.native="toggleBar"
+              class="link-each py-6 pl-7"
+            >
               <span>About</span>
             </router-link>
-            <router-link to="/settings" class="link-each py-6 pl-7">
+            <router-link
+              to="/settings"
+              @click.native="toggleBar"
+              class="link-each py-6 pl-7"
+            >
               <span>Settings</span>
             </router-link>
           </div>
