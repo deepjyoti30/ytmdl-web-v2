@@ -4,8 +4,10 @@
       <div
         class="footer--text text-center border-b-2 p-8 md:text-2xl text-xl font-medium italic"
       >
-        This project lives on donations. Consider <a href="">donating</a> to
-        help us sustain our activites or <a href="">become a backer</a>.
+        This project lives on donations. Consider
+        <a href="https://paypal.me/deepjyoti30">donating</a> to help us sustain
+        our activites or
+        <a href="https://opencollective.com/ytmdl#backer">become a backer</a>.
       </div>
       <div
         class="footer--extra py-4 text-gray-500 text-center md:flex md:justify-between items-center block"

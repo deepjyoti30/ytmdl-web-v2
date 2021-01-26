@@ -12,6 +12,8 @@ It is basically an app that addresses a major problem that people face, getting 
 
 You can always support the project by donating to me directly through [Paypal](https://paypal.me/deepjyoti30) or you can [become a backer](https://opencollective.com/ytmdl#backer).
 
+If you want to buy me a coffee, you can check my [kofi](https://ko-fi.com/deepjyoti30) or perhaps [become a patron](https://www.patreon.com/deepjyoti30)
+
 You can also check the repo which is open source [here](https://github.com/deepjyoti30/ytmdl).
 
 ### Who are you?
