@@ -1,4 +1,8 @@
-.strip-button {
+.text-xxs {
+    font-size: 10px;
+}
+
+.strip-border {
     border: none;
     outline: none;
 
@@ -8,6 +12,6 @@
     }
 }
 
-.text-xxs {
-    font-size: 10px;
+.strip-button {
+    @extend .strip-border;
 }

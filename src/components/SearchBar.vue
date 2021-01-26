@@ -8,7 +8,13 @@
     <div
       class="divider--line w-0 mr-auto ml-auto border border-gray-200 dark:border-gray-700 h-7"
     ></div>
-    <div class="search--box border w-2/5 my-2 mr-auto ml-auto"></div>
+    <div class="search--box shadow-2xl w-2/5 my-2 mr-auto ml-auto rounded-md">
+      <input
+        type="text"
+        class="w-full my-2 border py-2 pl-4 text-xl"
+        placeholder="Save your tears"
+      />
+    </div>
   </div>
 </template>
 
@@ -18,4 +24,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input {
+  @extend .strip-border;
+}
+</style>
