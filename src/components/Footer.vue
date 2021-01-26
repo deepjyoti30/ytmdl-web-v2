@@ -1,17 +1,19 @@
 <template>
   <div class="footer__container w-full lg:pl-24 pl-0">
-    <div class="footer__content w-4/5 mr-auto ml-auto">
+    <div class="footer__content lg:w-4/5 lg:px-0 px-2 w-full mr-auto ml-auto">
       <div
-        class="footer--text text-center border-b-2 p-8 text-2xl font-medium italic"
+        class="footer--text text-center border-b-2 p-8 lg:text-2xl text-xl font-medium italic"
       >
         This project lives on donations. Consider <a href="">donating</a> to
         help us sustain our activites or <a href="">become a backer</a>.
       </div>
-      <div class="footer--extra py-4 text-gray-500 flex justify-between">
+      <div
+        class="footer--extra py-4 text-gray-500 lg:flex block text-center justify-between"
+      >
         <div class="copyright--text">
           © 2020-Present Ytmdl. All rights reserved.
         </div>
-        <div class="social--content">
+        <div class="social--content lg:mt-0 mt-2">
           <ul>
             <li><a href="https://github.com/deepjyoti30/ytmdl">GitHub</a></li>
             <li><a href="https://ytmdl.deepjyoti30.dev/about">About</a></li>
