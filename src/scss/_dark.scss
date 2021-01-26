@@ -49,4 +49,24 @@
             }
         }
     }
+
+    // Utility
+    .shadow-cust {
+        $color: $darkhigh;
+        -webkit-box-shadow: 8px 8px 40px 3px $color;
+        -moz-box-shadow: 8px 8px 40px 3px $color;
+        box-shadow: 8px 8px 40px 3px $color;
+    }
+
+    // Search bar
+    .search-bar__container {
+        .search--box {
+            background: $darkhigh;
+
+            input {
+                caret-color: white;
+                color: white;
+            }
+        }
+    }
 }
