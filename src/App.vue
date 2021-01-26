@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar @themeChange="handleThemeChange" />
-    <router-view class="router-view__container" />
+    <transition name="fade-in"
+      ><router-view class="router-view__container" />
+    </transition>
     <Footer class="footer" />
   </div>
 </template>
@@ -18,7 +20,8 @@ export default {
   },
   data: () => {
     return {
-      isDark: false
+      isDark: false,
+      showFooter: false
     };
   },
   methods: {
@@ -66,5 +69,21 @@ export default {
 
 #app {
   @extend .work-sans;
+
+  // Animations for the router view
+
+  .fade-in-enter {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+
+  .fade-in-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-enter-active {
+    transition: opacity 500ms ease;
+  }
 }
 </style>
