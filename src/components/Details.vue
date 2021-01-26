@@ -2,21 +2,21 @@
   <div class="details__container">
     <div class="details--content w-5/6 mr-auto ml-auto my-24 py-2">
       <div
-        class="icon--content w-4/6 mr-auto ml-auto py-6 flex justify-center items-center"
+        class="icon--content w-4/6 mr-auto ml-auto py-6 md:flex block justify-center items-center"
       >
-        <div class="icon--each mr-auto ml-auto">
+        <div class="icon--each mr-auto ml-auto w-24">
           <MusicIcon size="4x" class="icon" />
         </div>
         <div class="line--each"></div>
-        <div class="icon--each mr-auto ml-auto">
+        <div class="icon--each mr-auto ml-auto w-24">
           <PackageIcon size="4x" class="icon" />
         </div>
         <div class="line--each"></div>
-        <div class="icon--each mr-auto ml-auto">
+        <div class="icon--each mr-auto ml-auto w-24">
           <DownloadCloudIcon size="4x" class="icon" />
         </div>
       </div>
-      <div class="text--content flex justify-between py-6 text-center">
+      <div class="text--content flex justify-between py-6 text-center hidden">
         <div class="details--each">
           <h3 class="text-3xl font-semibold">Select the Song</h3>
           <p class="mt-4">
@@ -86,7 +86,14 @@ export default {
 
         flex-grow: 1;
         height: 2px;
-        border: 1px solid $yellow;
+        border: 1px solid $teal;
+
+        @media only screen and (max-width: $md) {
+          @apply mr-auto ml-auto my-6;
+
+          height: 100px;
+          width: 2px;
+        }
       }
     }
   }
