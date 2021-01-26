@@ -15,3 +15,10 @@
 .strip-button {
     @extend .strip-border;
 }
+
+.shadow-cust {
+    $color: #E0E0E0;
+    -webkit-box-shadow: 8px 8px 40px 3px $color;
+    -moz-box-shadow: 8px 8px 40px 3px $color;
+    box-shadow: 8px 8px 40px 3px $color;
+}

@@ -4,12 +4,8 @@
       <h1 class="text-4xl font-bold">
         Download songs with metadata in the best quality possible!
       </h1>
-      <p class="my-8 text-gray-600 dark:text-gray-300">
-        Ytmdl lets you download songs with metadata embedded from sources like
-        Itunes, LastFM etc in the highest quality possible.
-      </p>
     </div>
-    <div class="search-bar-content">
+    <div class="search-bar-content pt-8">
       <SearchBar />
     </div>
   </div>
