@@ -9,7 +9,7 @@
       class="divider--line w-0 mr-auto ml-auto border border-gray-200 dark:border-gray-700 h-7"
     ></div>
     <div
-      class="search--box shadow-cust md:w-2/5 w-4/5 mb-2 mr-auto ml-auto rounded-lg flex"
+      class="search--box shadow-cust md:w-2/5 w-11/12 mb-2 mr-auto ml-auto rounded-lg flex"
     >
       <SearchIcon size="1.5x" class="search-icon mt-4" />
       <input
@@ -43,5 +43,6 @@ input {
 .search-icon {
   transform: translateX(0.5rem);
   color: $grey-lighter;
+  z-index: -5;
 }
 </style>
