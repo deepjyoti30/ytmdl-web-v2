@@ -65,18 +65,22 @@ export default {
 
     ::v-deep h1 {
       font-size: 2.2em;
+      font-weight: 700;
     }
 
     ::v-deep h2 {
       font-size: 2em;
+      font-weight: 600;
     }
 
     ::v-deep h3 {
       font-size: 1.8em;
+      font-weight: 500;
     }
 
     ::v-deep h4 {
       font-size: 1.5em;
+      font-weight: 400;
     }
 
     ::v-deep p,

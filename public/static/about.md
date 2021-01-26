@@ -1,4 +1,8 @@
-### What is Ytmdl?
+# Ytmdl
+
+An app that lets you download music in the highest quality possible with metadata from various sources embedded into the song.
+
+### What is it?
 
 Ytmdl started as a CLI project as can be seen [here](https://github.com/deepjyoti30/ytmdl). The CLI version is still in active development, however a lot of people were complaining that the CLI version doesn't support Windows. I gave it some thought and at the time I was also learning VueJS and fancied building a proper WebApp so I ended up building this, the Web version of Ytmdl.
 
