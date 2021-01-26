@@ -8,20 +8,22 @@
         help us sustain our activites or <a href="">become a backer</a>.
       </div>
       <div
-        class="footer--extra py-4 text-gray-500 lg:flex block text-center justify-between"
+        class="footer--extra py-4 text-gray-500 text-center lg:flex lg:justify-between items-center block"
       >
-        <div class="copyright--text">
-          © 2020-Present Ytmdl. All rights reserved.
+        <div class="copyright--text lg:text-left">
+          <span>© 2020-Present Ytmdl. All rights reserved.</span>
+          <span><a href="">Terms of Service</a></span>
         </div>
-        <div class="social--content lg:mt-0 mt-2">
+        <div class="social--content lg:mt-0 mt-6">
           <ul>
-            <li><a href="https://github.com/deepjyoti30/ytmdl">GitHub</a></li>
-            <li><a href="https://ytmdl.deepjyoti30.dev/about">About</a></li>
             <li>
-              <a href="https://ytmdl.deepjyoti30.dev/terms">Terms of Use</a>
+              <a href="https://github.com/deepjyoti30/ytmdl">github</a>
             </li>
             <li>
               <a href="">Telegram</a>
+            </li>
+            <li>
+              <a href="">Mail</a>
             </li>
           </ul>
         </div>
@@ -32,7 +34,8 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  components: {}
 };
 </script>
 
@@ -53,11 +56,22 @@ export default {
         ul {
           li {
             @apply inline-block;
-            @apply mr-4;
+            @apply mr-6;
           }
 
           li:last-child {
             @apply mr-0;
+          }
+        }
+      }
+
+      .copyright--text {
+        span {
+          @apply block;
+          @apply mt-2;
+
+          &:first-child {
+            @apply mt-0;
           }
         }
       }
