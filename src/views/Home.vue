@@ -1,7 +1,7 @@
 <template>
-  <div class="home__container py-16">
+  <div class="home__container md:py-16 py-24">
     <div class="top__container text-center">
-      <h1 class="text-4xl font-bold">
+      <h1 class="md:text-4xl text-3xl font-bold">
         Download songs with metadata in the best quality possible!
       </h1>
     </div>

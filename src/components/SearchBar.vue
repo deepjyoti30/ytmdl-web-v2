@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar__container">
     <div
-      class="text-for-search w-1/5 mr-auto ml-auto text-center font-medium text-md text-gray-400 dark:text-gray-400 pb-2"
+      class="text-for-search md:w-1/5 mr-auto ml-auto text-center font-medium text-md text-gray-400 dark:text-gray-400 pb-2"
     >
       Type name of song, artist, album etc.
     </div>
@@ -9,7 +9,7 @@
       class="divider--line w-0 mr-auto ml-auto border border-gray-200 dark:border-gray-700 h-7"
     ></div>
     <div
-      class="search--box shadow-cust w-2/5 mb-2 mr-auto ml-auto rounded-lg flex"
+      class="search--box shadow-cust md:w-2/5 w-4/5 mb-2 mr-auto ml-auto rounded-lg flex"
     >
       <SearchIcon size="1.5x" class="search-icon mt-4" />
       <input
