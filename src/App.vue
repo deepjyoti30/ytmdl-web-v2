@@ -2,16 +2,19 @@
   <div id="app">
     <Navbar @themeChange="handleThemeChange" />
     <router-view class="router-view__container" />
+    <Footer class="footer" />
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
-    Navbar
+    Navbar,
+    Footer
   },
   data: () => {
     return {
