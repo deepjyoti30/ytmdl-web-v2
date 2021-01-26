@@ -9,13 +9,18 @@
         Itunes, LastFM etc in the highest quality possible.
       </p>
     </div>
+    <div class="search-bar-content">
+      <SearchBar />
+    </div>
   </div>
 </template>
 
 <script>
+import SearchBar from "@/components/SearchBar";
+
 export default {
   name: "Home",
-  components: {}
+  components: { SearchBar }
 };
 </script>
 

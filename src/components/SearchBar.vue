@@ -1,0 +1,21 @@
+<template>
+  <div class="search-bar__container">
+    <div
+      class="text-for-search w-1/5 mr-auto ml-auto text-center text-md text-gray-600 dark:text-gray-400 pb-2"
+    >
+      Type name of song, artist, album etc.
+    </div>
+    <div
+      class="divider--line w-0 mr-auto ml-auto border border-gray-200 dark:border-gray-700 h-7"
+    ></div>
+    <div class="search--box border w-2/5 my-2 mr-auto ml-auto"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "SearchBar"
+};
+</script>
+
+<style lang="scss" scoped></style>
