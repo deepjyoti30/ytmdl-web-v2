@@ -1,8 +1,10 @@
 <template>
   <div class="details__container">
-    <div class="details--content w-5/6 mr-auto ml-auto my-24 py-2">
+    <div
+      class="details--content md:w-5/6 w-6/6 px-2 md:px-0 mr-auto ml-auto my-24 py-2"
+    >
       <div
-        class="icon--content w-4/6 mr-auto ml-auto py-6 md:flex block justify-center items-center"
+        class="icon--content md:w-4/6 w-1/6 md:mr-auto md:ml-auto py-6 md:flex block justify-center items-center"
       >
         <div class="icon--each mr-auto ml-auto w-24">
           <MusicIcon size="4x" class="icon" />
@@ -79,6 +81,17 @@ export default {
         border-radius: 100%;
         background: $yellow;
         color: $lightgreen;
+
+        @media only screen and (max-width: $md) {
+          @apply w-12;
+
+          .icon {
+            width: 2em;
+            height: 2em;
+          }
+
+          @apply p-2;
+        }
       }
 
       .line--each {
