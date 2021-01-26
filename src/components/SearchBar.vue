@@ -19,11 +19,9 @@
         spellcheck="false"
         autocomplete="false"
       />
-      <XCircleIcon
-        v-if="getShowClearIcon"
-        size="1.5x"
-        class="mt-4 clear-icon"
-      />
+      <button type="button" class="strip-button" title="Clear Input">
+        <XCircleIcon v-if="getShowClearIcon" size="1.5x" class="clear-icon" />
+      </button>
     </div>
   </div>
 </template>
