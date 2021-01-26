@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar @themeChange="handleThemeChange" />
+    <Navbar :isDark="getIsDark" @themeChange="handleThemeChange" />
     <transition name="fade-in"
       ><router-view class="router-view__container" />
     </transition>
@@ -52,7 +52,30 @@ export default {
        * Change the theme based on what the navbar is asking to do.
        */
       theme == "light" ? this.removeDark() : this.addDark();
+      this.saveTheme(theme);
+    },
+    saveTheme: function(theme) {
+      /**
+       * Save the theme in the localStorage so it can be used later.
+       */
+      localStorage.setItem("theme", theme);
+    },
+    readAndApplyTheme: function() {
+      /**
+       * Read the saved theme from the localStorage and apply it
+       * accordingly.
+       */
+      const savedTheme = localStorage.getItem("theme");
+      this.handleThemeChange(savedTheme);
     }
+  },
+  computed: {
+    getIsDark() {
+      return this.isDark;
+    }
+  },
+  mounted() {
+    this.readAndApplyTheme();
   }
 };
 </script>

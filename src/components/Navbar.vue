@@ -108,9 +108,14 @@ export default {
   },
   data: () => {
     return {
-      expandNavbar: false,
-      isDark: false
+      expandNavbar: false
     };
+  },
+  props: {
+    isDark: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     expandBar: function() {
@@ -133,8 +138,7 @@ export default {
        * the colors are changed. We also need to change the
        * icon of the icon.
        */
-      this.isDark = !this.isDark;
-      this.$emit("themeChange", this.isDark ? "dark" : "light");
+      this.$emit("themeChange", !this.isDark ? "dark" : "light");
     }
   },
   computed: {
