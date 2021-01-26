@@ -40,6 +40,16 @@
                 <font-awesome-icon :icon="['fas', 'envelope']" size="lg" />
               </a>
             </li>
+            <li>
+              <a href="https://www.patreon.com/deepjyoti30">
+                <font-awesome-icon :icon="['fab', 'patreon']" size="lg" />
+              </a>
+            </li>
+            <li>
+              <a href="https://paypal.me/deepjyoti30">
+                <font-awesome-icon :icon="['fab', 'paypal']" size="lg" />
+              </a>
+            </li>
           </ul>
         </div>
       </div>

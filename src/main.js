@@ -6,11 +6,16 @@ import "@/scss/_tailwind.scss";
 import VueResource from "vue-resource";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faTelegramPlane,
+  faPatreon,
+  faPaypal
+} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faGithub, faTelegramPlane, faEnvelope);
+library.add(faGithub, faTelegramPlane, faEnvelope, faPatreon, faPaypal);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
