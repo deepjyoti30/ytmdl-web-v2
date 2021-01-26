@@ -17,13 +17,22 @@
         <div class="social--content lg:mt-0 mt-6">
           <ul>
             <li>
-              <a href="https://github.com/deepjyoti30/ytmdl">github</a>
+              <a href="https://github.com/deepjyoti30/ytmdl">
+                <font-awesome-icon :icon="['fab', 'github']" size="lg" />
+              </a>
             </li>
             <li>
-              <a href="">Telegram</a>
+              <a href="">
+                <font-awesome-icon
+                  :icon="['fab', 'telegram-plane']"
+                  size="lg"
+                />
+              </a>
             </li>
             <li>
-              <a href="">Mail</a>
+              <a href="mailto:hello@deepjyoti30.dev">
+                <font-awesome-icon :icon="['fas', 'envelope']" size="lg" />
+              </a>
             </li>
           </ul>
         </div>

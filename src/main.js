@@ -5,6 +5,14 @@ import router from "./router";
 import "@/scss/_tailwind.scss";
 import VueResource from "vue-resource";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+library.add(faGithub, faTelegramPlane, faEnvelope);
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
 Vue.config.productionTip = false;
 
 Vue.use(VueResource);
