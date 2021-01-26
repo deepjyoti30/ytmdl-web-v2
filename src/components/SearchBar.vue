@@ -20,8 +20,17 @@
         autocomplete="false"
         v-model="songEntered"
       />
-      <button type="button" class="strip-button" title="Clear Input">
-        <XCircleIcon v-if="getShowClearIcon" size="1.5x" class="clear-icon" />
+      <button
+        type="button"
+        class="strip-button"
+        title="Clear Input"
+        @click="clearInput"
+      >
+        <XCircleIcon
+          v-if="getShowClearIcon"
+          size="1.5x"
+          class="clear-icon text-gray-200"
+        />
       </button>
     </div>
   </div>
@@ -40,6 +49,12 @@ export default {
     return {
       songEntered: ""
     };
+  },
+  methods: {
+    clearInput: function() {
+      // Clear the entered input
+      this.songEntered = "";
+    }
   },
   computed: {
     getShowClearIcon() {
