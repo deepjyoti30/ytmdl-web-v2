@@ -1,5 +1,5 @@
 <template>
-  <div class="footer__container w-full md:pl-24 pl-0">
+  <div class="footer__container w-full md:pl-24 pl-0 mb-4">
     <div class="footer__content lg:w-4/5 md:px-0 px-2 w-full mr-auto ml-auto">
       <div
         class="footer--text text-center border-b-2 p-8 md:text-2xl text-xl font-medium italic"
