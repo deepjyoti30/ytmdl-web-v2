@@ -2,3 +2,7 @@ p {
     @extend .roboto;
     @apply text-xl;
 }
+
+h3 {
+    @apply text-3xl;
+}

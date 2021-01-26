@@ -2,21 +2,24 @@
   <div class="home__container md:py-16 py-24">
     <div class="top__container text-center">
       <h1 class="md:text-4xl text-3xl font-bold">
-        Download songs with metadata in the best quality possible!
+        Download <span class="highlight">songs with metadata</span> in the best
+        quality possible!
       </h1>
     </div>
     <div class="search-bar-content pt-16">
       <SearchBar />
     </div>
+    <Details />
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar";
+import Details from "@/components/Details";
 
 export default {
   name: "Home",
-  components: { SearchBar }
+  components: { SearchBar, Details }
 };
 </script>
 
@@ -25,6 +28,11 @@ export default {
   .top__container {
     h1 {
       color: $lightgreen;
+
+      .highlight {
+        border-bottom: 5px solid $yellow;
+        transform: translateZ(5px);
+      }
     }
   }
 }
