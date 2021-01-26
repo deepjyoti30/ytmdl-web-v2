@@ -56,7 +56,6 @@ input {
 
 .icon {
   color: $grey-lighter;
-  z-index: -5;
 }
 
 .search-icon {
