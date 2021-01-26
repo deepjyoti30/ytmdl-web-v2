@@ -12,7 +12,11 @@
       >
         <div class="copyright--text lg:text-left">
           <span>© 2020-Present Ytmdl. All rights reserved.</span>
-          <span><a href="">Terms of Service</a></span>
+          <span
+            ><a href="https://ytmdl.deepjyoti30.dev/terms"
+              >Terms of Service</a
+            ></span
+          >
         </div>
         <div class="social--content lg:mt-0 mt-6">
           <ul>
