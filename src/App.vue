@@ -56,7 +56,6 @@ export default {
 
 <style lang="scss">
 .router-view__container {
-  width: 100vw;
   padding-left: 6rem;
 
   @media only screen and (max-width: $md) {
