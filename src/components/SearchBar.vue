@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar__container">
     <div
-      class="text-for-search w-1/5 mr-auto ml-auto text-center text-md text-gray-600 dark:text-gray-400 pb-2"
+      class="text-for-search w-1/5 mr-auto ml-auto text-center font-medium text-md text-gray-400 dark:text-gray-400 pb-2"
     >
       Type name of song, artist, album etc.
     </div>

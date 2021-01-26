@@ -5,7 +5,7 @@
         Download songs with metadata in the best quality possible!
       </h1>
     </div>
-    <div class="search-bar-content pt-8">
+    <div class="search-bar-content pt-16">
       <SearchBar />
     </div>
   </div>
