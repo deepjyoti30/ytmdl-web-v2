@@ -15,7 +15,7 @@
       <input
         type="text"
         class="w-full my-2 border py-2 pl-12 pr-12 text-xl"
-        placeholder="Save your tears"
+        placeholder="Enter name of song or YouTube URL"
         spellcheck="false"
         autocomplete="false"
         v-model="songEntered"
