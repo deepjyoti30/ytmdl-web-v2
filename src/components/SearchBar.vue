@@ -19,17 +19,33 @@
         spellcheck="false"
         autocomplete="false"
       />
+      <XCircleIcon
+        v-if="getShowClearIcon"
+        size="1.5x"
+        class="mt-4 clear-icon"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { SearchIcon } from "vue-feather-icons";
+import { SearchIcon, XCircleIcon } from "vue-feather-icons";
 
 export default {
   name: "SearchBar",
   components: {
-    SearchIcon
+    SearchIcon,
+    XCircleIcon
+  },
+  data: () => {
+    return {
+      showClearIcon: false
+    };
+  },
+  computed: {
+    getShowClearIcon() {
+      return this.showClearIcon;
+    }
   }
 };
 </script>
@@ -40,9 +56,21 @@ input {
   background: none;
 }
 
-.search-icon {
-  transform: translateX(0.5rem);
+.icon {
   color: $grey-lighter;
   z-index: -5;
+}
+
+.search-icon {
+  @extend .icon;
+
+  transform: translateX(0.5rem);
+}
+
+.clear-icon {
+  @extend .icon;
+  transform: translateX(-0.5rem);
+
+  cursor: find;
 }
 </style>
