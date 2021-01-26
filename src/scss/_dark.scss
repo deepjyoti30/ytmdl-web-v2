@@ -35,4 +35,18 @@
             }
         }
     }
+
+    // Footer
+    .footer__container {
+        .footer__content {
+            .footer--text {
+                color: white !important;
+                border-color: $textcolor;
+            }
+
+            .footer--extra {
+                color: $textcolor !important;
+            }
+        }
+    }
 }

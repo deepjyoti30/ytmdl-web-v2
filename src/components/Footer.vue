@@ -1,24 +1,24 @@
 <template>
-  <div class="footer__container w-full lg:pl-24 pl-0">
-    <div class="footer__content lg:w-4/5 lg:px-0 px-2 w-full mr-auto ml-auto">
+  <div class="footer__container w-full md:pl-24 pl-0">
+    <div class="footer__content lg:w-4/5 md:px-0 px-2 w-full mr-auto ml-auto">
       <div
-        class="footer--text text-center border-b-2 p-8 lg:text-2xl text-xl font-medium italic"
+        class="footer--text text-center border-b-2 p-8 md:text-2xl text-xl font-medium italic"
       >
         This project lives on donations. Consider <a href="">donating</a> to
         help us sustain our activites or <a href="">become a backer</a>.
       </div>
       <div
-        class="footer--extra py-4 text-gray-500 text-center lg:flex lg:justify-between items-center block"
+        class="footer--extra py-4 text-gray-500 text-center md:flex md:justify-between items-center block"
       >
         <div class="copyright--text lg:text-left">
           <span>© 2020-Present Ytmdl. All rights reserved.</span>
-          <span
+          <span class="lg:inline block md:mt-0 mt-2 md:ml-2 ml-0"
             ><a href="https://ytmdl.deepjyoti30.dev/terms"
               >Terms of Service</a
             ></span
           >
         </div>
-        <div class="social--content lg:mt-0 mt-6">
+        <div class="social--content md:mt-0 mt-6">
           <ul>
             <li>
               <a href="https://github.com/deepjyoti30/ytmdl">
@@ -26,7 +26,7 @@
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://t.me/ytmdl">
                 <font-awesome-icon
                   :icon="['fab', 'telegram-plane']"
                   size="lg"
@@ -74,17 +74,6 @@ export default {
 
           li:last-child {
             @apply mr-0;
-          }
-        }
-      }
-
-      .copyright--text {
-        span {
-          @apply block;
-          @apply mt-2;
-
-          &:first-child {
-            @apply mt-0;
           }
         }
       }
