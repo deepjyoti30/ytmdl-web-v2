@@ -9,11 +9,19 @@
         <div class="icon--each mr-auto ml-auto w-24">
           <MusicIcon size="4x" class="icon" />
         </div>
-        <div class="line--each"></div>
+        <div class="line--each">
+          <div class="line--icon w-5 mr-auto ml-auto">
+            <ZapIcon class="icon" />
+          </div>
+        </div>
         <div class="icon--each mr-auto ml-auto w-24">
           <PackageIcon size="4x" class="icon" />
         </div>
-        <div class="line--each"></div>
+        <div class="line--each">
+          <div class="line--icon w-5 mr-auto ml-auto">
+            <ShieldIcon class="icon" />
+          </div>
+        </div>
         <div class="icon--each mr-auto ml-auto w-24">
           <DownloadCloudIcon size="4x" class="icon" />
         </div>
@@ -23,7 +31,7 @@
       >
         <div class="details--each">
           <h3 class="md:text-3xl text-2xl font-semibold">Select the Song</h3>
-          <p class="mt-4 text-gray-500 dark:text-gray-400">
+          <p class="mt-4 text-gray-400 dark:text-gray-400">
             Select the song you want to download. Either search the song or
             enter the YouTube URL of the song.
           </p>
@@ -32,14 +40,14 @@
           <h3 class="md:text-3xl text-2xl font-semibold">
             Select the metadata
           </h3>
-          <p class="mt-4 text-gray-500 dark:text-gray-400">
-            Search for the song in the various metadata sources and select one
-            out of the results OR enter the metadata manually.
+          <p class="mt-4 text-gray-400 dark:text-gray-400">
+            Select the metadata that you want to be embedded in the song, either
+            manually or by searching.
           </p>
         </div>
         <div class="details--each">
           <h3 class="md:text-3xl text-2xl font-semibold">Download the song</h3>
-          <p class="mt-4 text-gray-500 dark:text-gray-400">
+          <p class="mt-4 text-gray-400 dark:text-gray-400">
             After the song and the metadata is selected, just download the high
             quality song and enjoy it.
           </p>
@@ -50,14 +58,22 @@
 </template>
 
 <script>
-import { MusicIcon, PackageIcon, DownloadCloudIcon } from "vue-feather-icons";
+import {
+  MusicIcon,
+  PackageIcon,
+  DownloadCloudIcon,
+  ZapIcon,
+  ShieldIcon
+} from "vue-feather-icons";
 
 export default {
   name: "Details",
   components: {
     MusicIcon,
     PackageIcon,
-    DownloadCloudIcon
+    DownloadCloudIcon,
+    ZapIcon,
+    ShieldIcon
   }
 };
 </script>
@@ -74,7 +90,11 @@ export default {
         }
 
         p {
+          @extend .dm-sans;
+
+          @apply font-medium;
           font-size: 1em;
+          line-height: 1.5em;
         }
 
         @media only screen and (max-width: $md) {
@@ -87,7 +107,7 @@ export default {
       .icon--each {
         @apply p-4;
         border-radius: 100%;
-        background: $yellow;
+        background: lighten($lightgreen, 60);
         color: $lightgreen;
 
         @media only screen and (max-width: $md) {
@@ -107,8 +127,17 @@ export default {
 
         flex-grow: 1;
         height: 2px;
-        border: 1px solid $teal;
-        background: $teal;
+        border: 1px solid $yellow;
+        background: $yellow;
+
+        .line--icon {
+          .icon {
+            @extend .transform-up;
+
+            color: $teal;
+            fill: lighten($teal, 40);
+          }
+        }
 
         @media only screen and (max-width: $md) {
           @apply mr-auto ml-auto my-6;

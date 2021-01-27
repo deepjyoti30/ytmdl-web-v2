@@ -22,3 +22,7 @@
     -moz-box-shadow: 8px 8px 40px 3px $color;
     box-shadow: 8px 8px 40px 3px $color;
 }
+
+.transform-up {
+    transform: translateY(-12px);
+}
