@@ -1,7 +1,7 @@
 <template>
   <div class="search__container">
     <SearchBar class="my-8" />
-    <SongList :query="Sundown" />
+    <SongList query="Sundown" class="mt-24" />
   </div>
 </template>
 

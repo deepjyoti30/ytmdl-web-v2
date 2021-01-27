@@ -1,6 +1,6 @@
 <template>
   <div class="song--list__container">
-    <SongResult v-for="(song, id) in fetchedData" :key="id" />
+    <SongResult v-for="(song, id) in fetchedData" :key="id" :song="song" />
   </div>
 </template>
 
