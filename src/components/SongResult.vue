@@ -1,13 +1,13 @@
 <template>
   <div class="song--result__container">
     <div class="song--result my-4 max-w-3xl mr-auto ml-auto p-2 flex">
-      <div class="song--cover w-3/6">
+      <div class="song--cover md:w-3/6 w-1/2">
         <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
       </div>
-      <div class="song--details px-6 w-4/6">
+      <div class="song--details md:px-6 pl-3 md:w-4/6 w-3/4">
         <div class="top--details flex justify-between items-center">
           <h3
-            class="text-2xl font-semibold title text-gray-600 dark:text-gray-200"
+            class="md:text-2xl text-md font-semibold title text-gray-600 dark:text-gray-200"
           >
             {{ getTitle }}
           </h3>
@@ -19,11 +19,13 @@
           </span>
         </div>
         <h5
-          class="duration text-lg mt-2 text-gray-700 font-medium dark:text-gray-300"
+          class="duration md:text-lg text-sm md:mt-2 mt-1 text-gray-700 font-medium dark:text-gray-300"
         >
           {{ getDuration }}
         </h5>
-        <h5 class="channel text-lg text-gray-500">{{ getChannel }}</h5>
+        <h5 class="channel md:text-lg text-sm text-gray-500">
+          {{ getChannel }}
+        </h5>
         <h5 class="description text-md mt-2 text-gray-500">
           {{ getDescription }}
         </h5>
@@ -99,6 +101,12 @@ export default {
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+      }
+
+      .description {
+        @media only screen and (max-width: $md) {
+          display: none;
+        }
       }
     }
   }
