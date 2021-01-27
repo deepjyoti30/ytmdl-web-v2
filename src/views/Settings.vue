@@ -11,6 +11,7 @@
           v-for="(el, id) in getSettings"
           :key="id"
           :settingDetails="el"
+          :currentSetting="getCurrentSetting(el)"
           @change="updateSetting"
         />
       </div>
@@ -47,6 +48,18 @@ export default {
     saveSettings: function() {
       // Save the settings to the localStorage
       localStorage.setItem("settings", JSON.stringify(this.savedSettings));
+    },
+    getCurrentSetting: function(el) {
+      /**
+       * Get the current setting of the passed element. We need to see if it
+       * is present in the savedSettings, if it is not present, we need to
+       * add it to that and return the default value.
+       */
+      if (!(el.name in this.savedSettings)) {
+        this.savedSettings[el.name] = el.default;
+      }
+
+      return this.savedSettings[el.name];
     }
   },
   computed: {

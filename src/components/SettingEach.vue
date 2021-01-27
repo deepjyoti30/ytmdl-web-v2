@@ -19,7 +19,7 @@
           @click="emitValueChange(option)"
           class="px-4 py-2 rounded-md font-semibold text-gray-600 w-1/5"
           :class="{
-            current: getSettingDefault == option
+            current: getCurrentSetting == option
           }"
         >
           {{ option }}
@@ -35,6 +35,9 @@ export default {
   props: {
     settingDetails: {
       type: Object
+    },
+    currentSetting: {
+      type: String
     }
   },
   methods: {
@@ -45,14 +48,12 @@ export default {
        * When emitted the parent will take care of the changes
        * and writing the changes to the storage.
        */
-      if (this.getSettingDefault == newValue) return;
+      if (this.getCurrentSetting == newValue) return;
 
       this.$emit("change", {
         name: this.settingDetails.name,
         newValue: newValue
       });
-
-      this.settingDetails.default = newValue;
     }
   },
   computed: {
@@ -67,6 +68,9 @@ export default {
     },
     getSettingDefault() {
       return this.settingDetails.default;
+    },
+    getCurrentSetting() {
+      return this.currentSetting;
     }
   }
 };
