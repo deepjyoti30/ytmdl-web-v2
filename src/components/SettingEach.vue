@@ -82,6 +82,8 @@ export default {
   }
   .setting--handler {
     button {
+      @extend .strip-button;
+
       background: lighten($darkgreen, 45);
       flex-basis: 100%;
       transition: 150ms ease;
