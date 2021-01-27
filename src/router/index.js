@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Settings from "@/views/Settings";
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,11 @@ const routes = [
     path: "/terms",
     name: "Terms",
     component: () => import("@/views/Terms.vue")
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: Settings
   }
 ];
 
