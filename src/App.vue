@@ -12,6 +12,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+import defaultSettings from "@/static/settings.js";
+
 export default {
   name: "App",
   components: {
@@ -67,6 +69,24 @@ export default {
        */
       const savedTheme = localStorage.getItem("theme");
       this.handleThemeChange(savedTheme);
+    },
+    saveSettings: function() {
+      /**
+       * Check if settings is stored in the localStorage, if not then create the
+       * settings.
+       */
+      const settings = localStorage.getItem("settings");
+
+      if (settings != null) return;
+
+      // Store the default settings
+
+      var newSettings = {};
+      defaultSettings.forEach(el => {
+        newSettings[el.name] = el.default;
+      });
+
+      localStorage.setItem("settings", JSON.stringify(newSettings));
     }
   },
   computed: {
@@ -76,6 +96,7 @@ export default {
   },
   mounted() {
     this.readAndApplyTheme();
+    this.saveSettings();
   }
 };
 </script>

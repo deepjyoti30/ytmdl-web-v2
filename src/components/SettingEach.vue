@@ -31,7 +31,33 @@
 
 <script>
 export default {
-  name: "SettingEach"
+  name: "SettingEach",
+  props: {
+    settingDetails: {
+      type: Object
+    }
+  },
+  methods: {
+    emitValueChange: function() {
+      /**
+       * Emit when the value changes to a different value.
+       *
+       * When emitted the parent will take care of the changes
+       * and writing the changes to the storage.
+       */
+    }
+  },
+  computed: {
+    getSettingName() {
+      return this.settingDetails.name;
+    },
+    getSettingDesc() {
+      return this.settingDetails.description;
+    },
+    getSettingOptions() {
+      return this.settingDetails.options;
+    }
+  }
 };
 </script>
 
