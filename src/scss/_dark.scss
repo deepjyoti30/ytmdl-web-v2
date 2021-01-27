@@ -77,6 +77,13 @@
                 background: $lightgreen !important;
                 color: $yellow !important;
             }
+
+            .line--each {
+                .icon {
+                    color: $lightgreen !important;
+                    fill: $lightgreen !important;
+                }
+            }
         }
     }
 }
