@@ -5,7 +5,7 @@
         <h2 class="text-2xl font-medium text-gray-700 dark:text-gray-400">
           {{ getSettingName }}
         </h2>
-        <div class="description text-md mt-4 text-gray-600 dark:text-gray-500">
+        <div class="description text-md mt-4 text-gray-500 dark:text-gray-500">
           {{ getSettingDesc }}
         </div>
       </div>
