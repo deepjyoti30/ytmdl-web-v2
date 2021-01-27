@@ -1,7 +1,7 @@
 <template>
   <div class="details__container">
     <div
-      class="details--content md:w-5/6 w-6/6 px-2 md:px-0 mr-auto ml-auto my-24 py-2"
+      class="details--content md:w-5/6 w-6/6 px-2 md:px-0 mr-auto ml-auto mt-24 mb-16 py-4"
     >
       <div
         class="icon--content md:w-4/6 w-1/6 md:mr-auto md:ml-auto py-6 md:flex block justify-center items-center"
@@ -18,24 +18,26 @@
           <DownloadCloudIcon size="4x" class="icon" />
         </div>
       </div>
-      <div class="text--content flex justify-between py-6 text-center hidden">
+      <div
+        class="text--content md:w-11/12 md:mr-auto md:ml-auto flex justify-around py-6 text-center mt-8"
+      >
         <div class="details--each">
           <h3 class="text-3xl font-semibold">Select the Song</h3>
-          <p class="mt-4">
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
             Select the song you want to download. Either search the song or
             enter the YouTube URL of the song.
           </p>
         </div>
         <div class="details--each">
           <h3 class="text-3xl font-semibold">Select the metadata</h3>
-          <p class="mt-4">
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
             Search for the song in the various metadata sources and select one
             out of the results OR enter the metadata manually.
           </p>
         </div>
         <div class="details--each">
           <h3 class="text-3xl font-semibold">Download the song</h3>
-          <p class="mt-4">
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
             After the song and the metadata is selected, just download the high
             quality song and enjoy it.
           </p>
@@ -63,15 +65,15 @@ export default {
   .details--content {
     .text--content {
       .details--each {
+        @apply max-w-xs;
+
         h3 {
-          color: $green;
+          color: darken($teal, 15);
         }
 
         p {
           font-size: 1em;
         }
-
-        @apply mx-2;
       }
     }
 
