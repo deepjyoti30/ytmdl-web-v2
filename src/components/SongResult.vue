@@ -2,7 +2,7 @@
   <div class="song--result__container">
     <router-link :to="getRouterLinkTo"
       ><div class="song--result my-4 max-w-3xl mr-auto ml-auto p-2 flex">
-        <div class="song--cover md:w-3/6 w-1/2">
+        <div class="song--cover w-1/2">
           <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
         </div>
         <div class="song--details md:px-6 pl-3 md:w-4/6 w-3/4">
@@ -97,6 +97,14 @@ export default {
 <style lang="scss" scoped>
 .song--result__container {
   .song--result {
+    .song--cover {
+      img {
+        @media only screen and (min-width: $md) {
+          min-width: 20rem;
+        }
+      }
+    }
+
     .song--details {
       .channel,
       .duration,

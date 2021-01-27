@@ -19,6 +19,7 @@
         spellcheck="false"
         autocomplete="false"
         v-model="songEntered"
+        @keyup.enter="sendSearchRequest"
       />
       <button
         type="button"
@@ -54,6 +55,14 @@ export default {
     clearInput: function() {
       // Clear the entered input
       this.songEntered = "";
+    },
+    sendSearchRequest: function() {
+      /**
+       * Emit a search request when the enter button is clicked.
+       */
+      if (!this.getShowClearIcon) return;
+
+      this.$emit("search", this.songEntered);
     }
   },
   computed: {

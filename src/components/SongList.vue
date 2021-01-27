@@ -1,16 +1,24 @@
 <template>
   <div class="song--list__container">
-    <SongResult v-for="(song, id) in fetchedData" :key="id" :song="song" />
+    <Animation v-if="getIsLoading" />
+    <SongResult
+      v-else
+      v-for="(song, id) in fetchedData"
+      :key="id"
+      :song="song"
+    />
   </div>
 </template>
 
 <script>
 import SongResult from "@/components/SongResult";
+import Animation from "@/components/Animation";
 
 export default {
   name: "SongList",
   components: {
-    SongResult
+    SongResult,
+    Animation
   },
   props: {
     query: {
@@ -19,7 +27,7 @@ export default {
   },
   data: () => {
     return {
-      searchUrl: "http://localhost:5000/v2/search?q=",
+      searchUrl: "http://localhost:5000/v2/search",
       isLoading: true,
       fetchedData: null
     };
@@ -29,24 +37,42 @@ export default {
       /**
        * Search the song using the API and accordingly show the search results.
        */
-      const response = await fetch(`${this.searchUrl}${this.query}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
+      if (!this.query) return;
+
+      const response = await fetch(
+        `${this.searchUrl}?${new URLSearchParams({
+          q: this.query
+        }).toString()}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      });
+      );
       const jsonData = await response.json();
 
       this.fetchedData = jsonData;
+      this.isLoading = false;
     }
   },
   computed: {
     getFetchedData() {
       return this.fetchedData;
+    },
+    getIsLoading() {
+      return this.isLoading;
     }
   },
   mounted() {
     this.searchSong();
+  },
+  watch: {
+    query: {
+      handler() {
+        this.searchSong();
+      }
+    }
   }
 };
 </script>
