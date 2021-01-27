@@ -1,7 +1,7 @@
 <template>
   <div class="details__container">
     <div
-      class="details--content md:w-5/6 w-6/6 px-4 md:px-0 mr-auto ml-auto mt-24 md:mb-16 py-4 md:block flex justify-between"
+      class="details--content md:w-5/6 w-6/6 px-4 md:px-0 mr-auto ml-auto md:mt-28 mt-24 md:mb-16 py-4 md:block flex justify-between"
     >
       <div
         class="icon--content md:w-4/6 w-1/6 md:mr-auto md:ml-auto py-6 md:flex block justify-center items-center"
