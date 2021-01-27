@@ -1,7 +1,9 @@
 <template>
   <div class="setting--each__container">
-    <div class="setting--each py-4 my-2 flex justify-between items-center">
-      <div class="setting--text w-1/2">
+    <div
+      class="setting--each py-4 md:my-2 mt-6 md:flex md:justify-between md:items-center block"
+    >
+      <div class="setting--text md:w-1/2 w-full">
         <h2 class="text-2xl font-medium text-gray-700 dark:text-gray-400">
           {{ getSettingName }}
         </h2>
@@ -9,7 +11,7 @@
           {{ getSettingDesc }}
         </div>
       </div>
-      <div class="setting--handler w-2/5 flex">
+      <div class="setting--handler md:w-2/5 w-full md:mt-0 mt-6 flex">
         <button
           type="button"
           v-for="(option, id) in getSettingOptions"
