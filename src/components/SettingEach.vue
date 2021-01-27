@@ -1,7 +1,7 @@
 <template>
   <div class="setting--each__container">
     <div class="setting--each py-4 my-2 flex justify-between items-center">
-      <div class="setting--text w-2/4">
+      <div class="setting--text w-1/2">
         <h2 class="text-2xl font-medium text-gray-700 dark:text-gray-400">
           {{ getSettingName }}
         </h2>
@@ -9,13 +9,13 @@
           {{ getSettingDesc }}
         </div>
       </div>
-      <div class="setting--handler">
+      <div class="setting--handler w-2/5 flex">
         <button
           type="button"
           v-for="(option, id) in getSettingOptions"
           :key="id"
           @click="emitValueChange(option)"
-          class="px-4 py-2 rounded-md font-semibold text-gray-600"
+          class="px-4 py-2 rounded-md font-semibold text-gray-600 w-1/5"
         >
           {{ option }}
         </button>
@@ -75,6 +75,7 @@ export default {
   .setting--handler {
     button {
       background: $yellow;
+      flex-basis: 100%;
 
       @apply mr-2;
 
