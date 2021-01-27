@@ -39,6 +39,8 @@ export default {
        */
       if (!this.query) return;
 
+      this.isLoading = true;
+
       const response = await fetch(
         `${this.searchUrl}?${new URLSearchParams({
           q: this.query
