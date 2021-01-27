@@ -60,15 +60,24 @@ export default {
       /**
        * Save the theme in the localStorage so it can be used later.
        */
-      localStorage.setItem("theme", theme);
+      var savedSettings = localStorage.getItem("settings");
+
+      if (savedSettings == null) this.saveSettings();
+
+      savedSettings = JSON.parse(savedSettings);
+      savedSettings["theme"] = theme;
+      localStorage.setItem("settings", JSON.stringify(savedSettings));
     },
     readAndApplyTheme: function() {
       /**
        * Read the saved theme from the localStorage and apply it
        * accordingly.
        */
-      const savedTheme = localStorage.getItem("theme");
-      this.handleThemeChange(savedTheme);
+      var savedSettings = JSON.parse(localStorage.getItem("settings"));
+
+      if (savedSettings == null || !("theme" in savedSettings)) return;
+
+      this.handleThemeChange(savedSettings.theme);
     },
     saveSettings: function() {
       /**
@@ -95,8 +104,8 @@ export default {
     }
   },
   mounted() {
-    this.readAndApplyTheme();
     this.saveSettings();
+    this.readAndApplyTheme();
   }
 };
 </script>
