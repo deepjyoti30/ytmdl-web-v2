@@ -16,6 +16,9 @@
           :key="id"
           @click="emitValueChange(option)"
           class="px-4 py-2 rounded-md font-semibold text-gray-600 w-1/5"
+          :class="{
+            current: getDefault == option
+          }"
         >
           {{ option }}
         </button>
@@ -60,6 +63,9 @@ export default {
     },
     getSettingDefault() {
       return this.settingDetails.default;
+    },
+    getDefault() {
+      return this.settingDetails.default;
     }
   }
 };
@@ -74,13 +80,23 @@ export default {
   }
   .setting--handler {
     button {
-      background: $yellow;
+      background: lighten($darkgreen, 45);
       flex-basis: 100%;
+      transition: 150ms ease;
 
-      @apply mr-2;
+      @apply mr-4;
 
       &:last-child {
         @apply mr-0;
+      }
+
+      &:hover {
+        background: lighten($darkgreen, 15);
+        transition: 150ms ease;
+      }
+
+      &.current {
+        background: lighten($darkgreen, 15);
       }
     }
   }
