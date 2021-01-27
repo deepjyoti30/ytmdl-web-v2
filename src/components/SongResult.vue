@@ -5,7 +5,7 @@
         <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
       </div>
       <div class="song--details md:px-6 pl-3 md:w-4/6 w-3/4">
-        <div class="top--details flex justify-between items-center">
+        <div class="top--details">
           <h3
             class="md:text-2xl text-md font-semibold title text-gray-600 dark:text-gray-200"
           >
@@ -111,6 +111,15 @@ export default {
       .description {
         @media only screen and (max-width: $md) {
           display: none;
+        }
+      }
+
+      .top--details {
+        position: relative;
+        .verified--music {
+          position: absolute;
+          top: 0;
+          right: 0;
         }
       }
     }
