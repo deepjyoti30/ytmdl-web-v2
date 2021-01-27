@@ -92,7 +92,6 @@ export default {
         p {
           @extend .dm-sans;
 
-          @apply font-medium;
           font-size: 1em;
           line-height: 1.5em;
         }
@@ -140,8 +139,8 @@ export default {
               margin-top: 52.5px;
               transform: translateX(-12px);
             }
-            color: $teal;
-            fill: lighten($teal, 40);
+            color: lighten($orange, 15);
+            fill: lighten($orange, 15);
           }
         }
 
