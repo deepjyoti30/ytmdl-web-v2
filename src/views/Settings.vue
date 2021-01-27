@@ -5,7 +5,11 @@
         <h1 class="font-semibold text-4xl dark:text-white">Settings</h1>
       </div>
       <div class="settings--content mt-12">
-        <SettingEach />
+        <SettingEach
+          v-for="(el, id) in getSettings"
+          :key="id"
+          :settingDetails="el"
+        />
       </div>
     </div>
   </div>
@@ -13,11 +17,17 @@
 
 <script>
 import SettingEach from "@/components/SettingEach";
+import defaultSettings from "@/static/settings.js";
 
 export default {
   name: "Settings",
   components: {
     SettingEach
+  },
+  computed: {
+    getSettings() {
+      return defaultSettings;
+    }
   }
 };
 </script>
