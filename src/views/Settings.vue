@@ -42,16 +42,17 @@ export default {
        * savedSettings as the key.
        */
       this.savedSettings[changes.name] = changes.newValue;
+      this.saveSettings();
+    },
+    saveSettings: function() {
+      // Save the settings to the localStorage
+      localStorage.setItem("settings", JSON.stringify(this.savedSettings));
     }
   },
   computed: {
     getSettings() {
       return defaultSettings;
     }
-  },
-  beforeRouteLeave(to, from, next) {
-    localStorage.setItem("settings", JSON.stringify(this.savedSettings));
-    next();
   }
 };
 </script>
