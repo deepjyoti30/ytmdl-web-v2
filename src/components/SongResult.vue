@@ -1,41 +1,43 @@
 <template>
   <div class="song--result__container">
-    <div class="song--result my-4 max-w-3xl mr-auto ml-auto p-2 flex">
-      <div class="song--cover md:w-3/6 w-1/2">
-        <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
-      </div>
-      <div class="song--details md:px-6 pl-3 md:w-4/6 w-3/4">
-        <div class="top--details">
-          <h3
-            class="md:text-2xl text-md font-semibold title text-gray-600 dark:text-gray-200"
-          >
-            {{ getTitle }}
-          </h3>
-          <span
-            v-if="isVerifiedMusic"
-            class="verified--music py-1 px-2 md:rounded-sm md:w-auto md:h-auto w-8 h-8 rounded-full"
-          >
-            <font-awesome-icon
-              :icon="['fas', 'music']"
-              size="sm"
-              class="md:mr-2"
-            />
-            <span class="md:inline hidden">Verified Music</span>
-          </span>
+    <router-link :to="getRouterLinkTo"
+      ><div class="song--result my-4 max-w-3xl mr-auto ml-auto p-2 flex">
+        <div class="song--cover md:w-3/6 w-1/2">
+          <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
         </div>
-        <h5
-          class="duration md:text-lg text-sm md:mt-2 mt-1 text-gray-700 font-medium dark:text-gray-300"
-        >
-          {{ getDuration }}
-        </h5>
-        <h5 class="channel md:text-lg text-sm text-gray-500">
-          {{ getChannel }}
-        </h5>
-        <h5 class="description text-md mt-2 text-gray-500">
-          {{ getDescription }}
-        </h5>
-      </div>
-    </div>
+        <div class="song--details md:px-6 pl-3 md:w-4/6 w-3/4">
+          <div class="top--details">
+            <h3
+              class="md:text-2xl text-md font-semibold title text-gray-600 dark:text-gray-200"
+            >
+              {{ getTitle }}
+            </h3>
+            <span
+              v-if="isVerifiedMusic"
+              class="verified--music py-1 px-2 md:rounded-sm md:w-auto md:h-auto w-8 h-8 rounded-full"
+            >
+              <font-awesome-icon
+                :icon="['fas', 'music']"
+                size="sm"
+                class="md:mr-2"
+              />
+              <span class="md:inline hidden">Verified Music</span>
+            </span>
+          </div>
+          <h5
+            class="duration md:text-lg text-sm md:mt-2 mt-1 text-gray-700 font-medium dark:text-gray-300"
+          >
+            {{ getDuration }}
+          </h5>
+          <h5 class="channel md:text-lg text-sm text-gray-500">
+            {{ getChannel }}
+          </h5>
+          <h5 class="description text-md mt-2 text-gray-500">
+            {{ getDescription }}
+          </h5>
+        </div>
+      </div></router-link
+    >
   </div>
 </template>
 
@@ -80,6 +82,13 @@ export default {
     },
     getCover() {
       return this.findCover();
+    },
+    getRouterLinkTo() {
+      /**
+       * Get the router link to of the current song.
+       */
+      const videoId = this.song.id;
+      return `/metadata?videoId=${videoId}`;
     }
   }
 };
