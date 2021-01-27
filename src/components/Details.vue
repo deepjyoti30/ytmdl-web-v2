@@ -137,7 +137,7 @@ export default {
             }
 
             @media only screen and (max-width: $md) {
-              margin-top: 35px;
+              margin-top: 52.5px;
               transform: translateX(-12px);
             }
             color: $teal;
@@ -148,7 +148,7 @@ export default {
         @media only screen and (max-width: $md) {
           @apply mr-auto ml-auto my-6;
 
-          height: 100px;
+          height: 140px;
           width: 2px;
         }
       }
