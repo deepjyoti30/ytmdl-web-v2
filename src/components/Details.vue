@@ -132,8 +132,14 @@ export default {
 
         .line--icon {
           .icon {
-            @extend .transform-up;
+            @media only screen and (min-width: $md) {
+              transform: translateY(-12px);
+            }
 
+            @media only screen and (max-width: $md) {
+              margin-top: 35px;
+              transform: translateX(-12px);
+            }
             color: $teal;
             fill: lighten($teal, 40);
           }
