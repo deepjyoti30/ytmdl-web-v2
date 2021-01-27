@@ -11,6 +11,7 @@
           v-for="(el, id) in getSettings"
           :key="id"
           :settingDetails="el"
+          @change="updateSetting"
         />
       </div>
     </div>
@@ -26,10 +27,31 @@ export default {
   components: {
     SettingEach
   },
+  data: () => {
+    return {
+      savedSettings: JSON.parse(localStorage.getItem("settings"))
+    };
+  },
+  methods: {
+    updateSetting: function(changes) {
+      /**
+       * Update the setting based on the passed values.
+       *
+       * The changes variable will be an object that will contain
+       * name and newValue. The name can be used to update the
+       * savedSettings as the key.
+       */
+      this.savedSettings[changes.name] = changes.newValue;
+    }
+  },
   computed: {
     getSettings() {
       return defaultSettings;
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    localStorage.setItem("settings", JSON.stringify(this.savedSettings));
+    next();
   }
 };
 </script>

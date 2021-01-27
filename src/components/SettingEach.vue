@@ -19,7 +19,7 @@
           @click="emitValueChange(option)"
           class="px-4 py-2 rounded-md font-semibold text-gray-600 w-1/5"
           :class="{
-            current: getDefault == option
+            current: getSettingDefault == option
           }"
         >
           {{ option }}
@@ -51,6 +51,8 @@ export default {
         name: this.settingDetails.name,
         newValue: newValue
       });
+
+      this.settingDetails.default = newValue;
     }
   },
   computed: {
@@ -64,9 +66,6 @@ export default {
       return this.settingDetails.options;
     },
     getSettingDefault() {
-      return this.settingDetails.default;
-    },
-    getDefault() {
       return this.settingDetails.default;
     }
   }
