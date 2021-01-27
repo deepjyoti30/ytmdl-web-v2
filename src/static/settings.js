@@ -24,12 +24,12 @@ const defaultSettings = [
     default: "on"
   },
   {
-    name: "theme",
-    title: "Theme",
+    name: "skip-url-input",
+    title: "Skip the step to enter URL",
     description:
-      "Theme of the app overall. This will save the theme of the app which will be saved through refresshes. There's a shorthand theme button on the navbar as well",
-    options: ["dark", "light"],
-    default: "light"
+      "If enabled, the step that asks the user if they would like to enter an YouTube URL or search would be skipped and the user will be directly taken to the search screen where they can search for a song",
+    options: ["on", "off"],
+    default: "off"
   }
 ];
 
