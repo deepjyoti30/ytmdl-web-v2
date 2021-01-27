@@ -1,19 +1,19 @@
 <template>
   <div class="search__container">
     <SearchBar class="my-8" />
-    <SongResult />
+    <SongList :query="Sundown" />
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar";
-import SongResult from "@/components/SongResult";
+import SongList from "@/components/SongList";
 
 export default {
   name: "Search",
   components: {
     SearchBar,
-    SongResult
+    SongList
   }
 };
 </script>
