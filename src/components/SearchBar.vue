@@ -46,10 +46,23 @@ export default {
     SearchIcon,
     XCircleIcon
   },
-  data: () => {
-    return {
-      songEntered: ""
-    };
+  computed: {
+    songEntered: {
+      get() {
+        return this.$route.query.query;
+      },
+      set(value) {
+        this.$router.replace({
+          query: {
+            ...this.$route.query,
+            query: value
+          }
+        });
+      }
+    },
+    getShowClearIcon() {
+      return this.songEntered.length;
+    }
   },
   methods: {
     clearInput: function() {
@@ -65,10 +78,8 @@ export default {
       this.$emit("search", this.songEntered);
     }
   },
-  computed: {
-    getShowClearIcon() {
-      return this.songEntered.length;
-    }
+  mounted() {
+    this.sendSearchRequest();
   }
 };
 </script>
