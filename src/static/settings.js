@@ -25,9 +25,9 @@ const defaultSettings = [
   },
   {
     name: "skip-url-input",
-    title: "Skip the step to enter URL",
+    title: "Skip YouTube URL prompt",
     description:
-      "If enabled, the step that asks the user if they would like to enter an YouTube URL or search would be skipped and the user will be directly taken to the search screen where they can search for a song",
+      "If enabled, the prompt that asks the user to reconfirm if they would like to continue with the entered URL is skipped and the user is directly taken to the next page",
     options: ["on", "off"],
     default: "off"
   }
