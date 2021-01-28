@@ -20,6 +20,7 @@
         autocomplete="false"
         v-model="songEntered"
         @keyup.enter="sendSearchRequest"
+        ref="searchInput"
       />
       <button
         type="button"
@@ -52,7 +53,6 @@ export default {
         var queryFromRoute = this.$route.query.query;
 
         if (!queryFromRoute) queryFromRoute = "";
-        console.log(queryFromRoute);
         return queryFromRoute;
       },
       set(value) {
@@ -80,9 +80,14 @@ export default {
       if (!this.getShowClearIcon) return;
 
       this.$emit("search", this.songEntered);
+    },
+    focusSearchBar: function() {
+      // Put focus on the search bar
+      this.$refs.searchInput.focus();
     }
   },
   mounted() {
+    this.focusSearchBar();
     this.sendSearchRequest();
   }
 };
