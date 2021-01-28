@@ -66,6 +66,16 @@ export default {
     },
     getShowClearIcon() {
       return this.songEntered.length;
+    },
+    isUrl() {
+      // Check if the entered text is an URL
+      return Boolean(this.songEntered.match(/https?:\/\//g));
+    },
+    isYoutubeUrl() {
+      // Check if the entered text is a valid YouTube URL
+      return Boolean(
+        this.songEntered.match(/https?:\/\/youtube.com\/watch\?v=.+?/g)
+      );
     }
   },
   methods: {
@@ -79,11 +89,25 @@ export default {
        */
       if (!this.getShowClearIcon) return;
 
-      this.$emit("search", this.songEntered);
+      // If the entered value is not an URL, just search for the term
+      if (!this.isUrl) this.$emit("search", this.songEntered);
+
+      // If it is an URL, it might be from YouTube
+      if (!this.isYoutubeUrl) {
+        console.log("Not an yt URL");
+        return;
+      }
+      console.log("Valid URL");
+      return;
     },
     focusSearchBar: function() {
       // Put focus on the search bar
       this.$refs.searchInput.focus();
+    },
+    checkIfUrl: function() {
+      /**
+       * Check if the entered input is an URL
+       */
     }
   },
   mounted() {
