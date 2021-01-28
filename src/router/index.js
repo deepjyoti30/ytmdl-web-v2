@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Settings from "@/views/Settings";
 import Search from "@/views/Search";
+import Metadata from "@/views/Metadata";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ const routes = [
     path: "/search",
     name: "Search",
     component: Search
+  },
+  {
+    path: "/metadata",
+    name: "Metadata",
+    component: Metadata
   }
 ];
 
