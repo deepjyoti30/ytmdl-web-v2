@@ -49,7 +49,11 @@ export default {
   computed: {
     songEntered: {
       get() {
-        return this.$route.query.query;
+        var queryFromRoute = this.$route.query.query;
+
+        if (!queryFromRoute) queryFromRoute = "";
+        console.log(queryFromRoute);
+        return queryFromRoute;
       },
       set(value) {
         this.$router.replace({
