@@ -9,12 +9,13 @@
       class="divider--line w-0 mr-auto ml-auto border border-gray-200 dark:border-gray-700 h-7"
     ></div>
     <div
-      class="search--box shadow-cust md:w-2/5 w-11/12 mb-2 mr-auto ml-auto rounded-lg"
+      class="search--box shadow-cust md:w-2/5 w-11/12 mb-3 mr-auto ml-auto rounded-lg"
+      :class="{ 'border-b-4 border-red-400': getInvalidInput }"
     >
       <SearchIcon size="1.5x" class="search-icon mt-4" />
       <input
         type="text"
-        class="w-full my-2 border py-2 pl-12 pr-12 text-xl"
+        class="w-full my-2 py-2 pl-12 pr-12 text-xl"
         placeholder="Enter name of song or YouTube URL"
         spellcheck="false"
         autocomplete="false"
@@ -47,6 +48,9 @@ export default {
     SearchIcon,
     XCircleIcon
   },
+  data: () => {
+    return { isInvalidInput: false };
+  },
   computed: {
     songEntered: {
       get() {
@@ -76,6 +80,9 @@ export default {
       return Boolean(
         this.songEntered.match(/https?:\/\/youtube.com\/watch\?v=.+?/g)
       );
+    },
+    getInvalidInput() {
+      return this.isInvalidInput;
     }
   },
   methods: {
@@ -94,11 +101,14 @@ export default {
 
       // If it is an URL, it might be from YouTube
       if (!this.isYoutubeUrl) {
-        console.log("Not an yt URL");
+        this.isInvalidInput = true;
+        setTimeout(() => {
+          this.isInvalidInput = false;
+        }, 3000);
         return;
       }
-      console.log("Valid URL");
-      return;
+
+      // TODO: Handle redirecting the user to the next page
     },
     focusSearchBar: function() {
       // Put focus on the search bar
