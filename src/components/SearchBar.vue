@@ -97,7 +97,10 @@ export default {
       if (!this.getShowClearIcon) return;
 
       // If the entered value is not an URL, just search for the term
-      if (!this.isUrl) this.$emit("search", this.songEntered);
+      if (!this.isUrl) {
+        this.$emit("search", this.songEntered);
+        return;
+      }
 
       // If it is an URL, it might be from YouTube
       if (!this.isYoutubeUrl) {
