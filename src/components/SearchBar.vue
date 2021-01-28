@@ -90,6 +90,18 @@ export default {
       // Clear the entered input
       this.songEntered = "";
     },
+    extractVideoId: function(enteredUrl) {
+      /**
+       * Extract the video ID from the passed string
+       *
+       * The youtube URL has the video ID in the string as a
+       * query. The v parameter contains the video ID.
+       */
+      const urlParams = new URLSearchParams(
+        enteredUrl.replace(/https?:\/\/youtube.com\/watch/g, "")
+      );
+      return urlParams.get("v");
+    },
     sendSearchRequest: function() {
       /**
        * Emit a search request when the enter button is clicked.
@@ -112,6 +124,10 @@ export default {
       }
 
       // TODO: Handle redirecting the user to the next page
+      const videoId = this.extractVideoId(this.songEntered);
+
+      // Use the videoId to redirect to the metadata route with that videoId.
+      this.$router.push({ path: "metadata", query: { videoId: videoId } });
     },
     focusSearchBar: function() {
       // Put focus on the search bar
