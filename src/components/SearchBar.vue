@@ -41,6 +41,7 @@
 
 <script>
 import { SearchIcon, XCircleIcon } from "vue-feather-icons";
+import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "SearchBar",
@@ -48,8 +49,12 @@ export default {
     SearchIcon,
     XCircleIcon
   },
+  mixins: [settings],
   data: () => {
-    return { isInvalidInput: false };
+    return {
+      isInvalidInput: false,
+      skipPrompt: false
+    };
   },
   computed: {
     songEntered: {
@@ -123,7 +128,6 @@ export default {
         return;
       }
 
-      // TODO: Handle redirecting the user to the next page
       const videoId = this.extractVideoId(this.songEntered);
 
       // Use the videoId to redirect to the metadata route with that videoId.
@@ -132,16 +136,14 @@ export default {
     focusSearchBar: function() {
       // Put focus on the search bar
       this.$refs.searchInput.focus();
-    },
-    checkIfUrl: function() {
-      /**
-       * Check if the entered input is an URL
-       */
     }
   },
   mounted() {
     this.focusSearchBar();
     this.sendSearchRequest();
+  },
+  created() {
+    this.skipPrompt = this.getSetting("skip-url-input", true);
   }
 };
 </script>
