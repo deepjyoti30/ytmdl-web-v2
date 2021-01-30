@@ -41,7 +41,6 @@
 
 <script>
 import { SearchIcon, XCircleIcon } from "vue-feather-icons";
-import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "SearchBar",
@@ -49,11 +48,9 @@ export default {
     SearchIcon,
     XCircleIcon
   },
-  mixins: [settings],
   data: () => {
     return {
-      isInvalidInput: false,
-      skipPrompt: false
+      isInvalidInput: false
     };
   },
   computed: {
@@ -145,9 +142,6 @@ export default {
   mounted() {
     this.focusSearchBar();
     this.sendSearchRequest();
-  },
-  created() {
-    this.skipPrompt = this.getSetting("skip-url-input", true);
   }
 };
 </script>

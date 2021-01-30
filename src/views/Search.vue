@@ -10,7 +10,11 @@
     <div v-else class="results">
       <SongList :query="getQuery" class="mt-24" />
     </div>
-    <Confirm ref="confirm" :text="getConfirmText" />
+    <Confirm
+      ref="confirm"
+      :text="getConfirmText"
+      @continue="handleYoutubeUrl"
+    />
   </div>
 </template>
 
@@ -18,6 +22,7 @@
 import SearchBar from "@/components/SearchBar";
 import SongList from "@/components/SongList";
 import Confirm from "@/components/Confirm";
+import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "Search",
@@ -26,10 +31,13 @@ export default {
     SongList,
     Confirm
   },
+  mixins: [settings],
   data: () => {
     return {
       songEntered: null,
-      videoId: null
+      videoId: null,
+      skipPrompt: false,
+      confirmText: ""
     };
   },
   methods: {
@@ -42,7 +50,7 @@ export default {
        * next page. Else show some search results.
        */
       if (!searchData.isYoutube) {
-        this.songEntered = searchData.songEntered;
+        this.songEntered = searchData.song;
         return;
       }
 
@@ -50,6 +58,14 @@ export default {
       // Check if we need to show the prompt. If we do, show the prompt,
       // rest will be handled accordingly.
       this.videoId = searchData.videoId;
+
+      if (!this.skipPrompt) {
+        this.$refs.confirm.showModal();
+        return;
+      }
+
+      // Else just forward the user to next page
+      this.handleYoutubeUrl();
     },
     handleYoutubeUrl: function() {
       /**
@@ -66,8 +82,11 @@ export default {
       return this.songEntered;
     },
     getConfirmText() {
-      return `You have entered an YouTube URL. Are you sure you want to continue with the URL ${this.songEntered}`;
+      return `You have entered an YouTube URL. Are you sure you want to continue with the URL you entered?`;
     }
+  },
+  created() {
+    this.skipPrompt = this.getSetting("skip-url-input", true);
   }
 };
 </script>
