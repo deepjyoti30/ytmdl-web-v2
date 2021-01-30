@@ -16,7 +16,7 @@
       <input
         type="text"
         class="w-full my-2 py-2 pl-12 pr-12 text-xl"
-        placeholder="Enter name of song or YouTube URL"
+        :placeholder="getPlaceholder"
         spellcheck="false"
         autocomplete="false"
         v-model="songEntered"
@@ -53,6 +53,12 @@ export default {
       isInvalidInput: false
     };
   },
+  props: {
+    hideUrlMessage: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     songEntered: {
       get() {
@@ -85,6 +91,12 @@ export default {
     },
     getInvalidInput() {
       return this.isInvalidInput;
+    },
+    getPlaceholder() {
+      var placeholder = `Enter name of song ${
+        this.hideUrlMessage ? "" : " or YouTube URL"
+      }`;
+      return placeholder;
     }
   },
   methods: {
