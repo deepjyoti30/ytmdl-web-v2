@@ -30,8 +30,8 @@
           </button>
         </header>
         <main class="modal__content" id="modal-frame-content">
-          <div id="message">
-            <h6 class="text-muted">{{ getText }}</h6>
+          <div id="message" class="my-4">
+            <h6 class="text-md font-medium text-gray-500">{{ getText }}</h6>
           </div>
           <div class="btn-container w-full mb-2 mt-8 flex text-xl">
             <button

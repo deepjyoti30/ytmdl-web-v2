@@ -10,7 +10,7 @@
     <div v-else class="results">
       <SongList :query="getQuery" class="mt-24" />
     </div>
-    <Confirm />
+    <Confirm :text="getConfirmText" />
   </div>
 </template>
 
@@ -42,6 +42,9 @@ export default {
   computed: {
     getQuery() {
       return this.songEntered;
+    },
+    getConfirmText() {
+      return `You have entered an YouTube URL. Are you sure you want to continue with the URL ${this.songEntered}`;
     }
   }
 };
