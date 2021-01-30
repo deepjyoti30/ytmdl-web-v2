@@ -115,7 +115,7 @@ export default {
 
       // If the entered value is not an URL, just search for the term
       if (!this.isUrl) {
-        this.$emit("search", this.songEntered);
+        this.$emit("search", { song: this.songEntered, isYoutube: false });
         return;
       }
 
@@ -131,7 +131,11 @@ export default {
       const videoId = this.extractVideoId(this.songEntered);
 
       // Use the videoId to redirect to the metadata route with that videoId.
-      this.$router.push({ path: "metadata", query: { videoId: videoId } });
+      this.$emit("search", {
+        song: this.songEntered,
+        isYoutube: true,
+        videoId: videoId
+      });
     },
     focusSearchBar: function() {
       // Put focus on the search bar

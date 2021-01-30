@@ -39,12 +39,14 @@
             <button
               type="button"
               class="no w-1/2 mx-2 py-1 rounded-md border-green-500 border-2 text-green-500 font-semibold"
+              @click="handleCancelClick"
             >
               Cancel
             </button>
             <button
               type="button"
               class="yes w-1/2 mx-2 rounded-md bg-green-500 text-white font-semibold"
+              @click="handleContinueClick"
             >
               I know
             </button>
@@ -90,7 +92,7 @@ export default {
     }
   },
   methods: {
-    showModal() {
+    showModal: function() {
       /**
        * Show the modal
        */
@@ -105,10 +107,31 @@ export default {
        * Close the modal when the close button is clicked
        */
       MicroModal.close("modal-frame");
+    },
+    handleCancelClick: function() {
+      /**
+       * Handle the click on the cancel button.
+       *
+       * When the cancel button is clicked, we need to
+       * hide the modal and emit that the cancel button
+       * was clicked.
+       */
+      this.$emit("cancel");
+
+      this.closeModal();
+    },
+    handleContinueClick: function() {
+      /**
+       * Handle the click on the continue button.
+       *
+       * When the continue button is clicked, we need
+       * to hide the modal and emit a change that the
+       * continue button was clicked.
+       */
+      this.$emit("continue");
+
+      this.closeModal();
     }
-  },
-  mounted() {
-    this.showModal();
   }
 };
 </script>

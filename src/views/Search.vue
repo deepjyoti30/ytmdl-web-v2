@@ -10,7 +10,7 @@
     <div v-else class="results">
       <SongList :query="getQuery" class="mt-24" />
     </div>
-    <Confirm :text="getConfirmText" />
+    <Confirm ref="confirm" :text="getConfirmText" />
   </div>
 </template>
 
@@ -28,15 +28,37 @@ export default {
   },
   data: () => {
     return {
-      songEntered: null
+      songEntered: null,
+      videoId: null
     };
   },
   methods: {
-    handleSearch: function(searchTerm) {
+    handleSearch: function(searchData) {
       /**
        * Handle the search based on the query entered by the user.
+       *
+       * We need to check if the search term is an youtube URL or not.
+       * If it is an YouTube URL, accordingly forward the user to the
+       * next page. Else show some search results.
        */
-      this.songEntered = searchTerm;
+      if (!searchData.isYoutube) {
+        this.songEntered = searchData.songEntered;
+        return;
+      }
+
+      // Else it is an YouTube URL.
+      // Check if we need to show the prompt. If we do, show the prompt,
+      // rest will be handled accordingly.
+      this.videoId = searchData.videoId;
+    },
+    handleYoutubeUrl: function() {
+      /**
+       * Handle forwarding the user based on the Youtube URL entered by the
+       * user.
+       *
+       * We need to use the videoId to forward the user to the metadata page.
+       */
+      this.$router.push({ path: "metadata", query: { videoId: this.videoId } });
     }
   },
   computed: {
