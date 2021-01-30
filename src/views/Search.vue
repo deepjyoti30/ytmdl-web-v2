@@ -10,18 +10,21 @@
     <div v-else class="results">
       <SongList :query="getQuery" class="mt-24" />
     </div>
+    <Confirm />
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar";
 import SongList from "@/components/SongList";
+import Confirm from "@/components/Confirm";
 
 export default {
   name: "Search",
   components: {
     SearchBar,
-    SongList
+    SongList,
+    Confirm
   },
   data: () => {
     return {
