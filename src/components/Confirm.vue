@@ -4,21 +4,26 @@
     id="modal-frame"
     aria-hidden="true"
   >
-    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__overlay border" tabindex="-1" data-micromodal-close>
       <div
-        class="modal__container"
+        class="modal__container md:w-2/6 w-11/12"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-frame-title"
       >
         <header class="modal__header">
-          <h3 id="modal-frame-title">
+          <h3
+            id="modal-frame-title"
+            class="md:text-2xl text-lg font-medium text-gray-600"
+          >
             {{ getHeading }}
           </h3>
           <button
+            v-if="showCancelButton"
             id="close-btn"
-            class="modal__close"
+            class="modal__close strip-button"
             aria-label="Close modal"
+            @click="closeModal"
             data-micromodal-close
           >
             <XIcon></XIcon>
@@ -26,11 +31,21 @@
         </header>
         <main class="modal__content" id="modal-frame-content">
           <div id="message">
-            <h6 class="mt-4 text-muted">{{ getText }}</h6>
+            <h6 class="text-muted">{{ getText }}</h6>
           </div>
-          <div class="btn-container w-full my-8">
-            <button type="button" class="no">Cancel</button>
-            <button type="button" class="yes">I know</button>
+          <div class="btn-container w-full mb-2 mt-8 flex text-xl">
+            <button
+              type="button"
+              class="no w-1/2 mx-1 py-2 rounded-md border-green-500 border-2 text-green-500 font-semibold"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="yes w-1/2 mx-1 rounded-md bg-green-500 text-white font-semibold"
+            >
+              I know
+            </button>
           </div>
         </main>
       </div>
@@ -50,11 +65,15 @@ export default {
   props: {
     heading: {
       type: String,
-      default: "Are you sure you want to"
+      default: "Are you sure you want to continue?"
     },
     text: {
       type: String,
       default: ""
+    },
+    crossBtn: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -63,6 +82,9 @@ export default {
     },
     getText() {
       return this.text;
+    },
+    showCancelButton() {
+      return this.crossBtn;
     }
   },
   methods: {
@@ -76,16 +98,11 @@ export default {
         awaitOpenAnimation: true
       });
     },
-    listenClose() {
+    closeModal: function() {
       /**
-       * Listen to the close button
-       *
-       * This is required since I am overriding the default
-       * style and replace the arrow with a custom icon.
+       * Close the modal when the close button is clicked
        */
-      document.getElementById("close-btn").addEventListener("click", () => {
-        MicroModal.close("modal-frame");
-      });
+      MicroModal.close("modal-frame");
     }
   },
   mounted() {
