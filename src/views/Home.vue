@@ -54,7 +54,7 @@ export default {
   .start-btn-content {
     .start--btn {
       @extend .dm-sans;
-      $color: $lightgreen;
+      $color: lighten($mediumblue, 5);
 
       background: $color;
       color: white;
