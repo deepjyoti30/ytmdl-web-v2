@@ -86,7 +86,7 @@ export default {
         @apply max-w-xs;
 
         h3 {
-          color: darken($teal, 15);
+          color: $mediumblue;
         }
 
         p {
@@ -139,8 +139,9 @@ export default {
               margin-top: 52.5px;
               transform: translateX(-12px);
             }
-            color: lighten($orange, 15);
-            fill: lighten($orange, 15);
+            $iconcolor: $mediumblue;
+            color: $iconcolor;
+            fill: $iconcolor;
           }
         }
 

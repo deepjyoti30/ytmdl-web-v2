@@ -38,10 +38,10 @@ export default {
 .home__container {
   .top__container {
     h1 {
-      color: $lightgreen;
+      color: $darkblue;
 
       .highlight {
-        border-bottom: 5px solid $yellow;
+        border-bottom: 5px solid $lightblue;
         transform: translateZ(5px);
       }
     }
