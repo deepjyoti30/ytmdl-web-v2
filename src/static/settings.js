@@ -8,12 +8,12 @@ const defaultSettings = [
     default: "mp3"
   },
   {
-    name: "click-search",
-    title: "Click on result to continue",
+    name: "auto-search-meta",
+    title: "Auto search for metadata",
     description:
-      "If enabled, clicking on the search result will mean continue. This makes the flow getting the song ready easier since it removes some extra clicks that the user might have had to do.",
+      "If enabled, the metadata will be automatically searched using the query entered in the search page. This only works if the metadata page gets the query passed to it.",
     options: ["on", "off"],
-    default: "off"
+    default: "on"
   },
   {
     name: "ask-format-each",

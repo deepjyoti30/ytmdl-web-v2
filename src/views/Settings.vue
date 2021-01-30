@@ -34,6 +34,22 @@ export default {
     };
   },
   methods: {
+    addNewSettings: function() {
+      /**
+       * Check if any setting in the default settings is not added in the
+       * saved settings. If there is any then add it to the saved settings.
+       */
+      // Check if the keys in the saved settings is one more than the one in
+      // the settings file. If so, then nothing is changed.
+      if (
+        this.savedSettings.keys.length - 1 ==
+        this.defaultSettings.keys.length
+      )
+        return;
+
+      // TODO: Update the keys that are not present in the saved settings.
+      // Probably find the changes by subtracting the sets?!
+    },
     updateSetting: function(changes) {
       /**
        * Update the setting based on the passed values.
