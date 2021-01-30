@@ -13,6 +13,7 @@
     <Confirm
       ref="confirm"
       :text="getConfirmText"
+      continueText="Yess!"
       @continue="handleYoutubeUrl"
     />
   </div>

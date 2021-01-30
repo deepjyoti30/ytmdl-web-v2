@@ -48,7 +48,7 @@
               class="yes w-1/2 mx-2 rounded-md bg-green-500 text-white font-semibold"
               @click="handleContinueClick"
             >
-              I know
+              {{ getContinueText }}
             </button>
           </div>
         </main>
@@ -78,6 +78,10 @@ export default {
     crossBtn: {
       type: Boolean,
       default: false
+    },
+    continueText: {
+      type: String,
+      default: "I know"
     }
   },
   computed: {
@@ -89,6 +93,9 @@ export default {
     },
     showCancelButton() {
       return this.crossBtn;
+    },
+    getContinueText() {
+      return this.continueText;
     }
   },
   methods: {
