@@ -125,6 +125,7 @@ export default {
       // If the entered value is not an URL, just search for the term
       if (!this.isUrl) {
         this.$emit("search", { song: this.songEntered, isYoutube: false });
+        this.unfocuSearchBar();
         return;
       }
 
@@ -145,10 +146,15 @@ export default {
         isYoutube: true,
         videoId: videoId
       });
+      this.unfocuSearchBar();
     },
     focusSearchBar: function() {
       // Put focus on the search bar
       this.$refs.searchInput.focus();
+    },
+    unfocuSearchBar: function() {
+      // Unfocus the search bar so that the keyboard is hidden.
+      this.$refs.searchInput.blur();
     }
   },
   mounted() {

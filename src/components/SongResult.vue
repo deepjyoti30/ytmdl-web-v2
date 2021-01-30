@@ -1,7 +1,9 @@
 <template>
   <div class="song--result__container">
     <router-link :to="getRouterLinkTo"
-      ><div class="song--result my-4 max-w-3xl mr-auto ml-auto p-2 flex">
+      ><div
+        class="song--result md:my-4 my-3 max-w-3xl mr-auto ml-auto p-2 flex"
+      >
         <div class="song--cover w-1/2">
           <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
         </div>
@@ -108,6 +110,10 @@ export default {
       img {
         @media only screen and (min-width: $md) {
           min-width: 20rem;
+        }
+
+        @media only screen and (max-width: $md) {
+          min-height: 100%;
         }
       }
     }

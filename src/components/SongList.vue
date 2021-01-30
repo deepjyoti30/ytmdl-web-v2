@@ -28,7 +28,7 @@ export default {
   },
   data: () => {
     return {
-      searchUrl: "http://localhost:5000/v2/search",
+      searchUrl: "http://192.168.0.107:5000/v2/search",
       isLoading: true,
       fetchedData: null
     };
