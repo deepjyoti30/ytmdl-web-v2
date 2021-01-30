@@ -126,8 +126,8 @@ export default {
 
         flex-grow: 1;
         height: 2px;
-        border: 1px solid $yellow;
-        background: $yellow;
+        border: 1px solid $lightblue;
+        background: $lightblue;
 
         .line--icon {
           .icon {
@@ -139,9 +139,9 @@ export default {
               margin-top: 52.5px;
               transform: translateX(-12px);
             }
-            $iconcolor: $mediumblue;
-            color: $iconcolor;
-            fill: $iconcolor;
+
+            color: $mediumblue;
+            fill: white;
           }
         }
 

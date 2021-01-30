@@ -69,4 +69,32 @@
             }
         }
     }
+
+    // Home page
+    .home__container {
+        .top__container {
+            h1 {
+                color: $lightcyan !important;
+            }
+        }
+    }
+
+    .details__container {
+        .details--content {
+            .text--content {
+                .details--each {
+                    h3 {
+                        color: $lightblue !important;
+                    }
+                }
+            }
+
+            .line--icon {
+                .icon {
+                    color: $lightgreen !important;
+                    fill: $lightgreen !important;
+                }
+            }
+        }
+    }
 }
