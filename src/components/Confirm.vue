@@ -31,18 +31,20 @@
         </header>
         <main class="modal__content" id="modal-frame-content">
           <div id="message" class="my-4">
-            <h6 class="text-md font-medium text-gray-500">{{ getText }}</h6>
+            <h6 class="md:text-base text-sm font-medium text-gray-500">
+              {{ getText }}
+            </h6>
           </div>
           <div class="btn-container w-full mb-2 mt-8 flex text-xl">
             <button
               type="button"
-              class="no w-1/2 mx-1 py-2 rounded-md border-green-500 border-2 text-green-500 font-semibold"
+              class="no w-1/2 mx-2 py-1 rounded-md border-green-500 border-2 text-green-500 font-semibold"
             >
               Cancel
             </button>
             <button
               type="button"
-              class="yes w-1/2 mx-1 rounded-md bg-green-500 text-white font-semibold"
+              class="yes w-1/2 mx-2 rounded-md bg-green-500 text-white font-semibold"
             >
               I know
             </button>
@@ -111,4 +113,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.yes {
+  @extend .strip-button;
+}
+
+.no {
+  outline: none;
+
+  &:hover,
+  &:active {
+    outline: none;
+  }
+}
+</style>
