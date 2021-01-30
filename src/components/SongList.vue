@@ -6,6 +6,7 @@
       v-for="(song, id) in fetchedData"
       :key="id"
       :song="song"
+      :query="getQuery"
     />
   </div>
 </template>
@@ -64,6 +65,9 @@ export default {
     },
     getIsLoading() {
       return this.isLoading;
+    },
+    getQuery() {
+      return this.query;
     }
   },
   mounted() {

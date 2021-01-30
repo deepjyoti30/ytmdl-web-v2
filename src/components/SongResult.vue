@@ -47,6 +47,10 @@ export default {
   props: {
     song: {
       type: Object
+    },
+    query: {
+      type: String,
+      default: ""
     }
   },
   methods: {
@@ -88,7 +92,10 @@ export default {
        * Get the router link to of the current song.
        */
       const videoId = this.song.id;
-      return `/metadata?videoId=${videoId}`;
+      return `/metadata?${new URLSearchParams({
+        videoId: videoId,
+        query: this.query
+      }).toString()}`;
     }
   }
 };
