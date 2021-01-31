@@ -30,25 +30,21 @@ export default {
   },
   data: () => {
     return {
-      savedSettings: JSON.parse(localStorage.getItem("settings"))
+      savedSettings: null,
+      settingsChanged: false
     };
   },
   methods: {
     addNewSettings: function() {
       /**
-       * Check if any setting in the default settings is not added in the
-       * saved settings. If there is any then add it to the saved settings.
+       * Once the component is mounted, the saved settings object
+       * is updated since each setting is being fetched.
+       *
+       * We just need to save it to the localStorage once.
        */
-      // Check if the keys in the saved settings is one more than the one in
-      // the settings file. If so, then nothing is changed.
-      if (
-        this.savedSettings.keys.length - 1 ==
-        this.defaultSettings.keys.length
-      )
-        return;
+      if (!this.settingsChanged) return;
 
-      // TODO: Update the keys that are not present in the saved settings.
-      // Probably find the changes by subtracting the sets?!
+      localStorage.setItem("settings", JSON.stringify(this.savedSettings));
     },
     updateSetting: function(changes) {
       /**
@@ -71,17 +67,38 @@ export default {
        * is present in the savedSettings, if it is not present, we need to
        * add it to that and return the default value.
        */
+      if (!this.savedSettings) return null;
+
       if (!(el.name in this.savedSettings)) {
         this.savedSettings[el.name] = el.default;
+
+        // Update the settingsChanged value so the settings are
+        // updated
+        if (!this.settingsChanged) this.settingsChanged = true;
       }
 
       return this.savedSettings[el.name];
+    },
+    readSettings: function() {
+      /**
+       * Read the settings from the localStorage.
+       *
+       * If the setting read is null, try to read it again in 2 seconds.
+       */
+      const readSettings = JSON.parse(localStorage.getItem("settings"));
+
+      if (!readSettings) setTimeout(this.readSettings, 200);
+      else this.savedSettings = readSettings;
     }
   },
   computed: {
     getSettings() {
       return defaultSettings;
     }
+  },
+  mounted() {
+    this.readSettings();
+    this.addNewSettings();
   }
 };
 </script>
