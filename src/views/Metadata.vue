@@ -1,7 +1,7 @@
 <template>
   <div class="metadata__container">
     <SearchBar class="my-8" @search="handleMetaSearch" hideUrlMessage />
-    <MetaList />
+    <MetaList :query="getSongEntered" />
   </div>
 </template>
 
@@ -36,14 +36,17 @@ export default {
           }
         });
       }
+    },
+    getSongEntered() {
+      return this.songEntered;
     }
   },
   methods: {
-    handleMetaSearch: function(searchTerm) {
+    handleMetaSearch: function(searchObject) {
       /**
        * Handle the search term entered by the user.
        */
-      this.songEntered = searchTerm;
+      this.songEntered = searchObject.song;
     }
   },
   created() {

@@ -1,6 +1,6 @@
 <template>
   <div class="meta-list__container">
-    <MetaResult />
+    <MetaResult v-for="(meta, id) in getMetaResults" :key="id" :meta="meta" />
   </div>
 </template>
 
@@ -11,6 +11,13 @@ export default {
   name: "MetaList",
   components: {
     MetaResult
+  },
+  data() {
+    return {
+      metaUrl: "http://192.168.0.107:5000/v2/metadata",
+      fetchedData: null,
+      isLoading: false
+    };
   },
   props: {
     query: {
@@ -25,10 +32,35 @@ export default {
        * If the query is null, don't do anything.
        */
       if (!this.query) return;
+
+      this.isLoading = true;
+      const response = await fetch(
+        `${this.metaUrl}?${new URLSearchParams({
+          q: this.query
+        }).toString()}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      const jsonData = await response.json();
+
+      this.fetchedData = jsonData;
+      this.isLoading = false;
     }
   },
   mounted() {
     this.searchMetadata();
+  },
+  computed: {
+    getMetaResults() {
+      return this.fetchedData;
+    },
+    getIsLoading() {
+      return this.isLoading;
+    }
   },
   watch: {
     query: {
