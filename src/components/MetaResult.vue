@@ -17,8 +17,10 @@
         >
           Sundown
         </h3>
-        <h4 class="artist mt-3 text-xl text-gray-600">Gordon Lightfoot</h4>
-        <h5 class="duration text-gray-700">3:34</h5>
+        <h4 class="artist mt-3 text-xl text-gray-600 dark:text-gray-400">
+          Gordon Lightfoot
+        </h4>
+        <h5 class="duration text-gray-700 dark:text-gray-400">3:34</h5>
         <h5 class="album mt-3 text-md text-gray-500">Gord's Gold</h5>
         <h5 class="release text-md text-gray-500">17 Sept, 2020</h5>
       </div>
