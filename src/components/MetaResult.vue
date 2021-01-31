@@ -42,13 +42,21 @@ export default {
       return this.meta.album;
     },
     getDuration() {
+      // TODO: Convert the duration to minutes and seconds
       return this.meta.time;
     },
     getRelease() {
-      return this.meta.release_date;
+      console.log(typeof this.meta.release_date);
+      var release = this.meta.release_date;
+      if (release.includes("T")) release = release.split("T")[0];
+
+      // Now convert the date to look more readable
+      return new Date(release).toLocaleString("en-US", { dateStyle: "medium" });
     },
     getCover() {
-      return this.meta.cover;
+      // Check if the URL has something like 100x100, if it does, replace it with 480x480
+      var coverUrl = this.meta.cover;
+      return coverUrl.replace("100x100", "480x480");
     }
   }
 };
