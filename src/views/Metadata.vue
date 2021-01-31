@@ -1,16 +1,19 @@
 <template>
   <div class="metadata__container">
     <SearchBar class="my-8" @search="handleMetaSearch" hideUrlMessage />
+    <MetaList />
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar";
+import MetaList from "@/components/MetaList";
 
 export default {
   name: "Metadata",
   components: {
-    SearchBar
+    SearchBar,
+    MetaList
   },
   data() {
     return {
