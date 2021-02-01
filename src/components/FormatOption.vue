@@ -13,7 +13,10 @@
           {{ getDesc }}
         </p>
       </div>
-      <div v-if="getRecommended" class="recommended--icon border uppercase">
+      <div
+        v-if="getRecommended"
+        class="recommended--icon uppercase py-0 px-2 font-semibold rounded-lg"
+      >
         recommended
       </div>
     </div>
@@ -60,6 +63,8 @@ export default {
       position: absolute;
       right: 10px;
       top: -10px;
+      background: $yellow;
+      color: $brown;
     }
   }
 }
