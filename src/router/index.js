@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Settings from "@/views/Settings";
 import Search from "@/views/Search";
 import Metadata from "@/views/Metadata";
+import Format from "@/views/Format";
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,11 @@ const routes = [
     path: "/metadata",
     name: "Metadata",
     component: Metadata
+  },
+  {
+    path: "/format",
+    name: "Format",
+    component: Format
   }
 ];
 
