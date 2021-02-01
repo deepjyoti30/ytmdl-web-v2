@@ -15,7 +15,7 @@
       </div>
       <div
         v-if="getRecommended"
-        class="recommended--icon uppercase py-0 px-2 font-semibold rounded-lg"
+        class="recommended--icon uppercase py-0 px-3 font-semibold rounded-xl"
       >
         recommended
       </div>
