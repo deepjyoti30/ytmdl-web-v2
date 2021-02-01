@@ -1,7 +1,7 @@
 <template>
   <div class="format--option__container">
     <div
-      class="format--option p-8 my-8 rounded-md max-w-2xl flex items-center md:justify-start justify-between"
+      class="format--option p-8 my-8 rounded-md max-w-3xl flex items-center md:justify-start justify-between"
     >
       <div class="format--name md:w-1/4 w-1/2">
         <h3 class="md:text-4xl text-2xl font-semibold uppercase">
@@ -58,6 +58,7 @@ export default {
     background: $lightcyan;
     color: $mediumblue;
     position: relative;
+    cursor: pointer;
 
     .recommended--icon {
       position: absolute;

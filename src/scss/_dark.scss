@@ -97,4 +97,12 @@
             }
         }
     }
+
+    // Format
+    .format--option__container {
+        .format--option {
+            background: $darkblue !important;
+            color: $lightcyan !important;
+        }
+    }
 }
