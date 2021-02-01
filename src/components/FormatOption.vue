@@ -13,6 +13,9 @@
           {{ getDesc }}
         </p>
       </div>
+      <div v-if="getRecommended" class="recommended--icon border uppercase">
+        recommended
+      </div>
     </div>
   </div>
 </template>
@@ -26,6 +29,10 @@ export default {
     },
     description: {
       type: String
+    },
+    recommended: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -34,6 +41,9 @@ export default {
     },
     getDesc() {
       return this.description;
+    },
+    getRecommended() {
+      return this.recommended;
     }
   }
 };
@@ -44,6 +54,13 @@ export default {
   .format--option {
     background: $lightcyan;
     color: $mediumblue;
+    position: relative;
+
+    .recommended--icon {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+    }
   }
 }
 </style>

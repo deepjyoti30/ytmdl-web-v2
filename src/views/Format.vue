@@ -13,6 +13,7 @@
           :key="id"
           :name="option.name"
           :description="option.description"
+          :recommended="'recommended' in option && option.recommended"
         />
       </div>
     </div>
@@ -30,7 +31,11 @@ export default {
   data() {
     return {
       formatOptions: [
-        { name: "m4a", description: "Aims to overtake mp3, newer format" },
+        {
+          name: "m4a",
+          description: "Aims to overtake mp3, newer format",
+          recommended: true
+        },
         {
           name: "mp3",
           description: "Older format but known by almost everyone"
