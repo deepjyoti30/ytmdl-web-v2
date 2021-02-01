@@ -30,6 +30,14 @@ const defaultSettings = [
       "If enabled, the prompt that asks the user to reconfirm if they would like to continue with the entered URL is skipped and the user is directly taken to the next page",
     options: ["on", "off"],
     default: "off"
+  },
+  {
+    name: "format-confirm",
+    title: "Show the format confirm each time",
+    description:
+      "Ask the user each time if they'd like to make the selected format the default one and skip the format page from the next time",
+    options: ["on", "off"],
+    default: "on"
   }
 ];
 
