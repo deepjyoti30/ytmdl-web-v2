@@ -58,7 +58,8 @@ export default {
             "Opus is mostly used for storage and streaming applications"
         }
       ],
-      selectedFormat: ""
+      selectedFormat: "",
+      showConfirm: true
     };
   },
   methods: {
@@ -68,8 +69,11 @@ export default {
        */
       this.selectedFormat = formatName;
 
-      // Ask the user if they would like to make it the default setting.
-      this.$refs.confirm.showModal();
+      if (this.showConfirm) {
+        // Ask the user if they would like to make it the default setting.
+        this.$refs.confirm.showModal();
+        return;
+      }
     },
     handleContinue: function() {
       /**
@@ -94,6 +98,9 @@ export default {
     getConfirmDescription() {
       return `If you make ${this.selectedFormat} default, you will not be asked to select a format from the next time. You can change this behaviour from the settings menu.`;
     }
+  },
+  created() {
+    this.showConfirm = this.getSetting("format-confirm", true);
   }
 };
 </script>
