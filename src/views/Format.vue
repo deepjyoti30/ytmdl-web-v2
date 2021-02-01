@@ -23,6 +23,7 @@
       :heading="getConfirmTitle"
       :text="getConfirmDescription"
       continueText="OK!"
+      @continue="handleContinue"
     />
   </div>
 </template>
@@ -30,6 +31,7 @@
 <script>
 import FormatOption from "@/components/FormatOption";
 import Confirm from "@/components/Confirm";
+import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "Format",
@@ -37,6 +39,7 @@ export default {
     FormatOption,
     Confirm
   },
+  mixins: [settings],
   data() {
     return {
       formatOptions: [
@@ -54,7 +57,8 @@ export default {
           description:
             "Opus is mostly used for storage and streaming applications"
         }
-      ]
+      ],
+      selectedFormat: ""
     };
   },
   methods: {
@@ -62,10 +66,22 @@ export default {
       /**
        * Handle the click on one of the formats
        */
-      console.log(formatName);
+      this.selectedFormat = formatName;
 
       // Ask the user if they would like to make it the default setting.
       this.$refs.confirm.showModal();
+    },
+    handleContinue: function() {
+      /**
+       * Handle the click on continue in the confirmation.
+       *
+       * This means we need to set the setting to the current format
+       * and make the format skipping option true;
+       */
+      this.setSetting("format", this.selectedFormat);
+      this.setSetting("ask-format-each", false, true);
+
+      console.log("Done");
     }
   },
   computed: {
@@ -76,7 +92,7 @@ export default {
       return "Would you like to make it default?";
     },
     getConfirmDescription() {
-      return "If you make it default, you will not be asked to select a format from the next time. You can change this behaviour from the settings menu.";
+      return `If you make ${this.selectedFormat} default, you will not be asked to select a format from the next time. You can change this behaviour from the settings menu.`;
     }
   }
 };
