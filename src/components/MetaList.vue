@@ -1,16 +1,24 @@
 <template>
   <div class="meta-list__container">
-    <MetaResult v-for="(meta, id) in getMetaResults" :key="id" :meta="meta" />
+    <Animation v-if="getIsLoading" />
+    <MetaResult
+      v-else
+      v-for="(meta, id) in getMetaResults"
+      :key="id"
+      :meta="meta"
+    />
   </div>
 </template>
 
 <script>
 import MetaResult from "@/components/MetaResult";
+import Animation from "@/components/Animation";
 
 export default {
   name: "MetaList",
   components: {
-    MetaResult
+    MetaResult,
+    Animation
   },
   data() {
     return {

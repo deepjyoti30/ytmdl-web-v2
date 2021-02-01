@@ -46,7 +46,6 @@ export default {
       return this.meta.time;
     },
     getRelease() {
-      console.log(typeof this.meta.release_date);
       var release = this.meta.release_date;
       if (release.includes("T")) release = release.split("T")[0];
 
