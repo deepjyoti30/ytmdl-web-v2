@@ -14,19 +14,28 @@
           :name="option.name"
           :description="option.description"
           :recommended="'recommended' in option && option.recommended"
+          @click.native="handleClick(option.name)"
         />
       </div>
     </div>
+    <Confirm
+      ref="confirm"
+      :heading="getConfirmTitle"
+      :text="getConfirmDescription"
+      continueText="OK!"
+    />
   </div>
 </template>
 
 <script>
 import FormatOption from "@/components/FormatOption";
+import Confirm from "@/components/Confirm";
 
 export default {
   name: "Format",
   components: {
-    FormatOption
+    FormatOption,
+    Confirm
   },
   data() {
     return {
@@ -48,9 +57,26 @@ export default {
       ]
     };
   },
+  methods: {
+    handleClick: function(formatName) {
+      /**
+       * Handle the click on one of the formats
+       */
+      console.log(formatName);
+
+      // Ask the user if they would like to make it the default setting.
+      this.$refs.confirm.showModal();
+    }
+  },
   computed: {
     getOptions() {
       return this.formatOptions;
+    },
+    getConfirmTitle() {
+      return "Would you like to make it default?";
+    },
+    getConfirmDescription() {
+      return "If you make it default, you will not be asked to select a format from the next time. You can change this behaviour from the settings menu.";
     }
   }
 };
