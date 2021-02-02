@@ -31,6 +31,13 @@ export default {
       type: Object
     }
   },
+  methods: {
+    millisToMinutesAndSeconds: function(millis) {
+      var minutes = Math.floor(millis / 60000);
+      var seconds = ((millis % 60000) / 1000).toFixed(0);
+      return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
+  },
   computed: {
     getTitle() {
       return this.meta.name;
@@ -42,8 +49,7 @@ export default {
       return this.meta.album;
     },
     getDuration() {
-      // TODO: Convert the duration to minutes and seconds
-      return this.meta.time;
+      return this.millisToMinutesAndSeconds(this.meta.time);
     },
     getRelease() {
       var release = this.meta.release_date;
