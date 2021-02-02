@@ -24,6 +24,7 @@
       :text="getConfirmDescription"
       continueText="OK!"
       @continue="handleContinue"
+      @cancel="handleNextPage"
     />
   </div>
 </template>
@@ -40,6 +41,11 @@ export default {
     Confirm
   },
   mixins: [settings],
+  props: {
+    metaDetails: {
+      type: Object
+    }
+  },
   data() {
     return {
       formatOptions: [
@@ -66,14 +72,21 @@ export default {
     handleClick: function(formatName) {
       /**
        * Handle the click on one of the formats
+       *
+       * One thing to note here is that the format that the user
+       * selects here will be saved as the default since we need
+       * to read it in the next page and somewhere else (maybe?!)
        */
       this.selectedFormat = formatName;
+      this.setSetting("format", this.selectedFormat);
 
       if (this.showConfirm) {
         // Ask the user if they would like to make it the default setting.
         this.$refs.confirm.showModal();
         return;
       }
+
+      this.handleNextPage();
     },
     handleContinue: function() {
       /**
@@ -82,10 +95,22 @@ export default {
        * This means we need to set the setting to the current format
        * and make the format skipping option true;
        */
-      this.setSetting("format", this.selectedFormat);
       this.setSetting("ask-format-each", false, true);
 
-      console.log("Done");
+      this.handleNextPage();
+    },
+    handleNextPage: function() {
+      /**
+       * If the user selects to decline the request to make
+       * the selected format the default format or if they have it
+       * disabled, we need to forward them to the next page.
+       */
+      this.$router.push({
+        path: "download",
+        params: {
+          metaDetails: this.metaDetails
+        }
+      });
     }
   },
   computed: {
