@@ -5,6 +5,7 @@ import Settings from "@/views/Settings";
 import Search from "@/views/Search";
 import Metadata from "@/views/Metadata";
 import Format from "@/views/Format";
+import Download from "@/views/Download";
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,14 @@ const routes = [
     path: "/format",
     name: "Format",
     component: Format,
+    props: route => ({
+      metaDetails: route.params.metaDetails
+    })
+  },
+  {
+    path: "/download",
+    name: "Download",
+    component: Download,
     props: route => ({
       metaDetails: route.params.metaDetails
     })
