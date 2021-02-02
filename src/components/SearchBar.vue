@@ -57,6 +57,10 @@ export default {
     hideUrlMessage: {
       type: Boolean,
       default: false
+    },
+    disableAutoSearch: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -159,7 +163,9 @@ export default {
   },
   mounted() {
     this.focusSearchBar();
-    this.sendSearchRequest();
+
+    // If auto search is disabled, don't send search request
+    if (!this.disableAutoSearch) this.sendSearchRequest();
   }
 };
 </script>

@@ -1,6 +1,11 @@
 <template>
   <div class="metadata__container">
-    <SearchBar class="my-8" @search="handleMetaSearch" hideUrlMessage />
+    <SearchBar
+      class="my-8"
+      @search="handleMetaSearch"
+      hideUrlMessage
+      :disableAutoSearch="!getAutoSearchMeta"
+    />
     <MetaList :query="getSongEntered" />
   </div>
 </template>
@@ -8,6 +13,7 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import MetaList from "@/components/MetaList";
+import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "Metadata",
@@ -17,9 +23,11 @@ export default {
   },
   data() {
     return {
-      songEntered: ""
+      songEntered: "",
+      autoSearchMeta: true
     };
   },
+  mixins: [settings],
   computed: {
     videoId: {
       get() {
@@ -39,6 +47,9 @@ export default {
     },
     getSongEntered() {
       return this.songEntered;
+    },
+    getAutoSearchMeta() {
+      return this.autoSearchMeta;
     }
   },
   methods: {
@@ -51,6 +62,7 @@ export default {
   },
   created() {
     if (!this.videoId) this.$router.push({ path: "search" });
+    this.autoSearchMeta = this.getSetting("auto-search-meta", true);
   }
 };
 </script>
