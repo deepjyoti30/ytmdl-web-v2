@@ -42,7 +42,10 @@ const routes = [
   {
     path: "/format",
     name: "Format",
-    component: Format
+    component: Format,
+    props: route => ({
+      metaDetails: route.params.metaDetails
+    })
   }
 ];
 
