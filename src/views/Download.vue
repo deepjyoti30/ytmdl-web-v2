@@ -1,5 +1,7 @@
 <template>
-  <div class="download__container"></div>
+  <div class="download__container">
+    <div class="w-3/5 mr-auto ml-auto my-16 border"></div>
+  </div>
 </template>
 
 <script>
@@ -15,8 +17,57 @@ export default {
   },
   data() {
     return {
-      format: null
+      format: null,
+      isLoading: false,
+      downloadUrl: "http://192.168.0.107:5000/v2/download",
+      downloadDetail: null
     };
+  },
+  methods: {
+    buildRequestBody: function() {
+      /**
+       * Build the request body based on the details passed by
+       * the route. We need to make sure all the details are
+       * properly passed in order to download the right song.
+       */
+      const data = {};
+      data["song"] = {
+        video_id: this.$route.query.videoId,
+        format: this.format
+      };
+      data["metadata"] = this.metaDetails;
+
+      return data;
+    },
+    downloadSong: async function() {
+      /**
+       * Download the song based on the details selected by the user.
+       */
+      this.isLoading = true;
+
+      const response = await fetch(this.downloadUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(this.buildRequestBody())
+      });
+      const responseJson = await response.json();
+
+      this.isLoading = false;
+      this.downloadDetail = responseJson;
+    }
+  },
+  computed: {
+    getTitle() {
+      return this.metaDetails.name;
+    },
+    getFormat() {
+      return this.format;
+    }
+  },
+  mounted() {
+    this.downloadSong();
   },
   created() {
     this.format = this.getSetting("format");
