@@ -6,6 +6,7 @@
       v-for="(meta, id) in getMetaResults"
       :key="id"
       :meta="meta"
+      :askFormatEach="getAskFormatEach"
     />
   </div>
 </template>
@@ -68,6 +69,9 @@ export default {
     },
     getIsLoading() {
       return this.isLoading;
+    },
+    getAskFormatEach() {
+      return this.$parent.getAskFormatEach;
     }
   },
   watch: {

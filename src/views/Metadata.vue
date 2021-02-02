@@ -5,6 +5,7 @@
       @search="handleMetaSearch"
       hideUrlMessage
       :disableAutoSearch="!getAutoSearchMeta"
+      :askFormatEach="getAskFormatEach"
     />
     <MetaList :query="getSongEntered" />
   </div>
@@ -24,7 +25,8 @@ export default {
   data() {
     return {
       songEntered: "",
-      autoSearchMeta: true
+      autoSearchMeta: true,
+      askFormatEach: true
     };
   },
   mixins: [settings],
@@ -50,6 +52,9 @@ export default {
     },
     getAutoSearchMeta() {
       return this.autoSearchMeta;
+    },
+    getAskFormatEach() {
+      return this.askFormatEach;
     }
   },
   methods: {
@@ -63,6 +68,7 @@ export default {
   created() {
     if (!this.videoId) this.$router.push({ path: "search" });
     this.autoSearchMeta = this.getSetting("auto-search-meta", true);
+    this.askFormatEach = this.getSetting("ask-format-each", true);
   }
 };
 </script>
