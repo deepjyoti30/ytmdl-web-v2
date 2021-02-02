@@ -106,9 +106,12 @@ export default {
        * disabled, we need to forward them to the next page.
        */
       this.$router.push({
-        path: "download",
+        name: "Download",
         params: {
           metaDetails: this.metaDetails
+        },
+        query: {
+          videoId: this.$route.query
         }
       });
     }
