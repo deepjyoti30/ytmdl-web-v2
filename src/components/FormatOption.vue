@@ -59,6 +59,12 @@ export default {
     color: $mediumblue;
     position: relative;
     cursor: pointer;
+    transition: 200ms ease;
+
+    &:hover {
+      background: darken($lightcyan, 10);
+      transition: 200ms ease;
+    }
 
     .recommended--icon {
       position: absolute;

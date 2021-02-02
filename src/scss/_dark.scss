@@ -103,6 +103,10 @@
         .format--option {
             background: $darkblue !important;
             color: $lightcyan !important;
+
+            &:hover {
+                background: lighten($darkblue, 5) !important;
+              }
         }
     }
 }

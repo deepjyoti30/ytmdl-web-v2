@@ -22,16 +22,17 @@
 <script>
 import SettingEach from "@/components/SettingEach";
 import defaultSettings from "@/static/settings.js";
+import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "Settings",
   components: {
     SettingEach
   },
+  mixins: [settings],
   data: () => {
     return {
-      savedSettings: null,
-      settingsChanged: false
+      savedSettings: null
     };
   },
   methods: {
@@ -42,9 +43,23 @@ export default {
        *
        * We just need to save it to the localStorage once.
        */
-      if (!this.settingsChanged) return;
+      // Check if new settings were added
+      const savedKeys = Object.keys(this.savedSettings);
+      const defaultKeys = defaultSettings.map(setting => setting.name);
 
-      localStorage.setItem("settings", JSON.stringify(this.savedSettings));
+      const difference = defaultKeys.filter(
+        setting => !savedKeys.includes(setting)
+      );
+
+      if (!difference) return;
+
+      // Else add the new key and it's value from the default settings
+      difference.forEach(setting => {
+        this.setSetting(
+          setting,
+          defaultSettings[defaultKeys.indexOf(setting)]["default"]
+        );
+      });
     },
     updateSetting: function(changes) {
       /**
@@ -69,13 +84,7 @@ export default {
        */
       if (!this.savedSettings) return null;
 
-      if (!(el.name in this.savedSettings)) {
-        this.savedSettings[el.name] = el.default;
-
-        // Update the settingsChanged value so the settings are
-        // updated
-        if (!this.settingsChanged) this.settingsChanged = true;
-      }
+      if (!(el.name in this.savedSettings)) return el.default;
 
       return this.savedSettings[el.name];
     },
