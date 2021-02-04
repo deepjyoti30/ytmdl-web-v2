@@ -8,7 +8,7 @@
         class="rounded-md shadow-2xl"
       />
     </div>
-    <div class="download--details py-12 md:px-8 px-2 md:w-3/5 w-full">
+    <div class="download--details py-12 md:px-12 px-2 md:w-3/5 w-full">
       <h1 class="title font-bold md:text-4xl text-3xl dark:text-white">
         What You Know Bout Love
       </h1>
@@ -42,6 +42,14 @@ export default {
   name: "DownloadResult",
   components: {
     DownloadButton
+  },
+  props: {
+    metaDetails: {
+      type: Object
+    },
+    downloadDetails: {
+      type: Object
+    }
   }
 };
 </script>
