@@ -1,15 +1,21 @@
 <template>
   <div class="download__container">
-    <div class="w-3/5 mr-auto ml-auto my-16 border"></div>
+    <div class="w-3/5 mr-auto ml-auto md:my-32 my-16">
+      <DownloadResult />
+    </div>
   </div>
 </template>
 
 <script>
+import DownloadResult from "@/components/DownloadResult";
 import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "Download",
   mixins: [settings],
+  components: {
+    DownloadResult
+  },
   props: {
     metaDetails: {
       type: Object
