@@ -1,6 +1,11 @@
 <template>
   <div class="download__container">
-    <div class="w-3/5 mr-auto ml-auto md:my-32 my-16">
+    <div class="md:w-3/5 w-10/12 mr-auto ml-auto md:my-32 my-16">
+      <h2
+        class="text-3xl font-semibold text-center md:mb-24 mb-16 text-gray-600 dark:text-gray-400"
+      >
+        Your song is ready!
+      </h2>
       <DownloadResult />
     </div>
   </div>

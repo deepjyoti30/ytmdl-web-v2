@@ -1,6 +1,6 @@
 <template>
-  <div class="download--result__container flex">
-    <div class="cover--img w-2/5">
+  <div class="download--result__container md:flex">
+    <div class="cover--img md:w-2/5 w-full">
       <img
         src="https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/9a/a0/eb/9aa0ebb8-3150-8f37-58ba-2329bd4bdd0a/source/480x480bb.jpg"
         alt=""
@@ -8,12 +8,12 @@
         class="rounded-md shadow-2xl"
       />
     </div>
-    <div class="download--details py-12 px-8 w-3/5">
-      <h1 class="title font-bold text-4xl dark:text-white">
+    <div class="download--details py-12 md:px-8 px-2 md:w-3/5 w-full">
+      <h1 class="title font-bold md:text-4xl text-3xl dark:text-white">
         What You Know Bout Love
       </h1>
       <h3
-        class="artist text-3xl font-medium mt-6 text-gray-700 dark:text-gray-200"
+        class="artist md:text-3xl text-2xl font-medium mt-6 text-gray-700 dark:text-gray-200"
       >
         Pop Smoke
       </h3>
