@@ -23,10 +23,9 @@
       <h4 class="release font-medium text-gray-500 mt-0.5 dark:text-gray-400">
         2020-07-03
       </h4>
-      <div
-        class="separator w-1/2 my-6 border border-gray-200 dark:border-gray-600"
-      ></div>
-      <h3 class="size text-xl font-semibold text-gray-600 dark:text-gray-400">
+      <h3
+        class="size text-xl font-medium mt-4 text-gray-600 dark:text-gray-400"
+      >
         5.66 MB
       </h3>
       <div class="dw--btn mt-6">
