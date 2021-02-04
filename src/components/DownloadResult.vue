@@ -29,7 +29,7 @@
       <h3 class="size text-xl font-semibold text-gray-600 dark:text-gray-400">
         5.66 MB
       </h3>
-      <div class="dw--btn mt-8">
+      <div class="dw--btn mt-6">
         <DownloadButton />
       </div>
     </div>
@@ -55,6 +55,11 @@ export default {
     .release,
     .size {
       @extend .dm-sans;
+    }
+
+    .verified {
+      background: lighten($darkgreen, 45);
+      color: $darkgreen;
     }
   }
 }

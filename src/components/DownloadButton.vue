@@ -25,6 +25,12 @@ export default {
 
       background: $darkgreen;
       padding: 0.75em 2em;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: darken($darkgreen, 2);
+        transition: 0.2s ease;
+      }
     }
   }
 }
