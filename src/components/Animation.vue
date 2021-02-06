@@ -1,6 +1,6 @@
 <template>
   <div
-    class="animation__container py-56 w-2/5 mr-auto ml-auto flex justify-center relative items-center"
+    class="animation__container py-56 md:w-2/5 w-full mr-auto ml-auto flex justify-center relative items-center"
   >
     <div class="loadingWrap">
       <svg class="loading mr-auto ml-auto" viewBox="0 0 84.6 84.6">
@@ -69,7 +69,7 @@
       </svg>
       <div class="label text-gray-500 dark:text-gray-400">{{ getText }}</div>
       <div
-        class="license text-gray-400 dark:text-gray-700 absolute bottom-0 right-0"
+        class="license text-gray-400 dark:text-gray-700 absolute bottom-0 md:right-0 text-center"
       >
         Animation by <a href="https://codepen.io/coopergoeke">Cooper Goeke</a>.
         <a href="https://codepen.io/coopergoeke/details/abdogVj">License</a>
