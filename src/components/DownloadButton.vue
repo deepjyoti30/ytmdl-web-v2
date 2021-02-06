@@ -4,8 +4,9 @@
       <button
         type="button"
         class="text-xl uppercase text-white font-semibold rounded-md shadow-cust"
-        :disabled="getIsDownloading"
+        :disabled="getIsBtnDisabled"
         @click="startDownload"
+        title="Click to download the song"
       >
         {{ getDownloadText }}
         <span
@@ -27,7 +28,8 @@ export default {
     return {
       isDownloading: false,
       progressBarEl: "progress-bar",
-      downloadText: "Download"
+      downloadText: "Download",
+      isUrlExpired: false
     };
   },
   props: {
@@ -63,7 +65,8 @@ export default {
     showStatus: function(event) {
       // Show the download status by updating the percentage
       // in the progress bar.
-      if (!event.lengthComputable) return; // guard
+      if (!event.lengthComputable) return;
+
       var downloadingPercentage = Math.floor(
         (event.loaded / event.total) * 100
       );
@@ -90,11 +93,23 @@ export default {
         this.isDownloading = false;
         this.downloadText = "Try Again";
       }, 10000);
+    },
+    disableDownload: function() {
+      /**
+       * Start the timer in order to make sure the download button is not
+       * accessed once the URL is expired.
+       */
+      setTimeout(() => {
+        this.isUrlExpired = true;
+      }, this.songDetails["expires_in"] * 1000);
     }
   },
   computed: {
     getIsDownloading() {
       return this.isDownloading;
+    },
+    getIsBtnDisabled() {
+      return this.isDownloading || this.isUrlExpired;
     },
     getDownloadText() {
       return this.downloadText;
@@ -108,16 +123,21 @@ export default {
   .btn__container {
     button {
       @extend .strip-button;
+      $color: $darkgreen;
 
-      background: $darkgreen;
+      background: $color;
       padding: 0.75em 2em;
       transition: 0.2s ease;
       position: relative;
       min-width: 10em;
 
       &:hover {
-        background: darken($darkgreen, 2);
+        background: darken($color, 2);
         transition: 0.2s ease;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
       }
 
       .progress-bar {
