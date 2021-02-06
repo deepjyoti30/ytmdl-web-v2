@@ -3,7 +3,7 @@
     <SearchBar class="my-8" @search="handleSearch" />
     <div
       v-if="getQuery == null"
-      class="write-something py-64 w-2/5 mr-auto ml-auto text-center text-2xl font-semibold dark:text-white"
+      class="write-something py-64 md:w-2/5 w-11/12 mr-auto ml-auto text-center md:text-2xl text-lg font-semibold dark:text-white"
     >
       You need to enter the name of a song
     </div>
