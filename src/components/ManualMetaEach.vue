@@ -1,9 +1,19 @@
 <template>
   <div class="manual--each__container py-4">
-    <h3 class="text-xl font-medium">{{ getName }}</h3>
+    <h3 class="text-xl font-medium">
+      {{ getName }}
+      <span
+        v-if="getIsRequired"
+        class="required px-2 rounded-xl py-0.5 text-sm font-normal ml-5"
+        >Required</span
+      >
+    </h3>
+    <h5 class="mt-1 text-gray-600">
+      {{ getText }}
+    </h5>
     <input
       class="border mt-3 px-4 py-2 rounded-md text-lg md:w-3/5 w-11/12"
-      :placeholder="getPlaceholder"
+      :placeholder="getDefault"
     />
   </div>
 </template>
@@ -20,8 +30,14 @@ export default {
     getName() {
       return this.option.name;
     },
-    getPlaceholder() {
-      return this.option.placeholder;
+    getText() {
+      return this.option.text;
+    },
+    getIsRequired() {
+      return !this.option.skippingAllowed;
+    },
+    getDefault() {
+      return this.option.default;
     }
   }
 };
@@ -31,16 +47,25 @@ export default {
 .manual--each__container {
   h3 {
     @extend .dm-sans;
+
+    .required {
+      background: $yellow;
+    }
+  }
+
+  h5 {
+    @extend .dm-sans;
   }
 
   input {
-    border: 3px solid $mediumblue;
+    border: 3px solid $lightblue;
     outline: none;
     transition: 0.2s ease;
 
     &:focus {
       transition: 0.2s ease;
       border-color: $darkblue;
+      border-width: 3px;
     }
   }
 }
