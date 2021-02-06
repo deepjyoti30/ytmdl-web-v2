@@ -11,6 +11,7 @@
         v-for="(option, id) in getManualOptions"
         :key="id"
         :option="option"
+        :index="id"
       />
       <div class="submit--btn text-center mt-14">
         <button
@@ -38,10 +39,21 @@ export default {
   components: {
     ManualEach
   },
+  data() {
+    return {
+      enteredData: {}
+    };
+  },
   computed: {
     getManualOptions() {
       return manualOptions;
     }
+  },
+  created() {
+    // Update the enteredData object with proper keys
+    manualOptions.forEach(el => {
+      this.enteredData[el.attrName] = "";
+    });
   }
 };
 </script>

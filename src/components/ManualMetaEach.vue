@@ -31,6 +31,9 @@ export default {
   props: {
     option: {
       type: Object
+    },
+    index: {
+      type: Number
     }
   },
   data() {
@@ -57,6 +60,8 @@ export default {
       },
       set(value) {
         this.value = value;
+
+        this.$parent.enteredData[this.option.attrName] = this.value;
       }
     }
   }
