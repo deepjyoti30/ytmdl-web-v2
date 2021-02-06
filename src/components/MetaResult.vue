@@ -38,9 +38,6 @@ export default {
   props: {
     meta: {
       type: Object
-    },
-    askFormatEach: {
-      type: Boolean
     }
   },
   methods: {
@@ -65,10 +62,6 @@ export default {
           videoId: this.$route.query.videoId
         }
       };
-
-      if (!this.askFormatEach) {
-        linkDetails.name = "Download";
-      }
 
       return linkDetails;
     }

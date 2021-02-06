@@ -65,7 +65,8 @@ export default {
         }
       ],
       selectedFormat: "",
-      showConfirm: true
+      showConfirm: true,
+      askFormatEach: true
     };
   },
   methods: {
@@ -129,6 +130,10 @@ export default {
   },
   created() {
     this.showConfirm = this.getSetting("format-confirm", true);
+    this.askFormatEach = this.getSetting("ask-format-each", true);
+
+    // If askformat each is false, just forward to download
+    if (!this.askFormatEach) this.handleNextPage();
   }
 };
 </script>

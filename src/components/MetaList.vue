@@ -89,9 +89,6 @@ export default {
     getIsLoading() {
       return this.isLoading;
     },
-    getAskFormatEach() {
-      return this.$parent.getAskFormatEach;
-    },
     getShowAllData() {
       return this.showAllData;
     }
