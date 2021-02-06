@@ -1,13 +1,25 @@
 <template>
   <div class="meta-list__container">
     <Animation v-if="getIsLoading" />
-    <MetaResult
-      v-else
-      v-for="(meta, id) in getMetaResults"
-      :key="id"
-      :meta="meta"
-      :askFormatEach="getAskFormatEach"
-    />
+    <div v-else class="meta__results">
+      <MetaResult
+        v-for="(meta, id) in getMetaResults"
+        :key="id"
+        :meta="meta"
+        :askFormatEach="getAskFormatEach"
+      />
+      <div class="show--more--btn mt-8 mb-24">
+        <div class="btn--wrapper w-3/5 mr-auto ml-auto text-center">
+          <div class="line border mr-auto ml-auto"></div>
+          <button
+            type="button"
+            class="border py-4 px-12 rounded-md text-xl font-semibold"
+          >
+            Show more results
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +37,8 @@ export default {
     return {
       metaUrl: "http://192.168.0.107:5000/v2/metadata",
       fetchedData: null,
-      isLoading: false
+      isLoading: false,
+      showAllData: false
     };
   },
   props: {
@@ -65,7 +78,7 @@ export default {
   },
   computed: {
     getMetaResults() {
-      return this.fetchedData;
+      return this.showAllData ? this.fetchedData : this.fetchedData.slice(0, 5);
     },
     getIsLoading() {
       return this.isLoading;
@@ -83,3 +96,31 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.meta__results {
+  .show--more--btn {
+    .btn--wrapper {
+      $color: lighten($mediumblue, 5);
+
+      .line {
+        width: 0px;
+        height: 4rem;
+        border-color: lighten($color, 40);
+        background: $color;
+      }
+
+      button {
+        background: $color;
+        color: white;
+        transition: 0.2s ease;
+
+        &:hover {
+          transition: 0.2s ease;
+          background: darken($color, 5);
+        }
+      }
+    }
+  }
+}
+</style>
