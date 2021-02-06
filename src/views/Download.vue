@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       format: null,
-      isLoading: false,
+      isLoading: true,
       downloadUrl: "http://192.168.0.107:5000/v2/download",
       downloadDetail: null
     };

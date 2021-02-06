@@ -111,7 +111,7 @@ export default {
           metaDetails: this.metaDetails
         },
         query: {
-          videoId: this.$route.query
+          videoId: this.$route.query.videoId
         }
       });
     }

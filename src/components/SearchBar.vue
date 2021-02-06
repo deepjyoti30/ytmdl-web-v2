@@ -90,7 +90,7 @@ export default {
     isYoutubeUrl() {
       // Check if the entered text is a valid YouTube URL
       return Boolean(
-        this.songEntered.match(/https?:\/\/youtube.com\/watch\?v=.+?/g)
+        this.songEntered.match(/https?:\/\/(www\.)?youtube.com\/watch\?v=.+?/g)
       );
     },
     getInvalidInput() {
@@ -116,7 +116,7 @@ export default {
        * query. The v parameter contains the video ID.
        */
       const urlParams = new URLSearchParams(
-        enteredUrl.replace(/https?:\/\/youtube.com\/watch/g, "")
+        enteredUrl.replace(/https?:\/\/(www\.)?youtube.com\/watch/g, "")
       );
       return urlParams.get("v");
     },
