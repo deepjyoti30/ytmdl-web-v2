@@ -48,14 +48,14 @@ export default {
       this.isDownloading = true;
       this.downloadText = "Working";
       new JsFileDownloader({
-        url:
-          "http://0.0.0.0:8081/true.detective.s03e01.1080p.bluray.x264-rovers.mkv",
+        url: this.downloadDetails.url,
         process: this.showStatus,
-        filename: "SongName.mp3"
+        filename: this.downloadDetails.filename
       })
         .then(() => {
           this.isDownloading = false;
           this.downloadText = "Done";
+          this.disableDownload();
         })
         .catch(error => {
           this.downloadText = "Error";
@@ -101,7 +101,7 @@ export default {
        */
       setTimeout(() => {
         this.isUrlExpired = true;
-      }, this.songDetails["expires_in"] * 1000);
+      }, this.downloadDetails["expires_in"] * 1000);
     }
   },
   computed: {
