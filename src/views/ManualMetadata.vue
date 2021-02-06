@@ -7,13 +7,18 @@
       <p class="my-4 text-gray-700 dark:text-gray-400">
         Modify the metadata according to your liking.
       </p>
-      <ManualEach />
+      <ManualEach
+        v-for="(option, id) in getManualOptions"
+        :key="id"
+        :option="option"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import ManualEach from "@/components/ManualMetaEach";
+import manualOptions from "@/static/manual.js";
 
 export default {
   name: "ManualMeta",
@@ -24,6 +29,11 @@ export default {
   },
   components: {
     ManualEach
+  },
+  computed: {
+    getManualOptions() {
+      return manualOptions;
+    }
   }
 };
 </script>
