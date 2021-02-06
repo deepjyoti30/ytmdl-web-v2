@@ -19,6 +19,7 @@
       <input
         class="border mt-3 px-4 py-2 rounded-md text-lg w-full"
         :placeholder="getExample"
+        v-model="valueEntered"
       />
     </div>
   </div>
@@ -32,6 +33,11 @@ export default {
       type: Object
     }
   },
+  data() {
+    return {
+      value: ""
+    };
+  },
   computed: {
     getName() {
       return this.option.name;
@@ -44,6 +50,14 @@ export default {
     },
     getExample() {
       return this.option.example;
+    },
+    valueEntered: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.value = value;
+      }
     }
   }
 };

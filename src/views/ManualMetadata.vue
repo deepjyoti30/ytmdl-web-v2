@@ -12,6 +12,14 @@
         :key="id"
         :option="option"
       />
+      <div class="submit--btn text-center mt-14">
+        <button
+          type="button"
+          class="py-4 px-12 rounded-md md:text-xl font-semibold strip-button"
+        >
+          Set manual metadata
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -37,3 +45,20 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.submit--btn {
+  $color: lighten($mediumblue, 5);
+
+  button {
+    background: $color;
+    color: white;
+    transition: 0.2s ease;
+
+    &:hover {
+      transition: 0.2s ease;
+      background: darken($color, 5);
+    }
+  }
+}
+</style>

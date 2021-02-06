@@ -13,7 +13,7 @@
           <div class="line border mr-auto ml-auto"></div>
           <button
             type="button"
-            class="border py-4 px-12 rounded-md md:text-xl font-semibold strip-button"
+            class="py-4 px-12 rounded-md md:text-xl font-semibold strip-button"
             @click="makeAllDataVisible"
           >
             Show more results
