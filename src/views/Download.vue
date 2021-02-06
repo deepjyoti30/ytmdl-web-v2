@@ -1,25 +1,31 @@
 <template>
   <div class="download__container">
-    <div class="md:w-3/5 w-10/12 mr-auto ml-auto md:my-32 my-16">
+    <Animation v-if="getIsLoading" />
+    <div v-else class="md:w-3/5 w-10/12 mr-auto ml-auto md:my-32 my-16">
       <h2
         class="text-3xl font-semibold text-center md:mb-24 mb-16 text-gray-600 dark:text-gray-400"
       >
         Your song is ready!
       </h2>
-      <DownloadResult />
+      <DownloadResult
+        :downloadDetails="getDownloadDetails"
+        :metaDetails="getMetaDetails"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import DownloadResult from "@/components/DownloadResult";
+import Animation from "@/components/Animation";
 import { settings } from "@/components/mixins/settings";
 
 export default {
   name: "Download",
   mixins: [settings],
   components: {
-    DownloadResult
+    DownloadResult,
+    Animation
   },
   props: {
     metaDetails: {
@@ -73,8 +79,14 @@ export default {
     getTitle() {
       return this.metaDetails.name;
     },
-    getFormat() {
-      return this.format;
+    getDownloadDetails() {
+      return this.downloadDetail;
+    },
+    getMetaDetails() {
+      return this.metaDetails;
+    },
+    getIsLoading() {
+      return this.isLoading;
     }
   },
   mounted() {
