@@ -1,10 +1,10 @@
 <template>
   <div class="manual--meta__container my-12">
-    <div class="manual--meta w-3/5 mr-auto ml-auto py-6">
+    <div class="manual--meta md:w-3/5 w-11/12 mr-auto ml-auto py-6">
       <h2 class="text-3xl font-bold dark:text-white">
         Enter metadata manually
       </h2>
-      <p class="my-4 text-gray-700 dark:text-gray-400">
+      <p class="mt-4 mb-8 text-gray-700 dark:text-gray-400">
         Modify the metadata according to your liking.
       </p>
       <ManualEach

@@ -2,7 +2,7 @@
   <div class="manual--each__container py-4">
     <h3 class="text-xl font-medium">{{ getName }}</h3>
     <input
-      class="border mt-3 px-4 py-2 rounded-md text-lg w-3/5"
+      class="border mt-3 px-4 py-2 rounded-md text-lg md:w-3/5 w-11/12"
       :placeholder="getPlaceholder"
     />
   </div>
