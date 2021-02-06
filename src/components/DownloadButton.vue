@@ -8,7 +8,11 @@
         @click="startDownload"
       >
         {{ getDownloadText }}
-        <span id="progress-bar" class="progress-bar rounded-b-md"></span>
+        <span
+          id="progress-bar"
+          class="progress-bar"
+          :class="[getIsDownloading ? '' : 'hidden']"
+        ></span>
       </button>
     </div>
   </div>
@@ -26,6 +30,11 @@ export default {
       downloadText: "Download"
     };
   },
+  props: {
+    downloadDetails: {
+      Object
+    }
+  },
   methods: {
     startDownload: function() {
       /**
@@ -35,7 +44,7 @@ export default {
        * bar by using the showStatus method.
        */
       this.isDownloading = true;
-      this.downloadText = "Working!";
+      this.downloadText = "Working";
       new JsFileDownloader({
         url:
           "http://0.0.0.0:8081/true.detective.s03e01.1080p.bluray.x264-rovers.mkv",
@@ -44,12 +53,11 @@ export default {
       })
         .then(() => {
           this.isDownloading = false;
-          this.downloadText = "Done!";
+          this.downloadText = "Done";
         })
         .catch(error => {
-          this.isDownloading = false;
-          console.log(error);
-          this.showError();
+          this.downloadText = "Error";
+          this.showError(error);
         });
     },
     showStatus: function(event) {
@@ -63,11 +71,25 @@ export default {
         this.progressBarEl
       ).style.width = `${downloadingPercentage}%`;
     },
-    showError: function() {
+    showError: function(error) {
       /**
        * Change the color of the button for a while to show
        * that an error occurred while downloading.
        */
+      console.log("Error occurred while downloading", error);
+      console.log("If you can see this error, report it!");
+
+      // Change the color of the progress bar.
+      const progressBar = document.getElementById(this.progressBarEl);
+      progressBar.style.width = "100%";
+      progressBar.style.background = "#E57373";
+
+      setTimeout(() => {
+        progressBar.style.background = "#3D5A80";
+        progressBar.style.width = "0";
+        this.isDownloading = false;
+        this.downloadText = "Try Again";
+      }, 10000);
     }
   },
   computed: {
@@ -105,6 +127,8 @@ export default {
         left: 0;
         height: 5px;
         width: 0;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
         background: $mediumblue;
       }
     }
