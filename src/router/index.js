@@ -38,10 +38,7 @@ const routes = [
   {
     path: "/manual",
     name: "Manual",
-    component: () => import("@/views/ManualMetadata.vue"),
-    props: route => ({
-      videoId: route.params.videoId
-    })
+    component: () => import("@/views/ManualMetadata.vue")
   },
   {
     path: "/format",

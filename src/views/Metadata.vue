@@ -60,9 +60,6 @@ export default {
     getAutoSearchMeta() {
       return this.autoSearchMeta;
     },
-    getAskFormatEach() {
-      return this.askFormatEach;
-    },
     getQuery() {
       return this.songEntered;
     }
