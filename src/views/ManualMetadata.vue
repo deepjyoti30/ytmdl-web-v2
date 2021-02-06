@@ -58,7 +58,7 @@ export default {
       Object.values(this.enteredData).forEach(el => {
         isValid *= Number(el.valid);
       });
-      return Boolean(isValid);
+      return !isValid;
     }
   },
   created() {
@@ -85,6 +85,10 @@ export default {
     &:hover {
       transition: 0.2s ease;
       background: darken($color, 5);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 }
