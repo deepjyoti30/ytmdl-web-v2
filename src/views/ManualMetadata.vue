@@ -17,6 +17,7 @@
         <button
           type="button"
           class="py-4 px-12 rounded-md md:text-xl font-semibold strip-button"
+          :disabled="isButtonDisabled"
         >
           Set manual metadata
         </button>
@@ -47,12 +48,26 @@ export default {
   computed: {
     getManualOptions() {
       return manualOptions;
+    },
+    isButtonDisabled() {
+      /**
+       * Check if all the objects have a valid
+       * value in the enteredData object
+       */
+      var isValid = 1;
+      Object.values(this.enteredData).forEach(el => {
+        isValid *= Number(el.valid);
+      });
+      return Boolean(isValid);
     }
   },
   created() {
     // Update the enteredData object with proper keys
     manualOptions.forEach(el => {
-      this.enteredData[el.attrName] = "";
+      this.enteredData[el.attrName] = {
+        value: "",
+        valid: el.skippingAllowed
+      };
     });
   }
 };
