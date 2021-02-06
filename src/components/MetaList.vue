@@ -83,6 +83,7 @@ export default {
   },
   computed: {
     getMetaResults() {
+      if (!this.fetchedData) return;
       return this.showAllData ? this.fetchedData : this.fetchedData.slice(0, 5);
     },
     getIsLoading() {

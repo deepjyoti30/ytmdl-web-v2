@@ -60,6 +60,8 @@ export default {
       /**
        * Download the song based on the details selected by the user.
        */
+      if (!this.metaDetails) return;
+
       this.isLoading = true;
 
       const response = await fetch(this.downloadUrl, {
@@ -93,6 +95,7 @@ export default {
     this.downloadSong();
   },
   created() {
+    if (!this.metaDetails) this.$router.push({ name: "Home" });
     this.format = this.getSetting("format");
   }
 };
