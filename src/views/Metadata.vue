@@ -7,7 +7,15 @@
       :disableAutoSearch="!getAutoSearchMeta"
       :askFormatEach="getAskFormatEach"
     />
-    <MetaList :query="getSongEntered" />
+    <div
+      v-if="!getQuery"
+      class="write-something py-64 md:w-2/5 w-11/12 mr-auto ml-auto text-center md:text-2xl text-lg font-semibold dark:text-white"
+    >
+      Enter a search term for the metadata
+    </div>
+    <div v-else>
+      <MetaList :query="getSongEntered" />
+    </div>
   </div>
 </template>
 
@@ -55,6 +63,9 @@ export default {
     },
     getAskFormatEach() {
       return this.askFormatEach;
+    },
+    getQuery() {
+      return this.songEntered;
     }
   },
   methods: {
