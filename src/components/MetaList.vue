@@ -8,12 +8,13 @@
         :meta="meta"
         :askFormatEach="getAskFormatEach"
       />
-      <div class="show--more--btn mt-8 mb-24">
+      <div v-if="!getShowAllData" class="show--more--btn mt-8 mb-24">
         <div class="btn--wrapper w-3/5 mr-auto ml-auto text-center">
           <div class="line border mr-auto ml-auto"></div>
           <button
             type="button"
-            class="border py-4 px-12 rounded-md text-xl font-semibold"
+            class="border py-4 px-12 rounded-md text-xl font-semibold strip-button"
+            @click="makeAllDataVisible"
           >
             Show more results
           </button>
@@ -71,6 +72,10 @@ export default {
 
       this.fetchedData = jsonData;
       this.isLoading = false;
+    },
+    makeAllDataVisible: function() {
+      // Make all the data visible by making the variable valid
+      this.showAllData = true;
     }
   },
   mounted() {
@@ -85,6 +90,9 @@ export default {
     },
     getAskFormatEach() {
       return this.$parent.getAskFormatEach;
+    },
+    getShowAllData() {
+      return this.showAllData;
     }
   },
   watch: {
