@@ -13,7 +13,7 @@
     </h5>
     <input
       class="border mt-3 px-4 py-2 rounded-md text-lg md:w-3/5 w-11/12"
-      :placeholder="getDefault"
+      :placeholder="getExample"
     />
   </div>
 </template>
@@ -36,8 +36,8 @@ export default {
     getIsRequired() {
       return !this.option.skippingAllowed;
     },
-    getDefault() {
-      return this.option.default;
+    getExample() {
+      return this.option.example;
     }
   }
 };
