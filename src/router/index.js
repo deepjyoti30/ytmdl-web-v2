@@ -1,11 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Settings from "@/views/Settings";
-import Search from "@/views/Search";
-import Metadata from "@/views/Metadata";
-import Format from "@/views/Format";
-import Download from "@/views/Download";
 
 Vue.use(VueRouter);
 
@@ -28,22 +23,22 @@ const routes = [
   {
     path: "/settings",
     name: "Settings",
-    component: Settings
+    component: () => import("@/views/Settings.vue")
   },
   {
     path: "/search",
     name: "Search",
-    component: Search
+    component: () => import("@/views/Search.vue")
   },
   {
     path: "/metadata",
     name: "Metadata",
-    component: Metadata
+    component: () => import("@/views/Metadata.vue")
   },
   {
     path: "/format",
     name: "Format",
-    component: Format,
+    component: () => import("@/views/Format.vue"),
     props: route => ({
       metaDetails: route.params.metaDetails
     })
@@ -51,7 +46,7 @@ const routes = [
   {
     path: "/download",
     name: "Download",
-    component: Download,
+    component: () => import("@/views/Download.vue"),
     props: route => ({
       metaDetails: route.params.metaDetails
     })
