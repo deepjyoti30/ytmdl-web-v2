@@ -34,7 +34,7 @@ export default {
   },
   props: {
     downloadDetails: {
-      Object
+      type: Object
     }
   },
   methods: {
