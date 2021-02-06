@@ -109,4 +109,17 @@
               }
         }
     }
+
+    // Manual metadata
+    .manual--each__container {
+        input {
+            background: $darkhigh !important;
+            border-color: $mediumblue !important;
+            caret-color: white;
+
+            &:hover {
+                border-color: $lightblue !important;
+            }
+        }
+    }
 }

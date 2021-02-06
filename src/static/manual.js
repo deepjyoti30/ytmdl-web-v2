@@ -45,7 +45,7 @@ const manualOptions = [
     name: "Date of release of the song",
     text: "Enter the name of the artist",
     default: null,
-    example: "1995-11-15T12:00:00Z",
+    example: "1995-11-15",
     skippingAllowed: true
   },
   {
