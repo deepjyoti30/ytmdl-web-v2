@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import marked from "marked";
+import snarkdown from "snarkdown";
 
 export default {
   name: "StaticContent",
@@ -30,7 +30,7 @@ export default {
        * variable.
        */
       this.$http.get(this.filePath).then(response => {
-        this.content = marked(response.body);
+        this.content = snarkdown(response.body);
       });
     }
   },
@@ -49,11 +49,18 @@ export default {
 .static__container {
   @apply my-5;
 
+  @extend .roboto;
+  font-size: 18px;
+
+  @apply text-gray-600;
+
   .content {
     ::v-deep h1,
     ::v-deep h2,
     ::v-deep h3,
     ::v-deep h4 {
+      @extend .work-sans;
+
       color: $black;
       margin: 2rem 0;
       font-weight: 500;
@@ -69,17 +76,19 @@ export default {
     }
 
     ::v-deep h2 {
-      font-size: 2em;
+      font-size: 1.8em;
       font-weight: 600;
     }
 
     ::v-deep h3 {
-      font-size: 1.8em;
-      font-weight: 500;
+      @apply text-gray-700;
+
+      font-size: 1.6em;
+      font-weight: 600;
     }
 
     ::v-deep h4 {
-      font-size: 1.5em;
+      font-size: 1.3em;
       font-weight: 400;
     }
 
