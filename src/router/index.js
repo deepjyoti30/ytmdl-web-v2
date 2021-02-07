@@ -64,4 +64,14 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  /**
+   * Update the title based on the name of the component.
+   */
+  // Update the titke
+  document.title = `${to.name} - Ytmdl Web`;
+
+  next();
+});
+
 export default router;
