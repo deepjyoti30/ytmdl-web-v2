@@ -7,12 +7,29 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <meta name="theme-color" content="#045D56"/>
+    <style>
+      .loading--wrapper {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon-img {
+        max-width: 100vw;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div class="loading--wrapper">
+        <img src="img/ytmdl.png" alt="Ytmdl Icon" class="icon-img">
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
