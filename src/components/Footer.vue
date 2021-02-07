@@ -37,7 +37,7 @@
             </li>
             <li>
               <a href="mailto:hello@deepjyoti30.dev" title="Mail">
-                <font-awesome-icon :icon="['fas', 'envelope']" size="lg" />
+                <mail-icon class="inline icon-up" />
               </a>
             </li>
             <li>
@@ -58,9 +58,11 @@
 </template>
 
 <script>
+import { MailIcon } from "vue-feather-icons";
+
 export default {
   name: "Footer",
-  components: {}
+  components: { MailIcon }
 };
 </script>
 

@@ -12,10 +12,9 @@ import {
   faPatreon,
   faPaypal
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faGithub, faTelegramPlane, faEnvelope, faPatreon, faPaypal);
+library.add(faGithub, faTelegramPlane, faPatreon, faPaypal);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
