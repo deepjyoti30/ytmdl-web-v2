@@ -17,9 +17,14 @@
       </div>
       <div class="or--container text-center">
         <h3 class="text-3xl uppercase mb-8">or</h3>
-        <button type="button" class="rounded-md md:text-xl font-semibold">
+        <router-link
+          :to="getManualLink"
+          tag="button"
+          type="button"
+          class="rounded-md md:text-xl font-semibold"
+        >
           Add meta manually
-        </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -92,6 +97,9 @@ export default {
     },
     getShowAllData() {
       return this.showAllData;
+    },
+    getManualLink() {
+      return { name: "Manual", query: { videoId: this.$route.query.videoId } };
     }
   },
   watch: {
