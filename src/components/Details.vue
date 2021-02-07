@@ -31,7 +31,7 @@
       >
         <div class="details--each">
           <h3 class="md:text-3xl text-2xl font-semibold">Select the Song</h3>
-          <p class="mt-4 text-gray-400 dark:text-gray-400">
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
             Select the song you want to download. Either search the song or
             enter the YouTube URL of the song.
           </p>
@@ -40,14 +40,14 @@
           <h3 class="md:text-3xl text-2xl font-semibold">
             Select the metadata
           </h3>
-          <p class="mt-4 text-gray-400 dark:text-gray-400">
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
             Select the metadata that you want to be embedded in the song, either
             manually or by searching.
           </p>
         </div>
         <div class="details--each">
           <h3 class="md:text-3xl text-2xl font-semibold">Download the song</h3>
-          <p class="mt-4 text-gray-400 dark:text-gray-400">
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
             After the song and the metadata is selected, just download the high
             quality song and enjoy it.
           </p>

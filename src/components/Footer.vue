@@ -23,12 +23,12 @@
         <div class="social--content md:mt-0 mt-6">
           <ul>
             <li>
-              <a href="https://github.com/deepjyoti30/ytmdl">
+              <a href="https://github.com/deepjyoti30/ytmdl" title="GitHub">
                 <font-awesome-icon :icon="['fab', 'github']" size="lg" />
               </a>
             </li>
             <li>
-              <a href="https://t.me/ytmdl">
+              <a href="https://t.me/ytmdl" title="Telegram">
                 <font-awesome-icon
                   :icon="['fab', 'telegram-plane']"
                   size="lg"
@@ -36,17 +36,17 @@
               </a>
             </li>
             <li>
-              <a href="mailto:hello@deepjyoti30.dev">
+              <a href="mailto:hello@deepjyoti30.dev" title="Mail">
                 <font-awesome-icon :icon="['fas', 'envelope']" size="lg" />
               </a>
             </li>
             <li>
-              <a href="https://www.patreon.com/deepjyoti30">
+              <a href="https://www.patreon.com/deepjyoti30" title="Patreon">
                 <font-awesome-icon :icon="['fab', 'patreon']" size="lg" />
               </a>
             </li>
             <li>
-              <a href="https://paypal.me/deepjyoti30">
+              <a href="https://paypal.me/deepjyoti30" title="Paypal">
                 <font-awesome-icon :icon="['fab', 'paypal']" size="lg" />
               </a>
             </li>

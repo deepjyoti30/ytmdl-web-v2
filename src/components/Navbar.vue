@@ -6,7 +6,7 @@
           class="navbar-top flex justify-between flex-row-reverse md:block my-5 px-5 md:my-0 text-center"
         >
           <div class="menu-btn md:hidden">
-            <button type="button" @click="toggleBar">
+            <button type="button" title="Menu Button" @click="toggleBar">
               <XIcon v-if="getExpandNavbar" />
               <MenuIcon v-else />
             </button>
@@ -15,7 +15,7 @@
             class="brand__container md:py-5 md:my-5 md:text-center block lg:flex uppercase font-semibold"
           >
             ytmdl
-            <span class="text-xxs text-gray-400">v2</span>
+            <span class="text-xxs text-gray-500">v2</span>
           </div>
           <div class="theme-toggle-btn md:hidden">
             <button type="button" title="Toggle theme" @click="toggleTheme">
@@ -26,17 +26,17 @@
         </div>
         <div class="navbar-left" @mouseover="expandBar">
           <div class="py-6 text-center">
-            <router-link to="/"
+            <router-link to="/" title="Home"
               ><HomeIcon class="ml-auto mr-auto link-icon"
             /></router-link>
           </div>
           <div class="py-6 text-center">
-            <router-link to="/about"
+            <router-link to="/about" title="About"
               ><HelpCircleIcon class="ml-auto mr-auto link-icon"
             /></router-link>
           </div>
           <div class="py-6 text-center">
-            <router-link to="/settings"
+            <router-link to="/settings" title="Settings"
               ><SettingsIcon class="ml-auto mr-auto link-icon"
             /></router-link>
           </div>
