@@ -98,6 +98,10 @@ export default {
 <style lang="scss" scoped>
 $launchLength: 4s;
 
+.animation__container {
+  height: 80vh;
+}
+
 @keyframes drawThick {
   0% {
     stroke-dashoffset: 180;
