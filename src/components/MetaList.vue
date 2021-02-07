@@ -2,18 +2,13 @@
   <div class="meta-list__container">
     <Animation v-if="getIsLoading" />
     <div v-else class="meta__results">
-      <MetaResult
-        v-for="(meta, id) in getMetaResults"
-        :key="id"
-        :meta="meta"
-        :askFormatEach="getAskFormatEach"
-      />
-      <div v-if="!getShowAllData" class="show--more--btn mt-8 mb-24">
+      <MetaResult v-for="(meta, id) in getMetaResults" :key="id" :meta="meta" />
+      <div v-if="!getShowAllData" class="show--more--btn my-8">
         <div class="btn--wrapper w-3/5 mr-auto ml-auto text-center">
           <div class="line border mr-auto ml-auto"></div>
           <button
             type="button"
-            class="py-4 px-12 rounded-md md:text-xl font-semibold strip-button"
+            class="rounded-md md:text-xl font-semibold"
             @click="makeAllDataVisible"
           >
             Show more results
@@ -21,7 +16,10 @@
         </div>
       </div>
       <div class="or--container text-center">
-        <h3 class="text-3xl uppercase">or</h3>
+        <h3 class="text-3xl uppercase mb-8">or</h3>
+        <button type="button" class="rounded-md md:text-xl font-semibold">
+          Add meta manually
+        </button>
       </div>
     </div>
   </div>
@@ -120,15 +118,14 @@ export default {
       }
 
       button {
-        background: $color;
-        color: white;
-        transition: 0.2s ease;
-
-        &:hover {
-          transition: 0.2s ease;
-          background: darken($color, 5);
-        }
+        @extend .button-primary;
       }
+    }
+  }
+
+  .or--container {
+    button {
+      @extend .button-secondary;
     }
   }
 }

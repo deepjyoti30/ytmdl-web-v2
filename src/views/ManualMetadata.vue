@@ -112,7 +112,7 @@ export default {
 <style lang="scss" scoped>
 .submit--btn {
   button {
-    @extend .button-base;
+    @extend .button-primary;
   }
 }
 </style>

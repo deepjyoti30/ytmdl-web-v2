@@ -1,16 +1,35 @@
-.button-base {
-    $color: lighten($mediumblue, 5);
+$color: lighten($mediumblue, 5);
 
-    background: $color;
-    color: white;
+.button-base {
     transition: 0.2s ease;
 
     &:hover {
       transition: 0.2s ease;
-      background: darken($color, 5);
     }
 
     &:disabled {
       cursor: not-allowed;
+    }
+}
+
+.button-secondary {
+    @extend .button-base;
+
+    border: 3px solid $color;
+    color: $color;
+    padding: 0.8125rem 2.4375rem;
+}
+
+.button-primary {
+    @extend .button-base;
+    @extend .strip-button;
+
+    padding: 1rem 3rem;
+
+    background: $color;
+    color: white;
+
+    &:hover {
+        background: darken($color, 5);
     }
 }
