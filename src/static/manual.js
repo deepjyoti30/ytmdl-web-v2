@@ -3,7 +3,7 @@ const manualOptions = [
     attrName: "name",
     name: "Title of the song",
     text: "Enter the title of the song",
-    default: "",
+    default: "N/A",
     example: "She Even Woke Me Up to Say Goodbye",
     skippingAllowed: false
   },
@@ -11,7 +11,7 @@ const manualOptions = [
     attrName: "artist",
     name: "Artist of the song",
     text: "Enter the name of the artist",
-    default: "",
+    default: "N/A",
     example: "Jerry Lee Lewis",
     skippingAllowed: false
   },
@@ -19,7 +19,7 @@ const manualOptions = [
     attrName: "album",
     name: "Album of the song",
     text: "Enter the name of the album",
-    default: "",
+    default: "N/A",
     example: "Killer Country",
     skippingAllowed: false
   },
@@ -27,7 +27,7 @@ const manualOptions = [
     attrName: "genre",
     name: "Genre of the song",
     text: "Enter the genre of the song",
-    default: "",
+    default: "N/A",
     example: "Country",
     skippingAllowed: true
   },
@@ -44,7 +44,13 @@ const manualOptions = [
     attrName: "release_date",
     name: "Date of release of the song",
     text: "Enter the name of the artist",
-    default: null,
+    default: new Date()
+      .toLocaleString("en-US", {
+        year: "2-digit",
+        month: "2-digit",
+        day: "2-digit"
+      })
+      .replace(/\//g, "-"),
     example: "1995-11-15",
     skippingAllowed: true
   },
