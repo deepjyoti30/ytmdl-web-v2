@@ -15,3 +15,16 @@ body {
 
     transition: 0.2s ease;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-700;
+    @apply rounded-lg;
+}
