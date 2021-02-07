@@ -18,11 +18,12 @@
               v-if="isVerifiedMusic"
               class="verified--music py-1 px-2 md:rounded-sm md:w-auto md:h-auto w-8 h-8 rounded-full"
             >
-              <font-awesome-icon
+              <!--font-awesome-icon
                 :icon="['fas', 'music']"
                 size="sm"
                 class="md:mr-2"
-              />
+              /-->
+              <music-icon size="1x" class="md:mr-2 inline music-icon" />
               <span class="md:inline hidden">Verified Music</span>
             </span>
           </div>
@@ -44,6 +45,8 @@
 </template>
 
 <script>
+import { MusicIcon } from "vue-feather-icons";
+
 export default {
   name: "SongResult",
   props: {
@@ -54,6 +57,9 @@ export default {
       type: String,
       default: ""
     }
+  },
+  components: {
+    MusicIcon
   },
   methods: {
     findCover: function() {
@@ -150,6 +156,10 @@ export default {
           position: absolute;
           top: 0;
           right: 0;
+
+          .music-icon {
+            transform: translateY(-1px);
+          }
         }
       }
     }
