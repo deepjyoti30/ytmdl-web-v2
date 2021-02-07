@@ -1,0 +1,16 @@
+.button-base {
+    $color: lighten($mediumblue, 5);
+
+    background: $color;
+    color: white;
+    transition: 0.2s ease;
+
+    &:hover {
+      transition: 0.2s ease;
+      background: darken($color, 5);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+}

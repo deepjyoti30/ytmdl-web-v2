@@ -18,6 +18,7 @@
           type="button"
           class="py-4 px-12 rounded-md md:text-xl font-semibold strip-button"
           :disabled="isButtonDisabled"
+          @click="handleNextPage()"
         >
           Set manual metadata
         </button>
@@ -55,6 +56,33 @@ export default {
        * entered data is valid or not
        */
       this.isDataValid = Object.values(this.enteredData).every(el => el.valid);
+    },
+    buildMetaObject: function() {
+      /**
+       * Build a meta object based on the details entered
+       * by the user.
+       */
+      const metaDetails = {};
+      Object.entries(this.enteredData).forEach(el => {
+        const key = el[0];
+        const value = el[1];
+
+        metaDetails[key] = value.value;
+      });
+      return metaDetails;
+    },
+    handleNextPage: function() {
+      const linkDetails = {
+        name: "Format",
+        params: {
+          metaDetails: this.buildMetaObject()
+        },
+        query: {
+          videoId: this.$route.query.videoId
+        }
+      };
+
+      this.$router.push(linkDetails);
     }
   },
   computed: {
@@ -83,21 +111,8 @@ export default {
 
 <style lang="scss" scoped>
 .submit--btn {
-  $color: lighten($mediumblue, 5);
-
   button {
-    background: $color;
-    color: white;
-    transition: 0.2s ease;
-
-    &:hover {
-      transition: 0.2s ease;
-      background: darken($color, 5);
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-    }
+    @extend .button-base;
   }
 }
 </style>

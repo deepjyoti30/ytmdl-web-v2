@@ -20,6 +20,9 @@
           </button>
         </div>
       </div>
+      <div class="or--container text-center">
+        <h3 class="text-3xl uppercase">or</h3>
+      </div>
     </div>
   </div>
 </template>

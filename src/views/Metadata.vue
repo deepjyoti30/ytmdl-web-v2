@@ -5,7 +5,6 @@
       @search="handleMetaSearch"
       hideUrlMessage
       :disableAutoSearch="!getAutoSearchMeta"
-      :askFormatEach="getAskFormatEach"
     />
     <div
       v-if="!getQuery"
