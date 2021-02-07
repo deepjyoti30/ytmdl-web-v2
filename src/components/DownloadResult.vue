@@ -3,7 +3,8 @@
     <div class="cover--img md:w-2/5 w-full">
       <img
         :src="getCover"
-        alt=""
+        :alt="getTitle"
+        :title="getImageTitle"
         loading="lazy"
         class="rounded-md shadow-2xl"
       />
@@ -58,7 +59,9 @@ export default {
     getCover() {
       // Check if the URL has something like 100x100, if it does, replace it with 480x480
       var coverUrl = this.metaDetails.cover;
-      return coverUrl.replace("100x100", "480x480");
+      const fallback =
+        "https://generative-placeholders.glitch.me/image?width=480&height=480&style=123&colors=74";
+      return coverUrl == "" ? fallback : coverUrl.replace("100x100", "480x480");
     },
     getTitle() {
       return this.metaDetails.name;
@@ -78,6 +81,11 @@ export default {
     },
     getSize() {
       return this.downloadDetails.size.readable;
+    },
+    getImageTitle() {
+      return this.metaDetails.cover == ""
+        ? "Just a placeholder"
+        : this.getTitle;
     }
   }
 };
