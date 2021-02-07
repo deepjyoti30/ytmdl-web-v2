@@ -17,6 +17,7 @@
         <router-link
           to="/search"
           class="start--btn px-16 py-6 shadow-xl text-2xl font-medium rounded-lg"
+          title="Click to download a song"
           >Download a song</router-link
         >
       </div>
