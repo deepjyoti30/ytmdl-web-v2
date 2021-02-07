@@ -60,11 +60,13 @@ export default {
       },
       set(value) {
         this.value = value;
+        const valid = this.option.skippingAllowed ? true : Boolean(this.value);
 
         this.$parent.enteredData[this.option.attrName] = {
-          value: this.value,
-          valid: this.option.skippingAllowed ? true : Boolean(this.value)
+          value: valid ? this.value : this.option.default,
+          valid: valid
         };
+        this.$parent.validateDataEntered();
       }
     }
   }

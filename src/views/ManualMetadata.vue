@@ -42,8 +42,20 @@ export default {
   },
   data() {
     return {
-      enteredData: {}
+      enteredData: {},
+      isDataValid: false
     };
+  },
+  methods: {
+    validateDataEntered: function() {
+      /**
+       * Check if the entered Data is valid
+       *
+       * We need to check if all the data in the
+       * entered data is valid or not
+       */
+      this.isDataValid = Object.values(this.enteredData).every(el => el.valid);
+    }
   },
   computed: {
     getManualOptions() {
@@ -54,18 +66,14 @@ export default {
        * Check if all the objects have a valid
        * value in the enteredData object
        */
-      var isValid = 1;
-      Object.values(this.enteredData).forEach(el => {
-        isValid *= Number(el.valid);
-      });
-      return !isValid;
+      return !this.isDataValid;
     }
   },
   created() {
     // Update the enteredData object with proper keys
     manualOptions.forEach(el => {
       this.enteredData[el.attrName] = {
-        value: "",
+        value: el.default,
         valid: el.skippingAllowed
       };
     });
