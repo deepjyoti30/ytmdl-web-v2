@@ -62,13 +62,19 @@ export default {
        * Build a meta object based on the details entered
        * by the user.
        */
-      const metaDetails = {};
+      const metaDetails = {
+        time: 0
+      };
       Object.entries(this.enteredData).forEach(el => {
         const key = el[0];
         const value = el[1];
 
         metaDetails[key] = value.value;
       });
+
+      // Convert the number to int
+      metaDetails["number"] = Number(metaDetails["number"]);
+
       return metaDetails;
     },
     handleNextPage: function() {
