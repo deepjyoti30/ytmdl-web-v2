@@ -40,6 +40,11 @@
               ><SettingsIcon class="ml-auto mr-auto link-icon"
             /></router-link>
           </div>
+          <div class="py-6 text-center">
+            <a href="https://blog.deepjyoti30.dev" title="Blog"
+              ><BookIcon class="ml-auto mr-auto link-icon" />
+            </a>
+          </div>
         </div>
         <div class="theme-toggle-btn desktop hidden lg:block">
           <div class="py-6 text-center">
@@ -56,24 +61,36 @@
             <router-link
               to="/"
               @click.native="toggleBar"
-              class="link-each py-6 pl-7"
+              class="link-each pl-7"
             >
               <span>Home</span>
             </router-link>
             <router-link
               to="/about"
               @click.native="toggleBar"
-              class="link-each py-6 pl-7"
+              class="link-each pl-7"
             >
               <span>About</span>
             </router-link>
             <router-link
               to="/settings"
               @click.native="toggleBar"
-              class="link-each py-6 pl-7"
+              class="link-each pl-7"
             >
               <span>Settings</span>
             </router-link>
+            <a
+              href="https://blog.deepjyoti30.dev"
+              @click="toggleBar"
+              class="link-each pl-7"
+            >
+              <span
+                >Blog
+                <div class="external-icon">
+                  <ExternalLinkIcon size="1.1x" class="icon" />
+                </div>
+              </span>
+            </a>
           </div>
           <div class="crafted-by text-sm font-medium my-7 md:pl-0 pl-9">
             Made by @deepjyoti30
@@ -92,7 +109,9 @@ import {
   MoonIcon,
   MenuIcon,
   XIcon,
-  SunIcon
+  SunIcon,
+  BookIcon,
+  ExternalLinkIcon
 } from "vue-feather-icons";
 
 export default {
@@ -104,7 +123,9 @@ export default {
     MoonIcon,
     MenuIcon,
     XIcon,
-    SunIcon
+    SunIcon,
+    BookIcon,
+    ExternalLinkIcon
   },
   data: () => {
     return {
@@ -180,9 +201,22 @@ export default {
           color: $grey-lighter;
           display: block;
           transition: 150ms ease-in;
+          padding-top: 1.45rem;
+          padding-bottom: 1.45rem;
+          position: relative;
 
           span {
             @apply px-1;
+          }
+
+          .external-icon {
+            position: absolute;
+            right: 1.3rem;
+            top: 1.7rem;
+
+            .icon {
+              color: $lightblue;
+            }
           }
 
           &.router-link-exact-active {
