@@ -41,7 +41,7 @@
             /></router-link>
           </div>
           <div class="py-6 text-center">
-            <a href="https://blog.deepjyoti30.dev" title="Blog"
+            <a href="https://blog.deepjyoti30.dev" target="_blank" title="Blog"
               ><BookIcon class="ml-auto mr-auto link-icon" />
             </a>
           </div>
@@ -81,6 +81,7 @@
             </router-link>
             <a
               href="https://blog.deepjyoti30.dev"
+              target="_blank"
               @click="toggleBar"
               class="link-each pl-7"
             >
