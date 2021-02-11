@@ -9,6 +9,15 @@
         .navbar__content {
             .navbar__content--collapsed, .navbar__content--expanded {
                 background: $darkhigh !important;
+
+                .navbar-right {
+                    .link-each {
+                        &:hover {
+                            transition: 150ms ease-in;
+                            background: $darklow;
+                          }
+                    }
+                }
             }
         }
     }
