@@ -2,7 +2,7 @@
   <div class="footer__container w-full md:pl-24 pl-0 mt-12 mb-4">
     <div class="footer__content lg:w-4/5 md:px-0 px-2 w-full mr-auto ml-auto">
       <div
-        class="footer--text text-center border-b-2 p-8 md:text-2xl text-xl font-medium italic"
+        class="footer--text text-center border-b border-gray-100 p-8 md:text-2xl text-xl font-medium italic"
       >
         This project lives on donations. Consider
         <a href="https://paypal.me/deepjyoti30">donating</a> to help us sustain
