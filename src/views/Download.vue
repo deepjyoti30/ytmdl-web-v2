@@ -11,12 +11,14 @@
         :downloadDetails="getDownloadDetails"
         :metaDetails="getMetaDetails"
       />
+      <show-support />
     </div>
   </div>
 </template>
 
 <script>
 import DownloadResult from "@/components/DownloadResult";
+import ShowSupport from "@/components/ShowSupport";
 import Animation from "@/components/Animation";
 import { settings } from "@/components/mixins/settings";
 
@@ -25,7 +27,8 @@ export default {
   mixins: [settings],
   components: {
     DownloadResult,
-    Animation
+    Animation,
+    ShowSupport
   },
   props: {
     metaDetails: {
