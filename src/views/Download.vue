@@ -11,9 +11,11 @@
         :downloadDetails="getDownloadDetails"
         :metaDetails="getMetaDetails"
       />
-      <transition name="fade-in">
-        <show-support v-if="getShowDonate" />
-      </transition>
+      <div id="show-support-wrapper">
+        <transition name="fade-in">
+          <show-support id="show-support-content" v-if="getShowDonate" />
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +83,19 @@ export default {
 
       this.isLoading = false;
       this.downloadDetail = responseJson;
+    },
+    handleShowSupport: function() {
+      /**
+       * Handle showing the donate buttons.
+       *
+       * We need to show them and scroll that div into view.
+       */
+      this.showDonate = true;
+
+      const el = document.getElementById("show-support-wrapper");
+
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth" });
     }
   },
   computed: {

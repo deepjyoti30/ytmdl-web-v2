@@ -1,6 +1,6 @@
 <template>
   <div class="support__container">
-    <div class="support--content py-12 md:mt-24 mt-8 mb-8 md:flex">
+    <div class="support--content py-12v mt-24 mb-8 md:flex">
       <div
         class="support--comp px-4 py-6 border max-w-sm rounded-md md:mr-12 md:mb-0 mb-12"
       >

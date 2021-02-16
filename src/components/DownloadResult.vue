@@ -58,8 +58,7 @@ export default {
   methods: {
     handleOnDownload: function() {
       // Handle what to do when the song is downloaded once
-      console.log("OnDownload");
-      this.$parent.showDonate = true;
+      this.$parent.handleShowSupport();
     }
   },
   computed: {
