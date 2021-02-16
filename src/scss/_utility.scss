@@ -30,3 +30,14 @@
 .icon-up {
     transform: translateY(-2px);
 }
+
+
+// Positioning
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    background: $yellow;
+    color: $brown;
+}

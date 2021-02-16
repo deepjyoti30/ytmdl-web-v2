@@ -67,11 +67,7 @@ export default {
     }
 
     .recommended--icon {
-      position: absolute;
-      right: 10px;
-      top: -10px;
-      background: $yellow;
-      color: $brown;
+      @extend .top-right;
     }
   }
 }
