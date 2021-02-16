@@ -30,7 +30,10 @@
         {{ getSize }}
       </h3>
       <div class="dw--btn mt-6">
-        <DownloadButton :downloadDetails="getDownloadDetails" />
+        <DownloadButton
+          :downloadDetails="getDownloadDetails"
+          @onDownload="handleOnDownload"
+        />
       </div>
     </div>
   </div>
@@ -50,6 +53,13 @@ export default {
     },
     downloadDetails: {
       type: Object
+    }
+  },
+  methods: {
+    handleOnDownload: function() {
+      // Handle what to do when the song is downloaded once
+      console.log("OnDownload");
+      this.$parent.showDonate = true;
     }
   },
   computed: {

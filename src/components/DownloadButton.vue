@@ -56,6 +56,9 @@ export default {
           this.isDownloading = false;
           this.downloadText = "Done";
           this.disableDownload();
+
+          // Show the donate content
+          this.$emit("onDownload", true);
         })
         .catch(error => {
           this.downloadText = "Error";
