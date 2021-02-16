@@ -11,7 +11,9 @@
         :downloadDetails="getDownloadDetails"
         :metaDetails="getMetaDetails"
       />
-      <show-support />
+      <transition name="fade-in">
+        <show-support v-if="getShowDonate" />
+      </transition>
     </div>
   </div>
 </template>
@@ -40,7 +42,8 @@ export default {
       format: null,
       isLoading: true,
       downloadUrl: "http://192.168.0.107:5000/v2/download",
-      downloadDetail: null
+      downloadDetail: null,
+      showDonate: false
     };
   },
   methods: {
@@ -92,14 +95,33 @@ export default {
     },
     getIsLoading() {
       return this.isLoading;
+    },
+    getShowDonate() {
+      return this.showDonate;
     }
   },
   mounted() {
     this.downloadSong();
   },
   created() {
-    //if (!this.metaDetails) this.$router.push({ name: "Home" });
+    if (!this.metaDetails) this.$router.push({ name: "Home" });
     this.format = this.getSetting("format");
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.fade-in-enter {
+  opacity: 0;
+  transform: translateY(-5rem);
+}
+
+.fade-in-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-enter-active {
+  transition: opacity 500ms ease;
+}
+</style>
