@@ -98,7 +98,7 @@ export default {
     this.downloadSong();
   },
   created() {
-    if (!this.metaDetails) this.$router.push({ name: "Home" });
+    //if (!this.metaDetails) this.$router.push({ name: "Home" });
     this.format = this.getSetting("format");
   }
 };
