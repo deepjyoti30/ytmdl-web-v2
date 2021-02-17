@@ -28,7 +28,7 @@ export default {
   },
   data: () => {
     return {
-      searchUrl: "http://192.168.0.107:5000/v2/search",
+      searchUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/search",
       isLoading: true,
       fetchedData: null
     };

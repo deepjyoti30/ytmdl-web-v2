@@ -43,7 +43,7 @@ export default {
     return {
       format: null,
       isLoading: true,
-      downloadUrl: "http://192.168.0.107:5000/v2/download",
+      downloadUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/download",
       downloadDetail: null,
       showDonate: false
     };

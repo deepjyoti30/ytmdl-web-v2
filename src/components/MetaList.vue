@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      metaUrl: "http://192.168.0.107:5000/v2/metadata",
+      metaUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/metadata",
       fetchedData: null,
       isLoading: false,
       showAllData: false
