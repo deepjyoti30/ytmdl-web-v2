@@ -37,6 +37,11 @@
                 <mail-icon class="inline icon-up" />
               </a>
             </li>
+            <li>
+              <a href="https://twitter.com/DeepBarman30" title="Twitter">
+                <twitter-icon class="inline icon-up" />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -45,11 +50,11 @@
 </template>
 
 <script>
-import { MailIcon, SendIcon, GithubIcon } from "vue-feather-icons";
+import { MailIcon, SendIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
 
 export default {
   name: "Footer",
-  components: { MailIcon, SendIcon, GithubIcon }
+  components: { MailIcon, SendIcon, GithubIcon, TwitterIcon }
 };
 </script>
 
