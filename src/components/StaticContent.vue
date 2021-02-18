@@ -43,7 +43,7 @@ export default {
       return this.content;
     },
     getFilePath() {
-      return this.filePath.replace("..", window.location.origin);
+      return this.filePath;
     }
   },
   mounted() {
