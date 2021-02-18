@@ -29,7 +29,7 @@ export default {
        * the path and accordingly store it in a local
        * variable.
        */
-      this.$http.get(this.filePath).then(response => {
+      fetch(this.filePath).then(response => {
         this.content = snarkdown(response.body);
       });
     }

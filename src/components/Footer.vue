@@ -24,30 +24,17 @@
           <ul>
             <li>
               <a href="https://github.com/deepjyoti30/ytmdl" title="GitHub">
-                <font-awesome-icon :icon="['fab', 'github']" size="lg" />
+                <github-icon class="inline icon-up" />
               </a>
             </li>
             <li>
               <a href="https://t.me/ytmdl" title="Telegram">
-                <font-awesome-icon
-                  :icon="['fab', 'telegram-plane']"
-                  size="lg"
-                />
+                <send-icon class="inline icon-up" />
               </a>
             </li>
             <li>
               <a href="mailto:hello@deepjyoti30.dev" title="Mail">
                 <mail-icon class="inline icon-up" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.patreon.com/deepjyoti30" title="Patreon">
-                <font-awesome-icon :icon="['fab', 'patreon']" size="lg" />
-              </a>
-            </li>
-            <li>
-              <a href="https://paypal.me/deepjyoti30" title="Paypal">
-                <font-awesome-icon :icon="['fab', 'paypal']" size="lg" />
               </a>
             </li>
           </ul>
@@ -58,11 +45,11 @@
 </template>
 
 <script>
-import { MailIcon } from "vue-feather-icons";
+import { MailIcon, SendIcon, GithubIcon } from "vue-feather-icons";
 
 export default {
   name: "Footer",
-  components: { MailIcon }
+  components: { MailIcon, SendIcon, GithubIcon }
 };
 </script>
 
