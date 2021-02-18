@@ -82,8 +82,8 @@ export default {
        * Change the color of the button for a while to show
        * that an error occurred while downloading.
        */
-      console.log("Error occurred while downloading", error);
-      console.log("If you can see this error, report it!");
+      console.info("Error occurred while downloading", error);
+      console.info("If you can see this error, report it!");
 
       // Change the color of the progress bar.
       const progressBar = document.getElementById(this.progressBarEl);

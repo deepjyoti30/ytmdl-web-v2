@@ -41,7 +41,16 @@
             /></router-link>
           </div>
           <div class="py-6 text-center">
-            <a href="https://blog.deepjyoti30.dev" target="_blank" title="Blog"
+            <router-link to="/donate" title="Donate"
+              ><DollarSignIcon class="ml-auto mr-auto link-icon"
+            /></router-link>
+          </div>
+          <div class="py-6 text-center">
+            <a
+              href="https://blog.deepjyoti30.dev"
+              target="_blank"
+              rel="noopener"
+              title="Blog"
               ><BookIcon class="ml-auto mr-auto link-icon" />
             </a>
           </div>
@@ -79,9 +88,17 @@
             >
               <span>Settings</span>
             </router-link>
+            <router-link
+              to="/donate"
+              @click.native="toggleBar"
+              class="link-each pl-7"
+            >
+              <span>Donate</span>
+            </router-link>
             <a
               href="https://blog.deepjyoti30.dev"
               target="_blank"
+              rel="noopener"
               @click="toggleBar"
               class="link-each pl-7"
             >
@@ -93,7 +110,9 @@
               </span>
             </a>
           </div>
-          <div class="crafted-by text-sm font-medium my-7 md:pl-0 pl-9">
+          <div
+            class="crafted-by text-sm font-medium md:text-left text-center my-7 md:pl-0"
+          >
             Made by @deepjyoti30
           </div>
         </div>
@@ -112,7 +131,8 @@ import {
   XIcon,
   SunIcon,
   BookIcon,
-  ExternalLinkIcon
+  ExternalLinkIcon,
+  DollarSignIcon
 } from "vue-feather-icons";
 
 export default {
@@ -126,7 +146,8 @@ export default {
     XIcon,
     SunIcon,
     BookIcon,
-    ExternalLinkIcon
+    ExternalLinkIcon,
+    DollarSignIcon
   },
   data: () => {
     return {
@@ -256,7 +277,14 @@ export default {
           padding-top: 5rem;
 
           .link-each {
+            @apply border-gray-200;
+            @apply border-b-2;
+
             font-size: 22px;
+
+            &:first-child {
+              @apply border-t-2;
+            }
           }
         }
       }

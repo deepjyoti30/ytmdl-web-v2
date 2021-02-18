@@ -2,14 +2,14 @@
   <div class="support__container">
     <div class="support--content py-12v mt-24 mb-8 md:flex">
       <div
-        class="support--comp px-4 py-6 border max-w-sm rounded-md md:mr-12 md:mb-0 mb-12"
+        class="support--comp px-4 py-6 border max-w-sm rounded-md md:mr-12 md:mb-0 mb-12 dark:border-gray-600"
       >
         <div
           class="recommended--icon uppercase py-0 px-3 font-semibold rounded-xl"
         >
           recommended
         </div>
-        <h4 class="font-semibold text-2xl dark:text-white">
+        <h4 class="font-semibold text-2xl dark:text-gray-200">
           Recurring Donation
         </h4>
         <p class="mt-4 text-gray-600 dark:text-gray-400">
@@ -19,14 +19,14 @@
         <div class="options mt-6 dark:text-white md:text-base text-sm">
           <a
             href="https://www.patreon.com/deepjyoti30"
-            class="py-2 px-4 inline-flex items-center rounded-md border"
+            class="py-2 px-4 inline-flex items-center rounded-md border dark:border-gray-400"
           >
             <img src="img/patreon.png" class="brand-logo" alt="Patreon Icon" />
             <span class="ml-2 uppercase font-medium">Become a patron</span>
           </a>
           <a
             href="https://opencollective.com/ytmdl#backer"
-            class="py-2 px-4 inline-flex items-center rounded-md border"
+            class="py-2 px-4 inline-flex items-center rounded-md border dark:border-gray-400"
           >
             <img
               src="img/opencollective.png"
@@ -37,8 +37,10 @@
           </a>
         </div>
       </div>
-      <div class="support--comp px-4 py-6 border max-w-sm rounded-md">
-        <h4 class="font-semibold text-2xl dark:text-white">
+      <div
+        class="support--comp px-4 py-6 border max-w-sm rounded-md dark:border-gray-600"
+      >
+        <h4 class="font-semibold text-2xl dark:text-gray-200">
           One-Time Donation
         </h4>
         <p class="mt-4 text-gray-600 dark:text-gray-400">
@@ -48,14 +50,14 @@
         <div class="options mt-6 dark:text-white md:text-base text-sm">
           <a
             href="https://ko-fi.com/deepjyoti30"
-            class="py-2 px-4 inline-flex items-center rounded-md border"
+            class="py-2 px-4 inline-flex items-center rounded-md border dark:border-gray-400"
           >
             <img src="img/kofi.png" class="brand-logo" alt="Ko-Fi Icon" />
             <span class="ml-2 uppercase font-medium">Buy me a coffee</span>
           </a>
           <a
             href="https://paypal.me/deepjyoti30"
-            class="py-2 px-4 inline-flex items-center rounded-md border"
+            class="py-2 px-4 inline-flex items-center rounded-md border dark:border-gray-400"
           >
             <img src="img/paypal.png" class="brand-logo" alt="Paypal Icon" />
             <span class="ml-2 uppercase font-medium">Donate on Paypal</span>

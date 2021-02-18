@@ -29,14 +29,21 @@ export default {
        * the path and accordingly store it in a local
        * variable.
        */
-      this.$http.get(this.filePath).then(response => {
-        this.content = snarkdown(response.body);
-      });
+      fetch(this.getFilePath)
+        .then(response => {
+          return response.text();
+        })
+        .then(text => {
+          this.content = snarkdown(text);
+        });
     }
   },
   computed: {
     getContent() {
       return this.content;
+    },
+    getFilePath() {
+      return this.filePath;
     }
   },
   mounted() {
