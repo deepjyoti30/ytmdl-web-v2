@@ -29,7 +29,6 @@ export default {
        * the path and accordingly store it in a local
        * variable.
        */
-      console.log(this.getFilePath);
       fetch(this.getFilePath)
         .then(response => {
           return response.text();
