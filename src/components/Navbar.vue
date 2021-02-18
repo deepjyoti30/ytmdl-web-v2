@@ -41,6 +41,11 @@
             /></router-link>
           </div>
           <div class="py-6 text-center">
+            <router-link to="/donate" title="Donate"
+              ><DollarSignIcon class="ml-auto mr-auto link-icon"
+            /></router-link>
+          </div>
+          <div class="py-6 text-center">
             <a href="https://blog.deepjyoti30.dev" target="_blank" title="Blog"
               ><BookIcon class="ml-auto mr-auto link-icon" />
             </a>
@@ -79,6 +84,13 @@
             >
               <span>Settings</span>
             </router-link>
+            <router-link
+              to="/donate"
+              @click.native="toggleBar"
+              class="link-each pl-7"
+            >
+              <span>Donate</span>
+            </router-link>
             <a
               href="https://blog.deepjyoti30.dev"
               target="_blank"
@@ -112,7 +124,8 @@ import {
   XIcon,
   SunIcon,
   BookIcon,
-  ExternalLinkIcon
+  ExternalLinkIcon,
+  DollarSignIcon
 } from "vue-feather-icons";
 
 export default {
@@ -126,7 +139,8 @@ export default {
     XIcon,
     SunIcon,
     BookIcon,
-    ExternalLinkIcon
+    ExternalLinkIcon,
+    DollarSignIcon
   },
   data: () => {
     return {
