@@ -12,6 +12,8 @@
 
                 .navbar-right {
                     .link-each {
+                        @apply border-gray-700;
+
                         &:hover {
                             transition: 150ms ease-in;
                             background: $darklow;

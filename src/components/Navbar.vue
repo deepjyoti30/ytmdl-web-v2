@@ -270,7 +270,14 @@ export default {
           padding-top: 5rem;
 
           .link-each {
+            @apply border-gray-200;
+            @apply border-b-2;
+
             font-size: 22px;
+
+            &:first-child {
+              @apply border-t-2;
+            }
           }
         }
       }
