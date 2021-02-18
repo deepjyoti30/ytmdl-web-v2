@@ -22,7 +22,6 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^2.6.11",
     "vue-feather-icons": "^5.1.0",
-    "vue-resource": "^1.5.1",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {

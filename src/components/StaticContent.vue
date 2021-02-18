@@ -29,14 +29,22 @@ export default {
        * the path and accordingly store it in a local
        * variable.
        */
-      fetch(this.filePath).then(response => {
-        this.content = snarkdown(response.body);
-      });
+      console.log(this.getFilePath);
+      fetch(this.getFilePath)
+        .then(response => {
+          return response.text();
+        })
+        .then(text => {
+          this.content = snarkdown(text);
+        });
     }
   },
   computed: {
     getContent() {
       return this.content;
+    },
+    getFilePath() {
+      return this.filePath.replace("..", window.location.origin);
     }
   },
   mounted() {
