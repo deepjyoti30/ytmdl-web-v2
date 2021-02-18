@@ -110,7 +110,9 @@
               </span>
             </a>
           </div>
-          <div class="crafted-by text-sm font-medium my-7 md:pl-0 pl-9">
+          <div
+            class="crafted-by text-sm font-medium md:text-left text-center my-7 md:pl-0"
+          >
             Made by @deepjyoti30
           </div>
         </div>
