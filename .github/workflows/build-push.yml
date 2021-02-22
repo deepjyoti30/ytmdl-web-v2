@@ -1,0 +1,68 @@
+name: Build app and deploy docker
+
+on:
+  push:
+    branches:
+      - "staging"
+
+jobs:
+  build-webapp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      # Build the app using nodejs
+      - name: Use node js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+      - name: Install dependencies
+        run: npm install
+      - name: Build for production
+        run: npm run build
+      # Upload the dist directory
+      - uses: actions/upload-artifact@master
+        with:
+          name: Webapp artifacts
+          path: dist/
+
+  push-to-docker:
+    needs: build-webapp
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repo in order to fetch the latest content
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Download built artifact
+        uses: actions/download-artifact@master
+        with:
+          name: Webapp artifacts
+          path: ./dist/
+      # Login to ghcr
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1 
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+      # Build the docker image now
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/deepjyoti30/ytmdl-frontend:latest
+
+  deploy:
+    needs: push-to-docker
+    runs-on: ubuntu-latest
+    steps:
+      # SSH into the server
+      - name: SSH into server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: /bin/bash Scripts/deploy_blog.sh ghcr.io/deepjyoti30/ytmdl-frontend:latest
+      
