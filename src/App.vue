@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Welcome ref="welcome" />
     <Navbar :isDark="getIsDark" @themeChange="handleThemeChange" />
     <transition name="fade-in"
       ><router-view class="router-view__container" />
@@ -11,6 +12,7 @@
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Welcome from "@/components/Welcome";
 
 import defaultSettings from "@/static/settings.js";
 
@@ -18,7 +20,8 @@ export default {
   name: "App",
   components: {
     Navbar,
-    Footer
+    Footer,
+    Welcome
   },
   data: () => {
     return {
