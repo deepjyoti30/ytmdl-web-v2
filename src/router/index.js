@@ -64,6 +64,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
   mode: "history",
   base: process.env.BASE_URL,
   routes
@@ -75,10 +78,6 @@ router.beforeEach((to, from, next) => {
    */
   // Update the titke
   document.title = `${to.name} - Ytmdl Web`;
-
-  // Scroll to top
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
 
   next();
 });
