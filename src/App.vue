@@ -127,12 +127,10 @@ export default {
 
   .fade-in-enter {
     opacity: 0;
-    transform: translateY(-5rem);
   }
 
   .fade-in-enter-to {
     opacity: 1;
-    transform: translateY(0);
   }
 
   .fade-in-enter-active {
