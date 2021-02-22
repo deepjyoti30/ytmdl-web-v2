@@ -4,6 +4,14 @@
       ><div
         class="song--result md:my-4 my-3 max-w-3xl mr-auto ml-auto p-2 flex"
       >
+        <span
+          v-if="isVerifiedMusic"
+          title="Indicates music is verified by YouTube"
+          class="verified--music py-1 px-2 md:rounded-md md:w-auto md:h-auto w-8 h-8 rounded-full animate-shimmer font-medium"
+        >
+          <music-icon size="1x" class="md:mr-2 inline music-icon" />
+          <span class="md:inline hidden">Verified Music</span>
+        </span>
         <div class="song--cover w-1/2">
           <img :src="getCover" alt="" class="rounded-md" loading="lazy" />
         </div>
@@ -14,18 +22,6 @@
             >
               {{ getTitle }}
             </h3>
-            <span
-              v-if="isVerifiedMusic"
-              class="verified--music py-1 px-2 md:rounded-sm md:w-auto md:h-auto w-8 h-8 rounded-full"
-            >
-              <!--font-awesome-icon
-                :icon="['fas', 'music']"
-                size="sm"
-                class="md:mr-2"
-              /-->
-              <music-icon size="1x" class="md:mr-2 inline music-icon" />
-              <span class="md:inline hidden">Verified Music</span>
-            </span>
           </div>
           <h5
             class="duration md:text-lg text-sm md:mt-2 mt-1 text-gray-700 font-medium dark:text-gray-300"
@@ -112,6 +108,24 @@ export default {
 <style lang="scss" scoped>
 .song--result__container {
   .song--result {
+    position: relative;
+    .verified--music {
+      @extend .dm-sans;
+      transition: 0.1s ease;
+
+      background: $teal;
+      color: $black;
+
+      position: absolute;
+      top: 15px;
+      left: 15px;
+
+      .music-icon {
+        stroke-width: 3;
+        transform: translateY(-1px);
+      }
+    }
+
     .song--cover {
       img {
         @media only screen and (min-width: $md) {
@@ -126,14 +140,8 @@ export default {
 
     .song--details {
       .channel,
-      .duration,
-      .verified--music {
+      .duration {
         @extend .dm-sans;
-      }
-
-      .verified--music {
-        background: lighten($darkgreen, 45);
-        color: $darkgreen;
       }
 
       .description,
@@ -147,19 +155,6 @@ export default {
       .description {
         @media only screen and (max-width: $md) {
           display: none;
-        }
-      }
-
-      .top--details {
-        position: relative;
-        .verified--music {
-          position: absolute;
-          top: 0;
-          right: 0;
-
-          .music-icon {
-            transform: translateY(-1px);
-          }
         }
       }
     }
