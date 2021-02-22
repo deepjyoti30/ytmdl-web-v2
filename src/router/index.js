@@ -76,6 +76,10 @@ router.beforeEach((to, from, next) => {
   // Update the titke
   document.title = `${to.name} - Ytmdl Web`;
 
+  // Scroll to top
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+
   next();
 });
 
