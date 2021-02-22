@@ -1,7 +1,7 @@
 <template>
   <div
     class="welcome__container modal micromodal-slide"
-    id="modal-frame"
+    id="welcome-frame"
     aria-hidden="true"
   >
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -9,12 +9,12 @@
         class="modal__container md:w-4/6 w-11/12"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="modal-frame-title"
+        aria-labelledby="welcome-frame-title"
       >
         <header class="modal__header">
           <h3
-            id="modal-frame-title"
-            class="md:text-lg text-sm font-medium text-gray-600"
+            id="welcome-frame-title"
+            class="md:text-lg text-sm font-medium text-gray-600 dark:text-gray-400"
           >
             Welcome
           </h3>
@@ -25,16 +25,18 @@
             @click="closeModal"
             data-micromodal-close
           >
-            <XIcon size="1x"></XIcon>
+            <XIcon size="1x" class="dark:text-gray-400"></XIcon>
           </button>
         </header>
-        <main class="modal__content" id="modal-frame-content">
+        <main class="modal__content" id="welcome-frame-content">
           <div class="header--content text-center">
-            <h3 class="text-3xl font-semibold">
+            <h3 class="text-3xl font-semibold dark:text-white">
               Welcome to Ytmdl Web
               <span class="uppercase font-bold highlight">v2</span>
             </h3>
-            <p class="mb-2 mt-8 max-w-2xl mr-auto ml-auto text-gray-600">
+            <p
+              class="mb-2 mt-8 max-w-2xl mr-auto ml-auto text-gray-600 dark:text-gray-400"
+            >
               In even less than a year of the first release, v2 is here. This
               version is built from scratch with the consideration of various
               feedbacks provided by the users of the former version.
@@ -60,7 +62,7 @@ export default {
       /**
        * Show the modal
        */
-      MicroModal.show("modal-frame", {
+      MicroModal.show("welcome-frame", {
         disableFocus: true,
         awaitCloseAnimation: true,
         awaitOpenAnimation: true
@@ -70,7 +72,7 @@ export default {
       /**
        * Close the modal when the close button is clicked
        */
-      MicroModal.close("modal-frame");
+      MicroModal.close("welcome-frame");
     }
   }
 };

@@ -14,7 +14,7 @@
         <header class="modal__header">
           <h3
             id="modal-frame-title"
-            class="md:text-2xl text-lg font-medium text-gray-600"
+            class="md:text-2xl text-lg font-medium text-gray-600 dark:text-gray-300"
           >
             {{ getHeading }}
           </h3>
@@ -26,12 +26,14 @@
             @click="closeModal"
             data-micromodal-close
           >
-            <XIcon></XIcon>
+            <XIcon class="dark:text-gray-400"></XIcon>
           </button>
         </header>
         <main class="modal__content" id="modal-frame-content">
           <div id="message" class="my-4">
-            <h6 class="md:text-base text-sm font-medium text-gray-500">
+            <h6
+              class="md:text-base text-sm font-medium text-gray-500 dark:text-gray-400"
+            >
               {{ getText }}
             </h6>
           </div>
