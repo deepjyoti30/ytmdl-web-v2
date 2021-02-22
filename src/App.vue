@@ -109,6 +109,8 @@ export default {
   mounted() {
     this.saveSettings();
     this.readAndApplyTheme();
+
+    this.$refs.welcome.showModal();
   }
 };
 </script>

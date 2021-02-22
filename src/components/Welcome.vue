@@ -6,7 +6,7 @@
   >
     <div class="modal__overlay border" tabindex="-1" data-micromodal-close>
       <div
-        class="modal__container md:w-2/6 w-11/12"
+        class="modal__container md:w-4/6 w-11/12"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-frame-title"
@@ -14,7 +14,7 @@
         <header class="modal__header">
           <h3
             id="modal-frame-title"
-            class="md:text-2xl text-sm font-medium text-gray-600"
+            class="md:text-lg text-sm font-medium text-gray-600"
           >
             Welcome
           </h3>
@@ -25,7 +25,7 @@
             @click="closeModal"
             data-micromodal-close
           >
-            <XIcon></XIcon>
+            <XIcon size="1x"></XIcon>
           </button>
         </header>
         <main class="modal__content" id="modal-frame-content"></main>
