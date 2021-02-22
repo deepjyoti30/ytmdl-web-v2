@@ -4,7 +4,7 @@
     id="modal-frame"
     aria-hidden="true"
   >
-    <div class="modal__overlay border" tabindex="-1" data-micromodal-close>
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
       <div
         class="modal__container md:w-4/6 w-11/12"
         role="dialog"
@@ -28,7 +28,19 @@
             <XIcon size="1x"></XIcon>
           </button>
         </header>
-        <main class="modal__content" id="modal-frame-content"></main>
+        <main class="modal__content" id="modal-frame-content">
+          <div class="header--content text-center">
+            <h3 class="text-3xl font-semibold">
+              Welcome to Ytmdl Web
+              <span class="uppercase font-bold highlight">v2</span>
+            </h3>
+            <p class="mb-2 mt-8 max-w-2xl mr-auto ml-auto text-gray-600">
+              In even less than a year of the first release, v2 is here. This
+              version is built from scratch with the consideration of various
+              feedbacks provided by the users of the former version.
+            </p>
+          </div>
+        </main>
       </div>
     </div>
   </div>
@@ -63,3 +75,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.highlight {
+  color: $green;
+}
+</style>
