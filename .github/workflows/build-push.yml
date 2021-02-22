@@ -51,7 +51,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/deepjyoti30/ytmdl-frontend:latest
+          tags: ghcr.io/deepjyoti30/ytmdl-web:latest
 
   deploy:
     needs: push-to-docker
@@ -64,5 +64,5 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.KEY }}
-          script: /bin/bash Scripts/deploy_blog.sh ghcr.io/deepjyoti30/ytmdl-frontend:latest
+          script: /bin/bash Scripts/deploy_ytmdl_web.sh ghcr.io/deepjyoti30/ytmdl-web:latest
       
