@@ -63,22 +63,6 @@
               <anchor-icon />
             </welcome-feature>
           </div>
-          <div
-            class="buttons__container max-w-xl flex mr-auto ml-auto mt-8 text-xl"
-          >
-            <button
-              type="button"
-              class="w-1/2 button-secondary rounded-md mr-2 border-green-500 border-2 text-green-500 font-semibold"
-            >
-              Read blog
-            </button>
-            <button
-              type="button"
-              class="w-1/2 rounded-md bg-green-500 text-white font-semibold"
-            >
-              Got It!
-            </button>
-          </div>
         </main>
       </div>
     </div>
