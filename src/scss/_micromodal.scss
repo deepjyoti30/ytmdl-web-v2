@@ -134,6 +134,16 @@
       to { transform: translateY(-10%); }
   }
 
+  @keyframes mmSlideUp {
+    from { transform: translateY(50%); }
+      to { transform: translateY(0); }
+  }
+
+  @keyframes mmSlideDown {
+    from { transform: translateY(0); }
+      to { transform: translateY(100%); }
+  }
+
   @keyframes scaleForward {
     0% {
       transform:scale(.85);
@@ -162,10 +172,18 @@
   
   .micromodal-slide[aria-hidden="false"] .modal__overlay {
     animation: mmfadeIn .5s cubic-bezier(0.0, 0.0, 0.2, 1);
+
+    @media only screen and (max-width: 700px) {
+      animation: none;
+    }
   }
   
   .micromodal-slide[aria-hidden="false"] .modal__container {
     animation: scaleForward 0.5s cubic-bezier(0, 0, .2, 1);
+
+    @media only screen and (max-width: 700px) {
+      animation: mmSlideUp 0.2s cubic-bezier(0, 0, .2, 1);
+    }
   }
   
   .micromodal-slide[aria-hidden="true"] .modal__overlay {
@@ -174,6 +192,10 @@
   
   .micromodal-slide[aria-hidden="true"] .modal__container {
     animation: scaleBack .3s cubic-bezier(0, 0, .2, 1);
+
+    @media only screen and (max-width: 700px) {
+      animation: mmSlideDown .1s cubic-bezier(0, 0, .2, 1);
+    }
   }
   
   .micromodal-slide .modal__container,
