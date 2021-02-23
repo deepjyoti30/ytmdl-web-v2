@@ -32,15 +32,20 @@
               <span class="uppercase font-bold highlight-v2">v2</span>
             </h3>
             <p
-              class="mb-2 mt-8 max-w-2xl md:text-base text-sm mr-auto ml-auto text-gray-600 dark:text-gray-400"
+              class="md:block hidden md:mt-8 mt-4 max-w-2xl md:text-base text-sm mr-auto ml-auto text-gray-600 dark:text-gray-400"
             >
-              In even less than a year of the first release, v2 is here. This
-              version is built from scratch with the consideration of various
-              feedbacks provided by the users of the former version.
+              In less than a year of the first release, v2 is here. This version
+              is built from scratch with the consideration of various feedbacks
+              provided by the users of the former version.
+            </p>
+            <p
+              class="md:text-base text-sm text-gray-600 dark:text-gray-400 md:mb-0 mb-4"
+            >
+              Some of the new features are
             </p>
           </div>
           <div
-            class="features__container flex md:justify-center flex-wrap md:mt-10"
+            class="features__container flex md:justify-center flex-wrap md:mt-4"
           >
             <welcome-feature text="Way faster">
               <zap-icon />

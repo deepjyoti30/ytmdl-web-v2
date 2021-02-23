@@ -44,14 +44,18 @@ export default {
   @apply mx-1;
 
   @media only screen and (max-width: $md) {
-    width: 100px;
-    @apply mb-2;
+    width: 30%;
   }
 
   .icon--wrapper {
     svg {
       width: 2.5em;
       height: 2.5em;
+
+      @media only screen and (max-width: $md) {
+        width: 2em;
+        height: 2em;
+      }
     }
   }
 }
