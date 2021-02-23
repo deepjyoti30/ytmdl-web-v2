@@ -1,13 +1,14 @@
 <template>
   <div class="welcome--feature__container">
-    <div class="welcome--feature py-4 rounded-xl border">
+    <div class="welcome--feature py-4 rounded-xl">
       <div class="icon--wrapper" align="center">
-        <slot></slot>
+        <div
+          class="icon--wrapper--content p-4 rounded-full bg-green-100 text-green-500 inline-block"
+        >
+          <slot></slot>
+        </div>
       </div>
-      <h5
-        v-if="isText"
-        class="text-md capitalize font-semibold mt-6 text-center"
-      >
+      <h5 v-if="isText" class="text-md capitalize font-medium mt-2 text-center">
         {{ getText }}
       </h5>
     </div>

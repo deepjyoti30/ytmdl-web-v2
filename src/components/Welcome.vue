@@ -43,7 +43,7 @@
             <welcome-feature text="Way faster">
               <zap-icon />
             </welcome-feature>
-            <welcome-feature text="Improved Downloads">
+            <welcome-feature text="Better Downloads">
               <download-icon />
             </welcome-feature>
             <welcome-feature text="User Settings">
