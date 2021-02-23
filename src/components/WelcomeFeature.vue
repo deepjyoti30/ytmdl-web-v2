@@ -8,7 +8,10 @@
           <slot></slot>
         </div>
       </div>
-      <h5 v-if="isText" class="text-md capitalize font-medium mt-2 text-center">
+      <h5
+        v-if="isText"
+        class="md:text-md text-sm capitalize font-medium mt-2 text-center"
+      >
         {{ getText }}
       </h5>
     </div>
@@ -38,7 +41,12 @@ export default {
 <style lang="scss" scoped>
 .welcome--feature__container {
   width: 200px;
-  @apply mx-2;
+  @apply mx-1;
+
+  @media only screen and (max-width: $md) {
+    width: 100px;
+    @apply mb-2;
+  }
 
   .icon--wrapper {
     svg {

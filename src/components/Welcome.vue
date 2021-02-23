@@ -39,7 +39,9 @@
               feedbacks provided by the users of the former version.
             </p>
           </div>
-          <div class="features__container flex justify-center mt-10">
+          <div
+            class="features__container flex md:justify-center flex-wrap md:mt-10"
+          >
             <welcome-feature text="Way faster">
               <zap-icon />
             </welcome-feature>
