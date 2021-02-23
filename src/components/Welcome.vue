@@ -6,7 +6,7 @@
   >
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
       <div
-        class="modal__container md:w-4/6 w-11/12"
+        class="modal__container md:w-4/6 w-full"
         role="dialog"
         aria-modal="true"
         aria-labelledby="welcome-frame-title"
@@ -32,7 +32,7 @@
           <div class="header--content text-center">
             <h3 class="text-3xl font-semibold dark:text-white">
               Welcome to Ytmdl Web
-              <span class="uppercase font-bold highlight">v2</span>
+              <span class="uppercase font-bold highlight-v2">v2</span>
             </h3>
             <p
               class="mb-2 mt-8 max-w-2xl mr-auto ml-auto text-gray-600 dark:text-gray-400"
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss">
-.highlight {
+.highlight-v2 {
   color: $green;
 }
 </style>
