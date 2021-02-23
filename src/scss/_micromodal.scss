@@ -17,7 +17,7 @@
   
   .modal__container {
     background-color: #fff;
-    padding: 20px;
+    padding-top: 0;
     width: 500px;
     max-height: 100vh;
     border-radius: 10px;
@@ -36,24 +36,26 @@
   }
   
   .modal__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 5px;
+
+    @apply border-b-2;
+    @apply border-gray-200;
   }
   
   .modal__title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.25;
-    color: #00449e;
-    box-sizing: border-box;
+    font-weight: 500;
+
+    @apply text-lg;
   }
   
   .modal__close {
     background: transparent;
     border: 0;
+    position: absolute;
+    right: 10px;
+    top: 7px;
   }
   
   .modal__header .modal__close:before {
@@ -66,6 +68,7 @@
   
   .modal__content {
     color: rgba(0,0,0,.8);
+    padding: 20px;
   }
   
   .modal__btn {
