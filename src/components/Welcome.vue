@@ -12,10 +12,7 @@
         aria-labelledby="welcome-frame-title"
       >
         <header class="modal__header">
-          <h3
-            id="welcome-frame-title"
-            class="md:text-lg text-sm font-medium text-gray-600 dark:text-gray-400"
-          >
+          <h3 id="modal-frame-title" class="modal__title">
             Welcome
           </h3>
           <button
@@ -25,7 +22,7 @@
             @click="closeModal"
             data-micromodal-close
           >
-            <XIcon size="1x" class="dark:text-gray-400"></XIcon>
+            <XIcon class="dark:text-gray-400"></XIcon>
           </button>
         </header>
         <main class="modal__content" id="welcome-frame-content">
