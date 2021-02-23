@@ -1,10 +1,13 @@
 <template>
   <div class="welcome--feature__container">
-    <div class="welcome--feature p-4 rounded-xl bg-green-200 text-green-600">
+    <div class="welcome--feature py-4 rounded-xl border">
       <div class="icon--wrapper" align="center">
         <slot></slot>
       </div>
-      <h5 v-if="isText" class="text-md capitalize font-semibold mt-6">
+      <h5
+        v-if="isText"
+        class="text-md capitalize font-semibold mt-6 text-center"
+      >
         {{ getText }}
       </h5>
     </div>
@@ -32,10 +35,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon--wrapper {
-  svg {
-    width: 2.5em;
-    height: 2.5em;
+.welcome--feature__container {
+  width: 200px;
+
+  .icon--wrapper {
+    svg {
+      width: 2.5em;
+      height: 2.5em;
+    }
   }
 }
 </style>

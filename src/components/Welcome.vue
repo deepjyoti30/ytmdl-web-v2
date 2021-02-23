@@ -46,6 +46,9 @@
             <welcome-feature text="Way faster">
               <zap-icon />
             </welcome-feature>
+            <welcome-feature text="Improved Downloads">
+              <download-icon />
+            </welcome-feature>
           </div>
         </main>
       </div>
@@ -56,14 +59,15 @@
 <script>
 import MicroModal from "micromodal";
 import WelcomeFeature from "@/components/WelcomeFeature.vue";
-import { XIcon, ZapIcon } from "vue-feather-icons";
+import { XIcon, ZapIcon, DownloadIcon } from "vue-feather-icons";
 
 export default {
   name: "Welcome",
   components: {
     XIcon,
     WelcomeFeature,
-    ZapIcon
+    ZapIcon,
+    DownloadIcon
   },
   methods: {
     showModal: function() {
