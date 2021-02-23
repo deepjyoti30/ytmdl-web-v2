@@ -139,5 +139,10 @@
     // Modal
     .modal__container {
         background-color: lighten($darkhigh, 5) !important;
+
+        .modal__header {
+            @apply text-gray-400;
+            @apply border-gray-700;
+        }
     }
 }
