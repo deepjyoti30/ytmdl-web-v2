@@ -108,6 +108,7 @@ export default {
        */
       MicroModal.show("modal-frame", {
         disableFocus: true,
+        disableScroll: true,
         awaitCloseAnimation: true,
         awaitOpenAnimation: true
       });

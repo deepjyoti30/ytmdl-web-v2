@@ -95,6 +95,7 @@ export default {
        */
       MicroModal.show("welcome-frame", {
         disableFocus: true,
+        disableScroll: true,
         awaitCloseAnimation: true,
         awaitOpenAnimation: true
       });
