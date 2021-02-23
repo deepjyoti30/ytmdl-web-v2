@@ -37,6 +37,7 @@ export default {
 <style lang="scss" scoped>
 .welcome--feature__container {
   width: 200px;
+  @apply mx-2;
 
   .icon--wrapper {
     svg {
