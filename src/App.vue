@@ -110,7 +110,7 @@ export default {
     this.saveSettings();
     this.readAndApplyTheme();
 
-    this.$refs.welcome.showModal();
+    this.$refs.welcome.$refs.modal.showModal();
   }
 };
 </script>

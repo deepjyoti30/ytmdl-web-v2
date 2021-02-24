@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .welcome--feature__container {
-  width: 200px;
+  width: 150px;
   @apply mx-1;
 
   @media only screen and (max-width: $md) {
