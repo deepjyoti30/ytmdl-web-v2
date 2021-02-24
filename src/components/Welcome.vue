@@ -45,7 +45,7 @@
             </p>
           </div>
           <div
-            class="features__container flex md:justify-center flex-wrap md:mt-4"
+            class="features__container flex md:justify-center justify-around flex-wrap md:mt-4"
           >
             <welcome-feature text="Way faster">
               <zap-icon />
@@ -61,6 +61,9 @@
             </welcome-feature>
             <welcome-feature text="URL support">
               <anchor-icon />
+            </welcome-feature>
+            <welcome-feature text="Open Source">
+              <git-branch-icon />
             </welcome-feature>
           </div>
         </main>
@@ -78,7 +81,8 @@ import {
   DownloadIcon,
   SettingsIcon,
   EditIcon,
-  AnchorIcon
+  AnchorIcon,
+  GitBranchIcon
 } from "vue-feather-icons";
 
 export default {
@@ -90,7 +94,8 @@ export default {
     DownloadIcon,
     SettingsIcon,
     EditIcon,
-    AnchorIcon
+    AnchorIcon,
+    GitBranchIcon
   },
   methods: {
     showModal: function() {
