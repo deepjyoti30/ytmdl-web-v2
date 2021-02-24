@@ -7,7 +7,7 @@
         in the best quality possible!
       </h1>
       <h4
-        class="md:text-lg md:w-2/5 mr-auto ml-auto text-md md:px-0 px-6 mt-12 text-gray-500 font-medium"
+        class="md:text-lg md:w-2/5 mr-auto ml-auto text-md md:px-0 px-6 mt-12 text-gray-500 dark:text-gray-400 font-medium"
       >
         We do all the work for you! We download the song, add metadata to it and
         make it available for download in just a matter of seconds. All you have

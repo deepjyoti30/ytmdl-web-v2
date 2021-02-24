@@ -1,5 +1,5 @@
 <template>
-  <div class="details__container">
+  <div class="details__container md:mt-40">
     <div
       class="details--content md:w-5/6 w-6/6 px-4 md:px-0 mr-auto ml-auto md:mt-28 mt-24 md:mb-16 py-4 md:block flex justify-between"
     >
@@ -106,7 +106,7 @@ export default {
       .icon--each {
         @apply p-4;
         border-radius: 100%;
-        @apply bg-cyan;
+        @apply bg-darkgreen-400;
         @apply text-darkblue;
 
         @media only screen and (max-width: $md) {
