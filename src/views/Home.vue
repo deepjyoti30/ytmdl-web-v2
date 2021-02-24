@@ -24,8 +24,9 @@
       </div>
       <div class="github--btn--wrapper text-center">
         <a
-          href="github.com/deepjyoti30/ytmdl-web-v2"
-          class="github--btn md:px-16 px-12 md:py-5 py-2 md:text-2xl text-xl font-medium rounded-lg"
+          href="https://github.com/deepjyoti30/ytmdl-web-v2"
+          target="_blank"
+          class="github--btn md:px-16 px-12 md:py-5 py-3 md:text-2xl text-xl font-medium rounded-lg"
           >Check Source</a
         >
       </div>
@@ -63,6 +64,7 @@ export default {
   .start-btn-content {
     @extend .dm-sans;
     $color: lighten($mediumblue, 5);
+    @apply capitalize;
 
     .start--btn {
       background: $color;
