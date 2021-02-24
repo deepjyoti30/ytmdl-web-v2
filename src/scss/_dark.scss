@@ -101,24 +101,17 @@
 
     .details__container {
         .details--content {
+            .line--icon {
+                .icon {
+                    //@apply text-darkgreen-200;
+                }
+            }
+
             .text--content {
                 .details--each {
                     h3 {
-                        color: $lightblue !important;
+                        @apply text-gray-400;
                     }
-                }
-            }
-
-            .icon--content {
-                .icon--each {
-                    
-                }
-            }
-
-            .line--icon {
-                .icon {
-                    color: $lightgreen !important;
-                    fill: $lightgreen !important;
                 }
             }
         }

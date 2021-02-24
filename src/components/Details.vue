@@ -10,7 +10,10 @@
           <MusicIcon size="4x" class="icon" />
         </div>
         <div class="line--each">
-          <div class="line--icon w-5 mr-auto ml-auto">
+          <div
+            class="line--icon bg-white dark:bg-darklow w-8 mr-auto ml-auto"
+            align="center"
+          >
             <ZapIcon class="icon" />
           </div>
         </div>
@@ -18,7 +21,10 @@
           <PackageIcon size="4x" class="icon" />
         </div>
         <div class="line--each">
-          <div class="line--icon w-5 mr-auto ml-auto">
+          <div
+            class="line--icon bg-white dark:bg-darklow w-8 mr-auto ml-auto"
+            align="center"
+          >
             <ShieldIcon class="icon" />
           </div>
         </div>
@@ -86,7 +92,7 @@ export default {
         @apply max-w-xs;
 
         h3 {
-          color: $mediumblue;
+          @apply text-gray-700;
         }
 
         p {
@@ -106,7 +112,7 @@ export default {
       .icon--each {
         @apply p-4;
         border-radius: 100%;
-        @apply bg-darkgreen-400;
+        @apply bg-red-200;
         @apply text-darkblue;
 
         @media only screen and (max-width: $md) {
@@ -126,21 +132,28 @@ export default {
 
         flex-grow: 1;
         height: 2px;
-        border: 1px solid $lightblue;
-        background: $lightblue;
+        border-width: 1px;
+        border-style: solid;
+
+        @apply bg-red-400;
+        @apply border-red-400;
+
+        z-index: 2;
 
         .line--icon {
+          z-index: 3;
+          @apply text-red-400;
+
+          @media only screen and (min-width: $md) {
+            transform: translateY(-12px);
+          }
+
+          @media only screen and (max-width: $md) {
+            margin-top: 52.5px;
+            transform: translateX(-15px);
+          }
+
           .icon {
-            @media only screen and (min-width: $md) {
-              transform: translateY(-12px);
-            }
-
-            @media only screen and (max-width: $md) {
-              margin-top: 52.5px;
-              transform: translateX(-12px);
-            }
-
-            color: $mediumblue;
             fill: white;
           }
         }
