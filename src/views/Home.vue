@@ -1,7 +1,7 @@
 <template>
   <div class="home__container md:py-16 pt-32 pb-8">
     <div class="top__container text-center">
-      <h1 class="md:text-4xl text-3xl font-bold">
+      <h1 class="md:text-5xl md:w-2/5 mr-auto ml-auto text-3xl font-bold">
         Download <span class="highlight">songs with metadata</span> in the best
         quality possible!
       </h1>
@@ -54,6 +54,8 @@ export default {
         border-bottom: 5px solid $lightblue;
         transform: translateZ(5px);
       }
+
+      line-height: 1.3em;
     }
 
     h4 {
