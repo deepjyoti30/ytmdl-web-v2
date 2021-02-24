@@ -83,7 +83,7 @@ export default {
 
       if (this.showConfirm) {
         // Ask the user if they would like to make it the default setting.
-        this.$refs.confirm.showModal();
+        this.$refs.confirm.$refs.modal.showModal();
         return;
       }
 
