@@ -18,16 +18,17 @@
       <div class="start--btn--wrapper text-center md:mb-0 mb-14">
         <router-link
           to="/search"
-          class="start--btn md:px-16 px-12 md:py-6 py-4 shadow-xl md:text-2xl text-xl font-medium rounded-lg md:mr-6"
+          class="start--btn md:px-16 px-12 md:py-6 py-4 shadow-xl md:text-2xl text-xl font-medium rounded-lg md:mr-6 bg-darkgreen-300 hover:bg-darkgreen-200"
           title="Click to download a song"
           >Download a song</router-link
         >
       </div>
       <div class="github--btn--wrapper text-center">
         <a
+          title="Check Source Code"
           href="https://github.com/deepjyoti30/ytmdl-web-v2"
           target="_blank"
-          class="github--btn md:px-16 px-12 md:py-5 py-3 md:text-2xl text-xl font-medium rounded-lg"
+          class="github--btn md:px-16 px-12 md:py-5 py-3 md:text-2xl text-xl font-medium rounded-lg border-darkgreen-300"
           >Check Source</a
         >
       </div>
@@ -71,20 +72,17 @@ export default {
     @apply capitalize;
 
     .start--btn {
-      background: $color;
-      color: white;
       transition: 150ms ease;
 
       &:hover {
         transition: 150ms ease;
-        background: darken($color, 2);
       }
     }
 
     .github--btn {
-      border: 4px solid $color;
+      border-width: 4px;
+      border-style: solid;
       transition: 150ms ease;
-      color: $color;
     }
   }
 }
