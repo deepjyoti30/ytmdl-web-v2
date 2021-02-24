@@ -113,6 +113,7 @@ export default {
       this.$refs.welcome.$refs.modal.showModal();
 
       // Update the settings
+      localStorage.setItem("showWelcome", JSON.stringify({ value: true }));
     }
   },
   computed: {
