@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import Modal from "@/components/Modal.vue";
 import WelcomeFeature from "@/components/WelcomeFeature.vue";
 import {
   ZapIcon,
@@ -66,7 +65,7 @@ import {
 export default {
   name: "Welcome",
   components: {
-    Modal,
+    Modal: () => import("@/components/Modal.vue"),
     WelcomeFeature,
     ZapIcon,
     DownloadIcon,

@@ -33,12 +33,10 @@
 </template>
 
 <script>
-import Modal from "@/components/Modal.vue";
-
 export default {
   name: "Confirm",
   components: {
-    Modal
+    Modal: () => import("@/components/Modal.vue")
   },
   props: {
     heading: {
