@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <welcome ref="welcome" />
     <Navbar :isDark="getIsDark" @themeChange="handleThemeChange" />
     <transition name="fade-in"
       ><router-view class="router-view__container" />
@@ -11,6 +12,7 @@
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Welcome from "@/components/Welcome";
 
 import defaultSettings from "@/static/settings.js";
 
@@ -18,7 +20,8 @@ export default {
   name: "App",
   components: {
     Navbar,
-    Footer
+    Footer,
+    Welcome
   },
   data: () => {
     return {
@@ -96,6 +99,21 @@ export default {
       });
 
       localStorage.setItem("settings", JSON.stringify(newSettings));
+    },
+    showWelcome: function() {
+      /**
+       * Check if this the first time user is visiting the version
+       * 2 of the app and accordingly show the welcome component.
+       */
+      const showWelcome = localStorage.getItem("showWelcome");
+
+      // If it is present in the storage, we need to skip it.
+      if (showWelcome != null) return;
+
+      this.$refs.welcome.$refs.modal.showModal();
+
+      // Update the settings
+      localStorage.setItem("showWelcome", JSON.stringify({ value: true }));
     }
   },
   computed: {
@@ -106,6 +124,7 @@ export default {
   mounted() {
     this.saveSettings();
     this.readAndApplyTheme();
+    this.showWelcome();
   }
 };
 </script>

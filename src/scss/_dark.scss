@@ -90,22 +90,28 @@
                 color: $lightcyan !important;
             }
         }
+
+        .start-btn-content {
+            .github--btn {
+                color: white !important;
+
+            }
+        }
     }
 
     .details__container {
         .details--content {
-            .text--content {
-                .details--each {
-                    h3 {
-                        color: $lightblue !important;
-                    }
+            .line--icon {
+                .icon {
+                    fill: $darklow !important;
                 }
             }
 
-            .line--icon {
-                .icon {
-                    color: $lightgreen !important;
-                    fill: $lightgreen !important;
+            .text--content {
+                .details--each {
+                    h3 {
+                        @apply text-gray-300;
+                    }
                 }
             }
         }
@@ -133,6 +139,16 @@
             &:hover {
                 border-color: $lightblue !important;
             }
+        }
+    }
+
+    // Modal
+    .modal__container {
+        background-color: lighten($darkhigh, 5) !important;
+
+        .modal__header {
+            @apply text-gray-400;
+            @apply border-gray-700;
         }
     }
 }

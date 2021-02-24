@@ -12,11 +12,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99;
   }
   
   .modal__container {
     background-color: #fff;
-    padding: 20px;
+    padding-top: 0;
     width: 500px;
     max-height: 100vh;
     border-radius: 10px;
@@ -24,29 +25,37 @@
     box-sizing: border-box;
 
     @media only screen and (max-width: 700px) {
-        width: 95%;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        position: absolute;
+        bottom: 0;
+
+        @apply rounded-t-3xl;
     }
   }
   
   .modal__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 5px;
+
+    @apply border-b-2;
+    @apply border-gray-200;
   }
   
   .modal__title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.25;
-    color: #00449e;
-    box-sizing: border-box;
+    font-weight: 500;
+
+    @apply text-lg;
   }
   
   .modal__close {
     background: transparent;
     border: 0;
+    position: absolute;
+    right: 10px;
+    top: 7px;
   }
   
   .modal__header .modal__close:before {
@@ -59,6 +68,7 @@
   
   .modal__content {
     color: rgba(0,0,0,.8);
+    padding: 20px;
   }
   
   .modal__btn {
@@ -124,6 +134,16 @@
       to { transform: translateY(-10%); }
   }
 
+  @keyframes mmSlideUp {
+    from { transform: translateY(50%); }
+      to { transform: translateY(0); }
+  }
+
+  @keyframes mmSlideDown {
+    from { transform: translateY(0); }
+      to { transform: translateY(100%); }
+  }
+
   @keyframes scaleForward {
     0% {
       transform:scale(.85);
@@ -152,10 +172,18 @@
   
   .micromodal-slide[aria-hidden="false"] .modal__overlay {
     animation: mmfadeIn .5s cubic-bezier(0.0, 0.0, 0.2, 1);
+
+    @media only screen and (max-width: 700px) {
+      animation: none;
+    }
   }
   
   .micromodal-slide[aria-hidden="false"] .modal__container {
     animation: scaleForward 0.5s cubic-bezier(0, 0, .2, 1);
+
+    @media only screen and (max-width: 700px) {
+      animation: mmSlideUp 0.2s cubic-bezier(0, 0, .2, 1);
+    }
   }
   
   .micromodal-slide[aria-hidden="true"] .modal__overlay {
@@ -164,6 +192,10 @@
   
   .micromodal-slide[aria-hidden="true"] .modal__container {
     animation: scaleBack .3s cubic-bezier(0, 0, .2, 1);
+
+    @media only screen and (max-width: 700px) {
+      animation: mmSlideDown .1s cubic-bezier(0, 0, .2, 1);
+    }
   }
   
   .micromodal-slide .modal__container,

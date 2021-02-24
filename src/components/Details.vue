@@ -1,5 +1,5 @@
 <template>
-  <div class="details__container">
+  <div class="details__container md:mt-40">
     <div
       class="details--content md:w-5/6 w-6/6 px-4 md:px-0 mr-auto ml-auto md:mt-28 mt-24 md:mb-16 py-4 md:block flex justify-between"
     >
@@ -10,7 +10,10 @@
           <MusicIcon size="4x" class="icon" />
         </div>
         <div class="line--each">
-          <div class="line--icon w-5 mr-auto ml-auto">
+          <div
+            class="line--icon bg-white dark:bg-darklow w-8 mr-auto ml-auto"
+            align="center"
+          >
             <ZapIcon class="icon" />
           </div>
         </div>
@@ -18,7 +21,10 @@
           <PackageIcon size="4x" class="icon" />
         </div>
         <div class="line--each">
-          <div class="line--icon w-5 mr-auto ml-auto">
+          <div
+            class="line--icon bg-white dark:bg-darklow w-8 mr-auto ml-auto"
+            align="center"
+          >
             <ShieldIcon class="icon" />
           </div>
         </div>
@@ -86,7 +92,7 @@ export default {
         @apply max-w-xs;
 
         h3 {
-          color: $mediumblue;
+          @apply text-gray-700;
         }
 
         p {
@@ -106,8 +112,8 @@ export default {
       .icon--each {
         @apply p-4;
         border-radius: 100%;
-        background: lighten($lightgreen, 60);
-        color: $lightgreen;
+        @apply bg-red-200;
+        @apply text-darkblue;
 
         @media only screen and (max-width: $md) {
           @apply w-12;
@@ -126,21 +132,28 @@ export default {
 
         flex-grow: 1;
         height: 2px;
-        border: 1px solid $lightblue;
-        background: $lightblue;
+        border-width: 1px;
+        border-style: solid;
+
+        @apply bg-red-400;
+        @apply border-red-400;
+
+        z-index: 2;
 
         .line--icon {
+          z-index: 3;
+          @apply text-red-400;
+
+          @media only screen and (min-width: $md) {
+            transform: translateY(-12px);
+          }
+
+          @media only screen and (max-width: $md) {
+            margin-top: 52.5px;
+            transform: translateX(-15px);
+          }
+
           .icon {
-            @media only screen and (min-width: $md) {
-              transform: translateY(-12px);
-            }
-
-            @media only screen and (max-width: $md) {
-              margin-top: 52.5px;
-              transform: translateX(-12px);
-            }
-
-            color: $mediumblue;
             fill: white;
           }
         }
