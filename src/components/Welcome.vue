@@ -66,6 +66,13 @@
               <git-branch-icon />
             </welcome-feature>
           </div>
+          <p class="read--more text-sm mt-4 text-center">
+            <a
+              href="https://blog.deepjyoti30.dev/ytmdl-v2-release"
+              class="underline text-gray-500"
+              >Read more about the features</a
+            >
+          </p>
         </main>
       </div>
     </div>
