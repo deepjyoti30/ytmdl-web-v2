@@ -20,6 +20,9 @@ jobs:
         run: npm install
       - name: Build for production
         run: npm run build
+      # Generate the service worker
+      - name: Build Service worker
+        run: workbox generateSW workbox-config.js
       # Upload the dist directory
       - uses: actions/upload-artifact@master
         with:
