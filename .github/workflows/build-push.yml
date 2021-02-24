@@ -20,7 +20,7 @@ jobs:
         run: npm install
       # Install workbox
       - name: Install workbox
-        run: npm i workbox-cli
+        run: npm i workbox-cli --global
       - name: Build for production
         run: npm run build
       # Generate the service worker
