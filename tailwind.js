@@ -10,6 +10,12 @@ module.exports = {
         cyan: {
           light: "#E0FBFC",
           DEFAULT: "#E0FBFC"
+        },
+        darkgreen: {
+          DEFAULT: "#1EB980",
+          500: "#ddf9ef",
+          400: "#b1f2da",
+          300: "#85ebc6"
         }
       }
     }

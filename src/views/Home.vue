@@ -1,9 +1,10 @@
 <template>
   <div class="home__container md:py-16 pt-32 pb-8">
     <div class="top__container text-center">
-      <h1 class="md:text-5xl md:w-2/5 mr-auto ml-auto text-3xl font-bold">
-        Download <span class="highlight">songs with metadata</span> in the best
-        quality possible!
+      <h1 class="md:text-5xl md:w-2/5 mr-auto ml-auto text-3xl font-semibold">
+        Download
+        <span class="highlight border-darkgreen-300">songs with metadata</span>
+        in the best quality possible!
       </h1>
       <h4
         class="md:text-lg md:w-2/5 mr-auto ml-auto text-md md:px-0 px-6 mt-12 text-gray-500 font-medium"
@@ -51,7 +52,8 @@ export default {
       color: $darkblue;
 
       .highlight {
-        border-bottom: 5px solid $lightblue;
+        border-bottom-width: 5px;
+        border-style: solid;
         transform: translateZ(5px);
       }
 
