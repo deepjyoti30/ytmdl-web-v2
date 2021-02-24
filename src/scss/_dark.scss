@@ -103,14 +103,14 @@
         .details--content {
             .line--icon {
                 .icon {
-                    //@apply text-darkgreen-200;
+                    fill: $darklow;
                 }
             }
 
             .text--content {
                 .details--each {
                     h3 {
-                        @apply text-gray-400;
+                        @apply text-gray-300;
                     }
                 }
             }
