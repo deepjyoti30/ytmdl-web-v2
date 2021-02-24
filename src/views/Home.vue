@@ -13,13 +13,20 @@
         to do is enjoy the song!
       </h4>
     </div>
-    <div class="start-btn-content pt-32">
-      <div class="start--btn--wrapper text-center">
+    <div class="start-btn-content flex flex-wrap justify-center pt-32">
+      <div class="start--btn--wrapper text-center md:mb-0 mb-14">
         <router-link
           to="/search"
-          class="start--btn px-16 py-6 shadow-xl text-2xl font-medium rounded-lg"
+          class="start--btn md:px-16 px-12 md:py-6 py-4 shadow-xl md:text-2xl text-xl font-medium rounded-lg md:mr-6"
           title="Click to download a song"
           >Download a song</router-link
+        >
+      </div>
+      <div class="github--btn--wrapper text-center">
+        <a
+          href="github.com/deepjyoti30/ytmdl-web-v2"
+          class="github--btn md:px-16 px-12 md:py-5 py-2 md:text-2xl text-xl font-medium rounded-lg"
+          >Check Source</a
         >
       </div>
     </div>
@@ -54,10 +61,10 @@ export default {
   }
 
   .start-btn-content {
-    .start--btn {
-      @extend .dm-sans;
-      $color: lighten($mediumblue, 5);
+    @extend .dm-sans;
+    $color: lighten($mediumblue, 5);
 
+    .start--btn {
       background: $color;
       color: white;
       transition: 150ms ease;
@@ -66,6 +73,12 @@ export default {
         transition: 150ms ease;
         background: darken($color, 2);
       }
+    }
+
+    .github--btn {
+      border: 4px solid $color;
+      transition: 150ms ease;
+      color: $color;
     }
   }
 }
