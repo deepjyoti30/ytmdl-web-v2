@@ -106,8 +106,8 @@ export default {
       .icon--each {
         @apply p-4;
         border-radius: 100%;
-        background: lighten($lightgreen, 60);
-        color: $lightgreen;
+        @apply bg-cyan;
+        @apply text-darkblue;
 
         @media only screen and (max-width: $md) {
           @apply w-12;

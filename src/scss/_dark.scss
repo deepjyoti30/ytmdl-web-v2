@@ -102,6 +102,13 @@
                 }
             }
 
+            .icon--content {
+                .icon--each {
+                    @apply bg-darkblue;
+                    @apply text-cyan;
+                }
+            }
+
             .line--icon {
                 .icon {
                     color: $lightgreen !important;

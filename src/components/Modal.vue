@@ -9,7 +9,7 @@
       >
         <header class="modal__header">
           <h3 :id="`${getModalId}-title`" class="modal__title">
-            Confirm
+            {{ getHeading }}
           </h3>
           <button
             v-if="showCancelButton"
