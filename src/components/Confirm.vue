@@ -36,7 +36,7 @@
 export default {
   name: "Confirm",
   components: {
-    Modal: () => import("@/components/Modal.vue")
+    Modal: () => import(/* webpackPrefetch: true */ "@/components/Modal.vue")
   },
   props: {
     heading: {
