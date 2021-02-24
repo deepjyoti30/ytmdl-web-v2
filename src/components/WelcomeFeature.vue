@@ -3,7 +3,7 @@
     <div class="welcome--feature py-4 rounded-xl">
       <div class="icon--wrapper" align="center">
         <div
-          class="icon--wrapper--content p-4 rounded-full bg-green-100 dark:bg-green-900 text-green-500 dark:text-green-100 inline-block"
+          class="icon--wrapper--content p-4 rounded-full bg-green-100 dark:bg-darkblue text-green-500 dark:text-cyan-light inline-block"
         >
           <slot></slot>
         </div>
