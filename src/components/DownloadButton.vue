@@ -20,6 +20,7 @@
 </template>
 
 <script>
+/* eslint-disable no-console */
 import JsFileDownloader from "js-file-downloader";
 
 export default {
