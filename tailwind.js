@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./components/**/*.vue", "./plugins/**/*.vue", "./static/**/*.vue"],
+  purge: ["./src/**/*.vue", "./src/scss/**/*.scss"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
@@ -31,6 +31,5 @@ module.exports = {
   },
   variants: {
     extend: {}
-  },
-  plugins: []
+  }
 };

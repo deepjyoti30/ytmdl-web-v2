@@ -23,7 +23,10 @@
         <div class="social--content md:mt-0 mt-6">
           <ul>
             <li>
-              <a href="https://github.com/deepjyoti30/ytmdl" title="GitHub">
+              <a
+                href="https://github.com/deepjyoti30/ytmdl-web-v2"
+                title="GitHub"
+              >
                 <github-icon class="inline icon-up" />
               </a>
             </li>
