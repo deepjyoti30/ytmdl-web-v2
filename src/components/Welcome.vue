@@ -43,6 +43,7 @@
         <a
           href="https://blog.deepjyoti30.dev/ytmdl-v2-release"
           target="_blank"
+          rel="noopener"
           class="underline text-gray-500"
           >Read more about the features</a
         >
