@@ -47,11 +47,11 @@
           </div>
           <div class="py-6 text-center">
             <a
-              href="https://blog.deepjyoti30.dev"
+              href="https://github.com/deepjyoti30/ytmdl-web-v2"
               target="_blank"
               rel="noopener"
-              title="Blog"
-              ><BookIcon class="ml-auto mr-auto link-icon" />
+              title="GitHub"
+              ><GithubIcon class="ml-auto mr-auto link-icon" />
             </a>
           </div>
         </div>
@@ -96,14 +96,14 @@
               <span>Donate</span>
             </router-link>
             <a
-              href="https://blog.deepjyoti30.dev"
+              href="https://github.com/deepjyoti30/ytmdl-web-v2"
               target="_blank"
               rel="noopener"
               @click="toggleBar"
               class="link-each pl-7"
             >
               <span
-                >Blog
+                >GitHub
                 <div class="external-icon">
                   <ExternalLinkIcon size="1.1x" class="icon" />
                 </div>
@@ -130,9 +130,9 @@ import {
   MenuIcon,
   XIcon,
   SunIcon,
-  BookIcon,
   ExternalLinkIcon,
-  DollarSignIcon
+  DollarSignIcon,
+  GithubIcon
 } from "vue-feather-icons";
 
 export default {
@@ -145,9 +145,9 @@ export default {
     MenuIcon,
     XIcon,
     SunIcon,
-    BookIcon,
     ExternalLinkIcon,
-    DollarSignIcon
+    DollarSignIcon,
+    GithubIcon
   },
   data: () => {
     return {
