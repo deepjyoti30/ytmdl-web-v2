@@ -1,5 +1,5 @@
 <p align="center">
-<img src=".github/ytmdl.jpg" width="100%">
+<img src=".github/ytmdl.png" alt="Ytmdl Web" width="100%">
 </p>
 <br>
 
