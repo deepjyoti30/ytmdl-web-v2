@@ -10,7 +10,7 @@ Ytmdl started as a CLI project as can be seen [here](https://github.com/deepjyot
 
 ### What does it do?
 
-It is basically an app that addresses a major problem that people face, getting high quality songs from already available sources. I used to download songs a lot from YouTube using tools like `youtube-dl` but all these tools do is download the audio and thats it, no metadata. It was creating a mess of songs in my library, so I decided to build this tool. It gets the audio from YouTube using tools like `youtube-dl` in the backend and processes the songs and adds high quality metadata to them from various sources like itunes, lastfm etc.
+This is an app that addresses a major problem that people face with the tools used currently, which is easily getting high-quality songs *with* metadata. Such empty-looking songs without metadata were creating a mess in my library, so I decided to build this tool. It gets the audio from YouTube using tools like `youtube-dl` in the backend and processes the songs and adds high quality metadata to them from various sources like iTunes and Last.fm.
 
 ### How can I support the project?
 
