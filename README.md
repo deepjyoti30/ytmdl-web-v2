@@ -7,7 +7,7 @@
 
 Version 2 of Ytmdl Web with a lot of fixes since the first iteration. This release is way faster than the previous version along with some neat additions like Settings. This Web App is based on the commandline version of the app which can be found [here](https://github.com/deepjyoti30/ytmdl).
 
-## Deploy Locally
+### Deploy Locally
 
 If you want to deploy the webapp locally and run it, you can do that by pulling the latest image and deploying it.
 
@@ -19,7 +19,7 @@ By default the webapp runs on port **8082**.
 
 The latest image is built everytime a merge is done in the `production` branch. If you want to experiment with the bleeding edge and get new features, try out [setup](##setup).
 
-## Setup
+### Setup
 
 In order to run the project locally, you need to clone the repo and run:
 
@@ -33,6 +33,6 @@ If you want to build, use:
 npm run build
 ```
 
-## Contribution
+### Contribution
 
 If you want to contribute to the project, read the [this](.github/CONTRIBUTING.md).
