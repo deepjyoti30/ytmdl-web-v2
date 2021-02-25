@@ -47,15 +47,6 @@
           </div>
           <div class="py-6 text-center">
             <a
-              href="https://blog.deepjyoti30.dev"
-              target="_blank"
-              rel="noopener"
-              title="Blog"
-              ><BookIcon class="ml-auto mr-auto link-icon" />
-            </a>
-          </div>
-          <div class="py-6 text-center">
-            <a
               href="https://github.com/deepjyoti30/ytmdl-web-v2"
               target="_blank"
               rel="noopener"
@@ -105,20 +96,6 @@
               <span>Donate</span>
             </router-link>
             <a
-              href="https://blog.deepjyoti30.dev"
-              target="_blank"
-              rel="noopener"
-              @click="toggleBar"
-              class="link-each pl-7"
-            >
-              <span
-                >Blog
-                <div class="external-icon">
-                  <ExternalLinkIcon size="1.1x" class="icon" />
-                </div>
-              </span>
-            </a>
-            <a
               href="https://github.com/deepjyoti30/ytmdl-web-v2"
               target="_blank"
               rel="noopener"
@@ -153,7 +130,6 @@ import {
   MenuIcon,
   XIcon,
   SunIcon,
-  BookIcon,
   ExternalLinkIcon,
   DollarSignIcon,
   GithubIcon
@@ -169,7 +145,6 @@ export default {
     MenuIcon,
     XIcon,
     SunIcon,
-    BookIcon,
     ExternalLinkIcon,
     DollarSignIcon,
     GithubIcon
