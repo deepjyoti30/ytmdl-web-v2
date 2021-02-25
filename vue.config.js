@@ -5,5 +5,8 @@ module.exports = {
         prependData: `@import "@/scss/app.scss";`
       }
     }
+  },
+  pwa: {
+    name: "Ytmdl"
   }
 };
