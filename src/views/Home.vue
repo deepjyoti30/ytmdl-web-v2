@@ -28,6 +28,7 @@
           title="Check Source Code"
           href="https://github.com/deepjyoti30/ytmdl-web-v2"
           target="_blank"
+          rel="noopener"
           class="github--btn md:px-16 px-12 md:py-5 py-3 md:text-2xl text-xl font-medium rounded-lg border-darkgreen-300"
           >Check Source</a
         >
