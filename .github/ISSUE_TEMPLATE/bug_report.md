@@ -33,3 +33,7 @@ Put log if you found one in the browsers console window
 ## Description
 
 DESCRIBE THE ISSUE
+
+## Expected Behaviour
+
+SHARE WHAT THE EXPECTED BEHAVIOUR SHOULD BE
