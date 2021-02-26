@@ -98,7 +98,7 @@ export default {
     },
     getPlaceholder() {
       var placeholder = `Enter name of song ${
-        this.hideUrlMessage ? "" : " or YouTube URL"
+        this.hideUrlMessage ? "" : "or YouTube URL"
       }`;
       return placeholder;
     }
