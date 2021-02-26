@@ -19,6 +19,11 @@ assignees: ''
 - [ ] Locally
 - [x] On the official page
 
+## Browser Details
+
+- Name: <>
+- Version: (If possible)
+
 ## Console Log
 
 ```console
