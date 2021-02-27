@@ -7,5 +7,6 @@ module.exports = {
       urlPattern: /\.(?:png|jpg|jpeg|svg|json|md|js|css|html)$/,
       handler: "StaleWhileRevalidate"
     }
-  ]
+  ],
+  navigateFallback: "index.html"
 };
