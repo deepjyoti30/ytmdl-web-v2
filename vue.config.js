@@ -11,6 +11,7 @@ module.exports = {
     start_url: "/",
     workboxOptions: {
       exclude: [/_redirects/]
-    }
+    },
+    ignoreUrlParametersMatching: [/./]
   }
 };
