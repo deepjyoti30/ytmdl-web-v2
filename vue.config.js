@@ -8,6 +8,9 @@ module.exports = {
   },
   pwa: {
     name: "Ytmdl",
-    start_url: "/"
+    start_url: "/",
+    workboxOptions: {
+      exclude: [/_redirects/]
+    }
   }
 };
