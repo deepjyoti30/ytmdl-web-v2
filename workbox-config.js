@@ -4,9 +4,10 @@ module.exports = {
   swDest: "dist/sw.js",
   runtimeCaching: [
     {
-      urlPattern: /\.(?:png|jpg|jpeg|svg|json|md|js|css|html)$/,
-      handler: "StaleWhileRevalidate"
+      urlPattern: /\.(?:png|jpg|svg|json|md|js|css|html)$/,
+      handler: "CacheFirst"
     }
   ],
-  navigateFallback: "index.html"
+  navigateFallback: "index.html",
+  cleanupOutdatedCaches: true
 };
