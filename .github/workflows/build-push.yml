@@ -18,8 +18,13 @@ jobs:
           node-version: '15'
       - name: Install dependencies
         run: npm install
+      # Install workbox
+      - name: Install workbox
+        run: npm i workbox-cli --global
       - name: Build for production
         run: npm run build
+      - name: Build service worker
+        run: workbox generateSW workbox-config.js
       # Upload the dist directory
       - uses: actions/upload-artifact@master
         with:
