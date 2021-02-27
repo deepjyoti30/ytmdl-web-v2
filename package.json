@@ -18,7 +18,8 @@
     "snarkdown": "^2.0.0",
     "vue": "^2.6.11",
     "vue-feather-icons": "^5.1.0",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "workbox-window": "^6.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
