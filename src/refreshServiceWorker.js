@@ -2,7 +2,7 @@ import { Workbox } from "workbox-window";
 
 export default function workboxRefresh() {
   if ("serviceWorker" in navigator) {
-    const wb = new Workbox("/service-worker.js");
+    const wb = new Workbox("/sw.js");
 
     wb.addEventListener("waiting", async () => {
       await caches.delete("js-cache");
