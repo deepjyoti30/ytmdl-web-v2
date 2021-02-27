@@ -1,6 +1,6 @@
 module.exports = {
   globDirectory: "dist/",
-  globPatterns: ["**/*.{ico,png,svg,html,json,txt,md}"],
+  globPatterns: ["**/*.{ico,png,svg,html,js,css,json,txt,md}"],
   swDest: "dist/sw.js",
   runtimeCaching: [
     {
