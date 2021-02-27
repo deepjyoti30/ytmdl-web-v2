@@ -1,7 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
-import workboxRefresh from "./refreshServiceWorker";
 import router from "./router";
 import "@/scss/_tailwind.scss";
 
@@ -14,7 +13,6 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js");
   });
 }
-workboxRefresh();
 
 new Vue({
   router,
