@@ -7,6 +7,7 @@ module.exports = {
     }
   },
   pwa: {
-    name: "Ytmdl"
+    name: "Ytmdl",
+    start_url: "/"
   }
 };
