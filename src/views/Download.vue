@@ -43,7 +43,7 @@ export default {
     return {
       format: null,
       isLoading: true,
-      downloadUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/download",
+      downloadUrl: "https://ytmdlapi.herokuapp.com/download",
       downloadDetail: null,
       showDonate: false
     };
