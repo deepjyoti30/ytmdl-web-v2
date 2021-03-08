@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="or--container text-center">
-        <h3 class="text-3xl uppercase mb-8">or</h3>
+        <h3 class="text-3xl uppercase mb-8 dark:text-white">or</h3>
         <router-link
           :to="getManualLink"
           tag="button"
