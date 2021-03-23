@@ -10,7 +10,10 @@ module.exports = {
     name: "Ytmdl",
     start_url: "/",
     workboxOptions: {
-      exclude: [/_redirects/]
+      exclude: [/_redirects/, /^.*map$/],
+      swDest: "sw.js",
+      navigateFallback: "index.html",
+      cleanupOutdatedCaches: true
     },
     ignoreUrlParametersMatching: [/./]
   }
