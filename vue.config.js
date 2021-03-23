@@ -2,9 +2,9 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: `@import "@/scss/app.scss";`,
-      },
-    },
+        prependData: `@import "@/scss/app.scss";`
+      }
+    }
   },
   pwa: {
     name: "Ytmdl",
@@ -13,8 +13,8 @@ module.exports = {
       exclude: [/_redirects/, /^.*map$/],
       swDest: "sw.js",
       navigateFallback: "index.html",
-      cleanupOutdatedCaches: true,
+      cleanupOutdatedCaches: true
     },
-    ignoreUrlParametersMatching: [/./],
-  },
-}
+    ignoreUrlParametersMatching: [/./]
+  }
+};
