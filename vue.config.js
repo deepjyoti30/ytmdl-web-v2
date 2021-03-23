@@ -11,6 +11,9 @@ module.exports = {
     start_url: "/",
     workboxOptions: {
       exclude: [/_redirects/, /^.*map$/],
+      swDest: "sw.js",
+      navigateFallback: "index.html",
+      cleanupOutdatedCaches: true,
     },
     ignoreUrlParametersMatching: [/./],
   },
