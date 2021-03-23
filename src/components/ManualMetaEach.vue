@@ -17,7 +17,7 @@
     </div>
     <div class="input--content md:w-3/5 w-full">
       <input
-        class="border mt-3 px-4 py-2 rounded-md text-lg w-full"
+        class="border mt-3 px-4 py-2 rounded-md text-lg w-full dark:text-white"
         :placeholder="getExample"
         v-model="valueEntered"
       />
