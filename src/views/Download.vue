@@ -1,16 +1,20 @@
 <template>
   <div class="download__container">
     <Animation v-if="getIsLoading" class="md:mt-24" />
-    <div v-else class="md:w-3/5 w-10/12 mr-auto ml-auto md:my-32 my-16">
+    <div v-else class="md:w-3/5 w-10/12 mr-auto ml-auto md:my-26 my-16">
       <h2
         class="text-3xl font-semibold text-center md:mb-24 mb-16 text-gray-600 dark:text-gray-400"
       >
         Your song is ready!
       </h2>
+      <div class="ad--container my-8">
+        <ad />
+      </div>
       <DownloadResult
         :downloadDetails="getDownloadDetails"
         :metaDetails="getMetaDetails"
       />
+      <horizontal-ad class="md:mt-16 mt-8" />
       <div id="show-support-wrapper">
         <transition name="fade-in">
           <show-support id="show-support-content" v-if="getShowDonate" />
@@ -25,6 +29,8 @@ import DownloadResult from "@/components/DownloadResult";
 import ShowSupport from "@/components/ShowSupport";
 import Animation from "@/components/Animation";
 import { settings } from "@/components/mixins/settings";
+import Ad from "../components/Ad.vue";
+import HorizontalAd from "../components/HorizontalAd.vue";
 
 export default {
   name: "Download",
@@ -32,7 +38,9 @@ export default {
   components: {
     DownloadResult,
     Animation,
-    ShowSupport
+    ShowSupport,
+    Ad,
+    HorizontalAd
   },
   props: {
     metaDetails: {
