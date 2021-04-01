@@ -8,7 +8,7 @@
       :key="id"
     >
       <infeed-ad v-if="id % 4 == 0" />
-      <SongResult v-else :song="song" :query="getQuery" />
+      <SongResult :song="song" :query="getQuery" />
     </div>
   </div>
 </template>
