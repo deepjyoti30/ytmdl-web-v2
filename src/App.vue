@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <welcome ref="welcome" />
+    <ad-update ref="adUpdate" />
     <Navbar :isDark="getIsDark" @themeChange="handleThemeChange" />
     <transition name="fade-in"
       ><router-view class="router-view__container" />
@@ -15,13 +16,15 @@ import Footer from "@/components/Footer";
 import Welcome from "@/components/Welcome";
 
 import defaultSettings from "@/static/settings.js";
+import AdUpdate from "./components/AdUpdate.vue";
 
 export default {
   name: "App",
   components: {
     Navbar,
     Footer,
-    Welcome
+    Welcome,
+    AdUpdate
   },
   data: () => {
     return {
@@ -114,6 +117,20 @@ export default {
 
       // Update the settings
       localStorage.setItem("showWelcome", JSON.stringify({ value: true }));
+    },
+    showAdUpdate() {
+      /**
+       * Show the user the update that ads are now shown on the webapp.
+       */
+      const showWelcome = localStorage.getItem("showAdUpdate");
+
+      // If it is present in the storage, we need to skip it.
+      if (showWelcome != null) return;
+
+      this.$refs.adUpdate.$refs.modal.showModal();
+
+      // Update the settings
+      localStorage.setItem("showAdUpdate", JSON.stringify({ value: true }));
     }
   },
   computed: {
@@ -125,6 +142,7 @@ export default {
     this.saveSettings();
     this.readAndApplyTheme();
     this.showWelcome();
+    this.showAdUpdate();
   }
 };
 </script>
