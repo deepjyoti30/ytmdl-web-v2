@@ -6,7 +6,7 @@
       class="write-something py-32 md:w-2/5 w-11/12 mr-auto ml-auto text-center md:text-2xl text-lg font-semibold dark:text-white"
     >
       You need to enter the name of a song
-      <div class="ad--container--wrapper">
+      <div class="ad--container--wrapper mt-8">
         <Ad />
       </div>
     </div>
