@@ -4,6 +4,13 @@ import "./registerServiceWorker";
 import router from "./router";
 import "@/scss/_tailwind.scss";
 
+import Adsense from "vue-google-adsense/dist/Adsense.min.js";
+
+Vue.use(require("vue-script2"));
+
+// Use adsense
+Vue.use(Adsense);
+
 Vue.config.productionTip = false;
 
 // Check that service workers are supported
