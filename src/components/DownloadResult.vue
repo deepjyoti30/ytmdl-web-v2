@@ -29,6 +29,9 @@
       >
         {{ getSize }}
       </h3>
+      <div class="ad--container">
+        <Ad />
+      </div>
       <div class="dw--btn mt-6">
         <DownloadButton
           :downloadDetails="getDownloadDetails"
@@ -41,11 +44,13 @@
 
 <script>
 import DownloadButton from "@/components/DownloadButton";
+import Ad from "@/components/Ad";
 
 export default {
   name: "DownloadResult",
   components: {
-    DownloadButton
+    DownloadButton,
+    Ad
   },
   props: {
     metaDetails: {
