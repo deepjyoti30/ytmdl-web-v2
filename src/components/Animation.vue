@@ -1,7 +1,7 @@
 <template>
   <div class=" py-2 md:w-2/5 w-full mr-auto ml-auto">
     <div class="ad--content">
-      <infeed-ad />
+      <ad />
     </div>
     <div
       class="animation__container animation--content flex justify-center py-12 relative items-center"
@@ -92,10 +92,11 @@
 </template>
 
 <script>
-import InfeedAd from "./InfeedAd.vue";
+import Ad from "./Ad";
+
 export default {
   name: "Animation",
-  components: { InfeedAd },
+  components: { Ad },
   props: {
     text: {
       type: String,
