@@ -18,7 +18,9 @@
     "snarkdown": "^2.0.0",
     "vue": "^2.6.11",
     "vue-feather-icons": "^5.1.0",
-    "vue-router": "^3.2.0"
+    "vue-google-adsense": "^1.9.2",
+    "vue-router": "^3.2.0",
+    "vue-script2": "^2.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
