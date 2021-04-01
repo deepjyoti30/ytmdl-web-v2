@@ -122,7 +122,15 @@ export default {
       /**
        * Show the user the update that ads are now shown on the webapp.
        */
+      const showWelcome = localStorage.getItem("showAdUpdate");
+
+      // If it is present in the storage, we need to skip it.
+      if (showWelcome != null) return;
+
       this.$refs.adUpdate.$refs.modal.showModal();
+
+      // Update the settings
+      localStorage.setItem("showAdUpdate", JSON.stringify({ value: true }));
     }
   },
   computed: {
