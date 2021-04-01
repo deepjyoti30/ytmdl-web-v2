@@ -1,5 +1,5 @@
 <template>
-  <div class="infeed__ad--container">
+  <div class="infeed__ad--container max-w-3xl mr-auto ml-auto">
     <InFeedAdsense
       data-ad-layout-key="-hq+5+1t-ek+me"
       data-ad-client="ca-pub-7702415526221680"
