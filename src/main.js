@@ -5,11 +5,13 @@ import router from "./router";
 import "@/scss/_tailwind.scss";
 
 import Adsense from "vue-google-adsense/dist/Adsense.min.js";
+import InFeedAdsense from "vue-google-adsense/dist/InFeedAdsense.min.js";
 
 Vue.use(require("vue-script2"));
 
 // Use adsense
 Vue.use(Adsense);
+Vue.use(InFeedAdsense);
 
 Vue.config.productionTip = false;
 

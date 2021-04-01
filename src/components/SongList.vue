@@ -1,25 +1,29 @@
 <template>
   <div class="song--list__container">
     <Animation v-if="getIsLoading" />
-    <SongResult
+    <div
       v-else
+      class="song__result--wrapper"
       v-for="(song, id) in fetchedData"
       :key="id"
-      :song="song"
-      :query="getQuery"
-    />
+    >
+      <infeed-ad v-if="id % 4 == 0" />
+      <SongResult v-else :song="song" :query="getQuery" />
+    </div>
   </div>
 </template>
 
 <script>
 import SongResult from "@/components/SongResult";
 import Animation from "@/components/Animation";
+import InfeedAd from "@/components/InfeedAd";
 
 export default {
   name: "SongList",
   components: {
     SongResult,
-    Animation
+    Animation,
+    InfeedAd
   },
   props: {
     query: {
