@@ -9,7 +9,10 @@
           >Star the project on GitHub</a
         >.
       </div>
-      <div class="social--content py-6 text-gray-600" align="center">
+      <div
+        class="social--content py-6 text-gray-600 dark:text-gray-400"
+        align="center"
+      >
         <ul class="inline-flex">
           <li>
             <a
@@ -37,7 +40,7 @@
         </ul>
       </div>
       <div
-        class="footer--extra py-2 text-gray-500 text-center text-sm border-t border-gray-100 roboto"
+        class="footer--extra py-2 text-gray-500 text-center text-sm border-t border-gray-100 dark:border-gray-700 roboto"
       >
         <div class="copyright--text lg:text-left md:flex md:justify-between">
           <div>© 2020-Present Ytmdl. All rights reserved.</div>
