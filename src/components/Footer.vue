@@ -39,7 +39,7 @@
       <div
         class="footer--extra py-2 text-gray-500 text-center text-sm border-t border-gray-100 roboto"
       >
-        <div class="copyright--text lg:text-left flex justify-between">
+        <div class="copyright--text lg:text-left md:flex md:justify-between">
           <div>© 2020-Present Ytmdl. All rights reserved.</div>
           <div class="lg:inline block md:mt-0 mt-2 md:ml-2 ml-0">
             <a href="https://ytmdl.deepjyoti30.dev/terms">Terms of Service</a>
