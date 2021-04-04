@@ -5,7 +5,10 @@
         class="footer--text text-center px-8 py-2 md:text-2xl text-xl font-medium italic"
       >
         We're Open Source!
-        <a href="https://github.com/deepjyoti30/ytmdl-web-v2"
+        <a
+          href="https://github.com/deepjyoti30/ytmdl-web-v2"
+          target="_blank"
+          rel="nopener noreferrer"
           >Star the project on GitHub</a
         >.
       </div>
