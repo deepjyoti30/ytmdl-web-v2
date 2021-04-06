@@ -21,7 +21,6 @@ module.exports = {
           handler: "StaleWhileRevalidate"
         }
       ],
-      navigateFallback: "index.html",
       cleanupOutdatedCaches: true
     },
     ignoreUrlParametersMatching: [/./]

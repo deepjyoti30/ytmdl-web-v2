@@ -2,50 +2,54 @@
   <div class="footer__container w-full md:pl-24 pl-0 mt-12 mb-4">
     <div class="footer__content lg:w-4/5 md:px-0 px-2 w-full mr-auto ml-auto">
       <div
-        class="footer--text text-center border-b border-gray-100 p-8 md:text-2xl text-xl font-medium italic"
+        class="footer--text text-center px-8 py-2 md:text-2xl text-xl font-medium italic"
       >
-        This project lives on donations. Consider
-        <a href="https://paypal.me/deepjyoti30">donating</a> to help us sustain
-        our activites or
-        <a href="https://opencollective.com/ytmdl#backer">become a backer</a>.
+        We're Open Source!
+        <a
+          href="https://github.com/deepjyoti30/ytmdl-web-v2"
+          target="_blank"
+          rel="nopener noreferrer"
+          >Star the project on GitHub</a
+        >.
       </div>
       <div
-        class="footer--extra py-4 text-gray-500 text-center md:flex md:justify-between items-center block"
+        class="social--content py-6 text-gray-600 dark:text-gray-400"
+        align="center"
       >
-        <div class="copyright--text lg:text-left">
-          <span>© 2020-Present Ytmdl. All rights reserved.</span>
-          <span class="lg:inline block md:mt-0 mt-2 md:ml-2 ml-0"
-            ><a href="https://ytmdl.deepjyoti30.dev/terms"
-              >Terms of Service</a
-            ></span
-          >
-        </div>
-        <div class="social--content md:mt-0 mt-6">
-          <ul>
-            <li>
-              <a
-                href="https://github.com/deepjyoti30/ytmdl-web-v2"
-                title="GitHub"
-              >
-                <github-icon class="inline icon-up" />
-              </a>
-            </li>
-            <li>
-              <a href="https://t.me/ytmdl" title="Telegram">
-                <send-icon class="inline icon-up" />
-              </a>
-            </li>
-            <li>
-              <a href="mailto:hello@deepjyoti30.dev" title="Mail">
-                <mail-icon class="inline icon-up" />
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/DeepBarman30" title="Twitter">
-                <twitter-icon class="inline icon-up" />
-              </a>
-            </li>
-          </ul>
+        <ul class="inline-flex">
+          <li>
+            <a
+              href="https://github.com/deepjyoti30/ytmdl-web-v2"
+              title="GitHub"
+            >
+              <github-icon class="inline icon-up" />
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/ytmdl" title="Telegram">
+              <send-icon class="inline icon-up" />
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@deepjyoti30.dev" title="Mail">
+              <mail-icon class="inline icon-up" />
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/DeepBarman30" title="Twitter">
+              <twitter-icon class="inline icon-up" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="footer--extra py-2 text-gray-500 text-center text-sm border-t border-gray-100 dark:border-gray-700 roboto"
+      >
+        <div class="copyright--text lg:text-left md:flex md:justify-between">
+          <div>© 2020-Present Ytmdl. All rights reserved.</div>
+          <div class="lg:inline block md:mt-0 mt-2 md:ml-2 ml-0">
+            <a href="https://ytmdl.deepjyoti30.dev/terms">Terms of Service</a>
+          </div>
         </div>
       </div>
     </div>
@@ -71,19 +75,22 @@ export default {
       }
     }
 
-    .footer--extra {
-      @extend .roboto;
+    .social--content {
+      ul {
+        li {
+          @apply inline-block;
+          @apply mr-6;
 
-      .social--content {
-        ul {
-          li {
-            @apply inline-block;
-            @apply mr-6;
-          }
+          .icon-up {
+            $size: 1.3rem;
 
-          li:last-child {
-            @apply mr-0;
+            width: $size;
+            height: $size;
           }
+        }
+
+        li:last-child {
+          @apply mr-0;
         }
       }
     }
