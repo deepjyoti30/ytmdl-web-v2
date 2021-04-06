@@ -10,11 +10,11 @@ module.exports = {
     name: "Ytmdl",
     start_url: "/",
     workboxOptions: {
-      exclude: [/_redirects/, /^.*map$/],
+      exclude: [/_redirects/, /^.*map$/, /index.html/],
       swDest: "sw.js",
       runtimeCaching: [
         {
-          urlPattern: /\.(?:png|jpg|svg|json|md|js|css|html)$/,
+          urlPattern: /\.(?:png|jpg|svg|json|md|js|css)$/,
           handler: "StaleWhileRevalidate"
         }
       ],
