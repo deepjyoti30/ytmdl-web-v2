@@ -66,7 +66,7 @@ export default {
       this.videoId = searchData.videoId;
 
       if (!this.skipPrompt) {
-        this.$refs.confirm.showModal();
+        this.$refs.confirm.$refs.modal.showModal();
         return;
       }
 
