@@ -61,6 +61,10 @@ export default {
     disableAutoSearch: {
       type: Boolean,
       default: false
+    },
+    isMetaSearch: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -106,7 +110,7 @@ export default {
     },
     getPlaceholder() {
       var placeholder = `Enter name of song ${
-        this.hideUrlMessage ? "" : "or YouTube URL"
+        this.hideUrlMessage || this.isMetaSearch ? "" : "or YouTube URL"
       }`;
       return placeholder;
     }
@@ -194,14 +198,17 @@ export default {
         return;
       }
 
+      // If this is for a meta search, we cannot allow URL's
+      if (this.isMetaSearch) {
+        this.showError();
+        return;
+      }
+
       const emitDetails = this.determineUrl();
 
       // Check if emit details is null
       if (!emitDetails) {
-        this.isInvalidInput = true;
-        setTimeout(() => {
-          this.isInvalidInput = false;
-        }, 3000);
+        this.showError();
         return;
       }
 
@@ -216,6 +223,16 @@ export default {
     unfocuSearchBar: function() {
       // Unfocus the search bar so that the keyboard is hidden.
       this.$refs.searchInput.blur();
+    },
+    showError: function() {
+      /**
+       * Show that the user has made a mistake in entering
+       * what is supposed to be entered in the search bar.
+       */
+      this.isInvalidInput = true;
+      setTimeout(() => {
+        this.isInvalidInput = false;
+      }, 3000);
     }
   },
   mounted() {
