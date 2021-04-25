@@ -141,6 +141,46 @@ export default {
       );
       return urlParams.get("list");
     },
+    determineUrl: function() {
+      /**
+       * Determine the type of URL and based on that return
+       * an object to be emitted to the parent for further
+       * actions.
+       *
+       * If the URL doesn't fit any category, we need to return
+       * null in order to indicate that an exception has
+       * occured.
+       */
+      // If it is an URL, it might be from YouTube.
+      // We accept two types of URL from YouTube.
+      // Either a YouTube video URL or a playlist URL.
+      let videoId, playlistId, isYoutube, isPlaylist;
+
+      // Set default values
+      videoId = playlistId = null;
+      isYoutube = isPlaylist = false;
+
+      if (this.isYoutubeUrl) {
+        // Extract the video and do the rest of the stuff
+        videoId = this.extractVideoId(this.songEntered);
+        isYoutube = true;
+      } else if (this.isPlaylistUrl) {
+        // Extract the playlist ID and do the rest.
+        playlistId = this.extractPlaylistId(this.songEntered);
+        isPlaylist = true;
+      } else {
+        return null;
+      }
+
+      // Now return the object with details
+      return {
+        song: this.songEntered,
+        isYoutube: isYoutube,
+        videoId: videoId,
+        playlistId: playlistId,
+        isPlaylist: isPlaylist
+      };
+    },
     sendSearchRequest: function() {
       /**
        * Emit a search request when the enter button is clicked.
@@ -154,8 +194,10 @@ export default {
         return;
       }
 
-      // If it is an URL, it might be from YouTube
-      if (!this.isYoutubeUrl) {
+      const emitDetails = this.determineUrl();
+
+      // Check if emit details is null
+      if (!emitDetails) {
         this.isInvalidInput = true;
         setTimeout(() => {
           this.isInvalidInput = false;
@@ -163,14 +205,8 @@ export default {
         return;
       }
 
-      const videoId = this.extractVideoId(this.songEntered);
-
-      // Use the videoId to redirect to the metadata route with that videoId.
-      this.$emit("search", {
-        song: this.songEntered,
-        isYoutube: true,
-        videoId: videoId
-      });
+      // Use the videoId/playlistId to redirect to the metadata route with that videoId.
+      this.$emit("search", emitDetails);
       this.unfocuSearchBar();
     },
     focusSearchBar: function() {
