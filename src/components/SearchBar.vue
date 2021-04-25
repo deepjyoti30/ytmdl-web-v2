@@ -128,6 +128,19 @@ export default {
       );
       return urlParams.get("v");
     },
+    extractPlaylistId: function(enteredUrl) {
+      /**
+       * Extract the playlist ID from the entered URL.
+       *
+       * NOTE: Check to see if the URL is a playlist should
+       * be done separately. This function will fail if the URL
+       * is not a playlist one.
+       */
+      const urlParams = new URLSearchParams(
+        enteredUrl.replace(/https?:\/\/(www\.)?youtube.com\/playlist/g, "")
+      );
+      return urlParams.get("list");
+    },
     sendSearchRequest: function() {
       /**
        * Emit a search request when the enter button is clicked.
