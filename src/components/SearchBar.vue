@@ -93,6 +93,14 @@ export default {
         this.songEntered.match(/https?:\/\/(www\.)?youtube.com\/watch\?v=.+?/g)
       );
     },
+    isPlaylistUrl() {
+      // Check if the entered value is a YouTube playlist URL.
+      return Boolean(
+        this.songEntered.match(
+          /https?:\/\/(www\.)?youtube.com\/playlist\?list=.+?/g
+        )
+      );
+    },
     getInvalidInput() {
       return this.isInvalidInput;
     },
