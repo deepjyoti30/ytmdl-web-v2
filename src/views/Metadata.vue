@@ -4,6 +4,7 @@
       class="my-8"
       @search="handleMetaSearch"
       hideUrlMessage
+      isMetaSearch
       :disableAutoSearch="!getAutoSearchMeta"
     />
     <div
