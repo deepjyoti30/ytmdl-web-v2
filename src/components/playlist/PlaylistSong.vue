@@ -17,15 +17,26 @@
         </div>
       </div>
       <div class="link">
-        Link
+        <a
+          href=""
+          class="px-2 py-2 bg-gray-100 text-red-600 rounded-full inline-flex"
+          title="Check on YouTube"
+        >
+          <ExternalLinkIcon size="1x" />
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ExternalLinkIcon } from "vue-feather-icons";
+
 export default {
-  name: "PlaylistSong"
+  name: "PlaylistSong",
+  components: {
+    ExternalLinkIcon
+  }
 };
 </script>
 
