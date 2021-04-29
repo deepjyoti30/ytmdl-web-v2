@@ -1,6 +1,8 @@
 <template>
   <div class="playlist--song__container">
-    <div class="pl--song--content flex items-center justify-between">
+    <div
+      class="pl--song--content flex items-center justify-between border-b py-2"
+    >
       <div class="song--details flex items-center w-3/5">
         <div class="cover">
           <img
