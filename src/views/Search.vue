@@ -54,24 +54,32 @@ export default {
        * We need to check if the search term is an youtube URL or not.
        * If it is an YouTube URL, accordingly forward the user to the
        * next page. Else show some search results.
+       *
+       * If it is a playlist URL then we need to redirect to the playlist
+       * route.
+       *
+       * Else just show some results.
        */
-      if (!searchData.isYoutube) {
+      if (searchData.isPlaylist) {
+        // Forward to handle the playlist URL
+        this.handlePlaylistUrl(searchData.playlistId);
+      } else if (searchData.isYoutube) {
+        // Check if we need to show the prompt. If we do, show the prompt,
+        // rest will be handled accordingly.
+        this.videoId = searchData.videoId;
+
+        if (!this.skipPrompt) {
+          this.$refs.confirm.$refs.modal.showModal();
+          return;
+        }
+
+        // Else just forward the user to next page
+        this.handleYoutubeUrl();
+      } else {
+        // Else it is a song. Just update the search term
+        // and show the results.
         this.songEntered = searchData.song;
-        return;
       }
-
-      // Else it is an YouTube URL.
-      // Check if we need to show the prompt. If we do, show the prompt,
-      // rest will be handled accordingly.
-      this.videoId = searchData.videoId;
-
-      if (!this.skipPrompt) {
-        this.$refs.confirm.$refs.modal.showModal();
-        return;
-      }
-
-      // Else just forward the user to next page
-      this.handleYoutubeUrl();
     },
     handleYoutubeUrl: function() {
       /**
@@ -81,6 +89,13 @@ export default {
        * We need to use the videoId to forward the user to the metadata page.
        */
       this.$router.push({ path: "metadata", query: { videoId: this.videoId } });
+    },
+    handlePlaylistUrl: function(playlistId) {
+      /**
+       * Handle forwarding the user to the playlist page if they have
+       * entered a playlist URL.
+       */
+      this.$router.push({ path: "playlist", query: { id: playlistId } });
     }
   },
   computed: {
