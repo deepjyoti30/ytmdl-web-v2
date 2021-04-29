@@ -15,7 +15,8 @@
             My Super Mix
           </div>
           <div class="pl--songs text-xl mt-6 text-gray-500 font-medium">
-            <span class="text-gray-700 font-semibold">254</span> songs
+            <span class="text-gray-500 font-semibold text-4xl">15</span>
+            songs
           </div>
           <div class="pl--details mt-3 text-gray-500 roboto max-w-md">
             Just a bit explaining about the cool playlist that I have made that
