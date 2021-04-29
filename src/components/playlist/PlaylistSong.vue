@@ -45,8 +45,14 @@ export default {
 <style lang="scss" scoped>
 .playlist--song__container {
   .pl--song--content {
-    div {
-      @apply px-2;
+    .song--details {
+      div {
+        @apply px-2;
+
+        &:first-child {
+          @apply pl-0;
+        }
+      }
     }
   }
 }
