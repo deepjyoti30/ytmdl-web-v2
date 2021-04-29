@@ -35,7 +35,7 @@
         <div class="pl--cta">
           <a
             href=""
-            class="py-2 px-4 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
+            class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
             target="_blank"
             rel="noopener noreferrer"
           >
