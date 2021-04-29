@@ -11,14 +11,23 @@
       </div>
       <div class="pl--details ml-12 my-3 flex flex-col justify-between">
         <div>
-          <div class="pl--title text-4xl text-gray-700 font-medium dm-sans">
+          <div
+            class="pl--title text-4xl text-gray-700 font-medium dm-sans dark:text-gray-200"
+          >
             My Super Mix
           </div>
-          <div class="pl--songs text-xl mt-6 text-gray-500 font-medium">
-            <span class="text-gray-500 font-semibold text-4xl">15</span>
+          <div
+            class="pl--songs text-xl mt-6 text-gray-500 font-medium dark:text-gray-400"
+          >
+            <span
+              class="text-gray-500 dark:text-gray-300 font-semibold text-4xl"
+              >15</span
+            >
             songs
           </div>
-          <div class="pl--details mt-3 text-gray-500 roboto max-w-md">
+          <div
+            class="pl--details mt-3 text-gray-500 dark:text-gray-400 roboto max-w-md"
+          >
             Just a bit explaining about the cool playlist that I have made that
             does not have any resemblance to any other playlist whatsoever.
           </div>
