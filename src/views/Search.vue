@@ -60,25 +60,26 @@ export default {
        *
        * Else just show some results.
        */
-      if (searchData.isPlaylist) {
-        // Forward to handle the playlist URL
-        this.handlePlaylistUrl(searchData.playlistId);
-      } else if (searchData.isYoutube) {
-        // Check if we need to show the prompt. If we do, show the prompt,
-        // rest will be handled accordingly.
-        this.videoId = searchData.videoId;
+      switch (true) {
+        case searchData.isPlaylist:
+          // Forward to the playlist endpoint
+          this.handlePlaylistUrl(searchData.playlistId);
+          break;
+        case searchData.isYoutube:
+          // Check if we need to show the prompt. If we do, show the prompt,
+          // rest will be handled accordingly.
+          this.videoId = searchData.videoId;
 
-        if (!this.skipPrompt) {
-          this.$refs.confirm.$refs.modal.showModal();
-          return;
-        }
+          if (!this.skipPrompt) {
+            this.$refs.confirm.$refs.modal.showModal();
+            return;
+          }
 
-        // Else just forward the user to next page
-        this.handleYoutubeUrl();
-      } else {
-        // Else it is a song. Just update the search term
-        // and show the results.
-        this.songEntered = searchData.song;
+          // Else just forward the user to next page
+          this.handleYoutubeUrl();
+          break;
+        default:
+          this.songEntered = searchData.song;
       }
     },
     handleYoutubeUrl: function() {
