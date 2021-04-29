@@ -59,6 +59,11 @@ const routes = [
     props: route => ({
       metaDetails: route.params.metaDetails
     })
+  },
+  {
+    path: "/playlist",
+    name: "Playlist",
+    component: () => import("@/views/Playlist.vue")
   }
 ];
 
