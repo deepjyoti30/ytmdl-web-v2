@@ -1,12 +1,12 @@
 <template>
   <div class="playlist--head__container my-12">
-    <div class="flex">
+    <div class="md:flex">
       <div class="pl--cover">
         <img
           src="https://generative-placeholders.glitch.me/image?width=300&height=300&style=123&colors=74"
           loading="lazy"
           alt="Playlist Cover"
-          class="rounded-md shadow-2xl"
+          class="rounded-md shadow-2xl md:w-full w-3/4 mr-auto ml-auto"
         />
       </div>
       <div class="pl--details ml-12 my-3 flex flex-col justify-between">
@@ -26,7 +26,7 @@
             songs
           </div>
           <div
-            class="pl--details mt-3 text-gray-500 dark:text-gray-400 roboto max-w-md"
+            class="pl--details mt-3 text-gray-500 dark:text-gray-400 roboto md:max-w-md"
           >
             Just a bit explaining about the cool playlist that I have made that
             does not have any resemblance to any other playlist whatsoever.
