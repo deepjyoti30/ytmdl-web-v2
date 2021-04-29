@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PlaylistHead from "@/components/PlaylistHead";
+import PlaylistHead from "@/components/playlist/PlaylistHead";
 
 export default {
   name: "Playlist",
