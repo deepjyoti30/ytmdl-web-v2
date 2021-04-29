@@ -9,7 +9,15 @@
 <script>
 import PlaylistSong from "./PlaylistSong.vue";
 export default {
+  name: "PlaylistSongList",
   components: { PlaylistSong },
-  name: "PlaylistSongList"
+  props: {
+    songs: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    }
+  }
 };
 </script>

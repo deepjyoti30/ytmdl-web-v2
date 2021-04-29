@@ -21,7 +21,7 @@
       <div class="link">
         <a
           href=""
-          class="px-2 py-2 bg-gray-100 text-red-600 rounded-full inline-flex"
+          class="px-2 py-2 bg-gray-100 text-red-600 rounded-full inline-flex duration-150 ease-in hover:bg-gray-200"
           title="Check on YouTube"
         >
           <ExternalLinkIcon size="1x" />

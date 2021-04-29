@@ -17,6 +17,12 @@ export default {
     PlaylistHead,
     PlaylistSongList
   },
+  data: function() {
+    return {
+      plData: null,
+      endpoint: "http://0.0.0.0:5000/playlist"
+    };
+  },
   computed: {
     id: {
       get() {
@@ -34,6 +40,28 @@ export default {
         });
       }
     }
+  },
+  methods: {
+    fetchPlaylistDetails: async function() {
+      /**
+       * Fetch the playlist details using the endpoint.
+       *
+       * We need to pass proper details to all the sub
+       * components based on the response of the API.
+       */
+      const response = await fetch(`${this.endpoint}/${this.id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const jsonData = await response.json();
+
+      this.plData = jsonData;
+    }
+  },
+  mounted() {
+    this.fetchPlaylistDetails();
   }
 };
 </script>

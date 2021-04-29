@@ -60,6 +60,7 @@ export default {
   name: "PlaylistHead",
   components: {
     ExternalLinkIcon
-  }
+  },
+  props: {}
 };
 </script>
