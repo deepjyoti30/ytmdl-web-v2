@@ -2,16 +2,18 @@
   <div class="playlist__container">
     <div class="playlist--content p-5 md:px-24">
       <playlist-head />
+      <playlist-song />
     </div>
   </div>
 </template>
 
 <script>
 import PlaylistHead from "@/components/playlist/PlaylistHead";
+import PlaylistSong from "../components/playlist/PlaylistSong.vue";
 
 export default {
   name: "Playlist",
-  components: { PlaylistHead },
+  components: { PlaylistHead, PlaylistSong },
   computed: {
     id: {
       get() {
