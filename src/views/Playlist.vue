@@ -1,6 +1,6 @@
 <template>
   <div class="playlist__container">
-    <div class="playlist--content p-5">
+    <div class="playlist--content p-5 px-24">
       <playlist-head />
     </div>
   </div>
