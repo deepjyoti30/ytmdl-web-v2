@@ -23,7 +23,15 @@
           </div>
         </div>
         <div class="pl--cta">
-          <button>Preview</button>
+          <a
+            href=""
+            class="py-2 px-4 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
+          >
+            Preview
+            <span class="external--icon ml-2 mt-1">
+              <ExternalLinkIcon size="1x" />
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -31,7 +39,12 @@
 </template>
 
 <script>
+import { ExternalLinkIcon } from "vue-feather-icons";
+
 export default {
-  name: "PlaylistHead"
+  name: "PlaylistHead",
+  components: {
+    ExternalLinkIcon
+  }
 };
 </script>
