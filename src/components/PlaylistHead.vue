@@ -14,6 +14,10 @@
         <div class="pl--songs text-xl mt-6 text-gray-500 font-medium">
           254 songs
         </div>
+        <div class="pl--details mt-3 text-gray-500 roboto max-w-md">
+          Just a bit explaining about the cool playlist that I have made that
+          does not have any resemblance to any other playlist whatsoever.
+        </div>
       </div>
     </div>
   </div>
