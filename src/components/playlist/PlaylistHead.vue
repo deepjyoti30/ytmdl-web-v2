@@ -31,14 +31,14 @@
           >
             <span
               class="text-gray-500 dark:text-gray-300 font-semibold md:text-4xl text-3xl"
-              >15</span
+              >{{ getSongCount }}</span
             >
             Songs available
           </div>
         </div>
         <div class="pl--cta md:mt-0 mt-10 md:text-left text-center">
           <a
-            href=""
+            :href="getPlaylistUrl"
             class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
             target="_blank"
             rel="noopener noreferrer"
@@ -75,6 +75,12 @@ export default {
     },
     getUploader() {
       return this.playlistData["uploader"];
+    },
+    getSongCount() {
+      return this.playlistData["song_count"];
+    },
+    getPlaylistUrl() {
+      return this.playlistData["url"];
     }
   }
 };
