@@ -1,7 +1,7 @@
 <template>
   <div class="playlist--song__container">
     <div
-      class="pl--song--content flex items-center justify-between border-b py-2"
+      class="pl--song--content flex items-center justify-between border-b dark:border-gray-700 py-2"
     >
       <div class="song--details flex items-center w-3/5">
         <div class="cover">
@@ -12,7 +12,9 @@
           />
         </div>
         <div class="title w-2/5">
-          <div class="font-medium text-gray-800">{{ getTitle }}</div>
+          <div class="font-medium text-gray-800 dark:text-gray-300">
+            {{ getTitle }}
+          </div>
         </div>
         <div class="artist w-2/5">
           <div class="font-medium text-gray-400">{{ getArtist }}</div>
@@ -21,7 +23,7 @@
       <div class="link">
         <a
           :href="getUrl"
-          class="px-2 py-2 bg-gray-100 text-red-600 rounded-full inline-flex duration-150 ease-in hover:bg-gray-200"
+          class="px-2 py-2 bg-gray-100 dark:bg-gray-800 text-red-600 dark:text-red-400 rounded-full inline-flex duration-150 ease-in hover:bg-gray-200 dark:hover:bg-gray-700"
           title="Check on YouTube"
           target="_blank"
           rel="noopener noreferrer"
