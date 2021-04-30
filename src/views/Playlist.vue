@@ -1,7 +1,10 @@
 <template>
   <div class="playlist__container">
     <div class="playlist--content p-5 md:px-24 md:w-3/5 w-full mr-auto ml-auto">
-      <playlist-head />
+      <playlist-head
+        v-if="status.toLowerCase() == 'ok'"
+        :playlistData="getPlaylistData"
+      />
       <playlist-song-list />
     </div>
   </div>
@@ -20,7 +23,8 @@ export default {
   data: function() {
     return {
       plData: null,
-      endpoint: "http://0.0.0.0:5000/playlist"
+      status: "loading",
+      endpoint: "http://0.0.0.0:5000/v2/playlist"
     };
   },
   computed: {
@@ -39,6 +43,9 @@ export default {
           }
         });
       }
+    },
+    getPlaylistData() {
+      return this.plData;
     }
   },
   methods: {
@@ -58,6 +65,7 @@ export default {
       const jsonData = await response.json();
 
       this.plData = jsonData;
+      this.status = response.statusText;
     }
   },
   mounted() {

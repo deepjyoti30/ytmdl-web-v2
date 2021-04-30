@@ -16,15 +16,15 @@
           <div
             class="pl--title md:text-4xl text-3xl text-gray-700 font-medium dm-sans dark:text-gray-200"
           >
-            My Super Mix
+            {{ getTitle }}
           </div>
           <div
             class="pl--uploader mt-2 text-lg text-gray-500 dark:text-gray-400 md:max-w-md"
           >
             Uploaded by
-            <span class="font-medium text-gray-600 dark:text-gray-300"
-              >Deepjyoti Barman</span
-            >
+            <span class="font-medium text-gray-600 dark:text-gray-300">{{
+              getUploader
+            }}</span>
           </div>
           <div
             class="pl--songs text-xl md:mt-6 mt-3 text-gray-500 font-medium dark:text-gray-400"
@@ -63,6 +63,19 @@ export default {
   components: {
     ExternalLinkIcon
   },
-  props: {}
+  props: {
+    playlistData: {
+      type: Object,
+      default: null
+    }
+  },
+  computed: {
+    getTitle() {
+      return this.playlistData["title"];
+    },
+    getUploader() {
+      return this.playlistData["uploader"];
+    }
+  }
 };
 </script>
