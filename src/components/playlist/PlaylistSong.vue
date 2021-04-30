@@ -47,12 +47,24 @@ export default {
       default: null
     }
   },
+  methods: {
+    splitToLen: function(value, maxLen = 17) {
+      /**
+       * Split the passed string to length.
+       *
+       * If the string is less than the length than
+       * return the string itself. Else split and add
+       * some dots.
+       */
+      return value.length > maxLen ? value.slice(0, maxLen - 2) + ".." : value;
+    }
+  },
   computed: {
     getTitle() {
-      return this.song["title"];
+      return this.splitToLen(this.song["title"]);
     },
     getArtist() {
-      return this.song["uploader"];
+      return this.splitToLen(this.song["uploader"], 20);
     },
     getUrl() {
       return this.song["url"];
