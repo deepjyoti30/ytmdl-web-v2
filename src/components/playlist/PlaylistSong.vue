@@ -3,7 +3,7 @@
     <div
       class="pl--song--content flex items-center justify-between border-b dark:border-gray-700 py-2"
     >
-      <div class="song--details flex items-center md:w-3/5 w-11/12">
+      <div class="song--details flex items-center md:w-4/5 w-11/12">
         <div class="cover md:w-auto w-1/6">
           <img
             src="https://generative-placeholders.glitch.me/image?width=50&height=50&style=123&colors=25"
@@ -11,12 +11,12 @@
             class="w-10 h-10 rounded-md object-cover"
           />
         </div>
-        <div class="title md:w-3/5 w-5/6">
+        <div class="title md:w-3/6 w-5/6">
           <div class="font-medium text-gray-800 dark:text-gray-300">
             {{ getTitle }}
           </div>
         </div>
-        <div class="artist md:block hidden">
+        <div class="artist md:w-2/6 md:block hidden">
           <div class="font-medium text-gray-400">{{ getArtist }}</div>
         </div>
       </div>
