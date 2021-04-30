@@ -19,21 +19,21 @@
             My Super Mix
           </div>
           <div
-            class="pl--songs text-xl mt-6 text-gray-500 font-medium dark:text-gray-400"
-          >
-            <span
-              class="text-gray-500 dark:text-gray-300 font-semibold md:text-4xl text-3xl"
-              >15</span
-            >
-            songs
-          </div>
-          <div
-            class="pl--uploader md:mt-4 mt-2 text-lg text-gray-500 dark:text-gray-400 md:max-w-md"
+            class="pl--uploader mt-2 text-lg text-gray-500 dark:text-gray-400 md:max-w-md"
           >
             Uploaded by
             <span class="font-medium text-gray-600 dark:text-gray-300"
               >Deepjyoti Barman</span
             >
+          </div>
+          <div
+            class="pl--songs text-xl md:mt-6 mt-3 text-gray-500 font-medium dark:text-gray-400"
+          >
+            <span
+              class="text-gray-500 dark:text-gray-300 font-semibold md:text-4xl text-3xl"
+              >15</span
+            >
+            Songs available
           </div>
         </div>
         <div class="pl--cta md:mt-0 mt-10 md:text-left text-center">
