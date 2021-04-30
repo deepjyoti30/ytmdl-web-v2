@@ -28,13 +28,15 @@
             songs
           </div>
           <div
-            class="pl--details mt-3 text-gray-500 dark:text-gray-400 roboto md:max-w-md text-left md:block hidden"
+            class="pl--uploader md:mt-4 mt-2 text-lg text-gray-500 dark:text-gray-400 md:max-w-md"
           >
-            Just a bit explaining about the cool playlist that I have made that
-            does not have any resemblance to any other playlist whatsoever.
+            Uploaded by
+            <span class="font-medium text-gray-600 dark:text-gray-300"
+              >Deepjyoti Barman</span
+            >
           </div>
         </div>
-        <div class="pl--cta md:mt-0 mt-8 md:text-left text-center">
+        <div class="pl--cta md:mt-0 mt-10 md:text-left text-center">
           <a
             href=""
             class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
