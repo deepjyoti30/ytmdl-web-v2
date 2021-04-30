@@ -12,15 +12,15 @@
           />
         </div>
         <div class="title w-2/5">
-          <div class="font-medium text-gray-800">Sundown</div>
+          <div class="font-medium text-gray-800">{{ getTitle }}</div>
         </div>
         <div class="artist w-2/5">
-          <div class="font-medium text-gray-400">Gordon Lightfoot</div>
+          <div class="font-medium text-gray-400">{{ getArtist }}</div>
         </div>
       </div>
       <div class="link">
         <a
-          href=""
+          :href="getUrl"
           class="px-2 py-2 bg-gray-100 text-red-600 rounded-full inline-flex duration-150 ease-in hover:bg-gray-200"
           title="Check on YouTube"
         >
@@ -38,6 +38,23 @@ export default {
   name: "PlaylistSong",
   components: {
     ExternalLinkIcon
+  },
+  props: {
+    song: {
+      type: Object,
+      default: null
+    }
+  },
+  computed: {
+    getTitle() {
+      return this.song["title"];
+    },
+    getArtist() {
+      return this.song["uploader"];
+    },
+    getUrl() {
+      return this.song["url"];
+    }
   }
 };
 </script>

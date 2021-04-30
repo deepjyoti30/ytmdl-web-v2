@@ -1,7 +1,7 @@
 <template>
   <div class="playlist--list__container">
     <div class="songs__container my-24">
-      <playlist-song v-for="(song, id) in [1, 2, 3, 4, 5]" :key="id" />
+      <playlist-song v-for="(song, id) in getSongs" :key="id" :song="song" />
     </div>
   </div>
 </template>
@@ -17,6 +17,11 @@ export default {
       default: () => {
         return [];
       }
+    }
+  },
+  computed: {
+    getSongs() {
+      return this.songs;
     }
   }
 };

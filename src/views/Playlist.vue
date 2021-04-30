@@ -5,7 +5,10 @@
         v-if="status.toLowerCase() == 'ok'"
         :playlistData="getPlaylistData"
       />
-      <playlist-song-list />
+      <playlist-song-list
+        v-if="status.toLowerCase() == 'ok'"
+        :songs="getSongs"
+      />
     </div>
   </div>
 </template>
@@ -46,6 +49,9 @@ export default {
     },
     getPlaylistData() {
       return this.plData;
+    },
+    getSongs() {
+      return this.plData["songs"];
     }
   },
   methods: {
