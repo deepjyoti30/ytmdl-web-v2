@@ -3,8 +3,8 @@
     <div
       class="pl--song--content flex items-center justify-between border-b dark:border-gray-700 py-2"
     >
-      <div class="song--details flex items-center md:w-3/5 w-full">
-        <div class="cover w-1/6">
+      <div class="song--details flex items-center md:w-3/5 w-11/12">
+        <div class="cover md:w-auto w-1/6">
           <img
             src="https://generative-placeholders.glitch.me/image?width=50&height=50&style=123&colors=25"
             alt="Song Cover"
@@ -20,7 +20,7 @@
           <div class="font-medium text-gray-400">{{ getArtist }}</div>
         </div>
       </div>
-      <div class="link">
+      <div class="link md:w-auto w-1/12">
         <a
           :href="getUrl"
           class="px-2 py-2 bg-gray-100 dark:bg-gray-800 text-red-600 dark:text-red-400 rounded-full inline-flex duration-150 ease-in hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -49,24 +49,13 @@ export default {
       default: null
     }
   },
-  methods: {
-    splitToLen: function(value, maxLen = 17) {
-      /**
-       * Split the passed string to length.
-       *
-       * If the string is less than the length than
-       * return the string itself. Else split and add
-       * some dots.
-       */
-      return value.length > maxLen ? value.slice(0, maxLen - 2) + ".." : value;
-    }
-  },
+  methods: {},
   computed: {
     getTitle() {
-      return this.splitToLen(this.song["title"]);
+      return this.song["title"];
     },
     getArtist() {
-      return this.splitToLen(this.song["uploader"], 20);
+      return this.song["uploader"];
     },
     getUrl() {
       return this.song["url"];
@@ -84,6 +73,15 @@ export default {
 
         &:first-child {
           @apply pl-0;
+        }
+      }
+
+      .title,
+      .artist {
+        div {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
       }
     }
