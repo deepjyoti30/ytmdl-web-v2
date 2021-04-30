@@ -6,7 +6,7 @@
       <div class="song--details flex items-center md:w-4/5 w-11/12">
         <div class="cover md:w-auto w-1/6">
           <img
-            src="https://generative-placeholders.glitch.me/image?width=50&height=50&style=123&colors=25"
+            :src="getCover"
             alt="Song Cover"
             class="w-10 h-10 rounded-md object-cover"
           />
@@ -45,13 +45,40 @@ export default {
   components: {
     ExternalLinkIcon
   },
+  data: function() {
+    return {
+      cover: null,
+      coverStatus: "loading",
+      endpoint: "http://0.0.0.0:5000/v2/song"
+    };
+  },
   props: {
     song: {
       type: Object,
       default: null
     }
   },
-  methods: {},
+  methods: {
+    fetchSongCover: async function(id) {
+      /**
+       * Use the id passed in order to fetch the cover of the song
+       * that is to be shown to the user.
+       */
+      const url = `${this.endpoint}/${id}/cover`;
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const jsonData = await response.json();
+
+      this.coverStatus = response.statusText.toLowerCase();
+
+      // Try to extract the details only if the response is ok
+      if (this.coverStatus == "ok") this.cover = jsonData;
+    }
+  },
   computed: {
     getTitle() {
       return this.song["title"];
@@ -61,7 +88,17 @@ export default {
     },
     getUrl() {
       return this.song["url"];
+    },
+    getCover() {
+      return this.coverStatus == "ok"
+        ? this.cover["cover"]["small"]
+        : "https://generative-placeholders.glitch.me/image?width=50&height=50&style=123&colors=25";
     }
+  },
+  mounted() {
+    // Since the component will be mounted only after the
+    // song is available, we can call fetch now.
+    this.fetchSongCover(this.song["id"]);
   }
 };
 </script>
