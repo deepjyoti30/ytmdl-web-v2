@@ -9,6 +9,7 @@
             :src="getCover"
             alt="Song Cover"
             class="w-10 h-10 rounded-md object-cover"
+            loading="lazy"
           />
         </div>
         <div class="title md:w-3/6 w-5/6">
