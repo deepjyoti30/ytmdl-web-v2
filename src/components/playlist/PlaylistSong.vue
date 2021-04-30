@@ -11,12 +11,12 @@
             class="w-10 h-10 rounded-md object-cover"
           />
         </div>
-        <div class="title md:w-2/5 w-5/6">
+        <div class="title md:w-3/5 w-5/6">
           <div class="font-medium text-gray-800 dark:text-gray-300">
             {{ getTitle }}
           </div>
         </div>
-        <div class="artist w-2/5 md:block hidden">
+        <div class="artist md:block hidden">
           <div class="font-medium text-gray-400">{{ getArtist }}</div>
         </div>
       </div>
