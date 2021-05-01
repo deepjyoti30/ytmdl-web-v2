@@ -145,6 +145,13 @@ export default {
         &:first-child {
           @apply pl-1;
         }
+
+        &.cover {
+          @media only screen and (max-width: $md) {
+            @apply px-0;
+            @apply ml-1;
+          }
+        }
       }
 
       .title,
