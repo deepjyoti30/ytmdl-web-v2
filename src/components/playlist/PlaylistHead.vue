@@ -12,9 +12,10 @@
             class="rounded-md "
           />
           <div
-            class="rounded-md h-full w-full loading--container top-0 left-0 absolute backdrop-filter backdrop-blur-3xl bg-black bg-opacity-40 flex items-center justify-center"
+            v-if="coverStatus == 'loading'"
+            class="rounded-md h-full w-full loading--container top-0 left-0 absolute bg-black bg-opacity-40 flex items-center justify-center"
           >
-            Loading
+            Loading..
           </div>
         </div>
       </div>
@@ -76,7 +77,8 @@ export default {
   data: function() {
     return {
       cover:
-        "https://generative-placeholders.glitch.me/image?width=300&height=300&style=123&colors=74"
+        "https://generative-placeholders.glitch.me/image?width=300&height=300&style=123&colors=74",
+      coverStatus: "loading"
     };
   },
   mixins: [playlist],
@@ -111,6 +113,9 @@ export default {
     playlistCover: function() {
       // Update the cover when the playlistCover is updated
       this.cover = this.buildPlaylistCover(this.playlistCover);
+
+      // Set the status to ok
+      this.coverStatus = "ok";
     }
   }
 };
