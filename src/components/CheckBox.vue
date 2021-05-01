@@ -6,7 +6,7 @@
         :id="`${getId}-yes`"
         :name="`${getId}-confirmation`"
         value="yes"
-        class="appearance-none absolute h-8 w-8"
+        class="appearance-none absolute h-8 w-8 cursor-pointer"
         v-model="isChecked"
       />
       <div
@@ -14,7 +14,7 @@
         :class="getText != '' ? 'mr-2' : ''"
       >
         <svg
-          class="fill-current hidden w-3 h-3 text-white pointer-events-none"
+          class="fill-current hidden w-3 h-3 text-white pointer-events-none cursor-pointer"
           version="1.1"
           viewBox="0 0 17 12"
           xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
       <label
         v-if="getText != ''"
         :for="`${getId}-yes`"
-        class="select-none ml-1 roboto text-gray-600 dark:text-gray-400"
+        class="select-none ml-1 roboto text-gray-600 dark:text-gray-400 cursor-pointer"
         >{{ getText }}</label
       >
     </div>
