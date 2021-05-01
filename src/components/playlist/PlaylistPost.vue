@@ -23,6 +23,7 @@
           <button
             type="button"
             class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
+            :title="getButtonTitle"
           >
             Download Playlist
           </button>
@@ -39,6 +40,18 @@ export default {
   name: "PlaylistPost",
   components: {
     ClockIcon
+  },
+  data: function() {
+    return {
+      isDisabled: false
+    };
+  },
+  computed: {
+    getButtonTitle() {
+      return this.isDisabled
+        ? "You cannot download more than 15 songs at a time"
+        : "Download the selected songs";
+    }
   }
 };
 </script>
