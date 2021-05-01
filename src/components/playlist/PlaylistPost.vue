@@ -1,6 +1,6 @@
 <template>
   <div
-    class="playlist--post__container mb-12 backdrop-filter backdrop-blur-3xl bg-white dark:bg-darklow bg-opacity-95 dark:bg-opacity-95 rounded-t-md"
+    class="playlist--post__container mb-12 backdrop-filter backdrop-blur-3xl backdrop-saturate-150 bg-white dark:bg-darklow bg-opacity-40 dark:bg-opacity-40 rounded-t-md"
   >
     <div class="md:py-6 py-4 px-2">
       <div class="flex md:justify-between justify-center">
