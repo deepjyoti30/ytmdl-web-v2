@@ -1,9 +1,12 @@
 <template>
   <div class="playlist--list__container">
     <div class="select--controls">
+      <playlist-select @clicked="toggleSelectRange" text="Select all songs" />
       <playlist-select
-        @clicked="toggleSelectAllSongs"
-        text="Select all songs"
+        @clicked="toggleSelectRange"
+        :start="0"
+        :end="15"
+        text="Select first 15 songs"
       />
     </div>
     <div class="songs__container mt-24 mb-8">
@@ -100,6 +103,21 @@ export default {
       this.songs.forEach((element, index) => {
         // Use the index to get the ref
         this.$refs[`song-${index}`][0].updateIsSelected(isChecked);
+      });
+    },
+    toggleSelectRange: function(details) {
+      /**
+       * Select just the range of songs as passed.
+       */
+      const start = details.start;
+      const end = details.end;
+      var songs = this.songs;
+
+      if (start != -1 && end != -1) songs = songs.slice(start, end);
+
+      songs.forEach((element, index) => {
+        // Use the index to get the ref
+        this.$refs[`song-${index}`][0].updateIsSelected(details.isChecked);
       });
     }
   },

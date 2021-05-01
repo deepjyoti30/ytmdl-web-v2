@@ -3,8 +3,8 @@
     <div class="flex items-center mr-4 mb-2">
       <input
         type="checkbox"
-        id="A3-yes"
-        name="A3-confirmation"
+        :id="`${getId}-yes`"
+        :name="`${getId}-confirmation`"
         value="yes"
         class="appearance-none absolute h-8 w-8"
         v-model="isSelected"
@@ -27,9 +27,11 @@
           </g>
         </svg>
       </div>
-      <label for="A3-yes" class="select-none ml-1 roboto text-gray-600">{{
-        getText
-      }}</label>
+      <label
+        :for="`${getId}-yes`"
+        class="select-none ml-1 roboto text-gray-600"
+        >{{ getText }}</label
+      >
     </div>
   </div>
 </template>
@@ -41,11 +43,20 @@ export default {
     text: {
       type: String,
       default: "Select all songs"
+    },
+    start: {
+      type: Number,
+      default: -1
+    },
+    end: {
+      type: Number,
+      default: -1
     }
   },
   data: function() {
     return {
-      isSelected: false
+      isSelected: false,
+      id: "default"
     };
   },
   methods: {
@@ -57,18 +68,30 @@ export default {
        * We need to emit a change to inform the parent
        * about this change.
        */
-      this.$emit("clicked", this.isSelected);
+      this.$emit("clicked", {
+        start: this.start,
+        end: this.end,
+        isChecked: this.isSelected
+      });
     }
   },
   computed: {
     getText() {
       return this.text;
+    },
+    getId() {
+      return this.id;
     }
   },
   watch: {
     isSelected: {
       handler: "handleSelectEvent"
     }
+  },
+  mounted() {
+    this.id = Math.random()
+      .toString(36)
+      .substring(7);
   }
 };
 </script>
