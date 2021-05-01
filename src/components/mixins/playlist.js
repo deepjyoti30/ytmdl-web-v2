@@ -56,6 +56,24 @@ function buildCoverFor2(images) {
   );
 }
 
+function buildCoverFor4(images) {
+  /**
+   * Build the cover for 4 images as the cover
+   */
+  return (
+    `https://res.cloudinary.com/dgmhgpu79/image/fetch/c_thumb,h_160,w_200/c_thumb,h_160,l_fetch:${btoa(
+      images[2]
+    )}` +
+    `,w_200/fl_layer_apply,g_north_west,x_0,y_160/c_thumb,h_160,l_fetch:${btoa(
+      images[1]
+    )}` +
+    `,w_200/fl_layer_apply,g_north_west,x_200/c_thumb,h_160,l_fetch:${btoa(
+      images[3]
+    )}` +
+    `,w_200/fl_layer_apply,g_north_west,y_160,x_200/${images[0]}`
+  );
+}
+
 function buildCoverForNumber(images, number = 4) {
   /**
    * Build the cover for the number of images
@@ -64,7 +82,7 @@ function buildCoverForNumber(images, number = 4) {
   const numberUrlMap = {
     2: buildCoverFor2,
     3: buildCoverFor3,
-    4: ""
+    4: buildCoverFor4
   };
 
   // Make sure the number is valid
