@@ -2,12 +2,21 @@
   <div class="playlist--head__container my-12">
     <div class="md:flex">
       <div class="pl--cover">
-        <img
-          :src="getPlaylistCover"
-          loading="lazy"
-          alt="Playlist Cover"
-          class="rounded-md shadow-2xl md:w-full w-3/4 mr-auto ml-auto"
-        />
+        <div
+          class="img--wrapper relative shadow-2xl md:w-full w-3/4 mr-auto ml-auto"
+        >
+          <img
+            :src="getPlaylistCover"
+            loading="lazy"
+            alt="Playlist Cover"
+            class="rounded-md "
+          />
+          <div
+            class="rounded-md h-full w-full loading--container top-0 left-0 absolute backdrop-filter backdrop-blur-3xl bg-black bg-opacity-40 flex items-center justify-center"
+          >
+            Loading
+          </div>
+        </div>
       </div>
       <div
         class="pl--details md:ml-12 md:my-3 mb-3 mt-12 flex flex-col justify-between"
@@ -101,9 +110,10 @@ export default {
   watch: {
     playlistCover: function() {
       // Update the cover when the playlistCover is updated
-      console.log("Updating");
       this.cover = this.buildPlaylistCover(this.playlistCover);
     }
   }
 };
 </script>
+
+<style lang="scss" scoped></style>
