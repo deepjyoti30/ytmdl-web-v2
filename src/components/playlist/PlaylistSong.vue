@@ -77,7 +77,12 @@ export default {
       this.coverStatus = response.statusText.toLowerCase();
 
       // Try to extract the details only if the response is ok
-      if (this.coverStatus == "ok") this.cover = jsonData;
+      if (this.coverStatus == "ok") {
+        this.cover = jsonData;
+
+        // Emit the change now
+        this.$emit("coverUpdate", jsonData);
+      }
     }
   },
   computed: {

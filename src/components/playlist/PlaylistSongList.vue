@@ -45,10 +45,13 @@ export default {
       /**
        * Handle the cover update emitted from the child.
        */
-      console.log("Update recieved.");
-      this.coverList.push(cover["large"]);
+      this.coverList.push(cover["cover"]["large"]);
 
-      if (this.songs.length == this.coverList.length) this.allSongsDone = true;
+      if (this.songs.length != this.coverList.length) return;
+
+      // If the songs are done, then emit the changes
+      this.allSongsDone = true;
+      this.$emit("cover", this.coverList);
     }
   },
   computed: {

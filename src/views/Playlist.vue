@@ -8,6 +8,7 @@
       <playlist-song-list
         v-if="status.toLowerCase() == 'ok'"
         :songs="getSongs"
+        @cover="handleCovers"
       />
     </div>
   </div>
@@ -27,7 +28,8 @@ export default {
     return {
       plData: null,
       status: "loading",
-      endpoint: "http://0.0.0.0:5000/v2/playlist"
+      endpoint: "http://0.0.0.0:5000/v2/playlist",
+      covers: null
     };
   },
   computed: {
@@ -52,6 +54,9 @@ export default {
     },
     getSongs() {
       return this.plData["songs"];
+    },
+    getCoverList() {
+      return this.covers;
     }
   },
   methods: {
@@ -72,6 +77,15 @@ export default {
 
       this.plData = jsonData;
       this.status = response.statusText;
+    },
+    handleCovers: function(coverList) {
+      /**
+       * Handle the event that sends an array of all the covers
+       * for the songs fetched.
+       *
+       * This array needs to be passed to the playlist head.
+       */
+      this.covers = coverList;
     }
   },
   mounted() {
