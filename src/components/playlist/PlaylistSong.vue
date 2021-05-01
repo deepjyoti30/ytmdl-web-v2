@@ -8,7 +8,7 @@
         class="song--details flex items-center md:w-4/5 w-11/12"
       >
         <div class="checkbox">
-          <check-box />
+          <check-box @clicked="updateIsSelected" :isSelected="getIsSelected" />
         </div>
         <div class="cover md:w-auto w-1/6">
           <img
@@ -135,6 +135,9 @@ export default {
       return this.coverStatus == "ok"
         ? this.cover["cover"]["small"]
         : "https://generative-placeholders.glitch.me/image?width=50&height=50&style=123&colors=25";
+    },
+    getIsSelected() {
+      return this.isSelected;
     }
   },
   mounted() {

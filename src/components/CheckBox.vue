@@ -7,7 +7,7 @@
         :name="`${getId}-confirmation`"
         value="yes"
         class="appearance-none absolute h-8 w-8"
-        v-model="isSelected"
+        v-model="isChecked"
       />
       <div
         class="bg-white dark:bg-darklow border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center focus-within:border-blue-500"
@@ -45,37 +45,39 @@ export default {
     text: {
       type: String,
       default: ""
+    },
+    isSelected: {
+      type: Boolean,
+      default: false
     }
   },
   data: function() {
     return {
-      isSelected: false,
       id: "default"
     };
   },
-  methods: {
-    handleSelectEvent: function() {
-      /**
-       * When the user clicks on check or uncheck
-       * the checkbox, this method needs to be called.
-       *
-       * We need to emit a change to inform the parent
-       * about this change.
-       */
-      this.$emit("clicked", this.isSelected);
-    }
-  },
+  methods: {},
   computed: {
     getText() {
       return this.text;
     },
     getId() {
       return this.id;
-    }
-  },
-  watch: {
-    isSelected: {
-      handler: "handleSelectEvent"
+    },
+    isChecked: {
+      get() {
+        return this.isSelected;
+      },
+      set(value) {
+        /**
+         * When the user clicks on check or uncheck
+         * the checkbox, this method needs to be called.
+         *
+         * We need to emit a change to inform the parent
+         * about this change.
+         */
+        this.$emit("clicked", value);
+      }
     }
   },
   mounted() {
