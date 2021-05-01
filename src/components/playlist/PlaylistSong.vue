@@ -3,9 +3,16 @@
     <div
       class="pl--song--content flex items-center justify-between border-b dark:border-gray-700 py-2"
     >
-      <div class="song--details flex items-center md:w-4/5 w-11/12">
+      <div
+        @click="toggleSelectState"
+        class="song--details flex items-center md:w-4/5 w-11/12"
+      >
         <div class="checkbox">
-          <input type="checkbox" class="transform scale-125 rounded-md" />
+          <input
+            type="checkbox"
+            v-model="isSelected"
+            class="transform scale-125 rounded-md"
+          />
         </div>
         <div class="cover md:w-auto w-1/6">
           <img
@@ -53,7 +60,8 @@ export default {
     return {
       cover: null,
       coverStatus: "loading",
-      endpoint: "http://0.0.0.0:5000/v2/song"
+      endpoint: "http://0.0.0.0:5000/v2/song",
+      isSelected: false
     };
   },
   props: {
@@ -86,6 +94,14 @@ export default {
         // Emit the change now
         this.$emit("coverUpdate", jsonData);
       }
+    },
+    toggleSelectState: function() {
+      /**
+       * Toggle the select state of the song.
+       *
+       * We just need to alter the value.
+       */
+      this.isSelected = !this.isSelected;
     }
   },
   computed: {
@@ -116,6 +132,8 @@ export default {
 .playlist--song__container {
   .pl--song--content {
     .song--details {
+      cursor: pointer;
+
       div {
         @apply px-2;
 
