@@ -11,7 +11,12 @@
           Artist
         </div>
       </div>
-      <playlist-song v-for="(song, id) in getSongs" :key="id" :song="song" />
+      <playlist-song
+        v-for="(song, id) in getSongs"
+        :key="id"
+        :song="song"
+        @coverUpdate="handleCoverUpdate"
+      />
     </div>
   </div>
 </template>
@@ -27,6 +32,23 @@ export default {
       default: () => {
         return [];
       }
+    }
+  },
+  data: function() {
+    return {
+      coverList: [],
+      allSongsDone: false
+    };
+  },
+  methods: {
+    handleCoverUpdate: function(cover) {
+      /**
+       * Handle the cover update emitted from the child.
+       */
+      console.log("Update recieved.");
+      this.coverList.push(cover["large"]);
+
+      if (this.songs.length == this.coverList.length) this.allSongsDone = true;
     }
   },
   computed: {

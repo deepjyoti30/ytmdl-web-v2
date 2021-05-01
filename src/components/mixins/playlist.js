@@ -12,7 +12,7 @@ const playlist = {
        * if 4 are not present, we will have to go for 3 or 2 and
        * finally falling back to just one.
        */
-      const noSongs = songCovers.length();
+      const noSongs = songCovers.length;
 
       switch (noSongs) {
         case 1:
@@ -90,7 +90,7 @@ function buildCoverForNumber(images, number = 4) {
     throw `number has to be in ${Object.keys(numberUrlMap)}`;
 
   // Make sure the images passed are enough for the number
-  if (number > images.length())
+  if (number > images.length)
     throw `images should be equivalent or more than the number`;
 
   // Build the cover now.
