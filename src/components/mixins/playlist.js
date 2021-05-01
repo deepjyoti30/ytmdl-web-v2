@@ -12,7 +12,7 @@ const playlist = {
        * if 4 are not present, we will have to go for 3 or 2 and
        * finally falling back to just one.
        */
-      const noSongs = songCovers.length;
+      const noSongs = songCovers.length();
 
       switch (noSongs) {
         case 1:
@@ -29,6 +29,22 @@ const playlist = {
 };
 
 // Private functions for the mixin
+
+function buildCoverFor3(images) {
+  /**
+   * Build the cover for 3 images as the cover.
+   */
+  return (
+    `https://res.cloudinary.com/dgmhgpu79/image/fetch/c_thumb,h_320,w_200/c_thumb,h_160,l_fetch:${btoa(
+      images[1]
+    )}` +
+    `,w_200/fl_layer_apply,g_north_west,x_200/c_thumb,h_160,l_fetch:${btoa(
+      images[2]
+    )}` +
+    `,w_200/fl_layer_apply,g_north_west,y_160,x_200/${images[0]}`
+  );
+}
+
 function buildCoverForNumber(images, number = 4) {
   /**
    * Build the cover for the number of images
@@ -36,7 +52,7 @@ function buildCoverForNumber(images, number = 4) {
    */
   const numberUrlMap = {
     2: "",
-    3: "",
+    3: buildCoverFor3,
     4: ""
   };
 
@@ -45,6 +61,11 @@ function buildCoverForNumber(images, number = 4) {
     throw `number has to be in ${Object.keys(numberUrlMap)}`;
 
   // Make sure the images passed are enough for the number
+  if (number > images.length())
+    throw `images should be equivalent or more than the number`;
+
+  // Build the cover now.
+  return numberUrlMap[number](images);
 }
 
 export default playlist;
