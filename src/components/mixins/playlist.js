@@ -45,13 +45,24 @@ function buildCoverFor3(images) {
   );
 }
 
+function buildCoverFor2(images) {
+  /**
+   * Build the cover for 2 images as the cover
+   */
+  return (
+    `https://res.cloudinary.com/deepjyoti30/image/` +
+    `fetch/c_thumb,h_320,w_200/c_thumb,h_320,l_fetch:${btoa(images[1])}` +
+    `,w_200/fl_layer_apply,g_north_west,x_200/${images[0]}`
+  );
+}
+
 function buildCoverForNumber(images, number = 4) {
   /**
    * Build the cover for the number of images
    * passed. The maximum allowed number will be 4.
    */
   const numberUrlMap = {
-    2: "",
+    2: buildCoverFor2,
     3: buildCoverFor3,
     4: ""
   };
