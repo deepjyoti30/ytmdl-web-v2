@@ -8,11 +8,7 @@
         class="song--details flex items-center md:w-4/5 w-11/12"
       >
         <div class="checkbox">
-          <input
-            type="checkbox"
-            v-model="isSelected"
-            class="transform scale-125 rounded-md"
-          />
+          <check-box />
         </div>
         <div class="cover md:w-auto w-1/6">
           <img
@@ -50,11 +46,13 @@
 
 <script>
 import { ExternalLinkIcon } from "vue-feather-icons";
+import CheckBox from "@/components/CheckBox";
 
 export default {
   name: "PlaylistSong",
   components: {
-    ExternalLinkIcon
+    ExternalLinkIcon,
+    CheckBox
   },
   data: function() {
     return {

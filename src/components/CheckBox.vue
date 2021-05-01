@@ -1,6 +1,6 @@
 <template>
   <div class="check--box__container">
-    <div class="flex items-center mr-4 mb-2">
+    <div class="flex items-center mb-2">
       <input
         type="checkbox"
         :id="`${getId}-yes`"
@@ -10,7 +10,8 @@
         v-model="isSelected"
       />
       <div
-        class="bg-white dark:bg-darklow border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500"
+        class="bg-white dark:bg-darklow border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center focus-within:border-blue-500"
+        :class="getText != '' ? 'mr-2' : ''"
       >
         <svg
           class="fill-current hidden w-3 h-3 text-white pointer-events-none"
@@ -28,6 +29,7 @@
         </svg>
       </div>
       <label
+        v-if="getText != ''"
         :for="`${getId}-yes`"
         class="select-none ml-1 roboto text-gray-600 dark:text-gray-400"
         >{{ getText }}</label
