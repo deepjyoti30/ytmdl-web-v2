@@ -11,6 +11,7 @@
         :songs="getSongs"
         @cover="handleCovers"
       />
+      <playlist-post class="post--content border" />
     </div>
   </div>
 </template>
@@ -18,12 +19,14 @@
 <script>
 import PlaylistHead from "@/components/playlist/PlaylistHead";
 import PlaylistSongList from "../components/playlist/PlaylistSongList.vue";
+import PlaylistPost from "../components/playlist/PlaylistPost.vue";
 
 export default {
   name: "Playlist",
   components: {
     PlaylistHead,
-    PlaylistSongList
+    PlaylistSongList,
+    PlaylistPost
   },
   data: function() {
     return {

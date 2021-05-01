@@ -1,6 +1,6 @@
 <template>
   <div class="playlist--list__container">
-    <div class="songs__container my-24">
+    <div class="songs__container mt-24 mb-8">
       <div
         class="playlist-song--headeing flex text-left py-2 font-medium text-gray-600 dark:text-gray-400 border-b dark:border-gray-700"
       >
