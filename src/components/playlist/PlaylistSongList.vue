@@ -71,7 +71,7 @@ export default {
         // Add the song using the ID
         this.selectedSongs.add(details["id"]);
       // Remove the song
-      else this.selectedSongs.remove(details["id"]);
+      else this.selectedSongs.delete(details["id"]);
     }
   },
   computed: {

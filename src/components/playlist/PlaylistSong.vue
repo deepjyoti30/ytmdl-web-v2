@@ -102,6 +102,11 @@ export default {
        * We just need to alter the value.
        */
       this.isSelected = !this.isSelected;
+
+      this.$emit("selectUpdate", {
+        toAdd: this.isSelected,
+        id: this.song["id"]
+      });
     }
   },
   computed: {
