@@ -30,7 +30,7 @@
         v-for="(song, id) in getSongs"
         :key="id"
         :song="song"
-        :ref="`song-${id}`"
+        :ref="`song-${song['id']}`"
         @coverUpdate="handleCoverUpdate"
         @selectUpdate="handleSongSelectToggle"
       />
@@ -109,9 +109,11 @@ export default {
 
       if (start != -1 && end != -1) songs = songs.slice(start, end);
 
-      songs.forEach((element, index) => {
+      songs.forEach(element => {
         // Use the index to get the ref
-        this.$refs[`song-${index}`][0].updateIsSelected(details.isChecked);
+        this.$refs[`song-${element["id"]}`][0].updateIsSelected(
+          details.isChecked
+        );
       });
     }
   },
