@@ -4,6 +4,9 @@
       class="pl--song--content flex items-center justify-between border-b dark:border-gray-700 py-2"
     >
       <div class="song--details flex items-center md:w-4/5 w-11/12">
+        <div class="checkbox">
+          <input type="checkbox" class="transform scale-125 rounded-md" />
+        </div>
         <div class="cover md:w-auto w-1/6">
           <img
             :src="getCover"
@@ -117,7 +120,7 @@ export default {
         @apply px-2;
 
         &:first-child {
-          @apply pl-0;
+          @apply pl-1;
         }
       }
 
