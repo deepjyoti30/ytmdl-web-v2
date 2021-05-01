@@ -13,7 +13,10 @@
         :songs="getSongs"
         @cover="handleCovers"
       />
-      <playlist-post class="pl-post--content absolute bottom-0" />
+      <playlist-post
+        class="pl-post--content absolute bottom-0"
+        :selectedSongCount="getSelectedSongs"
+      />
     </div>
   </div>
 </template>
@@ -37,7 +40,9 @@ export default {
       plData: null,
       status: "loading",
       endpoint: "http://0.0.0.0:5000/v2/playlist",
-      covers: null
+      covers: null,
+      // Below will be updated by the child
+      songCount: 0
     };
   },
   computed: {
@@ -65,6 +70,9 @@ export default {
     },
     getCovers() {
       return this.covers;
+    },
+    getSelectedSongs() {
+      return this.songCount;
     }
   },
   methods: {

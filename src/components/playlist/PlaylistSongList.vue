@@ -72,6 +72,9 @@ export default {
         this.selectedSongs.add(details["id"]);
       // Remove the song
       else this.selectedSongs.delete(details["id"]);
+
+      // Now update the value in the parent
+      this.$parent.songCount = this.selectedSongs.size;
     }
   },
   computed: {

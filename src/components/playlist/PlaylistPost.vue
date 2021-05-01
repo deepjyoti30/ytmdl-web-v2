@@ -26,6 +26,9 @@
             :title="getButtonTitle"
           >
             Download Playlist
+            <span v-if="showSongCount" class="selected--songs ml-1">
+              ({{ songCount }})</span
+            >
           </button>
         </div>
       </div>
@@ -46,11 +49,23 @@ export default {
       isDisabled: false
     };
   },
+  props: {
+    selectedSongCount: {
+      type: Number,
+      default: 0
+    }
+  },
   computed: {
     getButtonTitle() {
       return this.isDisabled
         ? "You cannot download more than 15 songs at a time"
         : "Download the selected songs";
+    },
+    showSongCount() {
+      return this.selectedSongCount;
+    },
+    songCount() {
+      return this.selectedSongCount;
     }
   }
 };
