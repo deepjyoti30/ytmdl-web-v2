@@ -93,18 +93,6 @@ export default {
        */
       this.$parent.songCount = this.selectedSongs.size;
     },
-    toggleSelectAllSongs: function(isChecked) {
-      /**
-       * Select/Unselect all the songs available.
-       *
-       * This method is to be used when the select all songs
-       * button is used.
-       */
-      this.songs.forEach((element, index) => {
-        // Use the index to get the ref
-        this.$refs[`song-${index}`][0].updateIsSelected(isChecked);
-      });
-    },
     toggleSelectRange: function(details) {
       /**
        * Select just the range of songs as passed.
