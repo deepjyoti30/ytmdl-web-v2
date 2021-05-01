@@ -1,6 +1,6 @@
 <template>
-  <div class="playlist--list__container">
-    <div class="select--controls">
+  <div class="playlist--list__container mt-24 mb-8">
+    <div class="select--controls flex mb-4">
       <playlist-select @clicked="toggleSelectRange" text="Select all songs" />
       <playlist-select
         @clicked="toggleSelectRange"
@@ -8,8 +8,14 @@
         :end="15"
         text="Select first 15 songs"
       />
+      <playlist-select
+        @clicked="toggleSelectRange"
+        :start="getSongs.length - 15"
+        :end="getSongs.length"
+        text="Select last 15 songs"
+      />
     </div>
-    <div class="songs__container mt-24 mb-8">
+    <div class="songs__container">
       <div
         class="playlist-song--headeing flex text-left py-2 font-medium text-gray-600 dark:text-gray-400 border-b dark:border-gray-700"
       >
