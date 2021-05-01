@@ -10,7 +10,7 @@
         v-model="isSelected"
       />
       <div
-        class="bg-white border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500"
+        class="bg-white dark:bg-darklow border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500"
       >
         <svg
           class="fill-current hidden w-3 h-3 text-white pointer-events-none"
@@ -29,7 +29,7 @@
       </div>
       <label
         :for="`${getId}-yes`"
-        class="select-none ml-1 roboto text-gray-600"
+        class="select-none ml-1 roboto text-gray-600 dark:text-gray-400"
         >{{ getText }}</label
       >
     </div>

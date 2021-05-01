@@ -1,6 +1,6 @@
 <template>
   <div class="playlist--list__container mt-24 mb-8">
-    <div class="select--controls flex mb-4">
+    <div class="select--controls flex flex-wrap mb-4">
       <playlist-select @clicked="toggleSelectRange" text="Select all songs" />
       <playlist-select
         @clicked="toggleSelectRange"
