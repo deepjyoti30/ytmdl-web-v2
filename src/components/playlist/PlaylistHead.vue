@@ -43,7 +43,7 @@
               class="text-gray-500 dark:text-gray-300 font-semibold md:text-4xl text-3xl"
               >{{ getSongCount }}</span
             >
-            Songs available
+            Songs
           </div>
         </div>
         <div class="pl--cta md:mt-0 mt-10 md:text-left text-center">
