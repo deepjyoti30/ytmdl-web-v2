@@ -124,3 +124,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.select--controls {
+  .playlist--select__container {
+    @apply mr-6;
+  }
+}
+</style>

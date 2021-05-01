@@ -1,6 +1,6 @@
 <template>
   <div class="check--box__container">
-    <div class="flex items-center mb-2">
+    <div class="flex items-center">
       <input
         type="checkbox"
         :id="`${getId}-yes`"
