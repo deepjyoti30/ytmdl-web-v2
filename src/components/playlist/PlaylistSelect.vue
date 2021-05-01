@@ -7,6 +7,7 @@
         name="A3-confirmation"
         value="yes"
         class="appearance-none absolute h-8 w-8"
+        v-model="isSelected"
       />
       <div
         class="bg-white border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500"
@@ -42,9 +43,31 @@ export default {
       default: "Select all songs"
     }
   },
+  data: function() {
+    return {
+      isSelected: false
+    };
+  },
+  methods: {
+    handleSelectEvent: function() {
+      /**
+       * When the user clicks on check or uncheck
+       * the checkbox, this method needs to be called.
+       *
+       * We need to emit a change to inform the parent
+       * about this change.
+       */
+      console.log("Select event");
+    }
+  },
   computed: {
     getText() {
       return this.text;
+    }
+  },
+  watch: {
+    isSelected: {
+      handler: "handleSelectEvent"
     }
   }
 };
