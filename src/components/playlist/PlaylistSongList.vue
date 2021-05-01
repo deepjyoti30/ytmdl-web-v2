@@ -99,8 +99,7 @@ export default {
        */
       this.songs.forEach((element, index) => {
         // Use the index to get the ref
-        console.log(this.$refs[`song-${index}`]);
-        this.$refs[`song-${index}`].isSelected = isChecked;
+        this.$refs[`song-${index}`][0].updateIsSelected(isChecked);
       });
     }
   },

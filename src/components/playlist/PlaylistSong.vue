@@ -103,10 +103,24 @@ export default {
        */
       this.isSelected = !this.isSelected;
 
+      this.sendSelectUpdate();
+    },
+    sendSelectUpdate: function() {
+      /**
+       * Send the select update emit.
+       */
       this.$emit("selectUpdate", {
         toAdd: this.isSelected,
         id: this.song["id"]
       });
+    },
+    updateIsSelected: function(newValue) {
+      /**
+       * Update the value of isSelected.
+       */
+      this.isSelected = newValue;
+
+      this.sendSelectUpdate();
     }
   },
   computed: {
