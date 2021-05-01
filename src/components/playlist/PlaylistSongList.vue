@@ -18,6 +18,7 @@
         v-for="(song, id) in getSongs"
         :key="id"
         :song="song"
+        :ref="`song-${id}`"
         @coverUpdate="handleCoverUpdate"
         @selectUpdate="handleSongSelectToggle"
       />
@@ -85,6 +86,18 @@ export default {
        * Update the song count value in parents data
        */
       this.$parent.songCount = this.selectedSongs.size;
+    },
+    toggleSelectAllSongs: function(isChecked) {
+      /**
+       * Select/Unselect all the songs available.
+       *
+       * This method is to be used when the select all songs
+       * button is used.
+       */
+      this.songs.forEach((element, index) => {
+        // Use the index to get the ref
+        this.$refs[`song-${index}`].isSelected = isChecked;
+      });
     }
   },
   computed: {
