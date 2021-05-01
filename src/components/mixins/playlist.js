@@ -35,7 +35,7 @@ function buildCoverFor3(images) {
    * Build the cover for 3 images as the cover.
    */
   return (
-    `https://res.cloudinary.com/dgmhgpu79/image/fetch/c_thumb,h_320,w_200/c_thumb,h_160,l_fetch:${btoa(
+    `https://res.cloudinary.com/deepjyoti30/image/fetch/c_thumb,h_320,w_200/c_thumb,h_160,l_fetch:${btoa(
       images[1]
     )}` +
     `,w_200/fl_layer_apply,g_north_west,x_200/c_thumb,h_160,l_fetch:${btoa(
@@ -61,7 +61,7 @@ function buildCoverFor4(images) {
    * Build the cover for 4 images as the cover
    */
   return (
-    `https://res.cloudinary.com/dgmhgpu79/image/fetch/c_thumb,h_160,w_200/c_thumb,h_160,l_fetch:${btoa(
+    `https://res.cloudinary.com/deepjyoti30/image/fetch/c_thumb,h_160,w_200/c_thumb,h_160,l_fetch:${btoa(
       images[2]
     )}` +
     `,w_200/fl_layer_apply,g_north_west,x_0,y_160/c_thumb,h_160,l_fetch:${btoa(
@@ -86,7 +86,7 @@ function buildCoverForNumber(images, number = 4) {
   };
 
   // Make sure the number is valid
-  if (!(number in Object.keys(numberUrlMap)))
+  if (!Object.keys(numberUrlMap).includes(number.toString()))
     throw `number has to be in ${Object.keys(numberUrlMap)}`;
 
   // Make sure the images passed are enough for the number

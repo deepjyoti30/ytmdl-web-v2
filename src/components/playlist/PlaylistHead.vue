@@ -3,7 +3,7 @@
     <div class="md:flex">
       <div class="pl--cover">
         <img
-          src="https://generative-placeholders.glitch.me/image?width=300&height=300&style=123&colors=74"
+          :src="getPlaylistCover"
           loading="lazy"
           alt="Playlist Cover"
           class="rounded-md shadow-2xl md:w-full w-3/4 mr-auto ml-auto"
@@ -57,15 +57,27 @@
 
 <script>
 import { ExternalLinkIcon } from "vue-feather-icons";
+import playlist from "@/components/mixins/playlist";
 
 export default {
   name: "PlaylistHead",
   components: {
     ExternalLinkIcon
   },
+  data: function() {
+    return {
+      cover:
+        "https://generative-placeholders.glitch.me/image?width=300&height=300&style=123&colors=74"
+    };
+  },
+  mixins: [playlist],
   props: {
     playlistData: {
       type: Object,
+      default: null
+    },
+    playlistCover: {
+      type: Array,
       default: null
     }
   },
@@ -81,6 +93,16 @@ export default {
     },
     getPlaylistUrl() {
       return this.playlistData["url"];
+    },
+    getPlaylistCover() {
+      return this.cover;
+    }
+  },
+  watch: {
+    playlistCover: function() {
+      // Update the cover when the playlistCover is updated
+      console.log("Updating");
+      this.cover = this.buildPlaylistCover(this.playlistCover);
     }
   }
 };

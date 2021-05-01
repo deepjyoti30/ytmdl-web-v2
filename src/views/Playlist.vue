@@ -4,6 +4,7 @@
       <playlist-head
         v-if="status.toLowerCase() == 'ok'"
         :playlistData="getPlaylistData"
+        :playlistCover="getCovers"
       />
       <playlist-song-list
         v-if="status.toLowerCase() == 'ok'"
@@ -55,7 +56,7 @@ export default {
     getSongs() {
       return this.plData["songs"];
     },
-    getCoverList() {
+    getCovers() {
       return this.covers;
     }
   },
