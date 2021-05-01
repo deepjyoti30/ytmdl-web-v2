@@ -1,16 +1,20 @@
 <template>
   <div
-    class="playlist--post__container mb-12 backdrop-filter backdrop-blur-3xl bg-white bg-opacity-95 rounded-t-md"
+    class="playlist--post__container mb-12 backdrop-filter backdrop-blur-3xl bg-white dark:bg-darklow bg-opacity-95 dark:bg-opacity-95 rounded-t-md"
   >
-    <div class="py-6">
+    <div class="py-6 px-2">
       <div class="flex justify-between">
-        <div class="time--details flex w-1/4 pl-2">
-          <div class="icon">
+        <div class="time--details flex w-1/4">
+          <div class="icon dark:text-white">
             <ClockIcon />
           </div>
           <div class="text ml-4">
-            <div class="sub--text text-gray-600">Should be done in</div>
-            <div class="time--text text-lg font-semibold text-gray-800">
+            <div class="sub--text text-gray-600 dark:text-gray-500">
+              Should be done in
+            </div>
+            <div
+              class="time--text text-lg font-semibold text-gray-800 dark:text-gray-300"
+            >
               15 mins
             </div>
           </div>
