@@ -4,7 +4,7 @@
       <div
         class="playlist-song--headeing flex text-left py-2 font-medium text-gray-600 dark:text-gray-400 border-b dark:border-gray-700"
       >
-        <div class="song w-2/5 mr-14">
+        <div class="song w-2/5 mr-24">
           Song
         </div>
         <div class="artist md:block hidden">
@@ -16,6 +16,7 @@
         :key="id"
         :song="song"
         @coverUpdate="handleCoverUpdate"
+        @selectUpdate="handleSongSelectToggle"
       />
     </div>
   </div>
@@ -37,7 +38,8 @@ export default {
   data: function() {
     return {
       coverList: [],
-      allSongsDone: false
+      allSongsDone: false,
+      selectedSongs: new Set()
     };
   },
   methods: {
@@ -52,6 +54,24 @@ export default {
       // If the songs are done, then emit the changes
       this.allSongsDone = true;
       this.$emit("cover", this.coverList);
+    },
+    handleSongSelectToggle: function(details) {
+      /**
+       * Handle the selecting of the song that will be
+       * emitted from the child.
+       *
+       * The child needs to emit two things. The ID of the
+       * song and the current state.
+       *
+       * If the state will be select, we'll add it, else remove
+       * it.
+       */
+      // details will be an object
+      if (details["toAdd"])
+        // Add the song using the ID
+        this.selectedSongs.add(details["id"]);
+      // Remove the song
+      else this.selectedSongs.remove(details["id"]);
     }
   },
   computed: {
