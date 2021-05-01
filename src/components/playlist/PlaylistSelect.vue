@@ -57,7 +57,7 @@ export default {
        * We need to emit a change to inform the parent
        * about this change.
        */
-      console.log("Select event");
+      this.$emit("clicked", this.isSelected);
     }
   },
   computed: {

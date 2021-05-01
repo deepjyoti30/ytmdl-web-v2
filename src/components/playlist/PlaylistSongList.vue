@@ -1,7 +1,10 @@
 <template>
   <div class="playlist--list__container">
     <div class="select--controls">
-      <playlist-select />
+      <playlist-select
+        @clicked="toggleSelectAllSongs"
+        text="Select all songs"
+      />
     </div>
     <div class="songs__container mt-24 mb-8">
       <div
@@ -96,6 +99,7 @@ export default {
        */
       this.songs.forEach((element, index) => {
         // Use the index to get the ref
+        console.log(this.$refs[`song-${index}`]);
         this.$refs[`song-${index}`].isSelected = isChecked;
       });
     }
