@@ -22,7 +22,7 @@
             loading="lazy"
           />
         </div>
-        <div class="title md:w-3/6 w-5/6">
+        <div class="title md:w-3/6 w-4/6">
           <div class="font-medium text-gray-800 dark:text-gray-300">
             {{ getTitle }}
           </div>
