@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="artist md:w-2/6 md:block hidden">
-          <div class="font-medium text-gray-400 dark:text-gray-500">
+          <div class="text-gray-500 dark:text-gray-500">
             {{ getArtist }}
           </div>
         </div>
