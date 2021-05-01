@@ -1,6 +1,8 @@
 <template>
   <div class="playlist__container">
-    <div class="playlist--content p-5 md:px-24 md:w-3/5 w-full mr-auto ml-auto">
+    <div
+      class="playlist--content p-5 md:px-24 md:w-3/5 w-full mr-auto ml-auto relative"
+    >
       <playlist-head
         v-if="status.toLowerCase() == 'ok'"
         :playlistData="getPlaylistData"
@@ -11,7 +13,7 @@
         :songs="getSongs"
         @cover="handleCovers"
       />
-      <playlist-post class="post--content border" />
+      <playlist-post class="pl-post--content absolute bottom-0" />
     </div>
   </div>
 </template>
@@ -20,6 +22,8 @@
 import PlaylistHead from "@/components/playlist/PlaylistHead";
 import PlaylistSongList from "../components/playlist/PlaylistSongList.vue";
 import PlaylistPost from "../components/playlist/PlaylistPost.vue";
+
+import stickybits from "stickybits";
 
 export default {
   name: "Playlist",
@@ -94,6 +98,11 @@ export default {
   },
   mounted() {
     this.fetchPlaylistDetails();
+
+    // Add the playlist post to the bottom
+    stickybits(".pl-post--content", {
+      stickyBitStickyOffset: 35
+    });
   }
 };
 </script>
