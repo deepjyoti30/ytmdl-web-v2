@@ -129,6 +129,10 @@ export default {
 .select--controls {
   .playlist--select__container {
     @apply mr-6;
+
+    @media only screen and (max-width: $md) {
+      @apply mb-2;
+    }
   }
 }
 </style>
