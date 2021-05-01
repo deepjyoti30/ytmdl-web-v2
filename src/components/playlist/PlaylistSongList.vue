@@ -1,5 +1,8 @@
 <template>
   <div class="playlist--list__container">
+    <div class="select--controls">
+      <playlist-select />
+    </div>
     <div class="songs__container mt-24 mb-8">
       <div
         class="playlist-song--headeing flex text-left py-2 font-medium text-gray-600 dark:text-gray-400 border-b dark:border-gray-700"
@@ -23,10 +26,11 @@
 </template>
 
 <script>
+import PlaylistSelect from "./PlaylistSelect.vue";
 import PlaylistSong from "./PlaylistSong.vue";
 export default {
   name: "PlaylistSongList",
-  components: { PlaylistSong },
+  components: { PlaylistSong, PlaylistSelect },
   props: {
     songs: {
       type: Array,
