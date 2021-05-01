@@ -35,13 +35,13 @@ function buildCoverFor3(images) {
    * Build the cover for 3 images as the cover.
    */
   return (
-    `https://res.cloudinary.com/deepjyoti30/image/fetch/c_thumb,h_320,w_200/c_thumb,h_160,l_fetch:${btoa(
+    `https://res.cloudinary.com/deepjyoti30/image/fetch/c_thumb,h_300,w_150/c_thumb,h_150,l_fetch:${btoa(
       images[1]
     )}` +
-    `,w_200/fl_layer_apply,g_north_west,x_200/c_thumb,h_160,l_fetch:${btoa(
+    `,w_150/fl_layer_apply,g_north_west,x_150/c_thumb,h_150,l_fetch:${btoa(
       images[2]
     )}` +
-    `,w_200/fl_layer_apply,g_north_west,y_160,x_200/${images[0]}`
+    `,w_150/fl_layer_apply,g_north_west,y_150,x_150/${images[0]}`
   );
 }
 
@@ -51,8 +51,8 @@ function buildCoverFor2(images) {
    */
   return (
     `https://res.cloudinary.com/deepjyoti30/image/` +
-    `fetch/c_thumb,h_320,w_200/c_thumb,h_320,l_fetch:${btoa(images[1])}` +
-    `,w_200/fl_layer_apply,g_north_west,x_200/${images[0]}`
+    `fetch/c_thumb,h_300,w_150/c_thumb,h_300,l_fetch:${btoa(images[1])}` +
+    `,w_150/fl_layer_apply,g_north_west,x_150/${images[0]}`
   );
 }
 
@@ -61,16 +61,16 @@ function buildCoverFor4(images) {
    * Build the cover for 4 images as the cover
    */
   return (
-    `https://res.cloudinary.com/deepjyoti30/image/fetch/c_thumb,h_160,w_200/c_thumb,h_160,l_fetch:${btoa(
+    `https://res.cloudinary.com/deepjyoti30/image/fetch/c_thumb,h_150,w_150/c_thumb,h_150,l_fetch:${btoa(
       images[2]
     )}` +
-    `,w_200/fl_layer_apply,g_north_west,x_0,y_160/c_thumb,h_160,l_fetch:${btoa(
+    `,w_150/fl_layer_apply,g_north_west,x_0,y_150/c_thumb,h_150,l_fetch:${btoa(
       images[1]
     )}` +
-    `,w_200/fl_layer_apply,g_north_west,x_200/c_thumb,h_160,l_fetch:${btoa(
+    `,w_150/fl_layer_apply,g_north_west,x_150/c_thumb,h_150,l_fetch:${btoa(
       images[3]
     )}` +
-    `,w_200/fl_layer_apply,g_north_west,y_160,x_200/${images[0]}`
+    `,w_150/fl_layer_apply,g_north_west,y_150,x_150/${images[0]}`
   );
 }
 
