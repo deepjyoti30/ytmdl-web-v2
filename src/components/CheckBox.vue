@@ -10,7 +10,7 @@
         v-model="isChecked"
       />
       <div
-        class="bg-white dark:bg-darklow border-2 rounded-md border-blue-400 w-5 h-5 flex flex-shrink-0 justify-center items-center focus-within:border-blue-500"
+        class="bg-white dark:bg-darklow border-2 rounded-md border-darkgreen-50 w-5 h-5 flex flex-shrink-0 justify-center items-center focus-within:border-darkgreen-50"
         :class="getText != '' ? 'mr-2' : ''"
       >
         <svg
@@ -91,8 +91,8 @@ export default {
 <style lang="scss" scoped>
 .check--box__container {
   input:checked + div {
-    @apply border-blue-500;
-    @apply bg-blue-500;
+    @apply border-darkgreen-50;
+    @apply bg-darkgreen-50;
   }
 
   input:checked + div svg {
