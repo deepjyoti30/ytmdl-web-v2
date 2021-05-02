@@ -3,12 +3,14 @@
     <div class="select--controls flex flex-wrap mb-6">
       <playlist-select @clicked="toggleSelectRange" text="Select all songs" />
       <playlist-select
+        v-if="getSongCount > 15"
         @clicked="toggleSelectRange"
         :start="0"
         :end="15"
         text="Select first 15 songs"
       />
       <playlist-select
+        v-if="getSongCount > 15"
         @clicked="toggleSelectRange"
         :start="getSongs.length - 15"
         :end="getSongs.length"
@@ -129,6 +131,9 @@ export default {
   computed: {
     getSongs() {
       return this.songs;
+    },
+    getSongCount() {
+      return this.songs.length;
     },
     getSelectedCount() {
       return this.selectedSongCount;
