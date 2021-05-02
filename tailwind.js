@@ -25,6 +25,9 @@ module.exports = {
         },
         darklow: {
           DEFAULT: "#1A1A1A"
+        },
+        cyellow: {
+          DEFAULT: "#F5DFBB"
         }
       }
     }

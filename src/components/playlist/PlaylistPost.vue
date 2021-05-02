@@ -64,7 +64,7 @@ export default {
       return this.selectedSongCount;
     },
     getIsBtnDisabled() {
-      return this.selectedSongCount > 15;
+      return this.selectedSongCount > 15 || this.selectedSongCount <= 0;
     }
   }
 };
