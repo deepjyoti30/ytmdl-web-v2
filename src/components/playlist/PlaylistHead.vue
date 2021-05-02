@@ -46,6 +46,7 @@
             Songs
           </div>
           <div
+            v-if="getSongCount > 15"
             class="pl--song--error mt-3 text-yellow-500 dark:text-cyellow roboto"
           >
             Only 15 songs can be downloaded at once!
