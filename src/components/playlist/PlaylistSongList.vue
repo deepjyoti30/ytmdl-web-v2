@@ -36,7 +36,7 @@
       />
     </div>
     <playlist-post
-      class="pl-post--content absolute bottom-0"
+      class="pl-post--content mt-12 absolute bottom-0"
       :selectedSongCount="getSelectedCount"
     />
   </div>

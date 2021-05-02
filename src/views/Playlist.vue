@@ -21,8 +21,6 @@
 import PlaylistHead from "@/components/playlist/PlaylistHead";
 import PlaylistSongList from "../components/playlist/PlaylistSongList.vue";
 
-import stickybits from "stickybits";
-
 export default {
   name: "Playlist",
   components: {
@@ -95,11 +93,6 @@ export default {
   },
   mounted() {
     this.fetchPlaylistDetails();
-
-    // Add the playlist post to the bottom
-    stickybits(".pl-post--content", {
-      stickyBitStickyOffset: 35
-    });
   }
 };
 </script>

@@ -27,7 +27,7 @@
             :disabled="getIsBtnDisabled"
           >
             Download Playlist
-            <span v-if="showSongCount" class="selected--songs ml-1">
+            <span v-if="songCount" class="selected--songs ml-1">
               ({{ songCount }})</span
             >
           </button>
@@ -65,9 +65,6 @@ export default {
       return this.isDisabled
         ? "You cannot download more than 15 songs at a time"
         : "Download the selected songs";
-    },
-    showSongCount() {
-      return this.selectedSongCount;
     },
     songCount() {
       return this.selectedSongCount;
