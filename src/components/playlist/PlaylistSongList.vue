@@ -35,15 +35,23 @@
         @selectUpdate="handleSongSelectToggle"
       />
     </div>
+    <playlist-post
+      class="pl-post--content absolute bottom-0"
+      :selectedSongCount="getSelectedCount"
+    />
   </div>
 </template>
 
 <script>
+import PlaylistPost from "./PlaylistPost.vue";
 import PlaylistSelect from "./PlaylistSelect.vue";
 import PlaylistSong from "./PlaylistSong.vue";
+
+import stickybits from "stickybits";
+
 export default {
   name: "PlaylistSongList",
-  components: { PlaylistSong, PlaylistSelect },
+  components: { PlaylistSong, PlaylistSelect, PlaylistPost },
   props: {
     songs: {
       type: Array,
@@ -89,15 +97,6 @@ export default {
         this.selectedSongs.add(details["id"]);
       // Remove the song
       else this.selectedSongs.delete(details["id"]);
-
-      // Now update the value in the parent
-      this.updateParentSongCount();
-    },
-    updateParentSongCount: function() {
-      /**
-       * Update the song count value in parents data
-       */
-      this.$parent.songCount = this.selectedSongs.size;
     },
     toggleSelectRange: function(details) {
       /**
@@ -123,7 +122,16 @@ export default {
     },
     getCanContinue() {
       return this.selectedSongs.size <= 15;
+    },
+    getSelectedCount() {
+      return this.selectedSongs.size;
     }
+  },
+  mounted() {
+    // Add the playlist post to the bottom
+    stickybits(".pl-post--content", {
+      stickyBitStickyOffset: 35
+    });
   }
 };
 </script>

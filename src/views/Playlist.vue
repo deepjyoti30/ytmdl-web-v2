@@ -13,10 +13,6 @@
         :songs="getSongs"
         @cover="handleCovers"
       />
-      <playlist-post
-        class="pl-post--content absolute bottom-0"
-        :selectedSongCount="getSelectedSongs"
-      />
     </div>
   </div>
 </template>
@@ -24,7 +20,6 @@
 <script>
 import PlaylistHead from "@/components/playlist/PlaylistHead";
 import PlaylistSongList from "../components/playlist/PlaylistSongList.vue";
-import PlaylistPost from "../components/playlist/PlaylistPost.vue";
 
 import stickybits from "stickybits";
 
@@ -32,17 +27,14 @@ export default {
   name: "Playlist",
   components: {
     PlaylistHead,
-    PlaylistSongList,
-    PlaylistPost
+    PlaylistSongList
   },
   data: function() {
     return {
       plData: null,
       status: "loading",
       endpoint: "http://0.0.0.0:5000/v2/playlist",
-      covers: null,
-      // Below will be updated by the child
-      songCount: 0
+      covers: null
     };
   },
   computed: {
@@ -70,9 +62,6 @@ export default {
     },
     getCovers() {
       return this.covers;
-    },
-    getSelectedSongs() {
-      return this.songCount;
     }
   },
   methods: {
