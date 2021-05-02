@@ -64,7 +64,8 @@ export default {
     return {
       coverList: [],
       allSongsDone: false,
-      selectedSongs: new Set()
+      selectedSongs: new Set(),
+      selectedSongCount: 0
     };
   },
   methods: {
@@ -97,6 +98,15 @@ export default {
         this.selectedSongs.add(details["id"]);
       // Remove the song
       else this.selectedSongs.delete(details["id"]);
+
+      // Update the length of the size in the variable
+      // now.
+      // We should be simply able to use the size of the set
+      // as a computed property. However, that is not working
+      // because Vue is not able to pickup the changes done
+      // to the set. Thus, the computed values never update
+      // and it defeats our purpose.
+      this.selectedSongCount = this.selectedSongs.size;
     },
     toggleSelectRange: function(details) {
       /**
@@ -121,10 +131,10 @@ export default {
       return this.songs;
     },
     getCanContinue() {
-      return this.selectedSongs.size <= 15;
+      return this.selectedSongCount <= 15;
     },
     getSelectedCount() {
-      return this.selectedSongs.size;
+      return this.selectedSongCount;
     }
   },
   mounted() {
