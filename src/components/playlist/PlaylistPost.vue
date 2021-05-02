@@ -46,23 +46,17 @@ export default {
     ClockIcon
   },
   data: function() {
-    return {
-      isDisabled: false
-    };
+    return {};
   },
   props: {
     selectedSongCount: {
       type: Number,
       default: 0
-    },
-    isBtnDisabled: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
     getButtonTitle() {
-      return this.isDisabled
+      return this.getIsBtnDisabled
         ? "You cannot download more than 15 songs at a time"
         : "Download the selected songs";
     },
@@ -70,7 +64,7 @@ export default {
       return this.selectedSongCount;
     },
     getIsBtnDisabled() {
-      return this.isBtnDisabled;
+      return this.selectedSongCount >= 15;
     }
   }
 };

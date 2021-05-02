@@ -130,9 +130,6 @@ export default {
     getSongs() {
       return this.songs;
     },
-    getCanContinue() {
-      return this.selectedSongCount <= 15;
-    },
     getSelectedCount() {
       return this.selectedSongCount;
     }
