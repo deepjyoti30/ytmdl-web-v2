@@ -24,6 +24,7 @@
             type="button"
             class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex"
             :title="getButtonTitle"
+            :disabled="getIsBtnDisabled"
           >
             Download Playlist
             <span v-if="showSongCount" class="selected--songs ml-1">
@@ -53,6 +54,10 @@ export default {
     selectedSongCount: {
       type: Number,
       default: 0
+    },
+    isBtnDisabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -66,6 +71,9 @@ export default {
     },
     songCount() {
       return this.selectedSongCount;
+    },
+    getIsBtnDisabled() {
+      return this.isBtnDisabled;
     }
   }
 };

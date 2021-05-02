@@ -120,6 +120,9 @@ export default {
   computed: {
     getSongs() {
       return this.songs;
+    },
+    getCanContinue() {
+      return this.selectedSongs.size <= 15;
     }
   }
 };
