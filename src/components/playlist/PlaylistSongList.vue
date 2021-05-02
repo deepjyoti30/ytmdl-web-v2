@@ -19,7 +19,7 @@
       <div
         class="playlist-song--headeing flex text-left py-2 font-medium text-gray-600 dark:text-gray-400 border-b dark:border-gray-700"
       >
-        <div class="song w-2/5 mr-24">
+        <div class="song w-2/5 mr-28">
           Song
         </div>
         <div class="artist md:block hidden">
