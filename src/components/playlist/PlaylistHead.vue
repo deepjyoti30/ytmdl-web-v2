@@ -45,6 +45,11 @@
             >
             Songs
           </div>
+          <div
+            class="pl--song--error mt-3 text-yellow-500 dark:text-cyellow roboto"
+          >
+            Only 15 songs can be downloaded at once!
+          </div>
         </div>
         <div class="pl--cta md:mt-0 mt-10 md:text-left text-center">
           <a
