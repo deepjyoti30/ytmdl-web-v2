@@ -25,6 +25,9 @@
             >reporting this to us</a
           >. If you report, please copy the following error details as is.
         </p>
+        <div v-if="getCustomMessage != null" class="custom--message mt-6">
+          {{ getCustomMessage }}
+        </div>
         <div v-if="showError" class="error--details mt-6">
           <div class="">
             <h1>
@@ -49,6 +52,10 @@ export default {
     error: {
       type: Object,
       default: null
+    },
+    message: {
+      type: String,
+      default: null
     }
   },
   computed: {
@@ -60,6 +67,9 @@ export default {
     },
     getErrorMessage() {
       return this.error.message;
+    },
+    getCustomMessage() {
+      return this.message;
     }
   }
 };
