@@ -15,7 +15,13 @@
         </p>
       </div>
       <div class="information mt-6 text-gray-700">
-        <p>
+        <p
+          v-if="getCustomMessage != null"
+          class="custom--message bg-cyellow inline-flex px-1"
+        >
+          > {{ getCustomMessage }}
+        </p>
+        <p class="mt-6">
           If this error occurred a few times, you can consider
           <a
             href="https://github.com/deepjyoti30/ytmdl-web-v2/issues/new?assignees=&labels=bug&template=bug_report.md&title="
@@ -25,12 +31,6 @@
             >reporting this to us</a
           >. If you report, please copy the following error details as is.
         </p>
-        <div
-          v-if="getCustomMessage != null"
-          class="custom--message mt-6 roboto bg-cyellow inline-flex px-1"
-        >
-          > {{ getCustomMessage }}
-        </div>
         <div v-if="showError" class="error--details mt-6 roboto">
           <div class="">
             <h1>
