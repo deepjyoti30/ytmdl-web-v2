@@ -25,10 +25,13 @@
             >reporting this to us</a
           >. If you report, please copy the following error details as is.
         </p>
-        <div v-if="getCustomMessage != null" class="custom--message mt-6">
-          {{ getCustomMessage }}
+        <div
+          v-if="getCustomMessage != null"
+          class="custom--message mt-6 roboto bg-cyellow inline-flex px-1"
+        >
+          > {{ getCustomMessage }}
         </div>
-        <div v-if="showError" class="error--details mt-6">
+        <div v-if="showError" class="error--details mt-6 roboto">
           <div class="">
             <h1>
               Error Status Code is

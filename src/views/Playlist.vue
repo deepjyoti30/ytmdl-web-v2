@@ -4,7 +4,10 @@
       <animation text="Fetching playlist details for you" />
     </div>
     <div v-else-if="getStatus == 'error'" class="error--content">
-      <error :error="getError" />
+      <error
+        :error="getError"
+        message="It might be that the playlist you're trying to fetch is private or does not exist"
+      />
     </div>
     <div
       v-else
