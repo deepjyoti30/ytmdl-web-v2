@@ -59,6 +59,11 @@ const routes = [
     props: route => ({
       metaDetails: route.params.metaDetails
     })
+  },
+  {
+    path: "*",
+    name: "Not Found",
+    component: () => import("@/views/NotFound.vue")
   }
 ];
 
