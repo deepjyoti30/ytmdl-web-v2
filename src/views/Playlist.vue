@@ -88,7 +88,9 @@ export default {
       const jsonData = await response.json();
 
       this.plData = jsonData;
-      this.status = response.statusText;
+
+      this.status =
+        response.status == 200 ? response.statusText.toLowerCase() : "error";
     },
     handleCovers: function(coverList) {
       /**
