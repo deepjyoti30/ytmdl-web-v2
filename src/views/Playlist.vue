@@ -1,6 +1,10 @@
 <template>
   <div class="playlist__container">
+    <div v-if="getStatus == 'loading'" class="loading--content">
+      <animation text="Fetching playlist details for you" />
+    </div>
     <div
+      v-else
       class="playlist--content p-5 md:px-24 md:w-3/5 w-full mr-auto ml-auto relative"
     >
       <playlist-head
@@ -20,12 +24,14 @@
 <script>
 import PlaylistHead from "@/components/playlist/PlaylistHead";
 import PlaylistSongList from "../components/playlist/PlaylistSongList.vue";
+import Animation from "../components/Animation.vue";
 
 export default {
   name: "Playlist",
   components: {
     PlaylistHead,
-    PlaylistSongList
+    PlaylistSongList,
+    Animation
   },
   data: function() {
     return {
@@ -60,6 +66,9 @@ export default {
     },
     getCovers() {
       return this.covers;
+    },
+    getStatus() {
+      return this.status;
     }
   },
   methods: {
