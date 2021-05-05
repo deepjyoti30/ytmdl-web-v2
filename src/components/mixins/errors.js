@@ -18,7 +18,7 @@ const error = {
       // valid
       return this.validCodes.includes(code / 100);
     },
-    extractErrorDetails: function(response) {
+    extractErrorDetails: function(response, responseJson) {
       /**
        * Extract the error details from the response.
        *
@@ -33,6 +33,14 @@ const error = {
       // For the message, we will try to extract the
       // response passed by the API. Else we will fall
       // back to the generic response.
+      const message = Object.keys(responseJson).includes("detail")
+        ? responseJson.detail
+        : response.statusText;
+
+      return {
+        code: code,
+        message: message
+      };
     }
   }
 };
