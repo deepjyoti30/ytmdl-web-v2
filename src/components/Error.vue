@@ -14,10 +14,10 @@
           page now or come back a bit later!
         </p>
       </div>
-      <div class="information mt-6 text-gray-700">
+      <div class="information mt-6 text-gray-700 dark:text-gray-400">
         <p
           v-if="getCustomMessage != null"
-          class="custom--message bg-cyellow inline-flex px-1"
+          class="custom--message bg-cyellow inline-flex px-1 dark:text-gray-700"
         >
           > {{ getCustomMessage }}
         </p>
