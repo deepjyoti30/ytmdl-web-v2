@@ -25,15 +25,17 @@
             >reporting this to us</a
           >. If you report, please copy the following error details as is.
         </p>
-        <div class="error--details mt-6">
+        <div v-if="showError" class="error--details mt-6">
           <div class="">
             <h1>
               Error Status Code is
-              <span class="font-semibold work-sans">404</span>
+              <span class="font-semibold work-sans">{{ getErrorCode }}</span>
             </h1>
             <h1>
               Error Message is
-              <span class="font-semibold work-sans">Not Found</span>
+              <span class="font-semibold work-sans"
+                >{{ getErrorMessage }}}</span
+              >
             </h1>
           </div>
         </div>
@@ -44,6 +46,23 @@
 
 <script>
 export default {
-  name: "Error"
+  name: "Error",
+  props: {
+    error: {
+      type: Object,
+      default: null
+    }
+  },
+  computed: {
+    showError() {
+      return this.error != null;
+    },
+    getErrorCode() {
+      return this.error.code;
+    },
+    getErrorMessage() {
+      return this.error.message;
+    }
+  }
 };
 </script>
