@@ -16,7 +16,7 @@ const error = {
       // We can just divide the code by 100 and
       // if the number is not 4 or 5, it's not
       // valid
-      return this.validCodes.includes(code / 100);
+      return this.validCodes.includes(parseInt(code / 100));
     },
     extractErrorDetails: function(response, responseJson) {
       /**

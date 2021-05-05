@@ -33,6 +33,8 @@ import PlaylistSongList from "../components/playlist/PlaylistSongList.vue";
 import Animation from "../components/Animation.vue";
 import Error from "../components/Error.vue";
 
+import error from "@/components/mixins/errors";
+
 export default {
   name: "Playlist",
   components: {
@@ -41,6 +43,7 @@ export default {
     Animation,
     Error
   },
+  mixins: [error],
   data: function() {
     return {
       plData: null,
@@ -111,10 +114,7 @@ export default {
       }
 
       // Else extract the error details
-      this.errorDetails = {
-        code: code,
-        message: message
-      };
+      this.errorDetails = this.extractErrorDetails(response, jsonData);
       this.status = "error";
     },
     handleCovers: function(coverList) {
