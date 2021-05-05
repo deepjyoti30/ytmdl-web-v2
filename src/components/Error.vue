@@ -6,7 +6,7 @@
     <div class="wrapper">
       <div class="heading text-gray-600 dark:text-gray-400">
         <h1 class="text-5xl text-red-500 dark:text-red-400 font-bold">
-          Damn it!!
+          Aw Snap!
         </h1>
         <p class="mt-4">
           There was an error with the app. This is probably something we forgot
