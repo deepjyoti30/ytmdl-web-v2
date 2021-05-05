@@ -4,7 +4,7 @@
       <animation text="Fetching playlist details for you" />
     </div>
     <div v-else-if="getStatus == 'error'" class="error--content">
-      <error />
+      <error :error="getError" />
     </div>
     <div
       v-else
@@ -43,7 +43,8 @@ export default {
       plData: null,
       status: "loading",
       endpoint: "http://0.0.0.0:5000/v2/playlist",
-      covers: null
+      covers: null,
+      errorDetails: null
     };
   },
   computed: {
@@ -74,6 +75,9 @@ export default {
     },
     getStatus() {
       return this.status;
+    },
+    getError() {
+      return this.errorDetails;
     }
   },
   methods: {
@@ -94,8 +98,21 @@ export default {
 
       this.plData = jsonData;
 
-      this.status =
-        response.status == 200 ? response.statusText.toLowerCase() : "error";
+      // Extract the response status
+      const code = response.status;
+      const message = response.statusText;
+
+      if (code == 200) {
+        this.status = message.toLowerCase();
+        return;
+      }
+
+      // Else extract the error details
+      this.errorDetails = {
+        code: code,
+        message: message
+      };
+      this.status = "error";
     },
     handleCovers: function(coverList) {
       /**

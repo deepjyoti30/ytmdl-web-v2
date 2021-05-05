@@ -33,9 +33,7 @@
             </h1>
             <h1>
               Error Message is
-              <span class="font-semibold work-sans"
-                >{{ getErrorMessage }}}</span
-              >
+              <span class="font-semibold work-sans">{{ getErrorMessage }}</span>
             </h1>
           </div>
         </div>
