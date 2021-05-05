@@ -6,7 +6,7 @@
         Seems like you're nowhere. How did you even end up here?!
       </p>
       <div class="useful--links mt-6 text-gray-600 dark:text-gray-400">
-        <div class="links flex mt-2 roboto underline">
+        <div class="links flex mt-2 roboto">
           <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
           <router-link to="/donate">Donate</router-link>
@@ -33,6 +33,8 @@ export default {
     .links {
       a {
         @apply mr-6;
+        @apply border-b;
+        @apply border-darkgreen-300;
 
         &:last-child {
           @apply mr-0;
