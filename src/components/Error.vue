@@ -23,8 +23,20 @@
             ref="noopener norefferer"
             class="underline"
             >reporting this to us</a
-          >.
+          >. If you report, please copy the following error details as is.
         </p>
+        <div class="error--details mt-6">
+          <div class="">
+            <h1>
+              Error Status Code is
+              <span class="font-semibold work-sans">404</span>
+            </h1>
+            <h1>
+              Error Message is
+              <span class="font-semibold work-sans">Not Found</span>
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
   </div>
