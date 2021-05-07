@@ -22,7 +22,7 @@
         <div class="btn--content">
           <button
             type="button"
-            class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-500"
+            class="py-2 px-6 bg-red-500 text-white rounded-md font-medium duration-150 ease-in hover:bg-red-600 inline-flex disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-500 outline-none focus:outline-none"
             :title="getButtonTitle"
             :disabled="getIsBtnDisabled"
           >
