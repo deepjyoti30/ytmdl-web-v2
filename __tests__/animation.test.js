@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
-import App from "./../../src/App.vue";
+import Animation from "../src/components/Animation.vue";
 
 /* eslint-disable no-undef */
-describe("Mounted App", () => {
-  const wrapper = mount(App);
+describe("Mounted Animation", () => {
+  const wrapper = mount(Animation);
 
   it("shows the correct text", () => {
     expect(wrapper.html()).toContain("Getting the song ready for you");
