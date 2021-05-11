@@ -6,11 +6,14 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-report": "vue-cli-service build --report"
+    "build-report": "vue-cli-service build --report",
+    "test": "jest"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@vue/cli-plugin-unit-jest": "^4.5.13",
+    "@vue/test-utils": "^1.2.0",
     "core-js": "^3.6.5",
     "js-file-downloader": "^1.1.15",
     "micromodal": "^0.4.6",
