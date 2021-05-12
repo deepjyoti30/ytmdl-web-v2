@@ -24,7 +24,7 @@ describe("Mounted MetaList", () => {
     }
   });
 
-  it("should fetch a list", async () => {
+  it("should fetch a list", () => {
     expect(Array.isArray(wrapper.vm.fetchedData)).toBeTruthy();
   });
 
