@@ -23,7 +23,7 @@ describe("Mounted SearchBar", () => {
     expect(wrapper.vm.songEntered).toBe("test");
   });
 
-  it("should detect URL's", async () => {
+  it("should detect URL's", () => {
     wrapper.setData({
       $route: {
         query: {
@@ -35,7 +35,7 @@ describe("Mounted SearchBar", () => {
     expect(wrapper.vm.isUrl).toBeTruthy();
   });
 
-  it("should detecth YouTube URL's", async () => {
+  it("should detect YouTube URL's", () => {
     wrapper.setData({
       $route: {
         query: {
@@ -55,5 +55,60 @@ describe("Mounted SearchBar", () => {
     });
 
     expect(wrapper.vm.isYoutubeUrl).toBeFalsy();
+  });
+
+  it("should extract video ID", () => {
+    expect(wrapper.vm.extractVideoId("https://youtube.com/watch?v=test")).toBe(
+      "test"
+    );
+  });
+
+  it("should send search request for query", () => {
+    wrapper.setData({
+      $route: {
+        query: {
+          query: "test"
+        }
+      }
+    });
+
+    wrapper.vm.sendSearchRequest();
+
+    expect(wrapper.emitted().search[0][0]).toStrictEqual({
+      song: "test",
+      isYoutube: false
+    });
+  });
+
+  it("should show error if invalid URL is passed", () => {
+    wrapper.setData({
+      $route: {
+        query: {
+          query: "https://deepjyoti30.dev"
+        }
+      }
+    });
+
+    wrapper.vm.sendSearchRequest();
+
+    expect(wrapper.vm.isInvalidInput).toBeTruthy();
+  });
+
+  it("should send search request for Youtube URL", () => {
+    wrapper.setData({
+      $route: {
+        query: {
+          query: "https://youtube.com/watch?v=test"
+        }
+      }
+    });
+
+    wrapper.vm.sendSearchRequest();
+
+    expect(wrapper.emitted().search[1][0]).toStrictEqual({
+      song: "https://youtube.com/watch?v=test",
+      isYoutube: true,
+      videoId: "test"
+    });
   });
 });
