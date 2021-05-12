@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import MetaList from "../src/components/MetaList.vue";
+import MetaList from "../../src/components/MetaList.vue";
 
 /* eslint-disable no-undef */
 describe("Mounted MetaList", () => {

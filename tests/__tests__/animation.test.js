@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import Animation from "../src/components/Animation.vue";
+import Animation from "../../src/components/Animation.vue";
 
 /* eslint-disable no-undef */
 describe("Mounted Animation", () => {

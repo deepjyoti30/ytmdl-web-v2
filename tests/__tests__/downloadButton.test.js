@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import DownloadButton from "../src/components/DownloadButton.vue";
+import DownloadButton from "../../src/components/DownloadButton.vue";
 
 /* eslint-disable no-undef */
 describe("Mounted Download Button", () => {
