@@ -25,7 +25,13 @@ describe("Mounted MetaList", () => {
   });
 
   it("should fetch a list", async () => {
-    // /await wrapper.vm.searchMetadata();
     expect(Array.isArray(wrapper.vm.fetchedData)).toBeTruthy();
+  });
+
+  it("should show all data on button click", async () => {
+    const button = wrapper.find(".btn--wrapper").find("button");
+    await button.trigger("click");
+
+    expect(wrapper.vm.showAllData).toBeTruthy();
   });
 });
