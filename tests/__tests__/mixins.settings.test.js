@@ -3,7 +3,7 @@ import { shallowMount } from "@vue/test-utils";
 import { settings } from "@/components/mixins/settings";
 
 /* eslint-disable no-undef */
-describe("Mounted Settings Mixing", () => {
+describe("Mounted Settings Mixin", () => {
   const wrapper = shallowMount(MockComponent, {
     mixins: [settings]
   });
@@ -21,5 +21,10 @@ describe("Mounted Settings Mixing", () => {
     } catch (e) {
       expect(e).toContain("not a valid value");
     }
+  });
+
+  it("should return proper value from boolean", () => {
+    expect(wrapper.vm.getValueFromBool(true)).toBe("on");
+    expect(wrapper.vm.getValueFromBool(false)).toBe("off");
   });
 });
