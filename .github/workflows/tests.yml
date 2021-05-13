@@ -1,0 +1,45 @@
+name: Run tests and build
+
+on:
+  push:
+  pull_request:
+    branches:
+      - "master"
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the latest code from the repo
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      # Build the app using nodejs
+      - name: Use node js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+
+  test-build:
+    # It is important to make sure the dependency upgrades
+    # don't break the builds.
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the latest code from the repo
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      # Build the app using nodejs
+      - name: Use node js 15
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+      - name: Install dependencies
+        run: npm install
+      - name: Build for production
+        run: npm run build
