@@ -108,7 +108,29 @@ describe("Mounted SearchBar", () => {
     expect(wrapper.emitted().search[1][0]).toStrictEqual({
       song: "https://youtube.com/watch?v=test",
       isYoutube: true,
-      videoId: "test"
+      videoId: "test",
+      isPlaylist: false,
+      playlistId: null
+    });
+  });
+
+  it("should send search request for playlist URL", () => {
+    wrapper.setData({
+      $route: {
+        query: {
+          query: "https://youtube.com/playlist?list=test"
+        }
+      }
+    });
+
+    wrapper.vm.sendSearchRequest();
+
+    expect(wrapper.emitted().search[2][0]).toStrictEqual({
+      song: "https://youtube.com/playlist?list=test",
+      isYoutube: false,
+      videoId: null,
+      isPlaylist: true,
+      playlistId: "test"
     });
   });
 });
