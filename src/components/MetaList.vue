@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      metaUrl: "https://ytmdlapi.herokuapp.com/metadata",
+      metaUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/metadata",
       fetchedData: null,
       isLoading: false,
       showAllData: false
