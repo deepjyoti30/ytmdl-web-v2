@@ -32,7 +32,7 @@ export default {
   },
   data: () => {
     return {
-      searchUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/search",
+      searchUrl: "https://ytmdl-api-1.herokuapp.com/v2/ytmdl/search",
       isLoading: true,
       fetchedData: null
     };
