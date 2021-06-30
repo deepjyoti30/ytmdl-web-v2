@@ -6,7 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-report": "vue-cli-service build --report"
+    "build-report": "vue-cli-service build --report",
+    "tauri": "tauri",
+    "tauri:build": "vue-cli-service tauri:build",
+    "tauri:serve": "vue-cli-service tauri:serve"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@tauri-apps/cli": "^1.0.0-beta.5",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",
@@ -40,6 +44,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
+    "vue-cli-plugin-tauri": "~1.0.0-beta.3",
     "vue-template-compiler": "^2.6.11"
   }
 }
