@@ -49,7 +49,9 @@
       "active": false
     },
     "allowlist": {
-      "all": true
+      "dialog": {
+        "save": true
+      }
     },
     "windows": [
       {
