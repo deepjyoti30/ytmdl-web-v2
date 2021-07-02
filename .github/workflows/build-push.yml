@@ -1,8 +1,5 @@
 name: "publish"
 on: [push]
-push:
-  branches:
-    - tauri
 
 npmScript: tauri:build
 
