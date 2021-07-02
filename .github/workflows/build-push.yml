@@ -1,5 +1,5 @@
 name: "publish"
-on: ae74de2
+on:
 push:
   branches:
     - release
