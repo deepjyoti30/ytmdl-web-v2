@@ -1,5 +1,5 @@
 name: "publish"
-on:
+on: fine2006-patch-1
 push:
   branches:
     - release
