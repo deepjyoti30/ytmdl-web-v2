@@ -1,8 +1,13 @@
-name: "test-on-pr"
-on: fine2006-patch-1
+name: "publish"
+on:
+push:
+  branches:
+    - tauri
+
+npmScript: tauri:build
 
 jobs:
-  test-tauri:
+  publish-tauri:
     strategy:
       fail-fast: false
       matrix:
@@ -14,7 +19,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - name: install Rust stable
         uses: actions-rs/toolchain@v1
         with:
@@ -29,3 +34,9 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: "App v__VERSION__"
+          body: "See the assets to download this version and install."
+          draft: true
+          prerelease: false
