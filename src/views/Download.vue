@@ -3,7 +3,15 @@
     <Animation v-if="getIsLoading" class="md:mt-24" />
     <div v-else class="md:w-3/5 w-10/12 mr-auto ml-auto md:my-26 my-16">
       <h2
-        class="text-3xl font-semibold text-center md:mb-24 mb-16 text-gray-600 dark:text-gray-400"
+        class="
+          text-3xl
+          font-semibold
+          text-center
+          md:mb-24
+          mb-16
+          text-gray-600
+          dark:text-gray-400
+        "
       >
         Your song is ready!
       </h2>
@@ -40,24 +48,24 @@ export default {
     Animation,
     ShowSupport,
     Ad,
-    HorizontalAd
+    HorizontalAd,
   },
   props: {
     metaDetails: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data() {
     return {
       format: null,
       isLoading: true,
-      downloadUrl: "https://ytmdl-api-1.herokuapp.com/v2/ytmdl/download",
+      downloadUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/download",
       downloadDetail: null,
-      showDonate: false
+      showDonate: false,
     };
   },
   methods: {
-    buildRequestBody: function() {
+    buildRequestBody: function () {
       /**
        * Build the request body based on the details passed by
        * the route. We need to make sure all the details are
@@ -66,13 +74,13 @@ export default {
       const data = {};
       data["song"] = {
         video_id: this.$route.query.videoId,
-        format: this.format
+        format: this.format,
       };
       data["metadata"] = this.metaDetails;
 
       return data;
     },
-    downloadSong: async function() {
+    downloadSong: async function () {
       /**
        * Download the song based on the details selected by the user.
        */
@@ -83,16 +91,16 @@ export default {
       const response = await fetch(this.downloadUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(this.buildRequestBody())
+        body: JSON.stringify(this.buildRequestBody()),
       });
       const responseJson = await response.json();
 
       this.isLoading = false;
       this.downloadDetail = responseJson;
     },
-    handleShowSupport: function() {
+    handleShowSupport: function () {
       /**
        * Handle showing the donate buttons.
        *
@@ -104,7 +112,7 @@ export default {
 
       if (!el) return;
       el.scrollIntoView({ behavior: "smooth" });
-    }
+    },
   },
   computed: {
     getTitle() {
@@ -121,7 +129,7 @@ export default {
     },
     getShowDonate() {
       return this.showDonate;
-    }
+    },
   },
   mounted() {
     this.downloadSong();
@@ -129,7 +137,7 @@ export default {
   created() {
     if (!this.metaDetails) this.$router.push({ name: "Home" });
     this.format = this.getSetting("format");
-  }
+  },
 };
 </script>
 

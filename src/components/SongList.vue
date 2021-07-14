@@ -23,22 +23,22 @@ export default {
   components: {
     SongResult,
     Animation,
-    InfeedAd
+    InfeedAd,
   },
   props: {
     query: {
-      type: String
-    }
+      type: String,
+    },
   },
   data: () => {
     return {
-      searchUrl: "https://ytmdl-api-1.herokuapp.com/v2/ytmdl/search",
+      searchUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/search",
       isLoading: true,
-      fetchedData: null
+      fetchedData: null,
     };
   },
   methods: {
-    searchSong: async function() {
+    searchSong: async function () {
       /**
        * Search the song using the API and accordingly show the search results.
        */
@@ -48,20 +48,20 @@ export default {
 
       const response = await fetch(
         `${this.searchUrl}?${new URLSearchParams({
-          q: this.query
+          q: this.query,
         }).toString()}`,
         {
           method: "GET",
           headers: {
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         }
       );
       const jsonData = await response.json();
 
       this.fetchedData = jsonData;
       this.isLoading = false;
-    }
+    },
   },
   computed: {
     getFetchedData() {
@@ -72,7 +72,7 @@ export default {
     },
     getQuery() {
       return this.query;
-    }
+    },
   },
   mounted() {
     this.searchSong();
@@ -81,8 +81,8 @@ export default {
     query: {
       handler() {
         this.searchSong();
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
