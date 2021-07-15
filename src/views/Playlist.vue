@@ -11,7 +11,7 @@
     </div>
     <div
       v-else
-      class="playlist--content p-5 md:px-24 md:w-3/5 w-full mr-auto ml-auto relative"
+      class="playlist--content p-5 md:px-24 2xl:w-3/5 xl:w-4/5 w-full mr-auto ml-auto relative"
     >
       <playlist-head
         v-if="status.toLowerCase() == 'ok'"
