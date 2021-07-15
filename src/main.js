@@ -6,6 +6,7 @@ import "@/scss/_tailwind.scss";
 
 import Adsense from "vue-google-adsense/dist/Adsense.min.js";
 import InFeedAdsense from "vue-google-adsense/dist/InFeedAdsense.min.js";
+import store from "@/store/default.js";
 
 Vue.use(require("vue-script2"));
 
@@ -25,5 +26,6 @@ if ("serviceWorker" in navigator) {
 
 new Vue({
   router,
+  store: store,
   render: h => h(App)
 }).$mount("#app");
