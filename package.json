@@ -24,7 +24,8 @@
     "vue-feather-icons": "^5.1.0",
     "vue-google-adsense": "^1.9.2",
     "vue-router": "^3.2.0",
-    "vue-script2": "^2.1.0"
+    "vue-script2": "^2.1.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
