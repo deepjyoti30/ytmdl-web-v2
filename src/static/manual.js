@@ -34,7 +34,7 @@ const manualOptions = [
   {
     attrName: "cover",
     name: "Cover image of the song",
-    text: "Enter the name of the artist",
+    text: "Enter the cover URL for the album/song",
     default: "",
     example:
       "https://is5-ssl.mzstatic.com/image/thumb/Music128/v4/04/d3/5f/04d35fb8-9660-2053-c0db-7b4359d09400/source/100x100bb.jpg",
@@ -43,7 +43,7 @@ const manualOptions = [
   {
     attrName: "release_date",
     name: "Date of release of the song",
-    text: "Enter the name of the artist",
+    text: "Enter the release date of the album/song",
     default: new Date()
       .toLocaleString("en-US", {
         year: "2-digit",
