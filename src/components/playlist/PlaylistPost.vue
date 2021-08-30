@@ -26,7 +26,7 @@
             :title="getButtonTitle"
             :disabled="getIsBtnDisabled"
           >
-            Download Playlist
+            {{ getButtonTitle }}
             <span v-if="songCount" class="selected--songs ml-1">
               ({{ songCount }})</span
             >
@@ -56,9 +56,7 @@ export default {
   },
   computed: {
     getButtonTitle() {
-      return this.getIsBtnDisabled
-        ? "You cannot download more than 15 songs at a time"
-        : "Download the selected songs";
+      return this.getIsBtnDisabled ? "Select a song" : "Download songs";
     },
     songCount() {
       return this.selectedSongCount;
