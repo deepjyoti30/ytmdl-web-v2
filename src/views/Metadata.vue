@@ -69,10 +69,26 @@ export default {
        * Handle the search term entered by the user.
        */
       this.songEntered = searchObject.song;
+    },
+    forwardIfDirectManualMeta: function() {
+      /**
+       * Forward the user to direct manual metadata if the setting
+       * is enabled by the user.
+       */
+      const isDirectMeta = this.getSetting("direct-manual-meta", true);
+
+      if (!isDirectMeta) return;
+
+      this.$router.push({
+        name: "Manual",
+        query: { videoId: this.$route.query.videoId }
+      });
     }
   },
   created() {
     if (!this.videoId) this.$router.push({ path: "search" });
+
+    this.forwardIfDirectManualMeta();
     this.autoSearchMeta = this.getSetting("auto-search-meta", true);
   }
 };
