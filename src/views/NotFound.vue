@@ -12,8 +12,11 @@
           <router-link to="/donate">Donate</router-link>
           <a
             href="https://github.com/deepjyoti30/ytmdl-web-v2"
-            ref="nopener noreferrer"
+            rel="nopener noreferrer"
             >GitHub</a
+          >
+          <a href="https://ytmdl-blog.onrender.com" rel="nopener noreferrer"
+            >Blog</a
           >
         </div>
       </div>
@@ -33,7 +36,7 @@ export default {
     .links {
       a {
         @apply mr-6;
-        @apply text-darkgreen;
+        @apply text-darkgreen hover:underline;
 
         &:last-child {
           @apply mr-0;
