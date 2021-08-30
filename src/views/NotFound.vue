@@ -5,7 +5,7 @@
       <p class="md:text-xl text-base text-gray-600 dark:text-gray-400 mt-6">
         Seems like you're nowhere. How did you even end up here?!
       </p>
-      <div class="useful--links mt-6 text-gray-600 dark:text-gray-400">
+      <div class="useful--links mt-6 text-lg">
         <div class="links flex mt-2 roboto">
           <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
@@ -33,8 +33,7 @@ export default {
     .links {
       a {
         @apply mr-6;
-        @apply border-b;
-        @apply border-darkgreen-300;
+        @apply text-darkgreen;
 
         &:last-child {
           @apply mr-0;
