@@ -41,6 +41,15 @@ export default {
       value: ""
     };
   },
+  methods: {
+    normalizeSpecialChars: function(value) {
+      /**
+       * Normalize special characters like `/` in the passed
+       * value by replacing them with a -
+       */
+      return value.replace(/\/|;/g, "-");
+    }
+  },
   computed: {
     getName() {
       return this.option.name;
@@ -59,6 +68,9 @@ export default {
         return this.value;
       },
       set(value) {
+        // Normalize the value
+        value = this.normalizeSpecialChars(value);
+
         this.value = value;
         const valid = this.option.skippingAllowed ? true : Boolean(this.value);
 
