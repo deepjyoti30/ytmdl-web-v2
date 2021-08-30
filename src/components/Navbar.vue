@@ -54,6 +54,15 @@
               ><GithubIcon class="ml-auto mr-auto link-icon" />
             </a>
           </div>
+          <div class="py-6 text-center">
+            <a
+              href="https://ytmdl-blog.onrender.com"
+              target="_blank"
+              rel="noopener"
+              title="Blog"
+              ><BookIcon class="ml-auto mr-auto link-icon" />
+            </a>
+          </div>
         </div>
         <div class="theme-toggle-btn desktop hidden lg:block">
           <div class="py-6 text-center">
@@ -109,6 +118,20 @@
                 </div>
               </span>
             </a>
+            <a
+              href="https://ytmdl-blog.onrender.com"
+              target="_blank"
+              rel="noopener"
+              @click="toggleBar"
+              class="link-each pl-7"
+            >
+              <span
+                >Blog
+                <div class="external-icon">
+                  <ExternalLinkIcon size="1.1x" class="icon" />
+                </div>
+              </span>
+            </a>
           </div>
           <div
             class="crafted-by text-sm font-medium md:text-left text-center my-7 md:pl-0"
@@ -132,7 +155,8 @@ import {
   SunIcon,
   ExternalLinkIcon,
   DollarSignIcon,
-  GithubIcon
+  GithubIcon,
+  BookIcon
 } from "vue-feather-icons";
 
 export default {
@@ -147,7 +171,8 @@ export default {
     SunIcon,
     ExternalLinkIcon,
     DollarSignIcon,
-    GithubIcon
+    GithubIcon,
+    BookIcon
   },
   data: () => {
     return {
