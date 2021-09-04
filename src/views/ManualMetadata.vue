@@ -11,6 +11,7 @@
         v-for="(option, id) in getManualOptions"
         :key="id"
         :option="option"
+        :enableNormalize="option.enableNormalize"
         :index="id"
       />
       <div class="submit--btn text-center mt-14">
@@ -35,37 +36,39 @@ export default {
   name: "ManualMeta",
   props: {
     videoId: {
-      type: String
-    }
+      type: String,
+    },
   },
   components: {
-    ManualEach
+    ManualEach,
   },
   data() {
     return {
       enteredData: {},
-      isDataValid: false
+      isDataValid: false,
     };
   },
   methods: {
-    validateDataEntered: function() {
+    validateDataEntered: function () {
       /**
        * Check if the entered Data is valid
        *
        * We need to check if all the data in the
        * entered data is valid or not
        */
-      this.isDataValid = Object.values(this.enteredData).every(el => el.valid);
+      this.isDataValid = Object.values(this.enteredData).every(
+        (el) => el.valid
+      );
     },
-    buildMetaObject: function() {
+    buildMetaObject: function () {
       /**
        * Build a meta object based on the details entered
        * by the user.
        */
       const metaDetails = {
-        time: 0
+        time: 0,
       };
-      Object.entries(this.enteredData).forEach(el => {
+      Object.entries(this.enteredData).forEach((el) => {
         const key = el[0];
         const value = el[1];
 
@@ -77,19 +80,19 @@ export default {
 
       return metaDetails;
     },
-    handleNextPage: function() {
+    handleNextPage: function () {
       const linkDetails = {
         name: "Format",
         params: {
-          metaDetails: this.buildMetaObject()
+          metaDetails: this.buildMetaObject(),
         },
         query: {
-          videoId: this.$route.query.videoId
-        }
+          videoId: this.$route.query.videoId,
+        },
       };
 
       this.$router.push(linkDetails);
-    }
+    },
   },
   computed: {
     getManualOptions() {
@@ -101,17 +104,17 @@ export default {
        * value in the enteredData object
        */
       return !this.isDataValid;
-    }
+    },
   },
   created() {
     // Update the enteredData object with proper keys
-    manualOptions.forEach(el => {
+    manualOptions.forEach((el) => {
       this.enteredData[el.attrName] = {
         value: el.default,
-        valid: el.skippingAllowed
+        valid: el.skippingAllowed,
       };
     });
-  }
+  },
 };
 </script>
 
