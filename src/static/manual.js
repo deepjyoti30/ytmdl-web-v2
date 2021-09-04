@@ -5,6 +5,7 @@ const manualOptions = [
     text: "Enter the title of the song",
     default: "N/A",
     example: "She Even Woke Me Up to Say Goodbye",
+    enableNormalize: true,
     skippingAllowed: false
   },
   {
