@@ -67,7 +67,7 @@ export default {
        * Normalize special characters like `/` in the passed
        * value by replacing them with a -
        */
-      if (!this.enableNormalize) return;
+      if (!this.enableNormalize) return value;
 
       return value.replace(/\/|;/g, "-");
     },
