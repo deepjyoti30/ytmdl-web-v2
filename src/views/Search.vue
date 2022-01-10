@@ -71,16 +71,19 @@ export default {
       }
 
       // Else just forward the user to next page
-      this.handleYoutubeUrl();
+      this.handleYoutubeUrl(searchData.song);
     },
-    handleYoutubeUrl: function() {
+    handleYoutubeUrl: function(songTitle) {
       /**
        * Handle forwarding the user based on the Youtube URL entered by the
        * user.
        *
        * We need to use the videoId to forward the user to the metadata page.
        */
-      this.$router.push({ path: "metadata", query: { videoId: this.videoId } });
+      this.$router.push({
+        path: "metadata",
+        query: { videoId: this.videoId, query: songTitle }
+      });
     }
   },
   computed: {

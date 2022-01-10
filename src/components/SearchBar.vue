@@ -50,7 +50,8 @@ export default {
   },
   data: () => {
     return {
-      isInvalidInput: false
+      isInvalidInput: false,
+      titleUrl: "http://192.168.0.107:5000/v2/metadata/title-from-url"
     };
   },
   props: {
@@ -127,6 +128,27 @@ export default {
       );
       return urlParams.get("v");
     },
+    extractTitleFromUrl: async function(enteredUrl) {
+      /**
+       * Extract the title from the URL using the API.
+       *
+       * If should_verify is passed, show user if they want to
+       * change the title.
+       */
+      const response = await fetch(
+        `${this.titleUrl}?${new URLSearchParams({
+          url: enteredUrl
+        }).toString()}`,
+        {
+          method: "GET"
+        }
+      );
+      const jsonData = await response.json();
+
+      // TODO: Do something with the should_verify flag
+
+      return jsonData.title;
+    },
     sendSearchRequest: function() {
       /**
        * Emit a search request when the enter button is clicked.
@@ -151,9 +173,12 @@ export default {
 
       const videoId = this.extractVideoId(this.songEntered);
 
+      // Extract the title from the URL
+      const titleExtracted = this.extractTitleFromUrl(this.songEntered);
+
       // Use the videoId to redirect to the metadata route with that videoId.
       this.$emit("search", {
-        song: this.songEntered,
+        song: titleExtracted,
         isYoutube: true,
         videoId: videoId
       });
