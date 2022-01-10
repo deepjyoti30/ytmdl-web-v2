@@ -65,15 +65,18 @@ export default {
       // rest will be handled accordingly.
       this.videoId = searchData.videoId;
 
+      // Set the extracted title
+      this.songEntered = searchData.song;
+
       if (!this.skipPrompt) {
         this.$refs.confirm.$refs.modal.showModal();
         return;
       }
 
       // Else just forward the user to next page
-      this.handleYoutubeUrl(searchData.song);
+      this.handleYoutubeUrl();
     },
-    handleYoutubeUrl: function(songTitle) {
+    handleYoutubeUrl: function() {
       /**
        * Handle forwarding the user based on the Youtube URL entered by the
        * user.
@@ -82,7 +85,7 @@ export default {
        */
       this.$router.push({
         path: "metadata",
-        query: { videoId: this.videoId, query: songTitle }
+        query: { videoId: this.videoId, query: this.songEntered }
       });
     }
   },
