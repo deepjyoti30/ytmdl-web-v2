@@ -51,7 +51,7 @@ export default {
   data: () => {
     return {
       isInvalidInput: false,
-      titleUrl: "http://192.168.0.107:5000/v2/metadata/title-from-url"
+      titleUrl: `${process.env.VUE_APP_API_URL}/metadata/title-from-url`
     };
   },
   props: {
@@ -149,7 +149,7 @@ export default {
 
       return jsonData.title;
     },
-    sendSearchRequest: function() {
+    sendSearchRequest: async function() {
       /**
        * Emit a search request when the enter button is clicked.
        */
@@ -174,7 +174,7 @@ export default {
       const videoId = this.extractVideoId(this.songEntered);
 
       // Extract the title from the URL
-      const titleExtracted = this.extractTitleFromUrl(this.songEntered);
+      const titleExtracted = await this.extractTitleFromUrl(this.songEntered);
 
       // Use the videoId to redirect to the metadata route with that videoId.
       this.$emit("search", {

@@ -32,7 +32,7 @@ export default {
   },
   data: () => {
     return {
-      searchUrl: "http://192.168.0.107:5000/v2/search",
+      searchUrl: `${process.env.VUE_APP_API_URL}/search`,
       isLoading: true,
       fetchedData: null
     };
