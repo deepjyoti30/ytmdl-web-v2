@@ -136,7 +136,7 @@ export default {
     },
     getNoQueryText() {
       return this.isTitleLoading
-        ? "Extracting the title from the entered URL..."
+        ? "Extracting title from the entered URL..."
         : "You need to enter the name of a song";
     }
   },
