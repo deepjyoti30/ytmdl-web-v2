@@ -5,7 +5,7 @@
       v-if="getQuery == null"
       class="write-something py-32 md:w-2/5 w-11/12 mr-auto ml-auto text-center md:text-2xl text-lg font-semibold dark:text-white"
     >
-      You need to enter the name of a song
+      {{ getNoQueryText }}
       <div class="ad--container--wrapper mt-8">
         <Ad />
       </div>
@@ -45,11 +45,12 @@ export default {
       skipPrompt: false,
       confirmText: "",
       titleUrl: `${process.env.VUE_APP_API_URL}/metadata/title-from-url`,
-      songNameExtracted: null
+      songNameExtracted: null,
+      isTitleLoading: false
     };
   },
   methods: {
-    handleSearch: function(searchData) {
+    handleSearch: async function(searchData) {
       /**
        * Handle the search based on the query entered by the user.
        *
@@ -65,6 +66,11 @@ export default {
       // Else it is an YouTube URL.
       // We need to extract the title from URL and while doing that show
       // a modal to the user indicating the title is being extracted.
+      this.isTitleLoading = true;
+      this.songNameExtracted = await this.extractTitleFromUrl(
+        searchData.youtubeUrl
+      );
+      this.isTitleLoading = false;
 
       // Check if we need to show the prompt. If we do, show the prompt,
       // rest will be handled accordingly.
@@ -127,6 +133,11 @@ export default {
     },
     getConfirmText() {
       return `You have entered an YouTube URL. Are you sure you want to continue with the URL you entered?`;
+    },
+    getNoQueryText() {
+      return this.isTitleLoading
+        ? "Extracting the title from the entered URL..."
+        : "You need to enter the name of a song";
     }
   },
   created() {
