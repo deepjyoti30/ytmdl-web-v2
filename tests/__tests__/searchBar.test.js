@@ -106,7 +106,7 @@ describe("Mounted SearchBar", () => {
     wrapper.vm.sendSearchRequest();
 
     expect(wrapper.emitted().search[1][0]).toStrictEqual({
-      song: "https://youtube.com/watch?v=test",
+      youtubeUrl: "https://youtube.com/watch?v=test",
       isYoutube: true,
       videoId: "test"
     });
