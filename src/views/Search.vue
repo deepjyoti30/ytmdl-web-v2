@@ -66,11 +66,13 @@ export default {
       // Else it is an YouTube URL.
       // We need to extract the title from URL and while doing that show
       // a modal to the user indicating the title is being extracted.
-      this.isTitleLoading = true;
-      this.songNameExtracted = await this.extractTitleFromUrl(
-        searchData.youtubeUrl
-      );
-      this.isTitleLoading = false;
+      if (this.titleFromUrl) {
+        this.isTitleLoading = true;
+        this.songNameExtracted = await this.extractTitleFromUrl(
+          searchData.youtubeUrl
+        );
+        this.isTitleLoading = false;
+      }
 
       // Check if we need to show the prompt. If we do, show the prompt,
       // rest will be handled accordingly.
@@ -142,6 +144,7 @@ export default {
   },
   created() {
     this.skipPrompt = this.getSetting("skip-url-input", true);
+    this.titleFromUrl = this.getSetting("title-from-url", true);
   }
 };
 </script>
