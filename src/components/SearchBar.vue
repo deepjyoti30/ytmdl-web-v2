@@ -127,7 +127,7 @@ export default {
       );
       return urlParams.get("v");
     },
-    sendSearchRequest: function() {
+    sendSearchRequest: async function() {
       /**
        * Emit a search request when the enter button is clicked.
        */
@@ -153,7 +153,7 @@ export default {
 
       // Use the videoId to redirect to the metadata route with that videoId.
       this.$emit("search", {
-        song: this.songEntered,
+        youtubeUrl: this.songEntered,
         isYoutube: true,
         videoId: videoId
       });

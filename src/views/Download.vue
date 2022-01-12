@@ -51,7 +51,7 @@ export default {
     return {
       format: null,
       isLoading: true,
-      downloadUrl: "http://192.168.0.107:5000/v2/download",
+      downloadUrl: `${process.env.VUE_APP_API_URL}/download`,
       downloadDetail: null,
       showDonate: false
     };

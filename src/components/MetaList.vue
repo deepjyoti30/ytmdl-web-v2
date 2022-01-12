@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      metaUrl: "http://192.168.0.107:5000/v2/metadata",
+      metaUrl: `${process.env.VUE_APP_API_URL}/metadata`,
       fetchedData: null,
       isLoading: false,
       showAllData: false
