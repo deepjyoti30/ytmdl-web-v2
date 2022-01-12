@@ -44,7 +44,7 @@ export default {
       videoId: null,
       skipPrompt: false,
       confirmText: "",
-      titleUrl: `${process.env.VUE_APP_API_URL}/metadata/title-from-url`,
+      titleUrl: `https://apis.deepjyoti30.dev/v2/ytmdl/metadata/title-from-url`,
       songNameExtracted: null,
       isTitleLoading: false
     };
