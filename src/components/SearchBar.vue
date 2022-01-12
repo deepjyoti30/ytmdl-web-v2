@@ -50,8 +50,7 @@ export default {
   },
   data: () => {
     return {
-      isInvalidInput: false,
-      titleUrl: `${process.env.VUE_APP_API_URL}/metadata/title-from-url`
+      isInvalidInput: false
     };
   },
   props: {
@@ -128,27 +127,6 @@ export default {
       );
       return urlParams.get("v");
     },
-    extractTitleFromUrl: async function(enteredUrl) {
-      /**
-       * Extract the title from the URL using the API.
-       *
-       * If should_verify is passed, show user if they want to
-       * change the title.
-       */
-      const response = await fetch(
-        `${this.titleUrl}?${new URLSearchParams({
-          url: enteredUrl
-        }).toString()}`,
-        {
-          method: "GET"
-        }
-      );
-      const jsonData = await response.json();
-
-      // TODO: Do something with the should_verify flag
-
-      return jsonData.title;
-    },
     sendSearchRequest: async function() {
       /**
        * Emit a search request when the enter button is clicked.
@@ -173,12 +151,9 @@ export default {
 
       const videoId = this.extractVideoId(this.songEntered);
 
-      // Extract the title from the URL
-      const titleExtracted = await this.extractTitleFromUrl(this.songEntered);
-
       // Use the videoId to redirect to the metadata route with that videoId.
       this.$emit("search", {
-        song: titleExtracted,
+        youtubeUrl: this.songEntered,
         isYoutube: true,
         videoId: videoId
       });

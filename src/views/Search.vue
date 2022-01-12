@@ -43,7 +43,9 @@ export default {
       songEntered: null,
       videoId: null,
       skipPrompt: false,
-      confirmText: ""
+      confirmText: "",
+      titleUrl: `${process.env.VUE_APP_API_URL}/metadata/title-from-url`,
+      songNameExtracted: null
     };
   },
   methods: {
@@ -61,6 +63,9 @@ export default {
       }
 
       // Else it is an YouTube URL.
+      // We need to extract the title from URL and while doing that show
+      // a modal to the user indicating the title is being extracted.
+
       // Check if we need to show the prompt. If we do, show the prompt,
       // rest will be handled accordingly.
       this.videoId = searchData.videoId;
@@ -83,10 +88,37 @@ export default {
        *
        * We need to use the videoId to forward the user to the metadata page.
        */
+      let query = { videoId: this.videoId };
+
+      if (this.songNameExtracted != null) {
+        query["query"] = this.songNameExtracted;
+      }
+
       this.$router.push({
         path: "metadata",
-        query: { videoId: this.videoId, query: this.songEntered }
+        query: query
       });
+    },
+    extractTitleFromUrl: async function(enteredUrl) {
+      /**
+       * Extract the title from the URL using the API.
+       *
+       * If should_verify is passed, show user if they want to
+       * change the title.
+       */
+      const response = await fetch(
+        `${this.titleUrl}?${new URLSearchParams({
+          url: enteredUrl
+        }).toString()}`,
+        {
+          method: "GET"
+        }
+      );
+      const jsonData = await response.json();
+
+      // TODO: Do something with the should_verify flag
+
+      return jsonData.title;
     }
   },
   computed: {
