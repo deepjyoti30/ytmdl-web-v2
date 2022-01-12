@@ -38,23 +38,23 @@ export default {
   name: "MetaList",
   components: {
     MetaResult,
-    Animation,
+    Animation
   },
   data() {
     return {
       metaUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/metadata",
       fetchedData: null,
       isLoading: false,
-      showAllData: false,
+      showAllData: false
     };
   },
   props: {
     query: {
-      type: String,
-    },
+      type: String
+    }
   },
   methods: {
-    searchMetadata: async function () {
+    searchMetadata: async function() {
       /**
        * Search for metadata using the passed query.
        *
@@ -65,13 +65,13 @@ export default {
       this.isLoading = true;
       const response = await fetch(
         `${this.metaUrl}?${new URLSearchParams({
-          q: this.query,
+          q: this.query
         }).toString()}`,
         {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-          },
+            "Content-Type": "application/json"
+          }
         }
       );
       const jsonData = await response.json();
@@ -79,10 +79,10 @@ export default {
       this.fetchedData = jsonData;
       this.isLoading = false;
     },
-    makeAllDataVisible: function () {
+    makeAllDataVisible: function() {
       // Make all the data visible by making the variable valid
       this.showAllData = true;
-    },
+    }
   },
   mounted() {
     this.searchMetadata();
@@ -100,15 +100,15 @@ export default {
     },
     getManualLink() {
       return { name: "Manual", query: { videoId: this.$route.query.videoId } };
-    },
+    }
   },
   watch: {
     query: {
       handler() {
         this.searchMetadata();
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 

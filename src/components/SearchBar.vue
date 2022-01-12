@@ -85,12 +85,14 @@ export default {
     },
     isUrl() {
       // Check if the entered text is an URL
-      return Boolean(this.songEntered.match(/https?:\/\//g));
+      return Boolean(this.songEntered.match(/https?:\/\/|youtu.be/g));
     },
     isYoutubeUrl() {
       // Check if the entered text is a valid YouTube URL
       return Boolean(
-        this.songEntered.match(/https?:\/\/(www\.)?youtube.com\/watch\?v=.+?/g)
+        this.songEntered.match(
+          /https?:\/\/(www\.)?youtube.com\/watch\?v=.+?|youtu.be\//g
+        )
       );
     },
     getInvalidInput() {
@@ -115,12 +117,17 @@ export default {
        * The youtube URL has the video ID in the string as a
        * query. The v parameter contains the video ID.
        */
+      // If the string is of the new type then extract it separately.
+      if (enteredUrl.includes("youtu.be")) {
+        return enteredUrl.replace("youtu.be/", "");
+      }
+
       const urlParams = new URLSearchParams(
         enteredUrl.replace(/https?:\/\/(www\.)?youtube.com\/watch/g, "")
       );
       return urlParams.get("v");
     },
-    sendSearchRequest: function() {
+    sendSearchRequest: async function() {
       /**
        * Emit a search request when the enter button is clicked.
        */
@@ -146,7 +153,7 @@ export default {
 
       // Use the videoId to redirect to the metadata route with that videoId.
       this.$emit("search", {
-        song: this.songEntered,
+        youtubeUrl: this.songEntered,
         isYoutube: true,
         videoId: videoId
       });
