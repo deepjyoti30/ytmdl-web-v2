@@ -119,7 +119,7 @@ export default {
        */
       // If the string is of the new type then extract it separately.
       if (enteredUrl.includes("youtu.be")) {
-        return enteredUrl.replace("youtu.be/", "");
+        return enteredUrl.replace(/(https?:\/\/)?youtu.be\//g, "");
       }
 
       const urlParams = new URLSearchParams(
