@@ -1,6 +1,17 @@
 <template>
   <div class="meta-list__container">
     <Animation v-if="getIsLoading" />
+    <div v-else-if="isFailedLoading">
+      <div
+        class="py-2 md:w-2/5 w-11/12 failed--msg--wrapper my-auto flex justify-center items-center w-full mr-auto ml-auto"
+      >
+        <div
+          class="text-center md:text-2xl text-lg font-semibold dark:text-white"
+        >
+          {{ getMetaLoadFailedText }}
+        </div>
+      </div>
+    </div>
     <div v-else class="meta__results">
       <MetaResult v-for="(meta, id) in getMetaResults" :key="id" :meta="meta" />
       <div v-if="!getShowAllData" class="show--more--btn my-8">
@@ -45,7 +56,8 @@ export default {
       metaUrl: "https://apis.deepjyoti30.dev/v2/ytmdl/metadata",
       fetchedData: null,
       isLoading: false,
-      showAllData: false
+      showAllData: false,
+      hasFailed: false
     };
   },
   props: {
@@ -74,6 +86,14 @@ export default {
           }
         }
       );
+
+      // Handle the case if a non 200 OK status is received
+      if (response.status != 200) {
+        this.hasFailed = true;
+        this.isLoading = false;
+        return;
+      }
+
       const jsonData = await response.json();
 
       this.fetchedData = jsonData;
@@ -100,6 +120,12 @@ export default {
     },
     getManualLink() {
       return { name: "Manual", query: { videoId: this.$route.query.videoId } };
+    },
+    isFailedLoading() {
+      return this.hasFailed;
+    },
+    getMetaLoadFailedText() {
+      return "Failed to load metadata for the song. Please enter the song name only without artist name etc";
     }
   },
   watch: {
@@ -136,5 +162,9 @@ export default {
       @extend .button-secondary;
     }
   }
+}
+
+.failed--msg--wrapper {
+  height: 60vh;
 }
 </style>

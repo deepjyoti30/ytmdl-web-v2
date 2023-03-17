@@ -46,7 +46,8 @@ export default {
       confirmText: "",
       titleUrl: `https://apis.deepjyoti30.dev/v2/ytmdl/metadata/title-from-url`,
       songNameExtracted: null,
-      isTitleLoading: false
+      isTitleLoading: false,
+      isTitleLoadFailed: false
     };
   },
   methods: {
@@ -71,7 +72,11 @@ export default {
         this.songNameExtracted = await this.extractTitleFromUrl(
           searchData.youtubeUrl
         );
+
         this.isTitleLoading = false;
+
+        // Check if title load failed
+        if (this.isTitleLoadFailed) return;
       }
 
       // Check if we need to show the prompt. If we do, show the prompt,
@@ -122,6 +127,13 @@ export default {
           method: "GET"
         }
       );
+
+      // Handle the case if the response is not 200 OK
+      if (response.status != 200) {
+        this.isTitleLoadFailed = true;
+        return "";
+      }
+
       const jsonData = await response.json();
 
       // TODO: Do something with the should_verify flag
@@ -139,6 +151,8 @@ export default {
     getNoQueryText() {
       return this.isTitleLoading
         ? "Extracting title from the entered URL..."
+        : this.isTitleLoadFailed
+        ? "Failed to load details for the entered URL. Please try with a different URL"
         : "You need to enter the name of a song";
     }
   },
