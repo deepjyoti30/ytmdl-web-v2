@@ -51,7 +51,8 @@ export default {
       new JsFileDownloader({
         url: this.downloadDetails.url,
         process: this.showStatus,
-        filename: this.downloadDetails.filename
+        filename: this.downloadDetails.filename,
+        forceDesktopMode: true
       })
         .then(() => {
           this.isDownloading = false;
